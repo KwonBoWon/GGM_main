@@ -7,14 +7,15 @@ public class NoteManager : MonoBehaviour
     public int bpm = 0;
     double currentTime = 0d;
 
-    [SerializeField] Transform tfNoteAppear  = null;
-    [SerializeField] GameObject goNote = null;
+    [SerializeField] Transform tfNoteAppear  = null; //노트가 생성되는곳
+    [SerializeField] GameObject goNote = null; //노트 프리펩
 
     TimingManager theTimingManager;
 
     void Start()
     {
         theTimingManager = GetComponent<TimingManager>();
+        //오브젝트에서 컴포넌트를 가져옴(여기선 TimingManager 스크립트)
     }
 
     void Update()
@@ -22,17 +23,19 @@ public class NoteManager : MonoBehaviour
         currentTime += Time.deltaTime;
 
         if (currentTime >= 60d / bpm)
+            //60/bpm마다 노트 생성
         {
             GameObject t_note = Instantiate(goNote, tfNoteAppear.position, Quaternion.identity);
             t_note.transform.SetParent(this.transform);
             theTimingManager.boxNoteList.Add(t_note);
-            currentTime -= 60d / bpm;
+            currentTime -= 60d / bpm;//-하지않고 0으로설정하면 시차가 생김
         }
     }
     private void OnTriggerExit2D(Collider2D collision)
     {
         if (collision.CompareTag("Note"))
         {
+            //노트가 맵 끝가지 가면 삭제
             theTimingManager.boxNoteList.Remove(collision.gameObject);
             Destroy(collision.gameObject);
         }

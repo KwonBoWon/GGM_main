@@ -8,6 +8,7 @@ public class TimingManager : MonoBehaviour
 
     [SerializeField] Transform Center = null;
     [SerializeField] RectTransform[] timingRect = null;
+    //충돌범위 배열
     Vector2[] timingBoxs = null;
 
     void Start()
@@ -20,6 +21,7 @@ public class TimingManager : MonoBehaviour
         {
             timingBoxs[i].Set(Center.localPosition.x - timingRect[i].rect.width / 2,
                                         Center.localPosition.x + timingRect[i].rect.width / 2);
+            //타이밍박스의 충돌판정 perfect~bad순
 
         }
     }
@@ -41,7 +43,9 @@ public class TimingManager : MonoBehaviour
                 if (timingBoxs[x].x <= t_notePosX && t_notePosX <= timingBoxs[x].y)
                 {
                     boxNoteList[i].GetComponent<Note>().HideNote();
+                    //이미지삭제
                     boxNoteList.RemoveAt(i);
+                    //배열에서 삭제
                     Debug.Log("Hit" + x);
                     return;
                 }

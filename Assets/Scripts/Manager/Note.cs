@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Note : MonoBehaviour
 {
-    public float noteSpeed = 400;
+    public float noteSpeed = 400;//노트의 속도
     UnityEngine.UI.Image noteImage;
 
     void Start()
@@ -21,6 +21,7 @@ public class Note : MonoBehaviour
     public void HideNote()
     {
         noteImage.enabled = false;
+        //처음에 노트가 닿아야 노래가 실행되므로 이미지만 삭제함
     }
 
 }
