@@ -11,9 +11,10 @@ public class NoteManager : MonoBehaviour
     [SerializeField] GameObject goNote = null; //노트 프리펩
 
     TimingManager theTimingManager;
-
+    EffectManager theEffectManager;
     void Start()
     {
+        theEffectManager = FindObjectOfType<EffectManager>();
         theTimingManager = GetComponent<TimingManager>();
         //오브젝트에서 컴포넌트를 가져옴(여기선 TimingManager 스크립트)
     }
@@ -35,6 +36,10 @@ public class NoteManager : MonoBehaviour
     {
         if (collision.CompareTag("Note"))
         {
+            if (collision.GetComponent<Note>().GetNoteFlag())
+            {//이미지가 있을때만
+                theEffectManager.JudgementEffect(4);//Miss애니매이션
+            }
             //노트가 맵 끝가지 가면 삭제
             theTimingManager.boxNoteList.Remove(collision.gameObject);
             Destroy(collision.gameObject);

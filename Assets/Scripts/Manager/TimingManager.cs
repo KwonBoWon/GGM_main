@@ -11,8 +11,12 @@ public class TimingManager : MonoBehaviour
     //충돌범위 배열
     Vector2[] timingBoxs = null;
 
+    EffectManager theEffect;
+
     void Start()
     {
+        theEffect = FindObjectOfType<EffectManager>();
+
         //타이밍 박스 설정
 
         timingBoxs = new Vector2[timingRect.Length];
@@ -42,18 +46,20 @@ public class TimingManager : MonoBehaviour
             {
                 if (timingBoxs[x].x <= t_notePosX && t_notePosX <= timingBoxs[x].y)
                 {
-                    boxNoteList[i].GetComponent<Note>().HideNote();
-                    //이미지삭제
-                    boxNoteList.RemoveAt(i);
-                    //배열에서 삭제
-                    Debug.Log("Hit" + x);
+                    boxNoteList[i].GetComponent<Note>().HideNote(); //이미지삭제
+                    if (x < timingBoxs.Length - 1)
+                    {
+                        theEffect.NoteHitEffect();
+                    }
+
+                    boxNoteList.RemoveAt(i);  //배열에서 삭제
+                    theEffect.JudgementEffect(x);
                     return;
                 }
             }
         }
 
-        Debug.Log("Miss");
-        
+        theEffect.JudgementEffect(timingBoxs.Length);
     }
 
 }

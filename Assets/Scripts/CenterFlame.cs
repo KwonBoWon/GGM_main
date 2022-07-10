@@ -15,6 +15,7 @@ public class CenterFlame : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        // 노트 충돌시 음악 시작
         if(!musicStart){
             if (collision.CompareTag("Note"))
             {

@@ -23,5 +23,9 @@ public class Note : MonoBehaviour
         noteImage.enabled = false;
         //처음에 노트가 닿아야 노래가 실행되므로 이미지만 삭제함
     }
+    public bool GetNoteFlag()//노트 이미지가 없어졌는지 반환
+    {
+        return noteImage.enabled;
+    }
 
 }
