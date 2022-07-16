@@ -8,7 +8,7 @@ public class EffectManager : MonoBehaviour
     string hit = "Hit";
 
     [SerializeField] Animator judgementAnimator = null;//perfect애니매이션
-    [SerializeField] UnityEngine.UI.Image judgementImage = null;//이미지 변수 배열
+    [SerializeField] UnityEngine.UI.Image judgementImage = null;//이미지 변수 
     [SerializeField] Sprite[] judgementSprite = null; //판정 스프라이트 변수 배열
 
     public void JudgementEffect(int p_num)
