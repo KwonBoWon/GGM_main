@@ -44,12 +44,14 @@ public class TimingManager : MonoBehaviour
 
             for (int x= 0; x < timingBoxs.Length; x++)
             {
-                if (timingBoxs[x].x <= t_notePosX && t_notePosX <= timingBoxs[x].y)
+                if (timingBoxs[x].x <= t_notePosX && t_notePosX <= timingBoxs[x].y)//범위안에 들어왔을때
                 {
+                    //체력닳는것
+
                     boxNoteList[i].GetComponent<Note>().HideNote(); //이미지삭제
                     if (x < timingBoxs.Length - 1)
                     {
-                        theEffect.NoteHitEffect();
+                        theEffect.NoteHitEffect();//이펙트
                     }
 
                     boxNoteList.RemoveAt(i);  //배열에서 삭제

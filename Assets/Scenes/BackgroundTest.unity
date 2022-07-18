@@ -708,6 +708,7 @@ GameObject:
   - component: {fileID: 1868175797}
   - component: {fileID: 1868175798}
   - component: {fileID: 1868175796}
+  - component: {fileID: 1868175799}
   m_Layer: 5
   m_Name: saturatedroad drops road
   m_TagString: Untagged
@@ -785,3 +786,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 136537e7add60a04e85cdd01a988784e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!95 &1868175799
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1868175794}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 517090b36d57d6649b9c35c27a5dae6a, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0

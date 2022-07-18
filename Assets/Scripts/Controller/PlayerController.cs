@@ -15,6 +15,7 @@ public class PlayerController : MonoBehaviour
             //스페이스바 입력할때마다 CheckTiming호출
         {
             theTimingManager.CheckTiming();
+            
         }
     }
 }

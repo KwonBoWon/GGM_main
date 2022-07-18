@@ -16,7 +16,7 @@ TagManager:
   - 
   - 
   - 
-  - 
+  - Players
   - 
   - 
   - 
@@ -41,4 +41,10 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Backgrunds
+    uniqueID: 297742617
+    locked: 0
+  - name: Characters
+    uniqueID: 3128531911
     locked: 0
