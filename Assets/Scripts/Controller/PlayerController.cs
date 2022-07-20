@@ -11,11 +11,24 @@ public class PlayerController : MonoBehaviour
     }
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
-            //스페이스바 입력할때마다 CheckTiming호출
+        //화살표입력
+        if (Input.GetKeyDown(KeyCode.DownArrow))
         {
-            theTimingManager.CheckTiming();
-            
+            theTimingManager.CheckTiming(0);
         }
+        if (Input.GetKeyDown(KeyCode.UpArrow))
+        {
+            theTimingManager.CheckTiming(1);
+        }
+        if (Input.GetKeyDown(KeyCode.LeftArrow))
+        {
+            theTimingManager.CheckTiming(2);
+        }
+        if (Input.GetKeyDown(KeyCode.RightArrow))
+        {
+            theTimingManager.CheckTiming(3);
+        }
+
+
     }
 }

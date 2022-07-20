@@ -4,12 +4,16 @@ using UnityEngine;
 
 public class Note : MonoBehaviour
 {
-    public float noteSpeed = 400;//노트의 속도
+    public float noteSpeed = 400;//노트의  속도
+    public int noteDirection; //노트 방향
+
+
     UnityEngine.UI.Image noteImage;
 
     void Start()
     {
         noteImage = GetComponent<UnityEngine.UI.Image>();
+
     }
 
 

@@ -36,15 +36,16 @@ public class TimingManager : MonoBehaviour
 
     }
 
-    public void CheckTiming()
+    public void CheckTiming( int arrowInput)
     {
         for (int i = 0; i < boxNoteList.Count; i++)
         {
-            float t_notePosX = boxNoteList[i].transform.localPosition.x;
+            float t_notePosX = boxNoteList[i].transform.localPosition.x; //노트 x좌표 가져옴
+            int t_noteDire = boxNoteList[i].GetComponent<Note>().noteDirection; // 노트방향값 가져옴
 
             for (int x= 0; x < timingBoxs.Length; x++)
             {
-                if (timingBoxs[x].x <= t_notePosX && t_notePosX <= timingBoxs[x].y)//범위안에 들어왔을때
+                if (timingBoxs[x].x <= t_notePosX && t_notePosX <= timingBoxs[x].y && arrowInput == t_noteDire) //범위안에 들어오고 방향키 방향이 맞을때
                 {
                     //체력닳는것
 
