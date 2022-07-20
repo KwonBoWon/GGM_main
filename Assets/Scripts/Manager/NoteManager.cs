@@ -34,13 +34,16 @@ public class NoteManager : MonoBehaviour
     }
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if (collision.CompareTag("Note"))
+        
+        if (collision.CompareTag("Note")) 
         {
+         /*
             if (collision.GetComponent<Note>().GetNoteFlag())
             {//이미지가 있을때만
-                theEffectManager.JudgementEffect(4);//Miss애니매이션
+                theEffectManager.JudgementEffect(4);//노트 놓쳤을때 MISS
             }
-            //노트가 맵 끝가지 가면 삭제
+        */
+            //노트가 맵 끝까지 가면 삭제
             theTimingManager.boxNoteList.Remove(collision.gameObject);
             Destroy(collision.gameObject);
         }
