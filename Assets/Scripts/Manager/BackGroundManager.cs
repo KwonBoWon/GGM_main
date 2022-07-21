@@ -1,4 +1,4 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -14,12 +14,12 @@ public class BackGroundManager : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetMouseButtonDown(0))//¸¶¿ì½º ÁÂÅ¬¸¯
+        if (Input.GetMouseButtonDown(0))//ë§ˆìš°ìŠ¤ ì¢Œí´ë¦­
         {
-            GameObject tempObj = null;//°ÔÀÓ¿ÀºêÁ§Æ® ´ãÀ»°÷
+            GameObject tempObj = null;//ê²Œìž„ì˜¤ë¸Œì íŠ¸ ë‹´ì„ê³³
             if (backgroundNum >= 0 && backgroundNum <= 3)
             {
-                tempObj = GameObject.Find(backgrounds[backgroundNum]) ;//°ÔÀÓ¿ÀºêÁ§Æ®¸¦ Ã£À½
+                tempObj = GameObject.Find(backgrounds[backgroundNum]) ;//ê²Œìž„ì˜¤ë¸Œì íŠ¸ë¥¼ ì°¾ìŒ
                 if (tempObj != null)
                 {
                     Debug.Log("get object" + tempObj.name);

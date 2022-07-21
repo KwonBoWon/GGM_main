@@ -1,4 +1,4 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -15,7 +15,7 @@ public class CenterFlame : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        // ³ëÆ® Ãæµ¹½Ã À½¾Ç ½ÃÀÛ
+        // ë…¸íŠ¸ ì¶©ëŒì‹œ ìŒì•… ì‹œì‘
         if(!musicStart){
             if (collision.CompareTag("Note"))
             {

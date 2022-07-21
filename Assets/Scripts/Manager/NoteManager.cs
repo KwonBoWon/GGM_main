@@ -1,4 +1,4 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -8,8 +8,8 @@ public class NoteManager : MonoBehaviour
     double currentTime = 0d;
     int arrowDirection =0;
 
-    [SerializeField] Transform tfNoteAppear  = null; //³ëÆ®°¡ »ı¼ºµÇ´Â°÷
-    [SerializeField] GameObject[] goNote = null; //³ëÆ® ÇÁ¸®Æéµé
+    [SerializeField] Transform tfNoteAppear  = null; //ë…¸íŠ¸ê°€ ìƒì„±ë˜ëŠ”ê³³
+    [SerializeField] GameObject[] goNote = null; //ë…¸íŠ¸ í”„ë¦¬í©ë“¤
 
     TimingManager theTimingManager;
     EffectManager theEffectManager;
@@ -17,20 +17,20 @@ public class NoteManager : MonoBehaviour
     {
         theEffectManager = FindObjectOfType<EffectManager>();
         theTimingManager = GetComponent<TimingManager>();
-        //¿ÀºêÁ§Æ®¿¡¼­ ÄÄÆ÷³ÍÆ®¸¦ °¡Á®¿È(¿©±â¼± TimingManager ½ºÅ©¸³Æ®)
+        //ì˜¤ë¸Œì íŠ¸ì—ì„œ ì»´í¬ë„ŒíŠ¸ë¥¼ ê°€ì ¸ì˜´(ì—¬ê¸°ì„  TimingManager ìŠ¤í¬ë¦½íŠ¸)
     }
 
     void Update()
     {
         currentTime += Time.deltaTime;
 
-        if (currentTime >= 60d / bpm)  //60/bpm¸¶´Ù ³ëÆ® »ı¼º
+        if (currentTime >= 60d / bpm)  //60/bpmë§ˆë‹¤ ë…¸íŠ¸ ìƒì„±
         {
-            arrowDirection = Random.Range(0, 4); // ¹«ÀÛÀ§·Î ¹æÇâ ÁöÁ¤
-            GameObject t_note = Instantiate(goNote[arrowDirection], tfNoteAppear.position, Quaternion.identity); // ³ëÆ®¸¦ »ı¼º
+            arrowDirection = Random.Range(0, 4); // ë¬´ì‘ìœ„ë¡œ ë°©í–¥ ì§€ì •
+            GameObject t_note = Instantiate(goNote[arrowDirection], tfNoteAppear.position, Quaternion.identity); // ë…¸íŠ¸ë¥¼ ìƒì„±
             t_note.transform.SetParent(this.transform);
-            theTimingManager.boxNoteList.Add(t_note); // ¸®½ºÆ®¿¡ Ãß°¡
-            currentTime -= 60d / bpm; //-ÇÏÁö¾Ê°í 0À¸·Î¼³Á¤ÇÏ¸é ½ÃÂ÷°¡ »ı±è
+            theTimingManager.boxNoteList.Add(t_note); // ë¦¬ìŠ¤íŠ¸ì— ì¶”ê°€
+            currentTime -= 60d / bpm; //-í•˜ì§€ì•Šê³  0ìœ¼ë¡œì„¤ì •í•˜ë©´ ì‹œì°¨ê°€ ìƒê¹€
         }
     }
     private void OnTriggerExit2D(Collider2D collision)
@@ -40,13 +40,13 @@ public class NoteManager : MonoBehaviour
         {
          
             /*
-            if (collision.GetComponent<Note>().GetNoteFlag//ÀÌ¹ÌÁö°¡ ÀÖÀ»¶§¸¸
+            if (collision.GetComponent<Note>().GetNoteFlag//ì´ë¯¸ì§€ê°€ ìˆì„ë•Œë§Œ
             {
-                theEffectManager.JudgementEffect(4);//³ëÆ® ³õÃÆÀ»¶§ MISS
+                theEffectManager.JudgementEffect(4);//ë…¸íŠ¸ ë†“ì³¤ì„ë•Œ MISS
             }
           */
 
-            //³ëÆ®°¡ ¸Ê ³¡±îÁö °¡¸é »èÁ¦
+            //ë…¸íŠ¸ê°€ ë§µ ëê¹Œì§€ ê°€ë©´ ì‚­ì œ
             theTimingManager.boxNoteList.Remove(collision.gameObject);
             Destroy(collision.gameObject);
         }

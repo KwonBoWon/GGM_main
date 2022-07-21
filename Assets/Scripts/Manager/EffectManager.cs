@@ -1,15 +1,15 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class EffectManager : MonoBehaviour
 {
-    [SerializeField] Animator noteHitAnimator = null; //¾Ö´Ï¸ŞÀÌÅÍ º¯¼ö
+    [SerializeField] Animator noteHitAnimator = null; //ì• ë‹ˆë©”ì´í„° ë³€ìˆ˜
     string hit = "Hit";
 
-    [SerializeField] Animator judgementAnimator = null;//perfect¾Ö´Ï¸ÅÀÌ¼Ç
-    [SerializeField] UnityEngine.UI.Image judgementImage = null;//ÀÌ¹ÌÁö º¯¼ö 
-    [SerializeField] Sprite[] judgementSprite = null; //ÆÇÁ¤ ½ºÇÁ¶óÀÌÆ® º¯¼ö ¹è¿­
+    [SerializeField] Animator judgementAnimator = null;//perfectì• ë‹ˆë§¤ì´ì…˜
+    [SerializeField] UnityEngine.UI.Image judgementImage = null;//ì´ë¯¸ì§€ ë³€ìˆ˜ 
+    [SerializeField] Sprite[] judgementSprite = null; //íŒì • ìŠ¤í”„ë¼ì´íŠ¸ ë³€ìˆ˜ ë°°ì—´
 
     public void JudgementEffect(int p_num)
     {

@@ -1,11 +1,11 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class Note : MonoBehaviour
 {
-    public float noteSpeed = 400;//³ëÆ®ÀÇ  ¼Óµµ
-    public int noteDirection; //³ëÆ® ¹æÇâ
+    public float noteSpeed = 400;//ë…¸íŠ¸ì˜  ì†ë„
+    public int noteDirection; //ë…¸íŠ¸ ë°©í–¥
 
 
     UnityEngine.UI.Image noteImage;
@@ -25,9 +25,9 @@ public class Note : MonoBehaviour
     public void HideNote()
     {
         noteImage.enabled = false;
-        //Ã³À½¿¡ ³ëÆ®°¡ ´ê¾Æ¾ß ³ë·¡°¡ ½ÇÇàµÇ¹Ç·Î ÀÌ¹ÌÁö¸¸ »èÁ¦ÇÔ
+        //ì²˜ìŒì— ë…¸íŠ¸ê°€ ë‹¿ì•„ì•¼ ë…¸ë˜ê°€ ì‹¤í–‰ë˜ë¯€ë¡œ ì´ë¯¸ì§€ë§Œ ì‚­ì œí•¨
     }
-    public bool GetNoteFlag()//³ëÆ® ÀÌ¹ÌÁö°¡ ¾ø¾îÁ³´ÂÁö ¹İÈ¯
+    public bool GetNoteFlag()//ë…¸íŠ¸ ì´ë¯¸ì§€ê°€ ì—†ì–´ì¡ŒëŠ”ì§€ ë°˜í™˜
     {
         return noteImage.enabled;
     }

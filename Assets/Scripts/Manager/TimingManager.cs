@@ -1,4 +1,4 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -8,7 +8,7 @@ public class TimingManager : MonoBehaviour
 
     [SerializeField] Transform Center = null;
     [SerializeField] RectTransform[] timingRect = null;
-    //Ãæµ¹¹üÀ§ ¹è¿­
+    //ì¶©ëŒë²”ìœ„ ë°°ì—´
     Vector2[] timingBoxs = null;
 
     EffectManager theEffect;
@@ -17,7 +17,7 @@ public class TimingManager : MonoBehaviour
     {
         theEffect = FindObjectOfType<EffectManager>();
 
-        //Å¸ÀÌ¹Ö ¹Ú½º ¼³Á¤
+        //íƒ€ì´ë° ë°•ìŠ¤ ì„¤ì •
 
         timingBoxs = new Vector2[timingRect.Length];
 
@@ -25,7 +25,7 @@ public class TimingManager : MonoBehaviour
         {
             timingBoxs[i].Set(Center.localPosition.x - timingRect[i].rect.width / 2,
                                         Center.localPosition.x + timingRect[i].rect.width / 2);
-            //Å¸ÀÌ¹Ö¹Ú½ºÀÇ Ãæµ¹ÆÇÁ¤ perfect~bad¼ø
+            //íƒ€ì´ë°ë°•ìŠ¤ì˜ ì¶©ëŒíŒì • perfect~badìˆœ
 
         }
     }
@@ -40,22 +40,22 @@ public class TimingManager : MonoBehaviour
     {
         for (int i = 0; i < boxNoteList.Count; i++)
         {
-            float t_notePosX = boxNoteList[i].transform.localPosition.x; //³ëÆ® xÁÂÇ¥ °¡Á®¿È
-            int t_noteDire = boxNoteList[i].GetComponent<Note>().noteDirection; // ³ëÆ®¹æÇâ°ª °¡Á®¿È
+            float t_notePosX = boxNoteList[i].transform.localPosition.x; //ë…¸íŠ¸ xì¢Œí‘œ ê°€ì ¸ì˜´
+            int t_noteDire = boxNoteList[i].GetComponent<Note>().noteDirection; // ë…¸íŠ¸ë°©í–¥ê°’ ê°€ì ¸ì˜´
 
             for (int x= 0; x < timingBoxs.Length; x++)
             {
-                if (timingBoxs[x].x <= t_notePosX && t_notePosX <= timingBoxs[x].y && arrowInput == t_noteDire) //¹üÀ§¾È¿¡ µé¾î¿À°í ¹æÇâÅ° ¹æÇâÀÌ ¸ÂÀ»¶§
+                if (timingBoxs[x].x <= t_notePosX && t_notePosX <= timingBoxs[x].y && arrowInput == t_noteDire) //ë²”ìœ„ì•ˆì— ë“¤ì–´ì˜¤ê³  ë°©í–¥í‚¤ ë°©í–¥ì´ ë§ì„ë•Œ
                 {
-                    //Ã¼·Â´â´Â°Í
+                    //ì²´ë ¥ë‹³ëŠ”ê²ƒ
 
-                    boxNoteList[i].GetComponent<Note>().HideNote(); //ÀÌ¹ÌÁö»èÁ¦
+                    boxNoteList[i].GetComponent<Note>().HideNote(); //ì´ë¯¸ì§€ì‚­ì œ
                     if (x < timingBoxs.Length - 1)
                     {
-                        theEffect.NoteHitEffect();//ÀÌÆåÆ®
+                        theEffect.NoteHitEffect();//ì´í™íŠ¸
                     }
 
-                    boxNoteList.RemoveAt(i);  //¹è¿­¿¡¼­ »èÁ¦
+                    boxNoteList.RemoveAt(i);  //ë°°ì—´ì—ì„œ ì‚­ì œ
                     theEffect.JudgementEffect(x);
                     return;
                 }

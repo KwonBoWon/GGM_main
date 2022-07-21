@@ -1,4 +1,4 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -7,11 +7,11 @@ public class PlayerController : MonoBehaviour
     TimingManager theTimingManager;
     void Start()
     {
-        theTimingManager = FindObjectOfType<TimingManager>();//¿ÀºêÁ§Æ®¸¦ Ã£À½(TimingManager)
+        theTimingManager = FindObjectOfType<TimingManager>();//ì˜¤ë¸Œì íŠ¸ë¥¼ ì°¾ìŒ(TimingManager)
     }
     void Update()
     {
-        //È­»ìÇ¥ÀÔ·Â
+        //í™”ì‚´í‘œì…ë ¥
         if (Input.GetKeyDown(KeyCode.DownArrow))
         {
             theTimingManager.CheckTiming(0);

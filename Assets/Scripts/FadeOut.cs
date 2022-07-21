@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -23,12 +23,12 @@ public class FadeOut : MonoBehaviour
         gameObject.SetActive(false);
     }
 
-    public void Enable()//��Ȱ��ȭ
+    public void Enable()//비활성화
     {
         gameObject.SetActive(false);
 
     }
-    public void Able()//Ȱ��ȭ
+    public void Able()//활성화
     {
         gameObject.SetActive(true);
 
