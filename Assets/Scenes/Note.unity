@@ -159,7 +159,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 130, y: 150}
+  m_SizeDelta: {x: 220, y: 180}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &46856401
 MonoBehaviour:
@@ -659,7 +659,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 150, y: 150}
+  m_SizeDelta: {x: 240, y: 180}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &568988159
 MonoBehaviour:
@@ -768,7 +768,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 90, y: 150}
+  m_SizeDelta: {x: 200, y: 180}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &713912944
 MonoBehaviour:
@@ -1176,7 +1176,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 60, y: 150}
+  m_SizeDelta: {x: 180, y: 180}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1330795015
 MonoBehaviour:
@@ -1331,7 +1331,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 673603e8083e8ee4781dcc90f41f6780, type: 3}
+  m_audioClip: {fileID: 8300000, guid: af164244d2bdf024181babbb35e0aa2c, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -1429,6 +1429,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eb466ac2bbad24e4fbe4f6d419188039, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  myAudio: {fileID: 0}
 --- !u!1 &1385149224
 GameObject:
   m_ObjectHideFlags: 0
@@ -1947,11 +1948,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4978270822417490964, guid: 6d89329408d8c2540aaea7e4fe14df9a, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 70
+      value: 180
       objectReference: {fileID: 0}
     - target: {fileID: 4978270822417490964, guid: 6d89329408d8c2540aaea7e4fe14df9a, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 200
+      value: 180
       objectReference: {fileID: 0}
     - target: {fileID: 4978270822417490964, guid: 6d89329408d8c2540aaea7e4fe14df9a, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2040,11 +2041,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3432889995292533175, guid: bd3482871c767b1408c9848eee534684, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 70
+      value: 180
       objectReference: {fileID: 0}
     - target: {fileID: 3432889995292533175, guid: bd3482871c767b1408c9848eee534684, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 200
+      value: 180
       objectReference: {fileID: 0}
     - target: {fileID: 3432889995292533175, guid: bd3482871c767b1408c9848eee534684, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2149,11 +2150,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7113398602783893058, guid: bbbd5d9b220f685448f6488e9af50752, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 70
+      value: 180
       objectReference: {fileID: 0}
     - target: {fileID: 7113398602783893058, guid: bbbd5d9b220f685448f6488e9af50752, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 200
+      value: 180
       objectReference: {fileID: 0}
     - target: {fileID: 7113398602783893058, guid: bbbd5d9b220f685448f6488e9af50752, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2362,11 +2363,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4375713767723897621, guid: 392704e96f90f4248b2a178466e6a290, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 70
+      value: 180
       objectReference: {fileID: 0}
     - target: {fileID: 4375713767723897621, guid: 392704e96f90f4248b2a178466e6a290, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 200
+      value: 180
       objectReference: {fileID: 0}
     - target: {fileID: 4375713767723897621, guid: 392704e96f90f4248b2a178466e6a290, type: 3}
       propertyPath: m_LocalPosition.x

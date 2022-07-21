@@ -39,7 +39,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: -1014, y: 0}
-  m_SizeDelta: {x: 70, y: 200}
+  m_SizeDelta: {x: 180, y: 180}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6676702155619876468
 CanvasRenderer:
@@ -62,6 +62,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   noteSpeed: 400
+  noteDirection: 0
 --- !u!114 &3648636100945557823
 MonoBehaviour:
   m_ObjectHideFlags: 0

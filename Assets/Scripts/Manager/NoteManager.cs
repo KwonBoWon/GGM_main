@@ -24,13 +24,13 @@ public class NoteManager : MonoBehaviour
     {
         currentTime += Time.deltaTime;
 
-        if (currentTime >= 60d / bpm)  //60/bpm마다 노트 생성
+        if (currentTime >= 110d / bpm)  //55bpm마다 노트 생성
         {
             arrowDirection = Random.Range(0, 4); // 무작위로 방향 지정
             GameObject t_note = Instantiate(goNote[arrowDirection], tfNoteAppear.position, Quaternion.identity); // 노트를 생성
             t_note.transform.SetParent(this.transform);
             theTimingManager.boxNoteList.Add(t_note); // 리스트에 추가
-            currentTime -= 60d / bpm; //-하지않고 0으로설정하면 시차가 생김
+            currentTime -= 110d / bpm; //-하지않고 0으로설정하면 시차가 생김
         }
     }
     private void OnTriggerExit2D(Collider2D collision)
