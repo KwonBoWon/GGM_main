@@ -1731,6 +1731,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e59c08a684b6c834bbf1f8229a75e6ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  animator: {fileID: 1876211111}
   boxNoteList: []
   Center: {fileID: 1381891797}
   timingRect:
@@ -2100,7 +2101,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8f067524d2fd4364281cee80f562bef6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  animator: {fileID: 1876211111}
   MonsterHP: {fileID: 723760979}
   maxHP: 100
   curHP: 100

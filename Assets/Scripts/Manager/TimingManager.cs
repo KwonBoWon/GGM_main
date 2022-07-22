@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class TimingManager : MonoBehaviour
 {
+    public Animator animator; //애니메이터 변수 선언
     public List<GameObject> boxNoteList  = new List<GameObject>();
 
     [SerializeField] Transform Center = null;
@@ -53,7 +54,18 @@ public class TimingManager : MonoBehaviour
                 {
                     //체력닳는것
                     Obj.GetComponent<PlayerController>().curHP -= 10;
-                    //Obj.GetComponent<Animator>().SetBool("Down", true); 
+                    if (arrowInput == 0){
+                        animator.SetBool("Down", true);
+                    }
+                    else if (arrowInput == 1) {
+                        animator.SetBool("Up", true);
+                    }
+                    else if (arrowInput == 2) {
+                        animator.SetBool("Left", true);
+                    }
+                    else {
+                        animator.SetBool("Right", true);
+                    }
                     //Debug.Log(arrows[arrowInput]);
                     boxNoteList[i].GetComponent<Note>().HideNote(); //이미지삭제
                     if (x < timingBoxs.Length - 1)
@@ -63,7 +75,7 @@ public class TimingManager : MonoBehaviour
 
                     boxNoteList.RemoveAt(i);  //배열에서 삭제
                     theEffect.JudgementEffect(x);
-                    // theplayer.Stop();
+                    Stop();
                     return;
                 }
 
@@ -71,6 +83,30 @@ public class TimingManager : MonoBehaviour
         }
 
         theEffect.JudgementEffect(timingBoxs.Length);
+    }
+    public void Stop() {
+        if(animator.GetCurrentAnimatorStateInfo(0).IsName("Down") &&
+            animator.GetCurrentAnimatorStateInfo(0).normalizedTime >= 1.0f)
+            {
+                animator.SetBool("Down", false);
+            }
+
+        else if(animator.GetCurrentAnimatorStateInfo(0).IsName("Up") &&
+            animator.GetCurrentAnimatorStateInfo(0).normalizedTime >= 1.0f)
+            {
+                animator.SetBool("Up", false);
+            }
+        else if(animator.GetCurrentAnimatorStateInfo(0).IsName("Left") &&
+            animator.GetCurrentAnimatorStateInfo(0).normalizedTime >= 1.0f)
+            {
+                animator.SetBool("Left", false);
+            }
+        
+        else if(animator.GetCurrentAnimatorStateInfo(0).IsName("Right") &&
+            animator.GetCurrentAnimatorStateInfo(0).normalizedTime >= 1.0f)
+            {
+                animator.SetBool("Right", false);
+            }
     }
 
 }
