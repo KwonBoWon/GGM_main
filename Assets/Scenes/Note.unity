@@ -1738,6 +1738,11 @@ MonoBehaviour:
   - {fileID: 713912943}
   - {fileID: 46856400}
   - {fileID: 568988158}
+  arrows:
+  - Down
+  - Up
+  - Left
+  - Right
 --- !u!1 &1330795013
 GameObject:
   m_ObjectHideFlags: 0
@@ -2097,6 +2102,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animator: {fileID: 1876211111}
   MonsterHP: {fileID: 723760979}
+  maxHP: 100
+  curHP: 100
 --- !u!4 &1385149226
 Transform:
   m_ObjectHideFlags: 0
