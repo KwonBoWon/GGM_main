@@ -6,22 +6,23 @@ using UnityEngine.UI;
 public class PlayerController : MonoBehaviour
 {
     TimingManager theTimingManager;
+    public GameObject monster;
     public Slider MonsterHP;
     public float maxHP = 100; //최대 체력
     public float curHP = 100; //현재 체력
     void Start()
     {
-        MonsterHP.value = (float) curHP / (float) maxHP;
-        theTimingManager = FindObjectOfType<TimingManager>();//������Ʈ�� ã��(TimingManager)
+        MonsterHP.value = (float)curHP / (float)maxHP;
+        theTimingManager = FindObjectOfType<TimingManager>();//      Ʈ   ã  (TimingManager)
     }
     void Update()
     {
         //화살표 입
         if (Input.GetKeyDown(KeyCode.DownArrow))
         {
-            theTimingManager.CheckTiming(0); 
+            theTimingManager.CheckTiming(0);
             //Debug.Log("down");
-            
+
         }
         if (Input.GetKeyDown(KeyCode.UpArrow))
         {
@@ -39,11 +40,18 @@ public class PlayerController : MonoBehaviour
             //Debug.Log("right");
         }
         HandleHP();
-       
+
     }
-    public void HandleHP() {
-        MonsterHP.value = (float) curHP / (float) maxHP;
+    public void HandleHP()
+    {
+        MonsterHP.value = (float)curHP / (float)maxHP;
+        if (MonsterHP.value == 0)
+        { // 적 죽으면
+
+            monster.SetActive(false);
+
+        }
     }
-    
-   
+
+
 }
