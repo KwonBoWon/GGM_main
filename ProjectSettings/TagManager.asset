@@ -17,7 +17,7 @@ TagManager:
   - 
   - 
   - Players
-  - 
+  - Tab
   - 
   - 
   - 
@@ -47,4 +47,7 @@ TagManager:
     locked: 0
   - name: Characters
     uniqueID: 3128531911
+    locked: 0
+  - name: Tab
+    uniqueID: 1215708109
     locked: 0
