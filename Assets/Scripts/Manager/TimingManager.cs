@@ -12,7 +12,10 @@ public class TimingManager : MonoBehaviour
     Vector2[] timingBoxs = null;
 
     EffectManager theEffect;
-
+    GameObject tempObj;
+    tempObj = GameObject.Find(PlayerControll);//게임오브젝트를 찾음
+    tempObj.GetComponent<PlayerController>().curHP;
+    public string[] arrows;
     void Start()
     {
         theEffect = FindObjectOfType<EffectManager>();
@@ -48,7 +51,9 @@ public class TimingManager : MonoBehaviour
                 if (timingBoxs[x].x <= t_notePosX && t_notePosX <= timingBoxs[x].y && arrowInput == t_noteDire) //범위안에 들어오고 방향키 방향이 맞을때
                 {
                     //체력닳는것
-
+                    theplayer.curHP -= 10;
+                    //theplayer.animator.SetBool("Down", true); 
+                    //Debug.Log(arrows[arrowInput]);
                     boxNoteList[i].GetComponent<Note>().HideNote(); //이미지삭제
                     if (x < timingBoxs.Length - 1)
                     {
@@ -57,8 +62,10 @@ public class TimingManager : MonoBehaviour
 
                     boxNoteList.RemoveAt(i);  //배열에서 삭제
                     theEffect.JudgementEffect(x);
+                    // theplayer.Stop();
                     return;
                 }
+
             }
         }
 
