@@ -19,23 +19,21 @@ public class BackGroundManager : MonoBehaviour
             GameObject tempObj = null;//게임오브젝트 담을곳
             if (backgroundNum >= 0 && backgroundNum <= 3)
             {
-                tempObj = GameObject.Find(backgrounds[backgroundNum]) ;//게임오브젝트를 찾음
+                tempObj = GameObject.Find(backgrounds[backgroundNum]);//게임오브젝트를 찾음
                 if (tempObj != null)
                 {
-                    Debug.Log("get object" + tempObj.name);
+                    //Debug.Log("get object " + tempObj.name);
                     tempObj.GetComponent<FadeOut>().StartCoroutine("Fade");
                 }
                 else
                 {
-                    Debug.LogError(backgroundNum.ToString() + "error");
+                    //Debug.LogError(backgroundNum.ToString() + "error");
                 }
             }
             else
             {
-                Debug.LogError("Wrong number");
+                // Debug.LogError("Wrong number");
             }
-
-
             backgroundNum++;
         }
     }
