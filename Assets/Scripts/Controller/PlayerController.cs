@@ -21,9 +21,9 @@ public class PlayerController : MonoBehaviour
         //화살표 입
         if (Input.GetKeyDown(KeyCode.DownArrow))
         {
-            theTimingManager.CheckTiming(0); 
+            theTimingManager.CheckTiming(0);
             //Debug.Log("down");
-            
+
         }
         if (Input.GetKeyDown(KeyCode.UpArrow))
         {
@@ -41,7 +41,7 @@ public class PlayerController : MonoBehaviour
             //Debug.Log("right");
         }
         HandleHP();
-       
+
     }
     public void HandleHP() {
         MonsterHP.value = (float) curHP / (float) maxHP;
@@ -51,6 +51,6 @@ public class PlayerController : MonoBehaviour
             MonsterHP.gameObject.SetActive(false);
         }
     }
-    
-   
+
+
 }
