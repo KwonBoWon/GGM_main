@@ -6,8 +6,13 @@ using UnityEngine.UI;
 public class PlayerController : MonoBehaviour
 {
     TimingManager theTimingManager;
+    [SerializeField] Transform tfMonsterAppear = null;
+    [SerializeField] GameObject[] goMonster = null;
+    int cnt = 0;
     BackGroundManager thebackGroundManager;
-    public GameObject monster;
+
+
+
     public Slider MonsterHP;
     public float maxHP = 100; //최대 체력
     public float curHP = 100; //현재 체력
@@ -16,6 +21,7 @@ public class PlayerController : MonoBehaviour
 
     void Start()
     {
+        Instantiate(goMonster[cnt], tfMonsterAppear.position, Quaternion.identity);
         MonsterHP = GameObject.Find("MonsterHP").GetComponent<Slider>();
         MonsterHP.value = (float) curHP / (float) maxHP;
         theTimingManager = FindObjectOfType<TimingManager>();
@@ -27,7 +33,7 @@ public class PlayerController : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.DownArrow))
         {
             theTimingManager.CheckTiming(0);
-            //Debug.Log("down
+
         }
         if (Input.GetKeyDown(KeyCode.UpArrow))
         {
@@ -49,16 +55,20 @@ public class PlayerController : MonoBehaviour
     }
     public void HandleHP() {
         MonsterHP.value = (float) curHP / (float) maxHP;
+           
         if (MonsterHP.value == 0 && monsterLife == true) { // 적 죽으면
-            monster.SetActive(false);
-            MonsterHP.gameObject.SetActive(false);
+         	Destroy(GameObject.Find("monster" + cnt + "(Clone)"));
+            cnt++;
+            Debug.Log(cnt);
+            Instantiate(goMonster[cnt], tfMonsterAppear.position, Quaternion.identity);
+            curHP = 100;
 
             NoteManager.noteOn = false;
             CenterFlame.instance.StopMusic();
             theTimingManager.boxNoteList.Clear();
             thebackGroundManager.ChangeBackground();
             NoteManager.noteOn = true;
-            //.Log(BackGroundManager.stage);
+
             monsterLife = false;
         }
     }
