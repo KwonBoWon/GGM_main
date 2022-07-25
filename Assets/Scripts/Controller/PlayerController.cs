@@ -6,11 +6,13 @@ using UnityEngine.UI;
 public class PlayerController : MonoBehaviour
 {
     TimingManager theTimingManager;
+    public GameObject monster;
     public Slider MonsterHP;
     public float maxHP = 100; //최대 체력
     public float curHP = 100; //현재 체력
     void Start()
     {
+        MonsterHP = GameObject.Find("MonsterHP").GetComponent<Slider>();
         MonsterHP.value = (float) curHP / (float) maxHP;
         theTimingManager = FindObjectOfType<TimingManager>();//������Ʈ�� ã��(TimingManager)
     }
@@ -43,6 +45,11 @@ public class PlayerController : MonoBehaviour
     }
     public void HandleHP() {
         MonsterHP.value = (float) curHP / (float) maxHP;
+        if (MonsterHP.value == 0) { // 적 죽으면
+
+            monster.SetActive(false);
+            MonsterHP.gameObject.SetActive(false);
+        }
     }
     
    
