@@ -10,9 +10,6 @@ public class PlayerController : MonoBehaviour
     [SerializeField] GameObject[] goMonster = null;
     int cnt = 0;
     BackGroundManager thebackGroundManager;
-
-
-
     public Slider MonsterHP;
     public float maxHP = 100; //최대 체력
     public float curHP = 100; //현재 체력
@@ -60,8 +57,7 @@ public class PlayerController : MonoBehaviour
          	Destroy(GameObject.Find("monster" + cnt + "(Clone)"));
             cnt++;
             Debug.Log(cnt);
-            Instantiate(goMonster[cnt], tfMonsterAppear.position, Quaternion.identity);
-            curHP = 100;
+            MonsterHP.gameObject.SetActive(false);
 
             NoteManager.noteOn = false;
             CenterFlame.instance.StopMusic();
@@ -70,8 +66,15 @@ public class PlayerController : MonoBehaviour
             NoteManager.noteOn = true;
 
             monsterLife = false;
+            MakeMonster();
         }
     }
-
+    public void MakeMonster() {
+        curHP = 100;
+        monsterLife = true;
+        Instantiate(goMonster[cnt], tfMonsterAppear.position, Quaternion.identity);
+        MonsterHP.gameObject.SetActive(true);
+        //monsterhp=Instantiate(MonsterHP, tfMonsterAppear.position , Quaternion.identity);
+    }
 
 }
