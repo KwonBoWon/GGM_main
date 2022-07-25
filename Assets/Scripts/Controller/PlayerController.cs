@@ -6,12 +6,16 @@ using UnityEngine.UI;
 public class PlayerController : MonoBehaviour
 {
     TimingManager theTimingManager;
-    public GameObject monster;
+    [SerializeField] Transform tfMonsterAppear = null;
+    [SerializeField] GameObject[] goMonster = null;
+    int cnt = 0;
+    GameObject ForDestroy;
     public Slider MonsterHP;
     public float maxHP = 100; //최대 체력
     public float curHP = 100; //현재 체력
     void Start()
     {
+        Instantiate(goMonster[cnt], tfMonsterAppear.position, Quaternion.identity);
         MonsterHP = GameObject.Find("MonsterHP").GetComponent<Slider>();
         MonsterHP.value = (float) curHP / (float) maxHP;
         theTimingManager = FindObjectOfType<TimingManager>();//������Ʈ�� ã��(TimingManager)
@@ -47,8 +51,13 @@ public class PlayerController : MonoBehaviour
         MonsterHP.value = (float) curHP / (float) maxHP;
         if (MonsterHP.value == 0) { // 적 죽으면
 
-            monster.SetActive(false);
-            MonsterHP.gameObject.SetActive(false);
+            // ForDestroy = GameObject.FindGameObjectWithTag("Monster");
+            // Destroy(ForDestroy);
+            Destroy(GameObject.Find("monster" + cnt + "(Clone)"));
+            cnt++;
+            Debug.Log(cnt);
+            Instantiate(goMonster[cnt], tfMonsterAppear.position, Quaternion.identity);
+            curHP = 100;
         }
     }
 
