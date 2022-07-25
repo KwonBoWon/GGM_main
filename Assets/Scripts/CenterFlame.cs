@@ -19,7 +19,7 @@ public class CenterFlame : MonoBehaviour
 
     //public AudioSource myAudio;
     bool musicStart = false;
-
+    GameObject[] destroyNotes = null;
 
     private void Start()
     {
@@ -42,9 +42,25 @@ public class CenterFlame : MonoBehaviour
         if(!musicStart){
             if (collision.CompareTag("Note"))
             {
-                bgms[0].source.Play();
+                bgms[BackGroundManager.stage].source.Play();
                 musicStart = true;
             }
+        }
+    }
+
+    public void StopMusic()
+    {
+       
+        bgms[BackGroundManager.stage].source.Stop();
+        musicStart = false;
+        if (destroyNotes == null)
+        {
+            destroyNotes = GameObject.FindGameObjectsWithTag("Note");
+        }
+        Debug.Log(destroyNotes.Length);
+        foreach (GameObject note in destroyNotes)
+        {
+            Destroy(note);
         }
     }
 
