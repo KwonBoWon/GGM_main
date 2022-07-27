@@ -8,6 +8,7 @@ public class BGM
     public string soundName;
     public AudioClip clip;
     public AudioSource source;
+    public int bpm;
 }
 public class CenterFlame : MonoBehaviour
 {

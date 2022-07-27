@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class NoteManager : MonoBehaviour
 {
-    public int bpm = 0;
+    private int bpm = 0;
     double currentTime = 0d;
     int arrowDirection =0;
     public static bool noteOn = true;
@@ -23,6 +23,7 @@ public class NoteManager : MonoBehaviour
 
     void Update()
     {
+        bpm =CenterFlame.instance.bgms[BackGroundManager.stage].bpm;
         currentTime += Time.deltaTime;
         if (noteOn == true)
         {

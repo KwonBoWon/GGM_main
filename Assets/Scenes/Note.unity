@@ -2104,9 +2104,19 @@ MonoBehaviour:
   - soundName: saturated
     clip: {fileID: 8300000, guid: af164244d2bdf024181babbb35e0aa2c, type: 3}
     source: {fileID: 0}
+    bpm: 110
   - soundName: coolmaster
     clip: {fileID: 8300000, guid: 3bf52ccccf643e240b835e5be7b44920, type: 3}
     source: {fileID: 0}
+    bpm: 120
+  - soundName: darktrap
+    clip: {fileID: 8300000, guid: b096099b768ab9546b10d48f9b6e5d6e, type: 3}
+    source: {fileID: 0}
+    bpm: 130
+  - soundName: darkflashes
+    clip: {fileID: 8300000, guid: f61ee60b612dee441b384ffe194bd9ee, type: 3}
+    source: {fileID: 0}
+    bpm: 95
 --- !u!1 &1385149224
 GameObject:
   m_ObjectHideFlags: 0
@@ -2143,6 +2153,7 @@ MonoBehaviour:
   - {fileID: 742756719}
   - {fileID: 1872349270}
   MonsterHP: {fileID: 723760979}
+  TimeHP: {fileID: 0}
   maxHP: 100
   curHP: 100
 --- !u!4 &1385149226
