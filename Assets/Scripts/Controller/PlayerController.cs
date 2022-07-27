@@ -16,9 +16,9 @@ public class PlayerController : MonoBehaviour
     public float maxHP = 100; //최대 체력
     public float curHP = 100; //현재 체력
 
-    private float maxTime = 50; //최대 시간
-    private float curTime = 50; //현재시간
-    private float addTime = 15; //시간추가
+    public float maxTime = 50; //최대 시간
+    public float curTime = 50; //현재시간
+    public float addTime = 15; //시간추가
     private bool monsterLife = true;
 
     void Start()
@@ -35,7 +35,7 @@ public class PlayerController : MonoBehaviour
     }
     void Update()
     {
-        //화살표 입력
+        //화살표 입력 0123 : DULR
         if (Input.GetKeyDown(KeyCode.DownArrow))
         {
             theTimingManager.CheckTiming(0);

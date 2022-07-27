@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 4332521347971905495}
   - component: {fileID: 2568360073720316868}
   m_Layer: 5
-  m_Name: arrowUp 1
+  m_Name: arrowUp2
   m_TagString: Note
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -63,6 +63,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   noteSpeed: 400
   noteDirection: 1
+  noteType: 1
 --- !u!114 &3015155752275335167
 MonoBehaviour:
   m_ObjectHideFlags: 0

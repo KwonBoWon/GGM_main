@@ -42,12 +42,12 @@ public class NoteManager : MonoBehaviour
         
         if (collision.CompareTag("Note")) 
         {
-            /*
-            if (collision.GetComponent<Note>().GetNoteFlag//이미지가 있을때만
+            
+            if (collision.GetComponent<Note>().GetNoteFlag())//이미지가 있을때만
             {
                 theEffectManager.JudgementEffect(4);//노트 놓쳤을때 MISS
             }
-          */
+          
             //노트가 맵 끝까지 가면 삭제
             theTimingManager.boxNoteList.Remove(collision.gameObject);
             Destroy(collision.gameObject);

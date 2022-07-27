@@ -8,8 +8,7 @@ public class TimingManager : MonoBehaviour
     public List<GameObject> boxNoteList  = new List<GameObject>();
 
     [SerializeField] Transform Center = null;
-    [SerializeField] RectTransform[] timingRect = null;
-    //충돌범위 배열
+    [SerializeField] RectTransform[] timingRect = null; //충돌범위 배열
     Vector2[] timingBoxs = null;
 
     EffectManager theEffect;
@@ -17,20 +16,15 @@ public class TimingManager : MonoBehaviour
     public string[] arrows;
     void Start()
     {
-        Obj = GameObject.Find("PlayerControll");//게임오브젝트를 찾음
-        
-
+        Obj = GameObject.Find("PlayerControll");
         theEffect = FindObjectOfType<EffectManager>();
-
-        //타이밍 박스 설정
-
-        timingBoxs = new Vector2[timingRect.Length];
+        timingBoxs = new Vector2[timingRect.Length];//타이밍 박스 설정
 
         for (int i = 0; i < timingRect.Length; i++)
-        {
+        { //타이밍박스의 충돌판정 perfect~bad순
             timingBoxs[i].Set(Center.localPosition.x - timingRect[i].rect.width / 2,
                                         Center.localPosition.x + timingRect[i].rect.width / 2);
-            //타이밍박스의 충돌판정 perfect~bad순
+            
 
         }
     }
@@ -47,34 +41,57 @@ public class TimingManager : MonoBehaviour
         {
             float t_notePosX = boxNoteList[i].transform.localPosition.x; //노트 x좌표 가져옴
             int t_noteDire = boxNoteList[i].GetComponent<Note>().noteDirection; // 노트방향값 가져옴
+            int t_noteType = boxNoteList[i].GetComponent<Note>().noteType; //노트타입 가져옴 0:방어턴 1:공격턴
 
             for (int x= 0; x < timingBoxs.Length; x++)
             {
-                if (timingBoxs[x].x <= t_notePosX && t_notePosX <= timingBoxs[x].y && arrowInput == t_noteDire) //범위안에 들어오고 방향키 방향이 맞을때
-                {
-                    //체력닳는것
-                    Obj.GetComponent<PlayerController>().curHP -= 10;
-                    if (arrowInput == 0){
-                        animator.SetBool("Down", true);
+                if (timingBoxs[x].x <= t_notePosX && t_notePosX <= timingBoxs[x].y)
+                {//범위, 방향키 확인
+                    if (arrowInput == t_noteDire && t_noteType == 0)
+                    {//방어성공
+                        if (x < timingBoxs.Length - 1)
+                        {
+                            theEffect.NoteHitEffect();//히트이펙트
+                        }
+                        theEffect.JudgementEffect(x); //판정 이펙트
                     }
-                    else if (arrowInput == 1) {
-                        animator.SetBool("Up", true);
-                    }
-                    else if (arrowInput == 2) {
-                        animator.SetBool("Left", true);
-                    }
-                    else {
-                        animator.SetBool("Right", true);
-                    }
-                    //Debug.Log(arrows[arrowInput]);
-                    boxNoteList[i].GetComponent<Note>().HideNote(); //이미지삭제
-                    if (x < timingBoxs.Length - 1)
-                    {
-                        theEffect.NoteHitEffect();//이펙트
+                    else if (arrowInput != t_noteType && t_noteType == 0)
+                    {//방어실패
+                        Obj.GetComponent<PlayerController>().curTime -= 10; //시간감소
+                        theEffect.JudgementEffect(4); //Miss이펙트
                     }
 
+                    if (arrowInput != t_noteDire && t_noteType == 1)
+                    {//공격성공
+                        if (x < timingBoxs.Length - 1)
+                        {
+                            theEffect.NoteHitEffect();//히트이펙트
+                        }
+                        theEffect.JudgementEffect(x); //판정 이펙트
+                        Obj.GetComponent<PlayerController>().curHP -= 10;
+                        if (arrowInput == 0)
+                        {
+                            animator.SetBool("Down", true);
+                        }
+                        else if (arrowInput == 1)
+                        {
+                            animator.SetBool("Up", true);
+                        }
+                        else if (arrowInput == 2)
+                        {
+                            animator.SetBool("Left", true);
+                        }
+                        else
+                        {
+                            animator.SetBool("Right", true);
+                        }
+                    }
+                    
+                    //Debug.Log(arrows[arrowInput]);
+                    boxNoteList[i].GetComponent<Note>().HideNote(); //이미지삭제
+                   
                     boxNoteList.RemoveAt(i);  //배열에서 삭제
-                    theEffect.JudgementEffect(x);
+
                     Stop();
                     return;
                 }
