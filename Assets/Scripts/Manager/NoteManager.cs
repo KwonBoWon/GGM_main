@@ -18,7 +18,6 @@ public class NoteManager : MonoBehaviour
     {
         theEffectManager = FindObjectOfType<EffectManager>();
         theTimingManager = GetComponent<TimingManager>();
-        //오브젝트에서 컴포넌트를 가져옴(여기선 TimingManager 스크립트)
     }
 
     void Update()
