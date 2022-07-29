@@ -13,6 +13,8 @@ public class PlayerController : MonoBehaviour
     public Slider MonsterHP;
     public Slider TimeHP;
 
+    GameObject t_monstet;
+
     public float maxHP = 100; //최대 체력
     public float curHP = 100; //현재 체력
 
@@ -83,7 +85,6 @@ public class PlayerController : MonoBehaviour
         }
         else //시간없을때(죽었을때)
         {
-            
         }
     }
 
@@ -93,9 +94,6 @@ public class PlayerController : MonoBehaviour
         Instantiate(goMonster[cnt], tfMonsterAppear.position, Quaternion.identity);
         MonsterHP.gameObject.SetActive(true);
         //monsterhp=Instantiate(MonsterHP, tfMonsterAppear.position , Quaternion.identity);
-
-
-       
         curTime += addTime; //시간추가
         if(curTime>maxTime) curTime = maxTime;
     }

@@ -8,6 +8,7 @@ public class NoteManager : MonoBehaviour
     double currentTime = 0d;
     int arrowDirection =0;
     public static bool noteOn = true;
+    private int noteCount=0;
 
     [SerializeField] Transform tfNoteAppear  = null; //노트가 생성되는곳
     [SerializeField] GameObject[] goNote = null; //노트 프리펩들
@@ -22,19 +23,31 @@ public class NoteManager : MonoBehaviour
 
     void Update()
     {
-        bpm =CenterFlame.instance.bgms[BackGroundManager.stage].bpm;
+        if((noteCount%10) <5) MakeNode(0);
+        else MakeNode(1);
+        Debug.Log(noteCount);
+    }
+
+    public int MakeNode(int turn)//(int attackTurn , int defenseTurn)
+    {
+        bpm = CenterFlame.instance.bgms[BackGroundManager.stage].bpm;
         currentTime += Time.deltaTime;
         if (noteOn == true)
         {
             if (currentTime >= 60d / bpm)  //55bpm마다 노트 생성
             {
-                arrowDirection = Random.Range(0, 4); // 무작위로 방향 지정
+                if(turn == 0) arrowDirection = Random.Range(0, 4); // 방어턴
+                else if(turn ==1)  arrowDirection = Random.Range(4, 8); //공격턴
+
                 GameObject t_note = Instantiate(goNote[arrowDirection], tfNoteAppear.position, Quaternion.identity); // 노트를 생성
                 t_note.transform.SetParent(this.transform);
                 theTimingManager.boxNoteList.Add(t_note); // 리스트에 추가
                 currentTime -= 60d / bpm; //-하지않고 0으로설정하면 시차가 생김
+                noteCount++; //noteCount증가
             }
         }
+
+        return noteCount;
     }
     private void OnTriggerExit2D(Collider2D collision)
     {
