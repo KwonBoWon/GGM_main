@@ -37,6 +37,13 @@ public class TimingManager : MonoBehaviour
 
     public void CheckTiming( int arrowInput)
     {
+        if (arrowInput == -1) //노트 놓칠시
+        {
+            Obj.GetComponent<PlayerController>().curTime -= 10; //시간감소
+            theEffect.JudgementEffect(4); //Miss이펙트
+            return;
+        }
+
         for (int i = 0; i < boxNoteList.Count; i++)
         {
             float t_notePosX = boxNoteList[i].transform.localPosition.x; //노트 x좌표 가져옴

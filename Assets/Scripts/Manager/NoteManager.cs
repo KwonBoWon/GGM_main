@@ -55,9 +55,9 @@ public class NoteManager : MonoBehaviour
         if (collision.CompareTag("Note")) 
         {
             
-            if (collision.GetComponent<Note>().GetNoteFlag())//이미지가 있을때만
+            if (collision.GetComponent<Note>().GetNoteFlag() && collision.GetComponent<Note>().noteType==0)//이미지가 있을때만 방어턴일때만
             {
-                theEffectManager.JudgementEffect(4);//노트 놓쳤을때 MISS
+                theTimingManager.CheckTiming(-1); //노트 놓칠시
             }
           
             //노트가 맵 끝까지 가면 삭제
