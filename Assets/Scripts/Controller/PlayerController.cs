@@ -6,6 +6,9 @@ using UnityEngine.UI;
 public class PlayerController : MonoBehaviour
 {
     TimingManager theTimingManager;
+    [SerializeField] Animator background1 = null;
+    [SerializeField] Animator background2 = null;
+    [SerializeField] Animator background3 = null;
     [SerializeField] Transform tfMonsterAppear = null;
     [SerializeField] GameObject[] goMonster = null;
     int cnt = 0;
@@ -70,6 +73,11 @@ public class PlayerController : MonoBehaviour
             CenterFlame.instance.StopMusic();
             theTimingManager.boxNoteList.Clear();
             thebackGroundManager.ChangeBackground();
+            if (cnt == 1) {
+                background1.SetTrigger("hit");    
+            }
+            background2.SetTrigger("hit"+cnt);   
+            background3.SetTrigger("hit"+cnt);   
             NoteManager.noteOn = true;
 
             monsterLife = false;

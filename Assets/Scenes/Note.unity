@@ -1281,6 +1281,7 @@ GameObject:
   m_Component:
   - component: {fileID: 915609097}
   - component: {fileID: 915609098}
+  - component: {fileID: 915609099}
   m_Layer: 0
   m_Name: 1-3
   m_TagString: Untagged
@@ -1355,6 +1356,26 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!95 &915609099
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 915609096}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: d1ad640c67bd2a144bbcefedea051a65, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &922853100
 GameObject:
   m_ObjectHideFlags: 0
@@ -1799,7 +1820,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 2
   m_Sprite: {fileID: 21300000, guid: b2c3bab9df2c0f540a78dbef2dc0ac37, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -2098,7 +2119,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: b2c3bab9df2c0f540a78dbef2dc0ac37, type: 3}
   m_Color: {r: 0.4339623, g: 0.4339623, b: 0.4339623, a: 1}
   m_FlipX: 0
@@ -2519,13 +2540,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8f067524d2fd4364281cee80f562bef6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  background1: {fileID: 1226743431}
+  background2: {fileID: 1271845971}
+  background3: {fileID: 915609099}
   tfMonsterAppear: {fileID: 922853101}
   goMonster:
   - {fileID: 3187766591846464014, guid: 624134c02ebf6134aab0ff861b2af353, type: 3}
   - {fileID: 6943495046234976038, guid: 4be46faedf10dde44827aaa1b183c836, type: 3}
   - {fileID: 8973892302364238245, guid: 9b74a42a31c0e77459ba86f00700d504, type: 3}
   MonsterHP: {fileID: 723760979}
-  TimeHP: {fileID: 0}
+  TimeHP: {fileID: 1435002377}
   maxHP: 100
   curHP: 100
   maxTime: 50
@@ -3175,6 +3199,14 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3187766591846464008, guid: 624134c02ebf6134aab0ff861b2af353, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3187766591846464008, guid: 624134c02ebf6134aab0ff861b2af353, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3187766591846464008, guid: 624134c02ebf6134aab0ff861b2af353, type: 3}
       propertyPath: m_LocalPosition.x
       value: -1133.2859
       objectReference: {fileID: 0}
@@ -3220,7 +3252,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3187766591846464014, guid: 624134c02ebf6134aab0ff861b2af353, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 624134c02ebf6134aab0ff861b2af353, type: 3}
