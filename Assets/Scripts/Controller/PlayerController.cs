@@ -20,7 +20,7 @@ public class PlayerController : MonoBehaviour
 
     public float maxTime = 50; //최대 시간
     public float curTime = 50; //현재시간
-    public float addTime = 15; //시간추가
+    public float addTime = 30; //시간추가
     private bool monsterLife = true;
 
     void Start()

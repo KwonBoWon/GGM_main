@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 0787c369a87af044f89dfc79ca264627
+guid: 644b2def266afd84ca8c5870a0c08dcf
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -42,8 +42,8 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 2
-  spriteExtrude: 1
+  spriteMode: 1
+  spriteExtrude: 0
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
@@ -114,112 +114,7 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites:
-    - serializedVersion: 2
-      name: KakaoTalk_20220718_210540085-removebg-preview_0
-      rect:
-        serializedVersion: 2
-        x: 63
-        y: 240
-        width: 12
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: a9e48af5c11ea3f47ab38b9124ca3708
-      internalID: -574656673
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: KakaoTalk_20220718_210540085-removebg-preview_1
-      rect:
-        serializedVersion: 2
-        x: 66
-        y: 232
-        width: 12
-        height: 15
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 72384632af73e624e87892215ef8e2ba
-      internalID: -968632894
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: KakaoTalk_20220718_210540085-removebg-preview_2
-      rect:
-        serializedVersion: 2
-        x: 81
-        y: 236
-        width: 16
-        height: 14
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: baee2213dafed3842bbb4d1bc115f2b7
-      internalID: -1945581292
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: notemonster
-      rect:
-        serializedVersion: 2
-        x: 95
-        y: 80
-        width: 154
-        height: 245
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 636e7754d6845734f83cb197f46fa50c
-      internalID: -940857833
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: crystal
-      rect:
-        serializedVersion: 2
-        x: 322
-        y: 69
-        width: 300
-        height: 235
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: c632603ca0a2ebc48871f94a50760b31
-      internalID: -1634817797
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
+    sprites: []
     outline: []
     physicsShape: []
     bones: []
@@ -230,12 +125,7 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable:
-      KakaoTalk_20220718_210540085-removebg-preview_2: -1945581292
-      KakaoTalk_20220718_210540085-removebg-preview_1: -968632894
-      KakaoTalk_20220718_210540085-removebg-preview_0: -574656673
-      crystal: -1634817797
-      notemonster: -940857833
+    nameFileIdTable: {}
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
