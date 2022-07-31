@@ -70,9 +70,10 @@ public class PlayerController : MonoBehaviour
             MonsterHP.gameObject.SetActive(false);
 
             NoteManager.noteOn = false;
-            CenterFlame.instance.StopMusic();
+            //CenterFlame.instance.StopMusic();
+            CenterFlame.instance.NoteClear();
             theTimingManager.boxNoteList.Clear();
-            thebackGroundManager.ChangeBackground();
+           //thebackGroundManager.ChangeBackground();
             if (cnt == 1) {
                 background1.SetTrigger("hit");    
             }

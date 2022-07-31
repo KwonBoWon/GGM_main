@@ -54,11 +54,14 @@ public class CenterFlame : MonoBehaviour
        
         bgms[BackGroundManager.stage].source.Stop();
         musicStart = false;
+        NoteClear();
+    }
+    public void NoteClear()
+    {
         if (destroyNotes == null)
         {
             destroyNotes = GameObject.FindGameObjectsWithTag("Note");
         }
-        Debug.Log(destroyNotes.Length);
         foreach (GameObject note in destroyNotes)
         {
             Destroy(note);
