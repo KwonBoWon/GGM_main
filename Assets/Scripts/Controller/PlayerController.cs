@@ -9,6 +9,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] Animator background1 = null;
     [SerializeField] Animator background2 = null;
     [SerializeField] Animator background3 = null;
+    [SerializeField] Animator background4 = null;
     [SerializeField] Transform tfMonsterAppear = null;
     [SerializeField] GameObject[] goMonster = null;
     int cnt = 0;
@@ -82,7 +83,13 @@ public class PlayerController : MonoBehaviour
             NoteManager.noteOn = true;
 
             monsterLife = false;
-            MakeMonster();
+            if (cnt % 3 != 0){
+                MakeMonster();
+            } 
+            else {
+                background3.SetTrigger("hit" + cnt);
+                background4.SetTrigger("hit1");
+            }
         }
     }
     public void HandleTime()
