@@ -7,17 +7,15 @@ using UnityEngine.UI;
 
 public class soundController : MonoBehaviour
 {
-    public AudioMixer masterMixer;
     public Slider audioSlider;
-
-    public void AudioControl()
+    void Update()
     {
-        float sound = audioSlider.value;
-
-        if (sound == -40f) masterMixer.SetFloat("BGM", -80);
-        else masterMixer.SetFloat("BGM", sound);
+     AudioListener.volume = audioSlider.value;
     }
+ 
+ 
 
-    
+
+
 
 }
