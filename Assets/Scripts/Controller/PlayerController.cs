@@ -12,7 +12,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] Animator background4 = null;
     [SerializeField] Transform tfMonsterAppear = null;
     [SerializeField] GameObject[] goMonster = null;
-    int cnt = 0;
+    public static int cnt = 0; //몬스터 나오는 횟수 3의 배수일때 갈림길
     BackGroundManager thebackGroundManager;
     public Slider MonsterHP;
     public Slider TimeHP;
@@ -62,6 +62,10 @@ public class PlayerController : MonoBehaviour
         {
             monsterDie();
         }
+        if (Input.GetKeyDown(KeyCode.C)) //K누르면 즉사
+        {
+            CenterFlame.instance.NoteClear();
+        }
         HandleHP();
         HandleTime();
     }
@@ -97,7 +101,7 @@ public class PlayerController : MonoBehaviour
             else {
                 background3.SetTrigger("hit" + cnt);
                 background4.SetTrigger("hit1");
-                //stopmusic 넣어주셈
+
             }
         }
     }

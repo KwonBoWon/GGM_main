@@ -51,7 +51,6 @@ public class CenterFlame : MonoBehaviour
 
     public void StopMusic()
     {
-       
         bgms[BackGroundManager.stage].source.Stop();
         musicStart = false;
         NoteClear();
@@ -66,6 +65,7 @@ public class CenterFlame : MonoBehaviour
         {
             Destroy(note);
         }
+         destroyNotes = null;
     }
 
     void Update()

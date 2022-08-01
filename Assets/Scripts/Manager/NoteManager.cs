@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class NoteManager : MonoBehaviour
 {
+    
     private int bpm = 0;
     double currentTime = 0d;
     int arrowDirection =0;
@@ -23,9 +24,13 @@ public class NoteManager : MonoBehaviour
 
     void Update()
     {
-        if((noteCount%10) <5) MakeNode(0);
-        else MakeNode(1);
-        //Debug.Log(noteCount);
+        if (PlayerController.cnt % 3 != 0 || PlayerController.cnt==0)
+        {
+            if ((noteCount % 10) < 5) MakeNode(0);
+            else MakeNode(1);
+            //Debug.Log(noteCount);
+        }
+        else CenterFlame.instance.StopMusic();
     }
 
     public int MakeNode(int turn)//(int attackTurn , int defenseTurn)
