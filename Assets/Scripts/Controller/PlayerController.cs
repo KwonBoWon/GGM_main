@@ -10,6 +10,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] Animator background2 = null;
     [SerializeField] Animator background3 = null;
     [SerializeField] Animator background4 = null;
+    [SerializeField] Animator background5 = null;
     [SerializeField] Transform tfMonsterAppear = null;
     [SerializeField] GameObject[] goMonster = null;
     public static int cnt = 0; //몬스터 나오는 횟수 3의 배수일때 갈림길
@@ -87,22 +88,33 @@ public class PlayerController : MonoBehaviour
             CenterFlame.instance.NoteClear();
             theTimingManager.boxNoteList.Clear();
            //thebackGroundManager.ChangeBackground();
-            if (cnt == 1) {
-                background1.SetTrigger("hit");    
-            }
-            background2.SetTrigger("hit"+cnt);   
-            background3.SetTrigger("hit"+cnt);   
-            NoteManager.noteOn = true;
+           if (cnt <= 3) { //1 스테이지
+                if (cnt == 1) {
+                    background1.SetTrigger("hit");    
+                }
+                background2.SetTrigger("hit"+cnt);   
+                background3.SetTrigger("hit"+cnt);   
+                NoteManager.noteOn = true;
 
-            monsterLife = false;
-            if (cnt % 3 != 0){
-                MakeMonster();
-            } 
-            else {
-                background3.SetTrigger("hit" + cnt);
-                background4.SetTrigger("hit1");
+                monsterLife = false;
+                if (cnt % 3 != 0){
+                    MakeMonster();
+                } 
+                else {
+                    background3.SetTrigger("hit" + cnt);
+                    background4.SetTrigger("hit1");
+                    Invoke("MonsterLifeTrue", 2f);
+                    
+                }
+           }
 
-            }
+           else if (cnt <= 6) { //2 스테이지
+                if (cnt == 4) {
+                    background5.SetTrigger("hit");
+                    background4.SetTrigger("hit");
+                    Debug.Log("dk");
+                }
+           }
         }
     }
     public void HandleTime()
@@ -127,4 +139,7 @@ public class PlayerController : MonoBehaviour
         if(curTime>maxTime) curTime = maxTime;
     }
 
+    public void MonsterLifeTrue() {
+        monsterLife = true;
+    }
 }
