@@ -97,6 +97,7 @@ public class PlayerController : MonoBehaviour
             else {
                 background3.SetTrigger("hit" + cnt);
                 background4.SetTrigger("hit1");
+                //stopmusic 넣어주셈
             }
         }
     }
