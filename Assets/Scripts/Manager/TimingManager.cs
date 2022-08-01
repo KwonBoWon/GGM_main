@@ -68,8 +68,9 @@ public class TimingManager : MonoBehaviour
                         theEffect.JudgementEffect(4); //Miss이펙트
                     }
 
-                    if (arrowInput != t_noteDire && t_noteType == 1)
+                    if ((arrowInput + t_noteDire ==1  || arrowInput + t_noteDire == 5) && t_noteType == 1) //반대방향으로 누를때
                     {//공격성공
+
                         if (x < timingBoxs.Length - 1)
                         {
                             theEffect.NoteHitEffect();//히트이펙트

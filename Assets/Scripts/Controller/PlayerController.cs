@@ -58,8 +58,16 @@ public class PlayerController : MonoBehaviour
         {
             theTimingManager.CheckTiming(3);
         }
+        if (Input.GetKeyDown(KeyCode.K)) //K누르면 즉사
+        {
+            monsterDie();
+        }
         HandleHP();
         HandleTime();
+    }
+    public void monsterDie() //적즉사
+    {
+        curHP = 0;
     }
     public void HandleHP() {
         MonsterHP.value = (float) curHP / (float) maxHP;

@@ -25,7 +25,7 @@ public class NoteManager : MonoBehaviour
     {
         if((noteCount%10) <5) MakeNode(0);
         else MakeNode(1);
-        Debug.Log(noteCount);
+        //Debug.Log(noteCount);
     }
 
     public int MakeNode(int turn)//(int attackTurn , int defenseTurn)
