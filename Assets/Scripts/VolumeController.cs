@@ -5,12 +5,12 @@ using UnityEngine;
 using UnityEngine.Audio;
 using UnityEngine.UI;
 
-public class soundController : MonoBehaviour
+public class VolumeController : MonoBehaviour
 {
-    public Slider audioSlider;
+    public Slider Volume;
     void Update()
     {
-     AudioListener.volume = audioSlider.value;
+     AudioListener.volume = Volume.value; //슬라이더로 볼륨조절
     }
  
  
