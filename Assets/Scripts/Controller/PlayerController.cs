@@ -15,6 +15,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] GameObject[] goMonster = null;
     public static int cnt = 0; //몬스터 나오는 횟수 3의 배수일때 갈림길
     BackGroundManager thebackGroundManager;
+    MonsterManager theMonsterManager;
     public Slider MonsterHP;
     public Slider TimeHP;
 

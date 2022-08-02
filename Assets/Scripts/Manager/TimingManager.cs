@@ -34,10 +34,10 @@ public class TimingManager : MonoBehaviour
     {
 
     }
-
+    
     public void CheckTiming( int arrowInput)
     {
-        if (arrowInput == -1) //노트 놓칠시
+        if (arrowInput == -10) //노트 놓칠시
         {
             Obj.GetComponent<PlayerController>().curTime -= 10; //시간감소
             theEffect.JudgementEffect(4); //Miss이펙트

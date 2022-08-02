@@ -13,19 +13,27 @@ public class Monster : MonoBehaviour
     public int monsterDamage;
     public int monsterHP;
 
-        
-  
 
 
-    // Start is called before the first frame update
-    void Start()
+    public void MonsterDoge( int direction)
     {
         
+        float speed = 5000;//¾Æ·¡À§¿Þ¿À
+        //this.transform.position = new Vector3(999, 595, 0);
+        if (direction==0) this.transform.position -= new Vector3(0, speed * Time.deltaTime,  0);
+        else if (direction == 1) this.transform.position += new Vector3(0, speed * Time.deltaTime,  0);
+        else if (direction == 2) this.transform.position -= new Vector3(speed* Time.deltaTime, 0, 0);
+        else if (direction == 3) this.transform.position += new Vector3(speed *Time.deltaTime, 0, 0);
+        //Debug.Log("moved");
+       
+    }
+    public void PositionRest()
+    {
+        this.transform.position = new Vector3(1000, 596, 0);
+    }
+    public void OnIvoke()
+    {
+        return;
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }
