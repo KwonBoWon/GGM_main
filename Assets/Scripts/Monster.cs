@@ -20,10 +20,10 @@ public class Monster : MonoBehaviour
         
         float speed = 5000;//¾Æ·¡À§¿Þ¿À
         //this.transform.position = new Vector3(999, 595, 0);
-        if (direction==0) this.transform.position -= new Vector3(0, speed * Time.deltaTime,  0);
-        else if (direction == 1) this.transform.position += new Vector3(0, speed * Time.deltaTime,  0);
-        else if (direction == 2) this.transform.position -= new Vector3(speed* Time.deltaTime, 0, 0);
-        else if (direction == 3) this.transform.position += new Vector3(speed *Time.deltaTime, 0, 0);
+        if (direction==0) this.transform.Translate(0, -(speed * Time.deltaTime),  0);
+        else if (direction == 1) this.transform.Translate(0, speed * Time.deltaTime,  0);
+        else if (direction == 2) this.transform.Translate(-(speed* Time.deltaTime), 0, 0);
+        else if (direction == 3) this.transform.Translate(speed *Time.deltaTime, 0, 0);
         //Debug.Log("moved");
        
     }
