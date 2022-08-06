@@ -6,11 +6,12 @@ using UnityEngine.UI;
 public class PlayerController : MonoBehaviour
 {
     TimingManager theTimingManager;
-    [SerializeField] Animator background1 = null;
-    [SerializeField] Animator background2 = null;
-    [SerializeField] Animator background3 = null;
-    [SerializeField] Animator background4 = null;
-    [SerializeField] Animator background5 = null;
+    int flag = 0;
+    int nStage = 1;
+    GameObject backGround;
+    Animator BackGround1 = null;
+    Animator BackGround2 = null;
+    Animator BackGround3 = null;
     [SerializeField] Transform tfMonsterAppear = null;
     [SerializeField] GameObject[] goMonster = null;
     public static int cnt = 0; //몬스터 나오는 횟수 3의 배수일때 갈림길
@@ -89,33 +90,7 @@ public class PlayerController : MonoBehaviour
             CenterFlame.instance.NoteClear();
             theTimingManager.boxNoteList.Clear();
            //thebackGroundManager.ChangeBackground();
-           if (cnt <= 3) { //1 스테이지
-                if (cnt == 1) {
-                    background1.SetTrigger("hit");    
-                }
-                background2.SetTrigger("hit"+cnt);   
-                background3.SetTrigger("hit"+cnt);   
-                NoteManager.noteOn = true;
-
-                monsterLife = false;
-                if (cnt % 3 != 0){
-                    MakeMonster();
-                } 
-                else {
-                    background3.SetTrigger("hit" + cnt);
-                    background4.SetTrigger("hit1");
-                    Invoke("MonsterLifeTrue", 2f);
-                    
-                }
-           }
-
-           else if (cnt <= 6) { //2 스테이지
-                if (cnt == 4) {
-                    background5.SetTrigger("hit");  
-                    background4.SetTrigger("hit");
-                    Debug.Log("dk");
-                }
-           }
+           BackGroundChange();
         }
     }
     public void HandleTime()
@@ -142,5 +117,48 @@ public class PlayerController : MonoBehaviour
 
     public void MonsterLifeTrue() {
         monsterLife = true;
+    }
+    public void BackGroundChange() {
+        if (flag == 0) {
+            backGround = GameObject.Find(nStage + "-1");
+            Debug.Log(backGround);
+            BackGround1 = backGround.GetComponent<Animator>();
+            backGround = GameObject.Find(nStage + "-2");
+            BackGround2 = backGround.GetComponent<Animator>();                
+            backGround = GameObject.Find(nStage + "-3");
+            BackGround3 = backGround.GetComponent<Animator>();
+            BackGround1.SetTrigger("hit");
+            BackGround2.SetTrigger("hit1");
+            BackGround3.SetTrigger("hit1");
+            flag++;
+            MakeMonster();
+            return;
+        }
+        else if (flag == 1) {
+            BackGround2.SetTrigger("hit2");
+            BackGround3.SetTrigger("hit2");
+            flag++;
+            MakeMonster();
+            return;
+        }
+        else if (flag == 2) {
+            backGround = GameObject.Find(nStage + "-4"); 
+            BackGround2 = backGround.GetComponent<Animator>(); //갈림길 애니메이션
+            BackGround2.SetTrigger("hit1");
+            BackGround3.SetTrigger("hit3");
+            flag++;
+            return;
+            //갈림길 함수
+        }
+        else if (flag == 4) {
+            flag = 0;
+            nStage++;
+            backGround = GameObject.Find(nStage + "-1");
+            BackGround1 = backGround.GetComponent<Animator>();
+            BackGround2.SetTrigger("hit2");
+            BackGround1.SetTrigger("hit1"); //새로운 스테이지 처음 맵 보이게
+            MakeMonster();
+            return;
+        }
     }
 }

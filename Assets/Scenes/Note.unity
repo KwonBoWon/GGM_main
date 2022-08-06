@@ -3489,11 +3489,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8f067524d2fd4364281cee80f562bef6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  background1: {fileID: 1226743431}
-  background2: {fileID: 1271845971}
-  background3: {fileID: 915609099}
-  background4: {fileID: 1169012248}
-  background5: {fileID: 529267173}
   tfMonsterAppear: {fileID: 922853101}
   goMonster:
   - {fileID: 3187766591846464014, guid: 624134c02ebf6134aab0ff861b2af353, type: 3}

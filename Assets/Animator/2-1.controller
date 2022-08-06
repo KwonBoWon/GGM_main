@@ -61,7 +61,7 @@ AnimatorController:
   m_Name: 2-1
   serializedVersion: 5
   m_AnimatorParameters:
-  - m_Name: hit
+  - m_Name: hit1
     m_Type: 9
     m_DefaultFloat: 0
     m_DefaultInt: 0
@@ -89,7 +89,7 @@ AnimatorStateTransition:
   m_Name: 
   m_Conditions:
   - m_ConditionMode: 1
-    m_ConditionEvent: hit
+    m_ConditionEvent: hit1
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: -6627256402587505244}
