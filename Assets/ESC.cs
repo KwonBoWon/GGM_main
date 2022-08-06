@@ -21,13 +21,14 @@ public class ESC : MonoBehaviour
             Time.timeScale = 0.0F;
             ESCck = 0;
             Volume.gameObject.SetActive(true);
-
+            CenterFlame.instance.bgms[BackGroundManager.stage].source.Pause();
         }
         else if (Input.GetKeyDown(KeyCode.Escape) && ESCck == 0) { //esc키 또 누르면 없어지게
             this.image.enabled = false;
             Time.timeScale = 1.0F;
             ESCck = 1;
             Volume.gameObject.SetActive(false);
+            CenterFlame.instance.bgms[BackGroundManager.stage].source.Play();
         }
     }
 }
