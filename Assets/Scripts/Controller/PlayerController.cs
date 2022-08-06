@@ -71,6 +71,8 @@ public class PlayerController : MonoBehaviour
         }
         HandleHP();
         HandleTime();
+        if (flag == 3)
+            CrossRoad();
     }
     public void monsterDie() //적즉사
     {
@@ -119,6 +121,30 @@ public class PlayerController : MonoBehaviour
     public void MonsterLifeTrue() {
         monsterLife = true;
     }
+    public void CrossRoad() {
+        if (Input.GetKeyDown(KeyCode.RightArrow)) { 
+            //오른쪽 애니메이션 나오게
+            nStage++;
+            backGround = GameObject.Find(nStage + "-1");
+            BackGround1 = backGround.GetComponent<Animator>();
+            BackGround2.SetTrigger("hit2"); //갈림길 사라지게
+            BackGround1.SetTrigger("hit1"); //새로운 스테이지 처음 맵 보이게
+            MakeMonster();
+            flag = 0;
+            Debug.Log(nStage);
+        }
+        else if (Input.GetKeyDown(KeyCode.LeftArrow)) {
+            //왼쪽 애니메이션 나오게
+            nStage++;
+            backGround = GameObject.Find(nStage + "-1");
+            BackGround1 = backGround.GetComponent<Animator>();
+            BackGround2.SetTrigger("hit2"); //갈림길 사라지게
+            BackGround1.SetTrigger("hit1"); //새로운 스테이지 처음 맵 보이게
+            MakeMonster();
+            flag = 0;
+            Debug.Log(nStage);
+        }
+    }
     public void BackGroundChange() {
         if (flag == 0) {
             backGround = GameObject.Find(nStage + "-1");
@@ -148,17 +174,8 @@ public class PlayerController : MonoBehaviour
             BackGround3.SetTrigger("hit3");
             flag++;
             return;
-            //갈림길 함수
         }
-        else if (flag == 4) {
-            flag = 0;
-            nStage++;
-            backGround = GameObject.Find(nStage + "-1");
-            BackGround1 = backGround.GetComponent<Animator>();
-            BackGround2.SetTrigger("hit2");
-            BackGround1.SetTrigger("hit1"); //새로운 스테이지 처음 맵 보이게
-            MakeMonster();
-            return;
-        }
+        
     }
+    
 }
