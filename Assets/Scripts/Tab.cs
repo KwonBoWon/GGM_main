@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 public class Tab : MonoBehaviour
 {
-    public Image image; 
+    public Image image;
     // Start is called before the first frame update
     void Start()
     {
@@ -20,7 +20,8 @@ public class Tab : MonoBehaviour
         }
         if (Input.GetKeyUp(KeyCode.Tab)) { //탭키 떼는 순간 안 보이게
             this.image.enabled = false;
-            Time.timeScale = 1.0F;
+            if (ESC.ESCck != 0)
+                Time.timeScale = 1.0F;
         }
     }
 }
