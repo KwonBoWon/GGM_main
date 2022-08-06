@@ -7,8 +7,10 @@ public class MonsterNote : MonoBehaviour
     TimingManager theTimingManager;
     MonsterManager theMonsterManager;
     Animator monsterAttack = null;
+    [SerializeField]  Animator player;
     GameObject t_monster;
     int dir;
+    
     void Start()
     {
         
@@ -19,22 +21,38 @@ public class MonsterNote : MonoBehaviour
         {
             t_monster = GameObject.Find("monster" + PlayerController.cnt + "(Clone)");
             monsterAttack = t_monster.GetComponent<Animator>();
+            dir = collision.GetComponent<Note>().noteDirection;
             if (t_monster != null)
             {
                 t_monster.GetComponent<Monster>().PositionRest();
                 if (collision.GetComponent<Note>().noteType == 0) //공격
                 {
                     monsterAttack.SetTrigger("hit");
+                    if (dir == 0)
+                    {
+                        player.SetBool("Down", true);
+                    }
+                    else if (dir == 1)
+                    {
+                        player.SetBool("Up", true);
+                    }
+                    else if (dir == 2)
+                    {
+                        player.SetBool("Left", true);
+                    }
+                    else if(dir==3)
+                    {
+                        player.SetBool("Right", true);
+                    }
+
+
                 }
                 if (collision.GetComponent<Note>().noteType == 1) //회피
                 {
-
-
-                    //Debug.Log(t_monster);
-                    dir = collision.GetComponent<Note>().noteDirection;
-                    t_monster.GetComponent<Monster>().MonsterDoge(dir);
-
-
+                    if (dir == 0) monsterAttack.SetTrigger("Down");
+                    else if (dir == 1) monsterAttack.SetTrigger("Up");
+                    else if (dir==2) monsterAttack.SetTrigger("Left");
+                    else if (dir == 3) monsterAttack.SetTrigger("Right");
                 }
             }
         }
