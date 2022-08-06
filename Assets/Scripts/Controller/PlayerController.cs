@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class PlayerController : MonoBehaviour
 {
     TimingManager theTimingManager;
-    int flag = 0;
+    public static int flag = 0;
     int nStage = 1;
     GameObject backGround;
     Animator BackGround1 = null;
@@ -113,6 +113,7 @@ public class PlayerController : MonoBehaviour
         //monsterhp=Instantiate(MonsterHP, tfMonsterAppear.position , Quaternion.identity);
         curTime += addTime; //시간추가
         if(curTime>maxTime) curTime = maxTime;
+        NoteManager.noteOn = true;
     }
 
     public void MonsterLifeTrue() {
@@ -121,7 +122,6 @@ public class PlayerController : MonoBehaviour
     public void BackGroundChange() {
         if (flag == 0) {
             backGround = GameObject.Find(nStage + "-1");
-            Debug.Log(backGround);
             BackGround1 = backGround.GetComponent<Animator>();
             backGround = GameObject.Find(nStage + "-2");
             BackGround2 = backGround.GetComponent<Animator>();                

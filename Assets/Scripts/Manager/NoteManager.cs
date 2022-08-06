@@ -9,13 +9,14 @@ public class NoteManager : MonoBehaviour
     double currentTime = 0d;
     int arrowDirection =0;
     public static bool noteOn = true;
-    private int noteCount=0;
+    public static int noteCount=0;
 
     [SerializeField] Transform tfNoteAppear  = null; //노트가 생성되는곳
     [SerializeField] GameObject[] goNote = null; //노트 프리펩들
 
     TimingManager theTimingManager;
     EffectManager theEffectManager;
+    
     void Start()
     {
         theEffectManager = FindObjectOfType<EffectManager>();
@@ -24,11 +25,10 @@ public class NoteManager : MonoBehaviour
 
     void Update()
     {
-        if (PlayerController.cnt % 3 != 0 || PlayerController.cnt==0)
+        if (PlayerController.flag != 3)
         {
             if ((noteCount % 10) < 5) MakeNode(0);
             else MakeNode(1);
-            //Debug.Log(noteCount);
         }
         else CenterFlame.instance.StopMusic();
     }
