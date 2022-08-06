@@ -17,10 +17,12 @@ public class Tab : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Tab)) { //탭키 누르는 순간 보이게
             this.image.enabled = true;
             Debug.Log("tabDOWN");
+            Time.timeScale = 0.0F;
         }
         if (Input.GetKeyUp(KeyCode.Tab)) { //탭키 떼는 순간 안 보이게
             this.image.enabled = false;
             Debug.Log("tabUP");
+            Time.timeScale = 1.0F;
         }
     }
 }
