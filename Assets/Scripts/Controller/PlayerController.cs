@@ -111,7 +111,7 @@ public class PlayerController : MonoBehaviour
 
            else if (cnt <= 6) { //2 스테이지
                 if (cnt == 4) {
-                    background5.SetTrigger("hit");
+                    background5.SetTrigger("hit");  
                     background4.SetTrigger("hit");
                     Debug.Log("dk");
                 }

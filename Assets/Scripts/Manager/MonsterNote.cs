@@ -6,6 +6,7 @@ public class MonsterNote : MonoBehaviour
 {
     TimingManager theTimingManager;
     MonsterManager theMonsterManager;
+    Animator monsterAttack = null;
     GameObject t_monster;
     int dir;
     void Start()
@@ -17,14 +18,15 @@ public class MonsterNote : MonoBehaviour
         if (collision.CompareTag("Note"))
         {
             t_monster = GameObject.Find("monster" + PlayerController.cnt + "(Clone)");
+            monsterAttack = t_monster.GetComponent<Animator>();
             if (t_monster != null)
             {
                 t_monster.GetComponent<Monster>().PositionRest();
-                if (collision.GetComponent<Note>().noteType == 0) //¸ó½ºÅÍ °ø°Ý
+                if (collision.GetComponent<Note>().noteType == 0) //ê³µê²©
                 {
-                    //¸ó½ºÅÍ °ø°Ý ¾Ö´Ï¸ÞÀÌ¼Ç
+                    monsterAttack.SetTrigger("hit");
                 }
-                if (collision.GetComponent<Note>().noteType == 1) //¸ó½ºÅÍ È¸ÇÇ
+                if (collision.GetComponent<Note>().noteType == 1) //íšŒí”¼
                 {
 
 
