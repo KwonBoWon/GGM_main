@@ -14,12 +14,11 @@ public class PlayerController : MonoBehaviour
     Animator BackGround3 = null;
     [SerializeField] Transform tfMonsterAppear = null;
     [SerializeField] GameObject[] goMonster = null;
-    public static int cnt = 0; //몬스터 나오는 횟수 3의 배수일때 갈림길
     BackGroundManager thebackGroundManager;
     MonsterManager theMonsterManager;
     public Slider MonsterHP;
     public Slider TimeHP;
-
+    public static int cnt = 0;
     GameObject t_monstet;
 
     public float maxHP = 100; //최대 체력
@@ -129,6 +128,10 @@ public class PlayerController : MonoBehaviour
             BackGround1 = backGround.GetComponent<Animator>();
             BackGround2.SetTrigger("hit2"); //갈림길 사라지게
             BackGround1.SetTrigger("hit1"); //새로운 스테이지 처음 맵 보이게
+            // backGround = GameObject.Find(nStage + "-2");
+            // backGround.renderer.enabled = true;
+            // backGround = GameObject.Find(nStage + "-3");
+            // backGround.renderer.enabled = true;
             MakeMonster();
             flag = 0;
             Debug.Log(nStage);
@@ -140,6 +143,10 @@ public class PlayerController : MonoBehaviour
             BackGround1 = backGround.GetComponent<Animator>();
             BackGround2.SetTrigger("hit2"); //갈림길 사라지게
             BackGround1.SetTrigger("hit1"); //새로운 스테이지 처음 맵 보이게
+            // backGround = GameObject.Find(nStage + "-2");
+            // backGround.SetActive(true);
+            // backGround = GameObject.Find(nStage + "-3");
+            // backGround.SetActive(true);
             MakeMonster();
             flag = 0;
             Debug.Log(nStage);
