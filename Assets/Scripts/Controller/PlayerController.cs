@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class PlayerController : MonoBehaviour
 {
     TimingManager theTimingManager;
+
     public static int flag = 0;
     int nStage = 1;
     GameObject backGround;
@@ -117,9 +118,6 @@ public class PlayerController : MonoBehaviour
         NoteManager.noteOn = true;
     }
 
-    public void MonsterLifeTrue() {
-        monsterLife = true;
-    }
     public void CrossRoad() {
         if (Input.GetKeyDown(KeyCode.RightArrow)) { 
             //오른쪽 애니메이션 나오게
@@ -135,6 +133,7 @@ public class PlayerController : MonoBehaviour
             MakeMonster();
             flag = 0;
             Debug.Log(nStage);
+            
         }
         else if (Input.GetKeyDown(KeyCode.LeftArrow)) {
             //왼쪽 애니메이션 나오게
