@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class PlayerController : MonoBehaviour
 {
     TimingManager theTimingManager;
+    private Tree T= new Tree();
 
     public static int flag = 0;
     int nStage = 1;
@@ -21,8 +22,8 @@ public class PlayerController : MonoBehaviour
     public Slider MonsterHP;
     public Slider TimeHP;
     public static int cnt = 0;
-    GameObject t_monstet;
 
+    [SerializeField] GameObject Tree;
     public float maxHP = 100; //최대 체력
     public float curHP = 100; //현재 체력
 
@@ -30,18 +31,24 @@ public class PlayerController : MonoBehaviour
     public float curTime = 50; //현재시간
     public float addTime = 30; //시간추가
     private bool monsterLife = true;
-
+   
+    
+   
     void Start()
     {
+       
+        Debug.Log("Tree" + T.stageTree.Root.L.Data);
+        T.stageTree.Root.L.Data = 3;
         Instantiate(goMonster[cnt], tfMonsterAppear.position, Quaternion.identity);
         MonsterHP = GameObject.Find("MonsterHP").GetComponent<Slider>();
         MonsterHP.value = (float) curHP / (float) maxHP;
         TimeHP = GameObject.Find("Time").GetComponent<Slider>();
         TimeHP.value =(float)curTime / (float)maxTime; //초기시간
-
-
+        
+        
         theTimingManager = FindObjectOfType<TimingManager>();
         thebackGroundManager = FindObjectOfType<BackGroundManager>();
+
     }
     void Update()
     {
@@ -135,8 +142,10 @@ public class PlayerController : MonoBehaviour
             // backGround.GetComponent<Renderer>().enabled = true;
             MakeMonster();
             flag = 0;
+
+
+            nStage=T.ChooseR(T.stageNode);//오른쪽
             Debug.Log(nStage);
-            
         }
         else if (Input.GetKeyDown(KeyCode.LeftArrow)) {
             //왼쪽 애니메이션 나오게
@@ -151,6 +160,9 @@ public class PlayerController : MonoBehaviour
             // backGround.SetActive(true);
             MakeMonster();
             flag = 0;
+
+
+            nStage = T.ChooseL(T.stageNode);//왼쪽
             Debug.Log(nStage);
         }
     }
