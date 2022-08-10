@@ -116,7 +116,8 @@ public class PlayerController : MonoBehaviour
                 Destroy(note);
             }
             cnt++;
-            //Debug.Log(cnt);
+            if (cnt == 3)
+                cnt = 0;
             MonsterHP.gameObject.SetActive(false);
             monsterLife = false;
             NoteManager.noteOn = false;
