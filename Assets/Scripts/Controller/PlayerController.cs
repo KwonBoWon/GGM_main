@@ -73,34 +73,38 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         //화살표 입력 0123 : DULR
-        if (Input.GetKeyDown(KeyCode.DownArrow))
+        if (flag == 3) //갈림길일때
+            CrossRoad();
+        else//갈림길이 아닐때
         {
-            theTimingManager.CheckTiming(0);
-        }
-        if (Input.GetKeyDown(KeyCode.UpArrow))
-        {
-            theTimingManager.CheckTiming(1);
-        }
-        if (Input.GetKeyDown(KeyCode.LeftArrow))
-        {
-            theTimingManager.CheckTiming(2);
-        }
-        if (Input.GetKeyDown(KeyCode.RightArrow))
-        {
-            theTimingManager.CheckTiming(3);
-        }
-        if (Input.GetKeyDown(KeyCode.K)) //K누르면 즉사
-        {
-            monsterDie();
-        }
-        if (Input.GetKeyDown(KeyCode.C)) //K누르면 즉사
-        {
-            CenterFlame.instance.NoteClear();
+            if (Input.GetKeyDown(KeyCode.DownArrow))
+            {
+                theTimingManager.CheckTiming(0);
+            }
+            if (Input.GetKeyDown(KeyCode.UpArrow))
+            {
+                theTimingManager.CheckTiming(1);
+            }
+            if (Input.GetKeyDown(KeyCode.LeftArrow))
+            {
+                theTimingManager.CheckTiming(2);
+            }
+            if (Input.GetKeyDown(KeyCode.RightArrow))
+            {
+                theTimingManager.CheckTiming(3);
+            }
+            if (Input.GetKeyDown(KeyCode.K)) //K누르면 즉사
+            {
+                monsterDie();
+            }
+            if (Input.GetKeyDown(KeyCode.C)) //K누르면 즉사
+            {
+                CenterFlame.instance.NoteClear();
+            }
         }
         HandleHP();
         HandleTime();
-        if (flag == 3)
-            CrossRoad();
+        
     }
     public void monsterDie() //적즉사
     {
