@@ -72,8 +72,8 @@ public class Tree
 
             stageTree.Root.R.L.L = new TreeNode(4);
             stageTree.Root.R.L.R = new TreeNode(4);
-            stageTree.Root.R.R.L = new TreeNode(3);
-            stageTree.Root.R.R.R = new TreeNode(3);
+            stageTree.Root.R.R.L = new TreeNode(2);
+            stageTree.Root.R.R.R = new TreeNode(2);
             //보스는 L
             stageTree.Root.L.L.L.L = new TreeNode(1);
             stageTree.Root.L.L.R.L = new TreeNode(2);
