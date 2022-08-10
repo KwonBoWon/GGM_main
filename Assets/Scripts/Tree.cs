@@ -1,10 +1,12 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Tree : MonoBehaviour
+public class Tree 
 {
-    // ÀÌÁø Æ®¸® ³ëµå Å¬·¡½º
+
+
+    // ì´ì§„ íŠ¸ë¦¬ ë…¸ë“œ í´ë˜ìŠ¤
     public class TreeNode<T>
     {
         public T Data { get; set; }
@@ -17,12 +19,12 @@ public class Tree : MonoBehaviour
         }
     }
 
-    // ÀÌÁø Æ®¸® Å¬·¡½º
+    // ì´ì§„ íŠ¸ë¦¬ í´ë˜ìŠ¤
     public class BinaryTree<T>
     {
         public TreeNode<T> Root { get; set; }
 
-        // Æ®¸® µ¥ÀÌÅÍ Ãâ·Â ¿¹
+        // íŠ¸ë¦¬ ë°ì´í„° ì¶œë ¥ ì˜ˆ
         public void PreOrderTraversal(TreeNode<T> node)
         {
             if (node == null) return;
@@ -32,15 +34,28 @@ public class Tree : MonoBehaviour
         }
     }
 
-    // Å×½ºÆ® ¿¹Á¦
+    public int ChooseL(TreeNode<int> node)
+    {
+        node = node.L;
+        return node.Data;
+    }
+    public int ChooseR(TreeNode<int> node)
+    {
+        node = node.R;
+        return node.Data;
+    }
+
+
+    public BinaryTree<int> stageTree;
+    public TreeNode<int> stageNode;
+    public int abc=1;
 
 
 
 
+    public Tree (){
 
-            void Start()
-        {
-            BinaryTree<int> stageTree = new BinaryTree<int>();
+            stageTree = new BinaryTree<int>();
             stageTree.Root = new TreeNode<int>(1);
             stageTree.Root.L = new TreeNode<int>(2);
             stageTree.Root.R = new TreeNode<int>(3);
@@ -59,7 +74,7 @@ public class Tree : MonoBehaviour
             stageTree.Root.R.L.R = new TreeNode<int>(4);
             stageTree.Root.R.R.L = new TreeNode<int>(3);
             stageTree.Root.R.R.R = new TreeNode<int>(3);
-            //º¸½º´Â L
+            //ë³´ìŠ¤ëŠ” L
             stageTree.Root.L.L.L.L = new TreeNode<int>(1);
             stageTree.Root.L.L.R.L = new TreeNode<int>(2);
             stageTree.Root.L.R.L.L = new TreeNode<int>(2);
@@ -67,18 +82,19 @@ public class Tree : MonoBehaviour
 
             stageTree.Root.R.L.L.L = new TreeNode<int>(2);
             stageTree.Root.R.L.R.L = new TreeNode<int>(1);
-            stageTree.Root.R.R.L.L = new TreeNode<int>(4);//È÷µçº¸½º(4)
+            stageTree.Root.R.R.L.L = new TreeNode<int>(4);//íˆë“ ë³´ìŠ¤(4)
             stageTree.Root.R.R.R.L = new TreeNode<int>(3);
+        stageNode = stageTree.Root;
+        /*
+                 1
+             2        3
+          3   4    2    4
+        4 4 3 3 4 4 2 2
+        1 2 2 3 2 1 4 3 //ë³´ìŠ¤
+        */
 
-            /*
-                     1
-                 2        3
-              3   4    2    4
-            4 4 3 3 4 4 2 2
-            1 2 2 3 2 1 4 3 //º¸½º
-            */
+        //stageTree.PreOrderTraversal(stageTree.Root);
 
-            //stageTree.PreOrderTraversal(stageTree.Root);
-        }
-
+    }
 }
+
