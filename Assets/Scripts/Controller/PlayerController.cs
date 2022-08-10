@@ -10,6 +10,7 @@ public class PlayerController : MonoBehaviour
     public static int flag = 0;
     int nStage = 1;
     GameObject backGround;
+    SpriteRenderer backRenderer;
     Animator BackGround1 = null;
     Animator BackGround2 = null;
     Animator BackGround3 = null;
@@ -84,9 +85,9 @@ public class PlayerController : MonoBehaviour
         if (MonsterHP.value == 0 && monsterLife == true) { // 적 죽으면
          	Destroy(GameObject.Find("monster" + cnt + "(Clone)"));
             cnt++;
-           // Debug.Log(cnt);
+            //Debug.Log(cnt);
             MonsterHP.gameObject.SetActive(false);
-
+            monsterLife = false;
             NoteManager.noteOn = false;
             //CenterFlame.instance.StopMusic();
             CenterFlame.instance.NoteClear();
@@ -127,9 +128,11 @@ public class PlayerController : MonoBehaviour
             BackGround2.SetTrigger("hit2"); //갈림길 사라지게
             BackGround1.SetTrigger("hit1"); //새로운 스테이지 처음 맵 보이게
             // backGround = GameObject.Find(nStage + "-2");
-            // backGround.renderer.enabled = true;
+            // Debug.Log(backGround);
+            // backRenderer = backGround.GetComponent<SpriteRenderer>();
+            // backRenderer.enabled = true;
             // backGround = GameObject.Find(nStage + "-3");
-            // backGround.renderer.enabled = true;
+            // backGround.GetComponent<Renderer>().enabled = true;
             MakeMonster();
             flag = 0;
             Debug.Log(nStage);
