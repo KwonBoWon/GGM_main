@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class NoteManager : MonoBehaviour
 {
-    
+
+
     private int bpm = 0;
     double currentTime = 0d;
     int arrowDirection =0;
@@ -16,11 +17,14 @@ public class NoteManager : MonoBehaviour
 
     TimingManager theTimingManager;
     EffectManager theEffectManager;
-    
+    ComboManager thecomboManager;
+
+
     void Start()
     {
         theEffectManager = FindObjectOfType<EffectManager>();
         theTimingManager = GetComponent<TimingManager>();
+        thecomboManager =FindObjectOfType<ComboManager>();
     }
 
     void Update()
@@ -60,14 +64,19 @@ public class NoteManager : MonoBehaviour
         if (collision.CompareTag("Note")) 
         {
             
-            if (collision.GetComponent<Note>().GetNoteFlag() && collision.GetComponent<Note>().noteType==0)//이미지가 있을때만 방어턴일때만
+            if (collision.GetComponent<Note>().GetNoteFlag())//이미지가 있을때만
             {
-                theTimingManager.CheckTiming(-10); //노트 놓칠시
+                if (collision.GetComponent<Note>().noteType == 0)//방어턴일때
+                {
+                    theTimingManager.CheckTiming(-10); //노트 놓칠시
+                }
+                thecomboManager.ResetCombo(); //콤보리셋
             }
           
             //노트가 맵 끝까지 가면 삭제
             theTimingManager.boxNoteList.Remove(collision.gameObject);
             Destroy(collision.gameObject);
+
         }
     }
 

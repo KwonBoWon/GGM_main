@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class TimingManager : MonoBehaviour
 {
+    ComboManager thecomboManager;
     public Animator animator; //애니메이터 변수 선언
     public List<GameObject> boxNoteList  = new List<GameObject>();
 
@@ -16,6 +17,8 @@ public class TimingManager : MonoBehaviour
     public string[] arrows;
     void Start()
     {
+        thecomboManager = FindObjectOfType<ComboManager>();
+
         Obj = GameObject.Find("PlayerControll");
         theEffect = FindObjectOfType<EffectManager>();
         timingBoxs = new Vector2[timingRect.Length];//타이밍 박스 설정
@@ -41,6 +44,8 @@ public class TimingManager : MonoBehaviour
         {
             Obj.GetComponent<PlayerController>().curTime -= 10; //시간감소
             theEffect.JudgementEffect(4); //Miss이펙트
+
+            thecomboManager.ResetCombo(); //콤보리셋
             return;
         }
 
@@ -61,11 +66,13 @@ public class TimingManager : MonoBehaviour
                             theEffect.NoteHitEffect();//히트이펙트
                         }
                         theEffect.JudgementEffect(x); //판정 이펙트
+                        thecomboManager.IncreaseCombo();//콤보증가
                     }
                     else if (arrowInput != t_noteType && t_noteType == 0)
                     {//방어실패
                         Obj.GetComponent<PlayerController>().curTime -= 10; //시간감소
                         theEffect.JudgementEffect(4); //Miss이펙트
+                        thecomboManager.ResetCombo(); //콤보리셋
                     }
 
                     if ((arrowInput + t_noteDire ==1  || arrowInput + t_noteDire == 5) && t_noteType == 1) //반대방향으로 누를때
@@ -76,6 +83,7 @@ public class TimingManager : MonoBehaviour
                             theEffect.NoteHitEffect();//히트이펙트
                         }
                         theEffect.JudgementEffect(x); //판정 이펙트
+                        thecomboManager.IncreaseCombo();//콤보증가
                         Obj.GetComponent<PlayerController>().curHP -= 10;
                         /*
                         if (arrowInput == 0)

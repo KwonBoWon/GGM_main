@@ -11,8 +11,6 @@ GameObject:
   - component: {fileID: 3187766591846464008}
   - component: {fileID: 3187766591846464009}
   - component: {fileID: 3187766591846464011}
-  - component: {fileID: -704057258425462711}
-  - component: {fileID: 3224197174809001185}
   - component: {fileID: 7812886200490304313}
   m_Layer: 10
   m_Name: monster0
@@ -104,53 +102,6 @@ MonoBehaviour:
   monsterDefense: 3
   monsterDamage: 10
   monsterHP: 100
---- !u!50 &-704057258425462711
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3187766591846464014}
-  m_BodyType: 0
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 0
-  m_Material: {fileID: 0}
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 0
---- !u!61 &3224197174809001185
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3187766591846464014}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 11.84, y: 4.64}
-    newSize: {x: 11.84, y: 4.64}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 1.54, y: 2.45}
-  m_EdgeRadius: 0
 --- !u!95 &7812886200490304313
 Animator:
   serializedVersion: 4
