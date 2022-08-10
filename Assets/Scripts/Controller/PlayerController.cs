@@ -155,7 +155,8 @@ public class PlayerController : MonoBehaviour
     public void CrossRoad() {
         if (Input.GetKeyDown(KeyCode.RightArrow)) { 
             //오른쪽 애니메이션 나오게
-            nStage++;
+
+            nStage=T.ChooseR(T.stageNode);//오른쪽
             backGround = GameObject.Find(nStage + "-1");
             BackGround1 = backGround.GetComponent<Animator>();
             BackGround2.SetTrigger("hit2"); //갈림길 사라지게
@@ -167,12 +168,11 @@ public class PlayerController : MonoBehaviour
             flag = 0;
 
 
-            nStage=T.ChooseR(T.stageNode);//오른쪽
-            //Debug.Log(nStage);
+
         }
         else if (Input.GetKeyDown(KeyCode.LeftArrow)) {
             //왼쪽 애니메이션 나오게
-            nStage++;
+            nStage = T.ChooseL(T.stageNode);//왼쪽
             backGround = GameObject.Find(nStage + "-1");
             BackGround1 = backGround.GetComponent<Animator>();
             BackGround2.SetTrigger("hit2"); //갈림길 사라지게
@@ -184,8 +184,7 @@ public class PlayerController : MonoBehaviour
             flag = 0;
 
 
-            nStage = T.ChooseL(T.stageNode);//왼쪽
-            Debug.Log(nStage);
+
         }
     }
     public void BackGroundChange() {
@@ -212,9 +211,10 @@ public class PlayerController : MonoBehaviour
         }
         else if (flag == 2) {
             backGround = GameObject.Find(nStage + "-4"); 
-            BackGround2 = backGround.GetComponent<Animator>(); //갈림길 애니메이션
+            BackGround2 = backGround.GetComponent<Animator>();
             BackGround2.SetTrigger("hit1");
             BackGround3.SetTrigger("hit3");
+            Debug.Log(nStage);
             flag++;
             return;
         }
