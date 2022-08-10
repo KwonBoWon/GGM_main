@@ -24,7 +24,8 @@ public class MonsterNote : MonoBehaviour
             dir = collision.GetComponent<Note>().noteDirection;
             if (t_monster != null)
             {
-                t_monster.GetComponent<Monster>().PositionRest();
+                //t_monster.GetComponent<Monster>().PositionReset();
+                /*
                 if (collision.GetComponent<Note>().noteType == 0) //공격
                 {
                     monsterAttack.SetTrigger("hit");
@@ -44,9 +45,10 @@ public class MonsterNote : MonoBehaviour
                     {
                         player.SetBool("Right", true);
                     }
-
+                
 
                 }
+                */
                 if (collision.GetComponent<Note>().noteType == 1) //회피
                 {
                     if (dir == 0) monsterAttack.SetTrigger("Down");

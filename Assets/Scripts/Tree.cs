@@ -7,25 +7,25 @@ public class Tree
 
 
     // 이진 트리 노드 클래스
-    public class TreeNode<T>
+    public class TreeNode
     {
-        public T Data { get; set; }
-        public TreeNode<T> L { get; set; }
-        public TreeNode<T> R { get; set; }
+        public int Data { get; set; }
+        public TreeNode L { get; set; }
+        public TreeNode R { get; set; }
 
-        public TreeNode(T data)
+        public TreeNode(int data)
         {
             this.Data = data;
         }
     }
 
     // 이진 트리 클래스
-    public class BinaryTree<T>
+    public class BinaryTree
     {
-        public TreeNode<T> Root { get; set; }
+        public TreeNode Root { get; set; }
 
         // 트리 데이터 출력 예
-        public void PreOrderTraversal(TreeNode<T> node)
+        public void PreOrderTraversal(TreeNode node)
         {
             if (node == null) return;
             Debug.Log(node.Data);
@@ -34,20 +34,20 @@ public class Tree
         }
     }
 
-    public int ChooseL(TreeNode<int> node)
+    public int ChooseL()
     {
-        node = node.L;
-        return node.Data;
+        stageNode = stageNode.L;
+        return stageNode.Data;
     }
-    public int ChooseR(TreeNode<int> node)
+    public int ChooseR()
     {
-        node = node.R;
-        return node.Data;
+        stageNode = stageNode.R;
+        return stageNode.Data;
     }
 
 
-    public BinaryTree<int> stageTree;
-    public TreeNode<int> stageNode;
+    public BinaryTree stageTree;
+    public TreeNode stageNode;
     public int abc=1;
 
 
@@ -55,35 +55,35 @@ public class Tree
 
     public Tree (){
 
-            stageTree = new BinaryTree<int>();
-            stageTree.Root = new TreeNode<int>(1);
-            stageTree.Root.L = new TreeNode<int>(2);
-            stageTree.Root.R = new TreeNode<int>(3);
+            stageTree = new BinaryTree();
+            stageTree.Root = new TreeNode(1);
+            stageTree.Root.L = new TreeNode(2);
+            stageTree.Root.R = new TreeNode(3);
 
-            stageTree.Root.L.L = new TreeNode<int>(3);
-            stageTree.Root.R.L = new TreeNode<int>(2);
-            stageTree.Root.L.R = new TreeNode<int>(4);
-            stageTree.Root.R.R = new TreeNode<int>(4);
+            stageTree.Root.L.L = new TreeNode(3);
+            stageTree.Root.R.L = new TreeNode(2);
+            stageTree.Root.L.R = new TreeNode(4);
+            stageTree.Root.R.R = new TreeNode(4);
 
-            stageTree.Root.L.L.L = new TreeNode<int>(4);
-            stageTree.Root.L.L.R = new TreeNode<int>(4);
-            stageTree.Root.L.R.L = new TreeNode<int>(3);
-            stageTree.Root.L.R.R = new TreeNode<int>(3);
+            stageTree.Root.L.L.L = new TreeNode(4);
+            stageTree.Root.L.L.R = new TreeNode(4);
+            stageTree.Root.L.R.L = new TreeNode(3);
+            stageTree.Root.L.R.R = new TreeNode(3);
 
-            stageTree.Root.R.L.L = new TreeNode<int>(4);
-            stageTree.Root.R.L.R = new TreeNode<int>(4);
-            stageTree.Root.R.R.L = new TreeNode<int>(3);
-            stageTree.Root.R.R.R = new TreeNode<int>(3);
+            stageTree.Root.R.L.L = new TreeNode(4);
+            stageTree.Root.R.L.R = new TreeNode(4);
+            stageTree.Root.R.R.L = new TreeNode(3);
+            stageTree.Root.R.R.R = new TreeNode(3);
             //보스는 L
-            stageTree.Root.L.L.L.L = new TreeNode<int>(1);
-            stageTree.Root.L.L.R.L = new TreeNode<int>(2);
-            stageTree.Root.L.R.L.L = new TreeNode<int>(2);
-            stageTree.Root.L.R.R.L = new TreeNode<int>(3);
+            stageTree.Root.L.L.L.L = new TreeNode(1);
+            stageTree.Root.L.L.R.L = new TreeNode(2);
+            stageTree.Root.L.R.L.L = new TreeNode(2);
+            stageTree.Root.L.R.R.L = new TreeNode(3);
 
-            stageTree.Root.R.L.L.L = new TreeNode<int>(2);
-            stageTree.Root.R.L.R.L = new TreeNode<int>(1);
-            stageTree.Root.R.R.L.L = new TreeNode<int>(4);//히든보스(4)
-            stageTree.Root.R.R.R.L = new TreeNode<int>(3);
+            stageTree.Root.R.L.L.L = new TreeNode(2);
+            stageTree.Root.R.L.R.L = new TreeNode(1);
+            stageTree.Root.R.R.L.L = new TreeNode(4);//히든보스(4)
+            stageTree.Root.R.R.R.L = new TreeNode(3);
         stageNode = stageTree.Root;
         /*
                  1
