@@ -25,10 +25,12 @@ public class ESC : MonoBehaviour
         }
         else if (Input.GetKeyDown(KeyCode.Escape) && ESCck == 0) { //esc키 또 누르면 없어지게
             this.image.enabled = false;
-            Time.timeScale = 1.0F;
             ESCck = 1;
+            if (Tab.tabck != 0) {
+                Time.timeScale = 1.0F;
+                CenterFlame.instance.bgms[BackGroundManager.stage].source.Play();
+            }
             Volume.gameObject.SetActive(false);
-            CenterFlame.instance.bgms[BackGroundManager.stage].source.Play();
         }
     }
 }
