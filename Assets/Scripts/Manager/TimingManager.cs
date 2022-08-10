@@ -77,6 +77,7 @@ public class TimingManager : MonoBehaviour
                         }
                         theEffect.JudgementEffect(x); //판정 이펙트
                         Obj.GetComponent<PlayerController>().curHP -= 10;
+                        /*
                         if (arrowInput == 0)
                         {
                             animator.SetBool("Down", true);
@@ -93,6 +94,7 @@ public class TimingManager : MonoBehaviour
                         {
                             animator.SetBool("Right", true);
                         }
+                        */
                     }
                     
                     //Debug.Log(arrows[arrowInput]);

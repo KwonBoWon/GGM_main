@@ -19,7 +19,7 @@ public class MonsterNote : MonoBehaviour
     {
         if (collision.CompareTag("Note"))
         {
-            t_monster = GameObject.Find("monster" + PlayerController.cnt + "(Clone)");
+            t_monster = PlayerController.nowMonster;
             monsterAttack = t_monster.GetComponent<Animator>();
             dir = collision.GetComponent<Note>().noteDirection;
             if (t_monster != null)

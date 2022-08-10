@@ -3,20 +3,37 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+[System.Serializable]
+public class MonsterList
+{
+    public GameObject[] Monsters;
+}
+
+
 public class PlayerController : MonoBehaviour
 {
+    public  MonsterList[] goMonster;
+
     TimingManager theTimingManager;
     private Tree T= new Tree();
 
+    public static GameObject nowMonster;
+    public static GameObject nowBackGround;
+
+    GameObject[] del;
+
     public static int flag = 0;
-    int nStage = 1;
+    public static int nStage = 1;
     GameObject backGround;
     SpriteRenderer backRenderer;
     Animator BackGround1 = null;
     Animator BackGround2 = null;
     Animator BackGround3 = null;
     [SerializeField] Transform tfMonsterAppear = null;
-    [SerializeField] GameObject[] goMonster = null;
+   // [SerializeField] GameObject[] goMonster = null;
+
+    
+
     BackGroundManager thebackGroundManager;
     MonsterManager theMonsterManager;
     public Slider MonsterHP;
@@ -31,15 +48,18 @@ public class PlayerController : MonoBehaviour
     public float curTime = 50; //현재시간
     public float addTime = 30; //시간추가
     private bool monsterLife = true;
+
+
+
    
-    
-   
+
+
     void Start()
     {
-       
-        Debug.Log("Tree" + T.stageTree.Root.L.Data);
-        T.stageTree.Root.L.Data = 3;
-        Instantiate(goMonster[cnt], tfMonsterAppear.position, Quaternion.identity);
+
+        nowMonster=Instantiate(goMonster[nStage].Monsters[cnt], tfMonsterAppear.position, Quaternion.identity);
+        nowMonster.transform.SetParent(this.transform);
+
         MonsterHP = GameObject.Find("MonsterHP").GetComponent<Slider>();
         MonsterHP.value = (float) curHP / (float) maxHP;
         TimeHP = GameObject.Find("Time").GetComponent<Slider>();
@@ -90,7 +110,11 @@ public class PlayerController : MonoBehaviour
         MonsterHP.value = (float) curHP / (float) maxHP;
            
         if (MonsterHP.value == 0 && monsterLife == true) { // 적 죽으면
-         	Destroy(GameObject.Find("monster" + cnt + "(Clone)"));
+            del=GameObject.FindGameObjectsWithTag("Monster");
+            foreach (GameObject note in del)
+            {
+                Destroy(note);
+            }
             cnt++;
             //Debug.Log(cnt);
             MonsterHP.gameObject.SetActive(false);
@@ -118,7 +142,8 @@ public class PlayerController : MonoBehaviour
     public void MakeMonster() {
         curHP = 100;
         monsterLife = true;
-        Instantiate(goMonster[cnt], tfMonsterAppear.position, Quaternion.identity);
+        nowMonster=Instantiate(goMonster[nStage].Monsters[cnt], tfMonsterAppear.position, Quaternion.identity);
+        nowMonster.transform.SetParent(this.transform);
         MonsterHP.gameObject.SetActive(true);
         //monsterhp=Instantiate(MonsterHP, tfMonsterAppear.position , Quaternion.identity);
         curTime += addTime; //시간추가
