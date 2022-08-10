@@ -27,7 +27,7 @@ public class Monster : MonoBehaviour
         //Debug.Log("moved");
        
     }
-    public void PositionRest()
+    public void PositionReset()
     {
         this.transform.position = new Vector3(1000, 596, 0);
     }
