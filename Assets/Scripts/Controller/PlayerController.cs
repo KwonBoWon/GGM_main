@@ -153,10 +153,12 @@ public class PlayerController : MonoBehaviour
     }
 
     public void CrossRoad() {
+        Debug.Log(nStage);
         if (Input.GetKeyDown(KeyCode.RightArrow)) { 
             //오른쪽 애니메이션 나오게
-
+            GameObject.Find("Backgrounds").transform.Find(nStage + "-color").gameObject.SetActive(false);
             nStage=T.ChooseR();//오른쪽
+            Debug.Log(nStage);
             backGround = GameObject.Find(nStage + "-1");
             BackGround1 = backGround.GetComponent<Animator>();
             BackGround2.SetTrigger("hit2"); //갈림길 사라지게
@@ -214,7 +216,7 @@ public class PlayerController : MonoBehaviour
             BackGround2 = backGround.GetComponent<Animator>();
             BackGround2.SetTrigger("hit1");
             BackGround3.SetTrigger("hit3");
-            Debug.Log(nStage);
+            
             flag++;
             return;
         }
