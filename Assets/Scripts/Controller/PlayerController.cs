@@ -134,18 +134,15 @@ public class PlayerController : MonoBehaviour
             BackGround1 = backGround.GetComponent<Animator>();
             BackGround2.SetTrigger("hit2"); //갈림길 사라지게
             BackGround1.SetTrigger("hit1"); //새로운 스테이지 처음 맵 보이게
-            // backGround = GameObject.Find(nStage + "-2");
-            // Debug.Log(backGround);
-            // backRenderer = backGround.GetComponent<SpriteRenderer>();
-            // backRenderer.enabled = true;
-            // backGround = GameObject.Find(nStage + "-3");
-            // backGround.GetComponent<Renderer>().enabled = true;
+            GameObject.Find("Backgrounds").transform.Find(nStage + "-2").gameObject.SetActive(true);
+            GameObject.Find("Backgrounds").transform.Find(nStage + "-3").gameObject.SetActive(true);
+            GameObject.Find("Backgrounds").transform.Find(nStage + "-color").gameObject.SetActive(true);
             MakeMonster();
             flag = 0;
 
 
             nStage=T.ChooseR(T.stageNode);//오른쪽
-            Debug.Log(nStage);
+            //Debug.Log(nStage);
         }
         else if (Input.GetKeyDown(KeyCode.LeftArrow)) {
             //왼쪽 애니메이션 나오게
@@ -154,10 +151,9 @@ public class PlayerController : MonoBehaviour
             BackGround1 = backGround.GetComponent<Animator>();
             BackGround2.SetTrigger("hit2"); //갈림길 사라지게
             BackGround1.SetTrigger("hit1"); //새로운 스테이지 처음 맵 보이게
-            // backGround = GameObject.Find(nStage + "-2");
-            // backGround.SetActive(true);
-            // backGround = GameObject.Find(nStage + "-3");
-            // backGround.SetActive(true);
+            GameObject.Find("Backgrounds").transform.Find(nStage + "-2").gameObject.SetActive(true);
+            GameObject.Find("Backgrounds").transform.Find(nStage + "-3").gameObject.SetActive(true);
+            GameObject.Find("Backgrounds").transform.Find(nStage + "-color").gameObject.SetActive(true);
             MakeMonster();
             flag = 0;
 
