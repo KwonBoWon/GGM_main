@@ -35,7 +35,7 @@ public class NoteManager : MonoBehaviour
 
     public int MakeNode(int turn)//(int attackTurn , int defenseTurn)
     {
-        bpm = CenterFlame.instance.bgms[BackGroundManager.stage].bpm;
+        bpm = CenterFlame.instance.bgms[PlayerController.nStage].bpm;
         currentTime += Time.deltaTime;
         if (noteOn == true)
         {

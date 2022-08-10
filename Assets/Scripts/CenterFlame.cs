@@ -43,7 +43,7 @@ public class CenterFlame : MonoBehaviour
         if(!musicStart){
             if (collision.CompareTag("Note"))
             {
-                bgms[BackGroundManager.stage].source.Play();
+                bgms[PlayerController.nStage].source.Play();
                 musicStart = true;
             }
         }
@@ -51,7 +51,7 @@ public class CenterFlame : MonoBehaviour
 
     public void StopMusic()
     {
-        bgms[BackGroundManager.stage].source.Stop();
+        bgms[PlayerController.nStage].source.Stop();
         musicStart = false;
         NoteClear();
     }

@@ -19,14 +19,14 @@ public class Tab : MonoBehaviour
             this.image.enabled = true;
             Time.timeScale = 0.0F;
             tabck = 0;
-            CenterFlame.instance.bgms[BackGroundManager.stage].source.Pause();
+            CenterFlame.instance.bgms[PlayerController.nStage].source.Pause();
         }
         if (Input.GetKeyUp(KeyCode.Tab)) { //탭키 떼는 순간 안 보이게
             this.image.enabled = false;
             tabck = 1;
             if (ESC.ESCck != 0) {
                 Time.timeScale = 1.0F;
-                CenterFlame.instance.bgms[BackGroundManager.stage].source.Play();
+                CenterFlame.instance.bgms[PlayerController.nStage].source.Play();
             }
         }
     }

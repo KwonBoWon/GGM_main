@@ -4266,6 +4266,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bgms:
+  - soundName: no
+    clip: {fileID: 0}
+    source: {fileID: 0}
+    bpm: 0
   - soundName: saturated
     clip: {fileID: 8300000, guid: af164244d2bdf024181babbb35e0aa2c, type: 3}
     source: {fileID: 0}
