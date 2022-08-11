@@ -75,34 +75,26 @@ public class TimingManager : MonoBehaviour
                         thecomboManager.ResetCombo(); //콤보리셋
                     }
 
-                    if ((arrowInput + t_noteDire ==1  || arrowInput + t_noteDire == 5) && t_noteType == 1) //반대방향으로 누를때
+                    if ( t_noteType == 1) //반대방향으로 누를때
                     {//공격성공
+                        if (arrowInput + t_noteDire == 1 || arrowInput + t_noteDire == 5)
+                        {
+                            if (x < timingBoxs.Length - 1)
+                            {
+                                theEffect.NoteHitEffect();//히트이펙트
+                            }
+                            theEffect.JudgementEffect(x); //판정 이펙트
+                            thecomboManager.IncreaseCombo();//콤보증가
+                            Obj.GetComponent<PlayerController>().curHP -= 10;
+                        }
+                        else// 공격실패
+                        {
+                            theEffect.JudgementEffect(4); //Miss이펙트
+                            thecomboManager.ResetCombo(); //콤보리셋
+                        }
 
-                        if (x < timingBoxs.Length - 1)
-                        {
-                            theEffect.NoteHitEffect();//히트이펙트
-                        }
-                        theEffect.JudgementEffect(x); //판정 이펙트
-                        thecomboManager.IncreaseCombo();//콤보증가
-                        Obj.GetComponent<PlayerController>().curHP -= 10;
-                        /*
-                        if (arrowInput == 0)
-                        {
-                            animator.SetBool("Down", true);
-                        }
-                        else if (arrowInput == 1)
-                        {
-                            animator.SetBool("Up", true);
-                        }
-                        else if (arrowInput == 2)
-                        {
-                            animator.SetBool("Left", true);
-                        }
-                        else
-                        {
-                            animator.SetBool("Right", true);
-                        }
-                        */
+
+
                     }
                     
                     //Debug.Log(arrows[arrowInput]);
