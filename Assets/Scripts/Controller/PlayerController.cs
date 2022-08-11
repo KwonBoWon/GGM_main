@@ -145,6 +145,7 @@ public class PlayerController : MonoBehaviour
     }
 
     public void MakeMonster() {
+        NoteManager.noteCount = 0;
         curHP = 100;
         monsterLife = true;
         nowMonster=Instantiate(goMonster[nStage].Monsters[cnt], tfMonsterAppear.position, Quaternion.identity);

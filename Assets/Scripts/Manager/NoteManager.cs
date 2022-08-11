@@ -49,7 +49,6 @@ public class NoteManager : MonoBehaviour
             CancelInvoke(nameof(SpawnNote));
             invokeCnt = 0;
             Invoke(nameof(NoteOn), 60f / bpm);
-            Debug.Log("Cancel");
             currentTime = 0;
         }
 
@@ -62,7 +61,7 @@ public class NoteManager : MonoBehaviour
         t_note.transform.SetParent(this.transform);
         theTimingManager.boxNoteList.Add(t_note); // 리스트에 추가
         invokeCnt++;
-        Debug.Log("Spawn");
+
     }
 
     public int MakeNode(int turn)//(int attackTurn , int defenseTurn)
