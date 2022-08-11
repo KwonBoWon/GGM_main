@@ -101,3 +101,7 @@ MonoBehaviour:
   monsterDefense: 4
   monsterDamage: 15
   monsterHP: 120
+  semiBoss: 0
+  Boss: 0
+  multi: 0
+  drop: 1

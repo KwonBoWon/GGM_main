@@ -12,12 +12,17 @@ public class NoteManager : MonoBehaviour
     public static bool noteOn = true;
     public static int noteCount = 0;
 
-    bool attackPlag = true;
-
-    int invokeCnt=0;
+    bool multiFlag = true; //멀티어택
+    int invokeCnt = 0;
     int multi = 5;
+
+    bool rainFlag = true; //레인드롭
+    int DropMax = 5;
+
+
     [SerializeField] Transform tfNoteAppear = null; //노트가 생성되는곳
     [SerializeField] GameObject[] goNote = null; //노트 프리펩들
+    [SerializeField] GameObject Drop = null; //물방울
 
     TimingManager theTimingManager;
     EffectManager theEffectManager;
@@ -39,10 +44,16 @@ public class NoteManager : MonoBehaviour
 
         if (PlayerController.flag != 3)
         {
-            if (noteCount % 10 == 0 && noteCount != 0 && attackPlag && theMonster.multi)
+            if (noteCount % 10 == 0 && noteCount != 0 && multiFlag && theMonster.multi)
             {
                 Multistrike();
             }
+            if (noteCount % 10 == 0 && noteCount != 0 && rainFlag && theMonster.drop)
+            {
+                RainDrop();
+            }
+
+
             else if ((noteCount % 10) < 5) MakeNode(0);
             else if ((noteCount % 10) >= 5)MakeNode(1);
         }
@@ -82,11 +93,13 @@ public class NoteManager : MonoBehaviour
 
                 GameObject t_note = Instantiate(goNote[arrowDirection], tfNoteAppear.position, Quaternion.identity); // 노트를 생성
                 t_note.transform.SetParent(this.transform);
+                t_note.transform.SetAsFirstSibling();
                 theTimingManager.boxNoteList.Add(t_note); // 리스트에 추가
 
                 currentTime -= 60d / bpm; //-하지않고 0으로설정하면 시차가 생김
                 noteCount++; //noteCount증가
-                attackPlag = true;
+                multiFlag = true;
+                rainFlag = true;
             }
         }
 
@@ -118,7 +131,7 @@ public class NoteManager : MonoBehaviour
     {
         Debug.Log("multi");
         noteOn = false;
-        attackPlag = false;
+        multiFlag = false;
         arrowDirection = Random.Range(0, 4);
         InvokeRepeating(nameof(SpawnNote), 60f / bpm, 0.1f);
     }
@@ -126,4 +139,33 @@ public class NoteManager : MonoBehaviour
     {
         noteOn= true;
     }
+
+    public void RainDrop()
+    {
+        rainFlag = false;
+
+        float randomX = Random.Range(0f, 1920f);
+        float randomY = Random.Range(0f, 200f);
+        GameObject[] p_Drops = new GameObject[DropMax+1];
+
+
+        randomX = Random.Range(900f, 1000f);
+        randomY = Random.Range(50f, 200f);
+        p_Drops[0] = Instantiate(Drop, new Vector3(randomX, randomY, 0f), Quaternion.identity);
+        p_Drops[0].transform.SetParent(this.transform);
+        Destroy(p_Drops[0], 10);
+
+        for (int n = 1; n <= DropMax; n++)
+        {
+            randomX = Random.Range(0f, 1650f);
+            randomY = Random.Range(50f, 200f);
+            p_Drops[n]=Instantiate(Drop,  new Vector3(randomX, randomY ,0f), Quaternion.identity);
+            p_Drops[n].transform.SetParent(this.transform);
+            Destroy(p_Drops[n], 11);
+        }
+
+    }
+
+
+
 }

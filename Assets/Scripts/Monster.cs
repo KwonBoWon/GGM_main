@@ -17,7 +17,8 @@ public class Monster : MonoBehaviour
     public bool semiBoss= false;
     public bool Boss =false;
     [Header("보스 패턴[0]=연타")]
-    public bool multi;
+    public bool multi = false;
+    public bool drop = false;
 
 
     public void MonsterDoge( int direction)
