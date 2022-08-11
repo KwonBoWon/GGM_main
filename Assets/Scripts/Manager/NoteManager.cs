@@ -22,7 +22,9 @@ public class NoteManager : MonoBehaviour
     TimingManager theTimingManager;
     EffectManager theEffectManager;
     ComboManager thecomboManager;
+    Monster theMonster;
 
+    
 
     void Start()
     {
@@ -33,9 +35,11 @@ public class NoteManager : MonoBehaviour
 
     void Update()
     {
+        if(PlayerController.nowMonster != null) theMonster =PlayerController.nowMonster.GetComponent<Monster>();
+
         if (PlayerController.flag != 3)
         {
-            if (noteCount % 10 == 0 && noteCount != 0 && attackPlag)
+            if (noteCount % 10 == 0 && noteCount != 0 && attackPlag && theMonster.multi)
             {
                 Multistrike();
             }

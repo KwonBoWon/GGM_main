@@ -13,6 +13,11 @@ public class Monster : MonoBehaviour
     public int monsterDamage;
     public int monsterHP;
 
+    [Header("보스몬스터")]
+    public bool semiBoss= false;
+    public bool Boss =false;
+    [Header("보스 패턴[0]=연타")]
+    public bool multi;
 
 
     public void MonsterDoge( int direction)
