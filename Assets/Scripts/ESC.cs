@@ -19,6 +19,7 @@ public class ESC : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Escape) && ESCck == 1) { //esc키 누르면 보이게
             this.image.enabled = true;
             Time.timeScale = 0.0F;
+            GameObject.Find("UI").transform.Find("Exit Button").gameObject.SetActive(true);
             ESCck = 0;
             Volume.gameObject.SetActive(true);
             CenterFlame.instance.bgms[PlayerController.nStage].source.Pause();
@@ -31,6 +32,7 @@ public class ESC : MonoBehaviour
                 CenterFlame.instance.bgms[PlayerController.nStage].source.Play();
             }
             Volume.gameObject.SetActive(false);
+            GameObject.Find("UI").transform.Find("Exit Button").gameObject.SetActive(false);
         }
     }
 }
