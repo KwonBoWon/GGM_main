@@ -31,19 +31,19 @@ public class MonsterNote : MonoBehaviour
                     monsterAttack.SetTrigger("hit");
                     if (dir == 0)
                     {
-                        player.SetBool("Down", true);
+                        player.SetTrigger("Down");
                     }
                     else if (dir == 1)
                     {
-                        player.SetBool("Up", true);
+                        player.SetTrigger("Up");
                     }
                     else if (dir == 2)
                     {
-                        player.SetBool("Left", true);
+                        player.SetTrigger("Left");
                     }
                     else if(dir==3)
                     {
-                        player.SetBool("Right", true);
+                        player.SetTrigger("Right");
                     }
                 
 

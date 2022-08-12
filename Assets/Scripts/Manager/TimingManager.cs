@@ -5,6 +5,7 @@ using UnityEngine;
 public class TimingManager : MonoBehaviour
 {
     ComboManager thecomboManager;
+    [SerializeField]  Animator player;
     public Animator animator; //애니메이터 변수 선언
     public List<GameObject> boxNoteList  = new List<GameObject>();
 
@@ -73,6 +74,7 @@ public class TimingManager : MonoBehaviour
                         Obj.GetComponent<PlayerController>().curTime -= PlayerController.nowMonster.GetComponent<Monster>().monsterDamage; //시간감소 몬스터공격력만큼
                         theEffect.JudgementEffect(4); //Miss이펙트
                         thecomboManager.ResetCombo(); //콤보리셋
+                        player.SetTrigger("Hitted"); //플레이어 피격 모션
                     }
 
                     if ( t_noteType == 1) //반대방향으로 누를때
@@ -97,7 +99,7 @@ public class TimingManager : MonoBehaviour
                     //Debug.Log(arrows[arrowInput]);
                     boxNoteList[i].GetComponent<Note>().HideNote(); //이미지삭제
                     boxNoteList.RemoveAt(i);  //배열에서 삭제
-                    Stop();
+                    
                     return;
                 }
 
@@ -105,30 +107,6 @@ public class TimingManager : MonoBehaviour
         }
 
         theEffect.JudgementEffect(timingBoxs.Length);
-    }
-    public void Stop() {
-        if(animator.GetCurrentAnimatorStateInfo(0).IsName("Down") &&
-            animator.GetCurrentAnimatorStateInfo(0).normalizedTime >= 1.0f)
-            {
-                animator.SetBool("Down", false);
-            }
-
-        else if(animator.GetCurrentAnimatorStateInfo(0).IsName("Up") &&
-            animator.GetCurrentAnimatorStateInfo(0).normalizedTime >= 1.0f)
-            {
-                animator.SetBool("Up", false);
-            }
-        else if(animator.GetCurrentAnimatorStateInfo(0).IsName("Left") &&
-            animator.GetCurrentAnimatorStateInfo(0).normalizedTime >= 1.0f)
-            {
-                animator.SetBool("Left", false);
-            }
-        
-        else if(animator.GetCurrentAnimatorStateInfo(0).IsName("Right") &&
-            animator.GetCurrentAnimatorStateInfo(0).normalizedTime >= 1.0f)
-            {
-                animator.SetBool("Right", false);
-            }
     }
 
 }
