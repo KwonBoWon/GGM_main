@@ -8,8 +8,6 @@ public class MonsterList
 {
     public GameObject[] Monsters;
 }
-
-
 public class PlayerController : MonoBehaviour
 {
     public  MonsterList[] goMonster;
@@ -32,6 +30,16 @@ public class PlayerController : MonoBehaviour
     Animator BackGround3 = null;
     [SerializeField] Transform tfMonsterAppear = null;
     [SerializeField] GameObject Tree;
+    [SerializeField] GameObject[] weapon = null;
+
+    int[] weaponDamage = new int [3];
+    [SerializeField] Transform  LWeapon = null;
+    [SerializeField] Transform  RWeapon = null;
+    [SerializeField] Transform Weapons = null;
+
+    public static GameObject nowWeapon = null;
+    GameObject LeftW;
+    GameObject RightW;
 
     BackGroundManager thebackGroundManager;
     MonsterManager theMonsterManager;
@@ -43,21 +51,17 @@ public class PlayerController : MonoBehaviour
     public float maxHP = 100; //최대 체력
     public float curHP = 100; //현재 체력
 
+    int Lrand = 0, Rrand = 1;
 
     public float maxTime = 100; //최대 시간
     public float curTime = 100; //현재시간
     public float addTime = 40; //시간추가
     public static float playerDamage = 10;
     private bool monsterLife = true;
-
-
-
-   
-
+    bool makeWeapon = true;
 
     void Start()
     {
-
         nowMonster=Instantiate(goMonster[nStage].Monsters[cnt], tfMonsterAppear.position, Quaternion.identity);
         nowMonster.transform.SetParent(this.transform);
 
@@ -66,10 +70,12 @@ public class PlayerController : MonoBehaviour
         TimeHP = GameObject.Find("Time").GetComponent<Slider>();
         TimeHP.value =(float)curTime / (float)maxTime; //초기시간
         
-        
         theTimingManager = FindObjectOfType<TimingManager>();
         thebackGroundManager = FindObjectOfType<BackGroundManager>();
 
+        weaponDamage[0] = 12;
+        weaponDamage[1] = 16;
+        weaponDamage[2] = 14;
     }
     void Update()
     {
@@ -105,7 +111,6 @@ public class PlayerController : MonoBehaviour
         }
         HandleHP();
         HandleTime();
-        
     }
     public void monsterDie() //적즉사
     {
@@ -160,11 +165,13 @@ public class PlayerController : MonoBehaviour
     }
 
     public void CrossRoad() {
-        Debug.Log(nStage);
+
+            MakeWeapon(); //무기생성
+
         if (Input.GetKeyDown(KeyCode.RightArrow)) { 
             //오른쪽 애니메이션 나오게
-            GameObject.Find("Backgrounds").transform.Find(nStage + "-color").gameObject.SetActive(false);//왼쪽만 이거 있는 이유가 뭐임
-            nStage=T.ChooseR();//오른쪽
+            GameObject.Find("Backgrounds").transform.Find(nStage + "-color").gameObject.SetActive(false);
+            nStage=T.ChooseR();//오른쪽노드
             backGround = GameObject.Find(nStage + "-1");
             BackGround1 = backGround.GetComponent<Animator>();
             BackGround2.SetTrigger("hit2"); //갈림길 사라지게
@@ -175,10 +182,16 @@ public class PlayerController : MonoBehaviour
             MakeMonster();
             flag = 0;
             pStage++;
+            makeWeapon = true;
+            playerDamage = weaponDamage[Lrand] +pStage*5;
+            nowWeapon = LeftW;
+            Destroy(LeftW);
+            Destroy(RightW);
         }
         else if (Input.GetKeyDown(KeyCode.LeftArrow)) {
             //왼쪽 애니메이션 나오게
-            nStage = T.ChooseL();//왼쪽
+            GameObject.Find("Backgrounds").transform.Find(nStage + "-color").gameObject.SetActive(false);
+            nStage = T.ChooseL();//왼쪽노드
             backGround = GameObject.Find(nStage + "-1");
             BackGround1 = backGround.GetComponent<Animator>();
             BackGround2.SetTrigger("hit2"); //갈림길 사라지게
@@ -189,6 +202,12 @@ public class PlayerController : MonoBehaviour
             MakeMonster();
             flag = 0;
             pStage++;
+            makeWeapon = true;
+            playerDamage = weaponDamage[Rrand] + pStage * 5;
+            nowWeapon = RightW;
+            Destroy(LeftW);
+            Destroy(RightW);
+
         }
     }
     public void BackGroundChange() {
@@ -224,5 +243,23 @@ public class PlayerController : MonoBehaviour
         }
         
     }
-    
+    public void MakeWeapon()
+    {
+
+        if (makeWeapon)
+        {
+            makeWeapon = false;
+            Lrand = Random.Range(0, 3);
+            while (Lrand == Rrand)
+            {
+                Rrand = Random.Range(0, 3);
+            }
+            LeftW = Instantiate(weapon[Lrand], LWeapon.position, Quaternion.identity);
+            RightW = Instantiate(weapon[Rrand], RWeapon.position, Quaternion.identity);
+            LeftW.transform.SetParent(Weapons);
+            RightW.transform.SetParent(Weapons);
+        }
+    }
+
+
 }

@@ -1,16 +1,16 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class ComboManager : MonoBehaviour
 {
-    [SerializeField] GameObject[] heart; //ÇÏÆ® ÇÁ¸®Æé
-    [SerializeField] UnityEngine.UI.Text txtCombo = null; //ÄŞº¸ ÅØ½ºÆ®
-
-    public int curCombo = 0; //ÄŞº¸½ºÅÃ
-    int heartCnt=0; //ÇÏÆ® °³¼ö(ÃÖ´ë3)
-    int comboStack = 10; //comboStack°³¸¶´Ù ÄŞº¸ »ı¼º
-
+    [SerializeField] GameObject[] heart; //í•˜íŠ¸ í”„ë¦¬í©
+    [SerializeField] UnityEngine.UI.Text txtCombo = null; //ì½¤ë³´ í…ìŠ¤íŠ¸
+    GameObject Obj;
+    public int curCombo = 0; //ì½¤ë³´ìŠ¤íƒ
+    int heartCnt=0; //í•˜íŠ¸ ê°œìˆ˜(ìµœëŒ€3)
+    int comboStack = 10; //comboStackê°œë§ˆë‹¤ ì½¤ë³´ ìƒì„±
+    int comboDamage = 30;
 
 
     void Update()
@@ -22,6 +22,7 @@ public class ComboManager : MonoBehaviour
     }
     private void Start()
     {
+        Obj = GameObject.Find("PlayerControll");
         txtCombo.gameObject.SetActive(false);
         heart[0].SetActive(false);
         heart[1].SetActive(false);
@@ -32,9 +33,9 @@ public class ComboManager : MonoBehaviour
     public void IncreaseCombo(int p_num = 1)
     {
         curCombo += p_num;
-        txtCombo.text = string.Format("{0:#,##0}", curCombo);//000,000Çü½Ä
+        txtCombo.text = string.Format("{0:#,##0}", curCombo);//000,000í˜•ì‹
 
-        if (curCombo >= comboStack && curCombo % comboStack == 0)//10°³¸¶´Ù ÄŞº¸»ı¼º
+        if (curCombo >= comboStack && curCombo % comboStack == 0)//10ê°œë§ˆë‹¤ ì½¤ë³´ìƒì„±
         {
             if (heartCnt < 3){
                 heart[heartCnt].SetActive(true);
@@ -60,7 +61,8 @@ public class ComboManager : MonoBehaviour
         {
             heart[heartCnt-1].SetActive(false);
             heartCnt--;
-            //¿©±â¿¡ ÄŞº¸ »ç¿ë
+            //ì—¬ê¸°ì— ì½¤ë³´ ì‚¬ìš©
+            Obj.GetComponent<PlayerController>().curHP -= comboDamage;
         }
 
     }
