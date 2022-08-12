@@ -12,10 +12,5 @@ public class VolumeController : MonoBehaviour
     {
      AudioListener.volume = Volume.value; //슬라이더로 볼륨조절
     }
- 
- 
-
-
-
 
 }

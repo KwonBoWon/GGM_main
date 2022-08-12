@@ -17,7 +17,7 @@ public class NoteManager : MonoBehaviour
     int multi = 5;
 
     bool rainFlag = true; //레인드롭
-    int DropMax = 5;
+    int DropMax = 4;
 
 
     [SerializeField] Transform tfNoteAppear = null; //노트가 생성되는곳
