@@ -4705,9 +4705,9 @@ MonoBehaviour:
     - {fileID: 3187766591846464014, guid: 624134c02ebf6134aab0ff861b2af353, type: 3}
     - {fileID: 8973892302364238245, guid: 9b74a42a31c0e77459ba86f00700d504, type: 3}
   tfMonsterAppear: {fileID: 922853101}
+  Tree: {fileID: 0}
   MonsterHP: {fileID: 723760979}
   TimeHP: {fileID: 1435002377}
-  Tree: {fileID: 0}
   maxHP: 100
   curHP: 100
   maxTime: 50
@@ -6387,6 +6387,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: monster3
       objectReference: {fileID: 0}
+    - target: {fileID: 1175250814675720297, guid: a5c3101a36ef99541ab673ff9761b02b, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6553696576368410042, guid: a5c3101a36ef99541ab673ff9761b02b, type: 3}
       propertyPath: m_RootOrder
       value: 3
@@ -6533,6 +6537,10 @@ PrefabInstance:
     - target: {fileID: 656549131923502067, guid: 7d939d68c6b44914c9fc5a6df5c2d3fe, type: 3}
       propertyPath: m_Name
       value: monster4
+      objectReference: {fileID: 0}
+    - target: {fileID: 656549131923502067, guid: 7d939d68c6b44914c9fc5a6df5c2d3fe, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4599870237023406638, guid: 7d939d68c6b44914c9fc5a6df5c2d3fe, type: 3}
       propertyPath: m_RootOrder

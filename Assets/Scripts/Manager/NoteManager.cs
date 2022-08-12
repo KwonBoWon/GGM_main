@@ -161,7 +161,7 @@ public class NoteManager : MonoBehaviour
             randomY = Random.Range(50f, 200f);
             p_Drops[n]=Instantiate(Drop,  new Vector3(randomX, randomY ,0f), Quaternion.identity);
             p_Drops[n].transform.SetParent(this.transform);
-            Destroy(p_Drops[n], 11);
+            Destroy(p_Drops[n], 10.5f);
         }
 
     }

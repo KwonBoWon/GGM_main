@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 6553696576368410042}
   - component: {fileID: 6532290463265357820}
   - component: {fileID: -635045417159243570}
+  - component: {fileID: -1525329970015406697}
   m_Layer: 0
   m_Name: monster3
   m_TagString: Monster
@@ -99,9 +100,29 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   monsterAttack: 4
   monsterDefense: 4
-  monsterDamage: 15
+  monsterDamage: 20
   monsterHP: 120
   semiBoss: 0
   Boss: 0
   multi: 0
   drop: 1
+--- !u!95 &-1525329970015406697
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1175250814675720297}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 0}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0

@@ -70,7 +70,7 @@ public class TimingManager : MonoBehaviour
                     }
                     else if (arrowInput != t_noteType && t_noteType == 0)
                     {//방어실패
-                        Obj.GetComponent<PlayerController>().curTime -= 10; //시간감소
+                        Obj.GetComponent<PlayerController>().curTime -= PlayerController.nowMonster.GetComponent<Monster>().monsterDamage; //시간감소 몬스터공격력만큼
                         theEffect.JudgementEffect(4); //Miss이펙트
                         thecomboManager.ResetCombo(); //콤보리셋
                     }
@@ -85,23 +85,18 @@ public class TimingManager : MonoBehaviour
                             }
                             theEffect.JudgementEffect(x); //판정 이펙트
                             thecomboManager.IncreaseCombo();//콤보증가
-                            Obj.GetComponent<PlayerController>().curHP -= 10;
+                            Obj.GetComponent<PlayerController>().curHP -= PlayerController.playerDamage;
                         }
                         else// 공격실패
                         {
                             theEffect.JudgementEffect(4); //Miss이펙트
                             thecomboManager.ResetCombo(); //콤보리셋
                         }
-
-
-
                     }
                     
                     //Debug.Log(arrows[arrowInput]);
                     boxNoteList[i].GetComponent<Note>().HideNote(); //이미지삭제
-                   
                     boxNoteList.RemoveAt(i);  //배열에서 삭제
-
                     Stop();
                     return;
                 }

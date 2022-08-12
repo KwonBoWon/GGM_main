@@ -19,20 +19,19 @@ public class PlayerController : MonoBehaviour
 
     public static GameObject nowMonster;
     public static GameObject nowBackGround;
-
     GameObject[] del;
 
-    public static int flag = 0;
-    public static int nStage = 1;
+    public static int flag = 0; //배경 맵 플레그
+    public static int nStage = 1; //스테이지
+    public static int pStage = 0; //몇번째미로인지(적 강해지는)
+
     GameObject backGround;
     SpriteRenderer backRenderer;
     Animator BackGround1 = null;
     Animator BackGround2 = null;
     Animator BackGround3 = null;
     [SerializeField] Transform tfMonsterAppear = null;
-   // [SerializeField] GameObject[] goMonster = null;
-
-    
+    [SerializeField] GameObject Tree;
 
     BackGroundManager thebackGroundManager;
     MonsterManager theMonsterManager;
@@ -40,13 +39,15 @@ public class PlayerController : MonoBehaviour
     public Slider TimeHP;
     public static int cnt = 0;
 
-    [SerializeField] GameObject Tree;
+
     public float maxHP = 100; //최대 체력
     public float curHP = 100; //현재 체력
 
-    public float maxTime = 50; //최대 시간
-    public float curTime = 50; //현재시간
-    public float addTime = 30; //시간추가
+
+    public float maxTime = 100; //최대 시간
+    public float curTime = 100; //현재시간
+    public float addTime = 40; //시간추가
+    public static float playerDamage = 10;
     private bool monsterLife = true;
 
 
@@ -97,7 +98,7 @@ public class PlayerController : MonoBehaviour
             {
                 monsterDie();
             }
-            if (Input.GetKeyDown(KeyCode.C)) //K누르면 즉사
+            if (Input.GetKeyDown(KeyCode.C)) //C누르면 노트클리어
             {
                 CenterFlame.instance.NoteClear();
             }
@@ -120,8 +121,7 @@ public class PlayerController : MonoBehaviour
                 Destroy(note);
             }
             cnt++;
-            if (cnt == 3)
-                cnt = 0;
+            if (cnt == 3)  cnt = 0;
             MonsterHP.gameObject.SetActive(false);
             monsterLife = false;
             NoteManager.noteOn = false;
@@ -137,7 +137,8 @@ public class PlayerController : MonoBehaviour
         TimeHP.value = (float) curTime / (float) maxTime;
         if (TimeHP.value > 0.0f)
         {
-            curTime -=Time.deltaTime; //시간 줄어듦
+            if (flag != 3) //갈림길일때
+                curTime -=Time.deltaTime; //시간 줄어듦
         }
         else //시간없을때(죽었을때)
         {
@@ -146,10 +147,11 @@ public class PlayerController : MonoBehaviour
 
     public void MakeMonster() {
         NoteManager.noteCount = 0;
-        curHP = 100;
         monsterLife = true;
         nowMonster=Instantiate(goMonster[nStage].Monsters[cnt], tfMonsterAppear.position, Quaternion.identity);
         nowMonster.transform.SetParent(this.transform);
+        maxHP = curHP = nowMonster.GetComponent<Monster>().monsterHP + pStage * 20;
+        //몬스터 스크립트 + 스테이지체력보정
         MonsterHP.gameObject.SetActive(true);
         //monsterhp=Instantiate(MonsterHP, tfMonsterAppear.position , Quaternion.identity);
         curTime += addTime; //시간추가
@@ -161,9 +163,8 @@ public class PlayerController : MonoBehaviour
         Debug.Log(nStage);
         if (Input.GetKeyDown(KeyCode.RightArrow)) { 
             //오른쪽 애니메이션 나오게
-            GameObject.Find("Backgrounds").transform.Find(nStage + "-color").gameObject.SetActive(false);
+            GameObject.Find("Backgrounds").transform.Find(nStage + "-color").gameObject.SetActive(false);//왼쪽만 이거 있는 이유가 뭐임
             nStage=T.ChooseR();//오른쪽
-            Debug.Log(nStage);
             backGround = GameObject.Find(nStage + "-1");
             BackGround1 = backGround.GetComponent<Animator>();
             BackGround2.SetTrigger("hit2"); //갈림길 사라지게
@@ -173,9 +174,7 @@ public class PlayerController : MonoBehaviour
             GameObject.Find("Backgrounds").transform.Find(nStage + "-color").gameObject.SetActive(true);
             MakeMonster();
             flag = 0;
-
-
-
+            pStage++;
         }
         else if (Input.GetKeyDown(KeyCode.LeftArrow)) {
             //왼쪽 애니메이션 나오게
@@ -189,9 +188,7 @@ public class PlayerController : MonoBehaviour
             GameObject.Find("Backgrounds").transform.Find(nStage + "-color").gameObject.SetActive(true);
             MakeMonster();
             flag = 0;
-
-
-
+            pStage++;
         }
     }
     public void BackGroundChange() {
