@@ -1,15 +1,20 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
 public class Tab : MonoBehaviour
 {
     public Image image;
+    Image tmpimage;
+    public Image[] cover;
+    public bool[] collect = new bool[6];
     public static int tabck = 1;
     // Start is called before the first frame update
     void Start()
     {
         this.image = GetComponent<Image>();
+        bool[] collect = Enumerable.Repeat(false, 6).ToArray(); 
     }
 
     // Update is called once per frame
@@ -29,5 +34,9 @@ public class Tab : MonoBehaviour
                 CenterFlame.instance.bgms[PlayerController.nStage].source.Play();
             }
         }
+        
+    }
+    public void change(int n) {
+        Destroy(cover[n]);
     }
 }
