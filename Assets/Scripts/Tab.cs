@@ -4,6 +4,7 @@ using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
 using System.IO;
+using UnityEngine.SceneManagement;
 public class Tab : MonoBehaviour
 {
     public SpriteRenderer image; //도감창 렌더러를 받음
@@ -45,7 +46,8 @@ public class Tab : MonoBehaviour
             }
             Time.timeScale = 0.0F;
             tabck = 0;
-            //CenterFlame.instance.bgms[PlayerController.nStage].source.Pause();
+            if (SceneManager.GetActiveScene().name == "note")
+                CenterFlame.instance.bgms[PlayerController.nStage].source.Pause();
         }
         if (Input.GetKeyUp(KeyCode.Tab)) { //탭키 떼는 순간 안 보이게
             image.enabled = false;
@@ -56,7 +58,8 @@ public class Tab : MonoBehaviour
                 }
                 Time.timeScale = 1.0F;
                 image.sprite = change_img[6]; //도감 원래 이미지로 변경
-                //CenterFlame.instance.bgms[PlayerController.nStage].source.Play();
+                if (SceneManager.GetActiveScene().name == "note")
+                    CenterFlame.instance.bgms[PlayerController.nStage].source.Play();
             }
         }
         
