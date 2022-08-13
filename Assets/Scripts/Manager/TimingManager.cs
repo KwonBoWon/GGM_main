@@ -16,6 +16,8 @@ public class TimingManager : MonoBehaviour
     EffectManager theEffect;
     GameObject Obj;
     public string[] arrows;
+
+    public static bool immortal = false; //무적
     void Start()
     {
         thecomboManager = FindObjectOfType<ComboManager>();
@@ -41,11 +43,10 @@ public class TimingManager : MonoBehaviour
     
     public void CheckTiming( int arrowInput)
     {
-        if (arrowInput == -10) //노트 놓칠시
+        if (arrowInput == -10 && !immortal ) //노트 놓칠시
         {
-            Obj.GetComponent<PlayerController>().curTime -= 10; //시간감소
+            PlayerController.curTime -= 10; //시간감소
             theEffect.JudgementEffect(4); //Miss이펙트
-
             thecomboManager.ResetCombo(); //콤보리셋
             return;
         }
@@ -69,9 +70,9 @@ public class TimingManager : MonoBehaviour
                         theEffect.JudgementEffect(x); //판정 이펙트
                         thecomboManager.IncreaseCombo();//콤보증가
                     }
-                    else if (arrowInput != t_noteType && t_noteType == 0)
+                    else if (arrowInput != t_noteType && t_noteType == 0 && !immortal)
                     {//방어실패
-                        Obj.GetComponent<PlayerController>().curTime -= PlayerController.nowMonster.GetComponent<Monster>().monsterDamage; //시간감소 몬스터공격력만큼
+                        PlayerController.curTime -= PlayerController.nowMonster.GetComponent<Monster>().monsterDamage; //시간감소 몬스터공격력만큼
                         theEffect.JudgementEffect(4); //Miss이펙트
                         thecomboManager.ResetCombo(); //콤보리셋
                         player.SetTrigger("Hitted"); //플레이어 피격 모션
@@ -91,21 +92,20 @@ public class TimingManager : MonoBehaviour
                         }
                         else// 공격실패
                         {
-                            theEffect.JudgementEffect(4); //Miss이펙트
-                            thecomboManager.ResetCombo(); //콤보리셋
+                            if ( !immortal) {
+                                theEffect.JudgementEffect(4); //Miss이펙트
+                                thecomboManager.ResetCombo(); //콤보리셋
+                            }
                         }
                     }
-                    
                     //Debug.Log(arrows[arrowInput]);
                     boxNoteList[i].GetComponent<Note>().HideNote(); //이미지삭제
-                    boxNoteList.RemoveAt(i);  //배열에서 삭제
-                    
+                    boxNoteList.RemoveAt(i);  //배열에서 삭제               
                     return;
                 }
 
             }
         }
-
         theEffect.JudgementEffect(timingBoxs.Length);
     }
 

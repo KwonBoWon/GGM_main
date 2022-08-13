@@ -37,7 +37,9 @@ public class PlayerController : MonoBehaviour
     [SerializeField] Transform  RWeapon = null;
     [SerializeField] Transform Weapons = null;
 
-    public static GameObject nowWeapon = null;
+    //public static GameObject nowWeapon = null;
+    public static string nowWeapon = null;
+
     GameObject LeftW;
     GameObject RightW;
 
@@ -53,8 +55,8 @@ public class PlayerController : MonoBehaviour
 
     int Lrand = 0, Rrand = 1;
 
-    public float maxTime = 100; //최대 시간
-    public float curTime = 100; //현재시간
+    public static float  maxTime = 100; //최대 시간
+    public static float curTime = 100; //현재시간
     public float addTime = 40; //시간추가
     public static float playerDamage = 10;
     private bool monsterLife = true;
@@ -183,8 +185,12 @@ public class PlayerController : MonoBehaviour
             flag = 0;
             pStage++;
             makeWeapon = true;
-            playerDamage = weaponDamage[Lrand] +pStage*5;
-            nowWeapon = LeftW;
+
+            playerDamage = weaponDamage[Rrand] +pStage*5;
+            if (Rrand == 0) nowWeapon = "wand";
+            else if (Rrand == 1) nowWeapon = "sword";
+            else if (Rrand == 2) nowWeapon = "bat";
+
             Destroy(LeftW);
             Destroy(RightW);
         }
@@ -203,8 +209,12 @@ public class PlayerController : MonoBehaviour
             flag = 0;
             pStage++;
             makeWeapon = true;
-            playerDamage = weaponDamage[Rrand] + pStage * 5;
-            nowWeapon = RightW;
+
+            playerDamage = weaponDamage[Lrand] + pStage * 5;
+            if (Lrand == 0) nowWeapon = "wand";
+            else if (Lrand == 1) nowWeapon = "sword";
+            else if (Lrand == 2) nowWeapon = "bat";
+
             Destroy(LeftW);
             Destroy(RightW);
 
@@ -245,7 +255,6 @@ public class PlayerController : MonoBehaviour
     }
     public void MakeWeapon()
     {
-
         if (makeWeapon)
         {
             makeWeapon = false;

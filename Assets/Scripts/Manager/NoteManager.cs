@@ -19,7 +19,6 @@ public class NoteManager : MonoBehaviour
     bool rainFlag = true; //레인드롭
     int DropMax = 4;
 
-
     [SerializeField] Transform tfNoteAppear = null; //노트가 생성되는곳
     [SerializeField] GameObject[] goNote = null; //노트 프리펩들
     [SerializeField] GameObject Drop = null; //물방울
@@ -52,8 +51,6 @@ public class NoteManager : MonoBehaviour
             {
                 RainDrop();
             }
-
-
             else if ((noteCount % 10) < 5) MakeNode(0);
             else if ((noteCount % 10) >= 5)MakeNode(1);
         }
@@ -76,7 +73,6 @@ public class NoteManager : MonoBehaviour
         t_note.transform.SetParent(this.transform);
         theTimingManager.boxNoteList.Add(t_note); // 리스트에 추가
         invokeCnt++;
-
     }
 
     public int MakeNode(int turn)//(int attackTurn , int defenseTurn)
@@ -111,7 +107,7 @@ public class NoteManager : MonoBehaviour
         if (collision.CompareTag("Note"))
         {
 
-            if (collision.GetComponent<Note>().GetNoteFlag())//이미지가 있을때만
+            if (collision.GetComponent<Note>().GetNoteFlag() && !TimingManager.immortal)//이미지가 있을때만
             {
                 if (collision.GetComponent<Note>().noteType == 0)//방어턴일때
                 {
@@ -119,11 +115,9 @@ public class NoteManager : MonoBehaviour
                 }
                 thecomboManager.ResetCombo(); //콤보리셋
             }
-
             //노트가 맵 끝까지 가면 삭제
             theTimingManager.boxNoteList.Remove(collision.gameObject);
             Destroy(collision.gameObject);
-
         }
     }
 

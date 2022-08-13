@@ -62,10 +62,36 @@ public class ComboManager : MonoBehaviour
             heart[heartCnt-1].SetActive(false);
             heartCnt--;
             //여기에 콤보 사용
+            if (PlayerController.nowWeapon == "wand") WandCombo();
+            else if (PlayerController.nowWeapon == "sword") SwordCombo();
+            else if (PlayerController.nowWeapon == "bat") BatCombo();
+
             Obj.GetComponent<PlayerController>().curHP -= comboDamage;
         }
 
     }
+
+    public void WandCombo()// 힐, 잠시무적
+    {
+        PlayerController.curTime += 30; //시간추가
+        if (PlayerController.curTime > PlayerController.maxTime) PlayerController.curTime = PlayerController.maxTime;
+        TimingManager.immortal = true;
+        Invoke(nameof(Immortal), 2f); //2초간 무적
+    }
+    public void SwordCombo()//강한공격(현재 콤보 스택만큼?)
+    {
+
+    }
+
+    public void BatCombo()//노트클리어(물방울도 지워버림)
+    {
+
+    }
+    public void Immortal() {
+        TimingManager.immortal=false;
+    }
+
+
 
 
 }
