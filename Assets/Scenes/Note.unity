@@ -5448,8 +5448,6 @@ MonoBehaviour:
   TimeHP: {fileID: 1435002377}
   maxHP: 100
   curHP: 100
-  maxTime: 50
-  curTime: 50
   addTime: 15
 --- !u!4 &1385149226
 Transform:
@@ -6217,6 +6215,8 @@ MonoBehaviour:
   - {fileID: 2081103964}
   - {fileID: 1348055163}
   collect: 000000000000
+  collectionData:
+    collect: 000101000100
 --- !u!212 &1698377163
 SpriteRenderer:
   m_ObjectHideFlags: 0
