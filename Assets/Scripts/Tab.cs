@@ -90,7 +90,7 @@ public class Tab : MonoBehaviour
 
 
 
-[System.Serializable]
+[System.Serializable]//데이터직렬화
 public class CollectionData
 {
     public bool[] collect = new bool[6];
