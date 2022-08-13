@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 8d9946f03333bcc4da190dcc8aaffc43
+guid: 224548ac1b36d9a4faf52bc325e06949
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -104,22 +104,106 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Untitled2_0
+      name: Sub01_3
       rect:
         serializedVersion: 2
-        x: 368
-        y: 25
-        width: 408
-        height: 390
+        x: 1255
+        y: 530
+        width: 527
+        height: 517
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c81c6247d2a63164e9e00f9f92aec6cb
-      internalID: -839662418
+      spriteID: 1809e046877295b409caeb0229cc811f
+      internalID: 2076744831
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sub01_4
+      rect:
+        serializedVersion: 2
+        x: 124
+        y: 530
+        width: 434
+        height: 483
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 56ca80d53353ee64abd4dbced61eb9d0
+      internalID: 571363837
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sub01_5
+      rect:
+        serializedVersion: 2
+        x: 706
+        y: 26
+        width: 426
+        height: 483
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e8e721f902b9b554495b35a03494592c
+      internalID: 798198081
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sub01_9
+      rect:
+        serializedVersion: 2
+        x: 124
+        y: 26
+        width: 434
+        height: 479
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3c524b9e492531a498ddf8e9aafef311
+      internalID: 56320620
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sub01_11
+      rect:
+        serializedVersion: 2
+        x: 1262
+        y: 14
+        width: 517
+        height: 485
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 929ab228b0491f042833e22143316c66
+      internalID: -1475966592
       vertices: []
       indices: 
       edges: []
@@ -135,7 +219,19 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Untitled2_0: -839662418
+      Sub01_6: 88650882
+      Sub01_10: 1599810219
+      Sub01_8: 1944830653
+      Sub01_0: -1413279119
+      Sub01_2: 68002478
+      Sub01_4: 571363837
+      Sub01_12: 1409210758
+      Sub01_11: -1475966592
+      Sub01_7: -1439221500
+      Sub01_3: 2076744831
+      Sub01_5: 798198081
+      Sub01_9: 56320620
+      Sub01_1: 1720115806
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

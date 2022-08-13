@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 8d9946f03333bcc4da190dcc8aaffc43
+guid: 1dbb8e42b6238db4fb6530f43f0539b9
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -104,22 +104,106 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Untitled2_0
+      name: Final02_0
       rect:
         serializedVersion: 2
-        x: 368
-        y: 25
-        width: 408
-        height: 390
+        x: 57
+        y: 565
+        width: 517
+        height: 401
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c81c6247d2a63164e9e00f9f92aec6cb
-      internalID: -839662418
+      spriteID: e5743ff687696d046bec9d743ddd5502
+      internalID: -477156605
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Final02_2
+      rect:
+        serializedVersion: 2
+        x: 1300
+        y: 565
+        width: 573
+        height: 486
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1e2004b18afc4f64189469716ca28a32
+      internalID: -1446731450
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Final02_3
+      rect:
+        serializedVersion: 2
+        x: 57
+        y: 76
+        width: 517
+        height: 401
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 26f326368c5c2e6428c5463f17d420a4
+      internalID: 1691854105
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Final02_4
+      rect:
+        serializedVersion: 2
+        x: 774
+        y: 76
+        width: 518
+        height: 400
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 87269d3cdbe38244e8a83e9f97a4314c
+      internalID: -548114086
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Final02_7
+      rect:
+        serializedVersion: 2
+        x: 1358
+        y: 47
+        width: 447
+        height: 453
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c86a12dff414d8340a5e627fb8c9d145
+      internalID: 1056853536
       vertices: []
       indices: 
       edges: []
@@ -135,7 +219,14 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Untitled2_0: -839662418
+      Final02_7: 1056853536
+      Final02_3: 1691854105
+      Final02_4: -548114086
+      Final02_2: -1446731450
+      Final02_0: -477156605
+      Final02_1: -1279797696
+      Final02_5: -1331385705
+      Final02_6: -390571894
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 8d9946f03333bcc4da190dcc8aaffc43
+guid: fabf4ab13993e034aa04cc0c1429cd79
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -104,13 +104,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Untitled2_0
+      name: Sub04_0
       rect:
         serializedVersion: 2
-        x: 368
-        y: 25
-        width: 408
-        height: 390
+        x: 71
+        y: 591
+        width: 476
+        height: 316
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -118,8 +118,92 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c81c6247d2a63164e9e00f9f92aec6cb
-      internalID: -839662418
+      spriteID: 45124e5a6df2c96438708e1e5056ea73
+      internalID: -2114293936
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sub04_2
+      rect:
+        serializedVersion: 2
+        x: 1338
+        y: 590
+        width: 464
+        height: 392
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 175bf3f36dceb6c438881e00c7b2dcc4
+      internalID: -194492800
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sub04_3
+      rect:
+        serializedVersion: 2
+        x: 71
+        y: 61
+        width: 476
+        height: 317
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4e7bf114f06f1164aa757c0a8657b47e
+      internalID: 1307261337
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sub04_4
+      rect:
+        serializedVersion: 2
+        x: 712
+        y: 61
+        width: 477
+        height: 317
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 32d34651227f52546a059c05500ebd1d
+      internalID: -1575141666
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sub04_5
+      rect:
+        serializedVersion: 2
+        x: 1294
+        y: 12
+        width: 576
+        height: 553
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fcc6c8fbd011bd54fb1a1cca648af78c
+      internalID: 1604720051
       vertices: []
       indices: 
       edges: []
@@ -135,7 +219,12 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Untitled2_0: -839662418
+      Sub04_1: -1273776451
+      Sub04_2: -194492800
+      Sub04_0: -2114293936
+      Sub04_5: 1604720051
+      Sub04_4: -1575141666
+      Sub04_3: 1307261337
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
