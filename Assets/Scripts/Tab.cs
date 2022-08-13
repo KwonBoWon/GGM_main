@@ -28,7 +28,7 @@ public class Tab : MonoBehaviour
             }
             Time.timeScale = 0.0F;
             tabck = 0;
-            CenterFlame.instance.bgms[PlayerController.nStage].source.Pause();
+            //CenterFlame.instance.bgms[PlayerController.nStage].source.Pause();
         }
         if (Input.GetKeyUp(KeyCode.Tab)) { //탭키 떼는 순간 안 보이게
             image.enabled = false;
@@ -39,7 +39,7 @@ public class Tab : MonoBehaviour
                 }
                 Time.timeScale = 1.0F;
                 image.sprite = change_img[6]; //도감 원래 이미지로 변경
-                CenterFlame.instance.bgms[PlayerController.nStage].source.Play();
+                //CenterFlame.instance.bgms[PlayerController.nStage].source.Play();
             }
         }
         
