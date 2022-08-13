@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class ComboManager : MonoBehaviour
 {
@@ -9,8 +7,8 @@ public class ComboManager : MonoBehaviour
     GameObject Obj;
     public int curCombo = 0; //콤보스택
     int heartCnt=0; //하트 개수(최대3)
-    int comboStack = 10; //comboStack개마다 콤보 생성
-    int comboDamage = 30;
+    int comboStack =10; //comboStack개마다 콤보 생성
+    int comboDamage = 15;
 
 
     void Update()
@@ -78,14 +76,24 @@ public class ComboManager : MonoBehaviour
         TimingManager.immortal = true;
         Invoke(nameof(Immortal), 2f); //2초간 무적
     }
-    public void SwordCombo()//강한공격(현재 콤보 스택만큼?)
+    public void SwordCombo()//강한공격(현재 콤보 스택만큼 추가로)
     {
-
+        Obj.GetComponent<PlayerController>().curHP -= curCombo + 10;
     }
 
     public void BatCombo()//노트클리어(물방울도 지워버림)
     {
+        CenterFlame.instance.NoteClear(); //노트클리어
 
+        GameObject[] destroyDrops = null; //물방울 클리어
+        if (destroyDrops == null)
+        {
+            destroyDrops = GameObject.FindGameObjectsWithTag("Drop");
+        }
+        foreach (GameObject note in destroyDrops)
+        {
+            Destroy(note);
+        }
     }
     public void Immortal() {
         TimingManager.immortal=false;

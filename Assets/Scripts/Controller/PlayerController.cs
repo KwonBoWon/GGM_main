@@ -259,10 +259,11 @@ public class PlayerController : MonoBehaviour
         {
             makeWeapon = false;
             Lrand = Random.Range(0, 3);
-            while (Lrand == Rrand)
+            do
             {
                 Rrand = Random.Range(0, 3);
-            }
+            } while (Lrand == Rrand);
+
             LeftW = Instantiate(weapon[Lrand], LWeapon.position, Quaternion.identity);
             RightW = Instantiate(weapon[Rrand], RWeapon.position, Quaternion.identity);
             LeftW.transform.SetParent(Weapons);

@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Note
   - Monster
+  - Drop
   layers:
   - Default
   - TransparentFX
