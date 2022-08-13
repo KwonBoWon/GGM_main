@@ -3,18 +3,35 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
+using System.IO;
 public class Tab : MonoBehaviour
 {
     public SpriteRenderer image; //도감창 렌더러를 받음
     public Sprite[] change_img; //변경할 이미지
     public Image[] cover; //수집 안 된 애들 비활성화시키는 이미지
-    public bool[] collect = new bool[6];
     public static int tabck = 1;
+
+    public CollectionData collectionData;
+    [ContextMenu("To Json Data")]
+    void SaveCollectionDataToJson()//데이터 저장
+    {
+        string jsonData = JsonUtility.ToJson(collectionData, true);
+        string path = Path.Combine(Application.dataPath, "collectionData.json");
+        File.WriteAllText(path, jsonData);
+    }
+
+    [ContextMenu("From Json Data")]
+    void LoadCollectionDataToJson()//데이터 로드
+    {
+        string path = Path.Combine(Application.dataPath, "collectionData.json");
+        string jsonData = File.ReadAllText(path);
+        collectionData= JsonUtility.FromJson<CollectionData>(jsonData);
+    }
     // Start is called before the first frame update
     void Start()
     {
         image = GetComponent<SpriteRenderer>();
-        bool[] collect = Enumerable.Repeat(false, 6).ToArray(); 
+        LoadCollectionDataToJson(); //데이터 로드
     }
 
     // Update is called once per frame
@@ -44,6 +61,10 @@ public class Tab : MonoBehaviour
         }
         
     }
+
+
+
+
     public void change(int n) {
         Destroy(cover[n]); //n번째 활성화 (0번째부터 생각해야 댐)
     }
@@ -65,4 +86,12 @@ public class Tab : MonoBehaviour
     public void Button6() {
         image.sprite = change_img[5];
     }
+}
+
+
+
+[System.Serializable]
+public class CollectionData
+{
+    public bool[] collect = new bool[6];
 }

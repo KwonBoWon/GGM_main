@@ -6533,6 +6533,8 @@ MonoBehaviour:
   - {fileID: 2081103964}
   - {fileID: 1348055163}
   collect: 000000000000
+  collectionData:
+    collect: 000101000100
 --- !u!212 &1698377163
 SpriteRenderer:
   m_ObjectHideFlags: 0
