@@ -11,9 +11,10 @@ GameObject:
   - component: {fileID: 7444508876815042416}
   - component: {fileID: 6188307829487715815}
   - component: {fileID: 5373692868686037507}
+  - component: {fileID: 3291360164569030710}
   m_Layer: 0
-  m_Name: monster5
-  m_TagString: Untagged
+  m_Name: Tree
+  m_TagString: Monster
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -105,3 +106,30 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &3291360164569030710
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7442613070696708389}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7abfab7071f55e24bb03dce0b9b8e14e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Sounds:
+  - clip: {fileID: 8300000, guid: cb2110bf70edf6c43b6c50b5c0818bc5, type: 3}
+    volume: 0
+  - clip: {fileID: 8300000, guid: bd2c51e0470c7f346b8921ec35aae621, type: 3}
+    volume: 0
+  - clip: {fileID: 8300000, guid: 8246a8584adc8c14e97ac50080aea068, type: 3}
+    volume: 0
+  monsterAttack: 0
+  monsterDefense: 0
+  monsterDamage: 25
+  monsterHP: 200
+  semiBoss: 0
+  Boss: 1
+  multi: 0
+  drop: 0
