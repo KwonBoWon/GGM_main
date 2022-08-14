@@ -173,7 +173,6 @@ public class PlayerController : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.RightArrow)) { 
             //오른쪽 애니메이션 나오게
-            GameObject.Find("Backgrounds").transform.Find(nStage + "-color").gameObject.SetActive(false);
             nStage=T.ChooseR();//오른쪽노드
             backGround = GameObject.Find(nStage + "-1");
             BackGround1 = backGround.GetComponent<Animator>();
@@ -182,7 +181,6 @@ public class PlayerController : MonoBehaviour
         }
         else if (Input.GetKeyDown(KeyCode.LeftArrow)) {
             //왼쪽 애니메이션 나오게
-            GameObject.Find("Backgrounds").transform.Find(nStage + "-color").gameObject.SetActive(false);
             nStage = T.ChooseL();//왼쪽노드
             backGround = GameObject.Find(nStage + "-1");
             BackGround1 = backGround.GetComponent<Animator>();
@@ -241,6 +239,7 @@ public class PlayerController : MonoBehaviour
         }
     }
     public void ChangeStage() {
+        GameObject.Find("Backgrounds").transform.Find(nStage-1 + "-color").gameObject.SetActive(false);
         BackGround2.SetTrigger("hit2"); //갈림길 사라지게
         BackGround1.SetTrigger("hit1"); //새로운 스테이지 처음 맵 보이게
         GameObject.Find("Backgrounds").transform.Find(nStage + "-2").gameObject.SetActive(true);
