@@ -5,7 +5,7 @@ using UnityEngine;
 public class TimingManager : MonoBehaviour
 {
     ComboManager thecomboManager;
-    [SerializeField]  Animator[] player;
+    [SerializeField] Animator[] player;
     [SerializeField]  Animator[] playerEffect;
     public static int n = 0; //플레이어가 무슨 무기를 들고 있는지 나타내는 변수 0: 칼, 1: 방망이, 2: 지팡이
     public Animator animator; //애니메이터 변수 선언

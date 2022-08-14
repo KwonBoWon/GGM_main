@@ -11,6 +11,7 @@ public class MonsterList
 public class PlayerController : MonoBehaviour
 {
     public  MonsterList[] goMonster;
+    [SerializeField] Animator[] player;
 
     TimingManager theTimingManager;
     private Tree T= new Tree();
@@ -176,23 +177,8 @@ public class PlayerController : MonoBehaviour
             nStage=T.ChooseR();//오른쪽노드
             backGround = GameObject.Find(nStage + "-1");
             BackGround1 = backGround.GetComponent<Animator>();
-            BackGround2.SetTrigger("hit2"); //갈림길 사라지게
-            BackGround1.SetTrigger("hit1"); //새로운 스테이지 처음 맵 보이게
-            GameObject.Find("Backgrounds").transform.Find(nStage + "-2").gameObject.SetActive(true);
-            GameObject.Find("Backgrounds").transform.Find(nStage + "-3").gameObject.SetActive(true);
-            GameObject.Find("Backgrounds").transform.Find(nStage + "-color").gameObject.SetActive(true);
-            MakeMonster();
-            flag = 0;
-            pStage++;
-            makeWeapon = true;
-
-            playerDamage = weaponDamage[Rrand] +pStage*5;
-            if (Rrand == 0) nowWeapon = "wand";
-            else if (Rrand == 1) nowWeapon = "sword";
-            else if (Rrand == 2) nowWeapon = "bat";
-
-            Destroy(LeftW);
-            Destroy(RightW);
+            player[TimingManager.n].SetTrigger("CR"); //오른쪽으로 움직이는 애니메이션
+            Invoke("ChangeStage", 1.1f);
         }
         else if (Input.GetKeyDown(KeyCode.LeftArrow)) {
             //왼쪽 애니메이션 나오게
@@ -200,24 +186,8 @@ public class PlayerController : MonoBehaviour
             nStage = T.ChooseL();//왼쪽노드
             backGround = GameObject.Find(nStage + "-1");
             BackGround1 = backGround.GetComponent<Animator>();
-            BackGround2.SetTrigger("hit2"); //갈림길 사라지게
-            BackGround1.SetTrigger("hit1"); //새로운 스테이지 처음 맵 보이게
-            GameObject.Find("Backgrounds").transform.Find(nStage + "-2").gameObject.SetActive(true);
-            GameObject.Find("Backgrounds").transform.Find(nStage + "-3").gameObject.SetActive(true);
-            GameObject.Find("Backgrounds").transform.Find(nStage + "-color").gameObject.SetActive(true);
-            MakeMonster();
-            flag = 0;
-            pStage++;
-            makeWeapon = true;
-
-            playerDamage = weaponDamage[Lrand] + pStage * 5;
-            if (Lrand == 0) nowWeapon = "wand";
-            else if (Lrand == 1) nowWeapon = "sword";
-            else if (Lrand == 2) nowWeapon = "bat";
-
-            Destroy(LeftW);
-            Destroy(RightW);
-
+            player[TimingManager.n].SetTrigger("CL"); //왼쪽으로 움직이는 애니메이션
+            Invoke("ChangeStage", 1.1f);
         }
     }
     public void BackGroundChange() {
@@ -270,6 +240,25 @@ public class PlayerController : MonoBehaviour
             RightW.transform.SetParent(Weapons);
         }
     }
+    public void ChangeStage() {
+        BackGround2.SetTrigger("hit2"); //갈림길 사라지게
+        BackGround1.SetTrigger("hit1"); //새로운 스테이지 처음 맵 보이게
+        GameObject.Find("Backgrounds").transform.Find(nStage + "-2").gameObject.SetActive(true);
+        GameObject.Find("Backgrounds").transform.Find(nStage + "-3").gameObject.SetActive(true);
+        GameObject.Find("Backgrounds").transform.Find(nStage + "-color").gameObject.SetActive(true);
+        MakeMonster();
+        flag = 0;
+        pStage++;
+        makeWeapon = true;
 
+        playerDamage = weaponDamage[Lrand] + pStage * 5;
+        if (Lrand == 0) nowWeapon = "wand";
+        else if (Lrand == 1) nowWeapon = "sword";
+        else if (Lrand == 2) nowWeapon = "bat";
+
+
+        Destroy(LeftW);
+        Destroy(RightW);
+    }
 
 }
