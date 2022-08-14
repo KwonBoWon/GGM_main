@@ -13,18 +13,20 @@ public class BGM
 public class CenterFlame : MonoBehaviour
 {
     public static CenterFlame instance;
-
+    TimingManager theTimingManager;
     [Header("배경음악")]
     [SerializeField]
     public BGM[] bgms;
 
     //public AudioSource myAudio;
     bool musicStart = false;
-    GameObject[] destroyNotes = null;
+
 
     private void Start()
     {
+
         instance = this;
+        theTimingManager = FindObjectOfType<TimingManager>();
 
         for (int i = 0; i < bgms.Length; i++)
         {
@@ -57,6 +59,7 @@ public class CenterFlame : MonoBehaviour
     }
     public void NoteClear()
     {
+        GameObject[] destroyNotes = null;
         if (destroyNotes == null)
         {
             destroyNotes = GameObject.FindGameObjectsWithTag("Note");
@@ -66,6 +69,7 @@ public class CenterFlame : MonoBehaviour
             Destroy(note);
         }
          destroyNotes = null;
+         theTimingManager.boxNoteList.Clear();
     }
 
     void Update()

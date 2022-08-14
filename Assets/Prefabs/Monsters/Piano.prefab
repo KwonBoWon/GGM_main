@@ -131,5 +131,5 @@ MonoBehaviour:
   monsterHP: 140
   semiBoss: 1
   Boss: 0
-  multi: 0
-  drop: 0
+  multi: 1
+  drop: 1
