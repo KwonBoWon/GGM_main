@@ -5,7 +5,9 @@ using UnityEngine;
 public class TimingManager : MonoBehaviour
 {
     ComboManager thecomboManager;
-    [SerializeField]  Animator player;
+    [SerializeField]  Animator[] player;
+    [SerializeField]  Animator[] playerEffect;
+    public static int n = 0; //플레이어가 무슨 무기를 들고 있는지 나타내는 변수 0: 칼, 1: 방망이, 2: 지팡이
     public Animator animator; //애니메이터 변수 선언
     public List<GameObject> boxNoteList  = new List<GameObject>();
 
@@ -75,7 +77,7 @@ public class TimingManager : MonoBehaviour
                         PlayerController.curTime -= PlayerController.nowMonster.GetComponent<Monster>().monsterDamage; //시간감소 몬스터공격력만큼
                         theEffect.JudgementEffect(4); //Miss이펙트
                         thecomboManager.ResetCombo(); //콤보리셋
-                        player.SetTrigger("Hitted"); //플레이어 피격 모션
+                        player[n].SetTrigger("Hitted"); //플레이어 피격 모션
                     }
 
                     if ( t_noteType == 1) //반대방향으로 누를때
@@ -89,6 +91,8 @@ public class TimingManager : MonoBehaviour
                             theEffect.JudgementEffect(x); //판정 이펙트
                             thecomboManager.IncreaseCombo();//콤보증가
                             Obj.GetComponent<PlayerController>().curHP -= PlayerController.playerDamage;
+                            player[n].SetTrigger("hit"); //플레이어 공격 모션
+                            playerEffect[n].SetTrigger("hit"); //플레이어 공격 이펙트
                         }
                         else// 공격실패
                         {
