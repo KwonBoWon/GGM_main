@@ -76,9 +76,9 @@ public class PlayerController : MonoBehaviour
         theTimingManager = FindObjectOfType<TimingManager>();
         thebackGroundManager = FindObjectOfType<BackGroundManager>();
 
-        weaponDamage[0] = 18;
-        weaponDamage[1] = 18;
-        weaponDamage[2] = 12;
+        weaponDamage[0] = 10;
+        weaponDamage[1] = 10;
+        weaponDamage[2] = 10;
     }
     void Update()
     {
@@ -258,7 +258,7 @@ public class PlayerController : MonoBehaviour
         pStage++;
         makeWeapon = true;
 
-        playerDamage = weaponDamage[Lrand] + pStage * 5;
+        playerDamage = weaponDamage[Lrand];// + pStage * 5; //공격력보정 일단보류
         
         
         Destroy(LeftW);
