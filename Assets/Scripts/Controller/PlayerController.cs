@@ -178,7 +178,7 @@ public class PlayerController : MonoBehaviour
             BackGround1 = backGround.GetComponent<Animator>();
             player[nowWeapon].SetTrigger("CR"); //오른쪽으로 움직이는 애니메이션
             Invoke("ChangeStage", 1.1f);
-            Rrand =nowWeapon; 
+            nowWeapon = Rrand; 
         }
         else if (Input.GetKeyDown(KeyCode.LeftArrow)) {
             //왼쪽 애니메이션 나오게
@@ -187,7 +187,7 @@ public class PlayerController : MonoBehaviour
             BackGround1 = backGround.GetComponent<Animator>();
             player[nowWeapon].SetTrigger("CL"); //왼쪽으로 움직이는 애니메이션
             Invoke("ChangeStage", 1.1f);
-            Lrand = nowWeapon;
+            nowWeapon = Lrand;
         }
     }
     public void BackGroundChange() {
