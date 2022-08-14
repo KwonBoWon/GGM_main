@@ -45,10 +45,7 @@ public class MonsterNote : MonoBehaviour
                     {
                         player.SetTrigger("Right");
                     }
-                
-
                 }
-                
                 if (collision.GetComponent<Note>().noteType == 1) //회피
                 {
                     if (dir == 0) monsterAttack.SetTrigger("Down");

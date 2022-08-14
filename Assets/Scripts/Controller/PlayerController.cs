@@ -76,9 +76,9 @@ public class PlayerController : MonoBehaviour
         theTimingManager = FindObjectOfType<TimingManager>();
         thebackGroundManager = FindObjectOfType<BackGroundManager>();
 
-        weaponDamage[0] = 12;
-        weaponDamage[1] = 16;
-        weaponDamage[2] = 14;
+        weaponDamage[0] = 18;
+        weaponDamage[1] = 18;
+        weaponDamage[2] = 12;
     }
     void Update()
     {
