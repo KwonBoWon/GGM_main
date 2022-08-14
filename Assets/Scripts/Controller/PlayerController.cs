@@ -39,7 +39,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] Transform Weapons = null;
 
     //public static GameObject nowWeapon = null;
-    public static string nowWeapon = null;
+    public static int nowWeapon = 0;
 
     GameObject LeftW;
     GameObject RightW;
@@ -176,16 +176,18 @@ public class PlayerController : MonoBehaviour
             nStage=T.ChooseR();//오른쪽노드
             backGround = GameObject.Find(nStage + "-1");
             BackGround1 = backGround.GetComponent<Animator>();
-            player[TimingManager.n].SetTrigger("CR"); //오른쪽으로 움직이는 애니메이션
+            player[nowWeapon].SetTrigger("CR"); //오른쪽으로 움직이는 애니메이션
             Invoke("ChangeStage", 1.1f);
+            Rrand =nowWeapon; 
         }
         else if (Input.GetKeyDown(KeyCode.LeftArrow)) {
             //왼쪽 애니메이션 나오게
             nStage = T.ChooseL();//왼쪽노드
             backGround = GameObject.Find(nStage + "-1");
             BackGround1 = backGround.GetComponent<Animator>();
-            player[TimingManager.n].SetTrigger("CL"); //왼쪽으로 움직이는 애니메이션
+            player[nowWeapon].SetTrigger("CL"); //왼쪽으로 움직이는 애니메이션
             Invoke("ChangeStage", 1.1f);
+            Lrand = nowWeapon;
         }
     }
     public void BackGroundChange() {
@@ -251,10 +253,6 @@ public class PlayerController : MonoBehaviour
         makeWeapon = true;
 
         playerDamage = weaponDamage[Lrand] + pStage * 5;
-        if (Lrand == 0) nowWeapon = "wand";
-        else if (Lrand == 1) nowWeapon = "sword";
-        else if (Lrand == 2) nowWeapon = "bat";
-
 
         Destroy(LeftW);
         Destroy(RightW);

@@ -6134,9 +6134,9 @@ MonoBehaviour:
   tfMonsterAppear: {fileID: 922853101}
   Tree: {fileID: 0}
   weapon:
-  - {fileID: 6109834048416617250, guid: 8a4c0bd541b21234da51a22da85763e4, type: 3}
   - {fileID: 4951557816217880650, guid: f644dfbcbc9a5a0468e1acdfc8a69924, type: 3}
   - {fileID: 8476648759525184142, guid: 0696545736ee8d94f8127311c0573c7d, type: 3}
+  - {fileID: 6109834048416617250, guid: 8a4c0bd541b21234da51a22da85763e4, type: 3}
   LWeapon: {fileID: 305674051}
   RWeapon: {fileID: 761681126}
   Weapons: {fileID: 348356945}

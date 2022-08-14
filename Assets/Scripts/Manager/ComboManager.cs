@@ -60,9 +60,9 @@ public class ComboManager : MonoBehaviour
             heart[heartCnt-1].SetActive(false);
             heartCnt--;
             //여기에 콤보 사용
-            if (PlayerController.nowWeapon == "wand") WandCombo();
-            else if (PlayerController.nowWeapon == "sword") SwordCombo();
-            else if (PlayerController.nowWeapon == "bat") BatCombo();
+            if (PlayerController.nowWeapon == 2) WandCombo();
+            else if (PlayerController.nowWeapon == 0) SwordCombo();
+            else if (PlayerController.nowWeapon == 1) BatCombo();
 
             Obj.GetComponent<PlayerController>().curHP -= comboDamage;
         }
