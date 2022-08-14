@@ -83,7 +83,7 @@ public class NoteManager : MonoBehaviour
         currentTime += Time.deltaTime;
         if (noteOn == true)
         {
-            if (currentTime >= 60d / bpm)  //55bpm마다 노트 생성
+            if (currentTime >= 60d / bpm)  //bpm마다 노트 생성
             {
                 if (turn == 0) arrowDirection = Random.Range(0, 4); // 방어턴
                 else if (turn == 1) arrowDirection = Random.Range(4, 8); //공격턴 
