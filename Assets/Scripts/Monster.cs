@@ -1,22 +1,27 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 
 public class Monster : MonoBehaviour
 {
-    [Header("¸ó½ºÅÍ °ø°İ/¹æ¾îÆĞÅÏ")]
+    [Header("íš¨ê³¼ìŒ ê³µê²© í”¼ê²© ì‚¬ë§")]
+    [SerializeField]
+    public Sound[] Sounds;
+
+
+    [Header("ëª¬ìŠ¤í„° ê³µê²©/ë°©ì–´íŒ¨í„´")]
     public int monsterAttack;
     public int monsterDefense;
 
-    [Header("¸ó½ºÅÍ °ø°İ·Â/Ã¼·Â")]
+    [Header("ëª¬ìŠ¤í„° ê³µê²©ë ¥/ì²´ë ¥")]
     public int monsterDamage;
     public int monsterHP;
 
-    [Header("º¸½º¸ó½ºÅÍ")]
+    [Header("ë³´ìŠ¤ëª¬ìŠ¤í„°")]
     public bool semiBoss= false;
     public bool Boss =false;
-    [Header("º¸½º ÆĞÅÏ[0]=¿¬Å¸")]
+    [Header("ë³´ìŠ¤ íŒ¨í„´[0]=ì—°íƒ€")]
     public bool multi = false;
     public bool drop = false;
 
@@ -24,7 +29,7 @@ public class Monster : MonoBehaviour
     public void MonsterDoge( int direction)
     {
         
-        float speed = 5000;//¾Æ·¡À§¿Ş¿À
+        float speed = 5000;//ì•„ë˜ìœ„ì™¼ì˜¤
         //this.transform.position = new Vector3(999, 595, 0);
         if (direction==0) this.transform.Translate(0, -(speed * Time.deltaTime),  0);
         else if (direction == 1) this.transform.Translate(0, speed * Time.deltaTime,  0);
