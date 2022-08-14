@@ -72,6 +72,22 @@ public class TimingManager : MonoBehaviour
                         }
                         theEffect.JudgementEffect(x); //판정 이펙트
                         thecomboManager.IncreaseCombo();//콤보증가
+                        if (t_noteDire == 0)
+                                {
+                                   player[PlayerController.nowWeapon].SetTrigger("Down");
+                                }
+                                else if (t_noteDire == 1)
+                                {
+                                    player[PlayerController.nowWeapon].SetTrigger("Up");
+                                }
+                                else if (t_noteDire == 2)
+                                {
+                                    player[PlayerController.nowWeapon].SetTrigger("Left");
+                                }
+                                else if (t_noteDire == 3)
+                                {
+                                    player[PlayerController.nowWeapon].SetTrigger("Right");
+                                }
                     }
                     else if (arrowInput != t_noteType && t_noteType == 0 && !immortal)
                     {//방어실패
@@ -131,5 +147,5 @@ public class TimingManager : MonoBehaviour
         }
         theEffect.JudgementEffect(timingBoxs.Length);
     }
-
+    
 }
