@@ -29,6 +29,7 @@ public class MonsterNote : MonoBehaviour
                 if (collision.GetComponent<Note>().noteType == 0) //공격
                 {
                     monsterAttack.SetTrigger("hit");
+                    /*
                     if (dir == 0)
                     {
                         player.SetTrigger("Down");
@@ -45,13 +46,16 @@ public class MonsterNote : MonoBehaviour
                     {
                         player.SetTrigger("Right");
                     }
+                    */
                 }
                 if (collision.GetComponent<Note>().noteType == 1) //회피
                 {
+                    /*
                     if (dir == 0) monsterAttack.SetTrigger("Down");
                     else if (dir == 1) monsterAttack.SetTrigger("Up");
                     else if (dir==2) monsterAttack.SetTrigger("Left");
                     else if (dir == 3) monsterAttack.SetTrigger("Right");
+                    */
                 }
             }
         }

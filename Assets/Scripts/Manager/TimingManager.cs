@@ -59,7 +59,7 @@ public class TimingManager : MonoBehaviour
             float t_notePosX = boxNoteList[i].transform.localPosition.x; //노트 x좌표 가져옴
             int t_noteDire = boxNoteList[i].GetComponent<Note>().noteDirection; // 노트방향값 가져옴
             int t_noteType = boxNoteList[i].GetComponent<Note>().noteType; //노트타입 가져옴 0:방어턴 1:공격턴
-
+            Animator MonAni = PlayerController.nowMonster.GetComponent<Animator>();
             for (int x= 0; x < timingBoxs.Length; x++)
             {
                 if (timingBoxs[x].x <= t_notePosX && t_notePosX <= timingBoxs[x].y)
@@ -94,12 +94,30 @@ public class TimingManager : MonoBehaviour
                             Obj.GetComponent<PlayerController>().curHP -= PlayerController.playerDamage;
                             player[PlayerController.nowWeapon].SetTrigger("hit"); //플레이어 공격 모션
                             playerEffect[PlayerController.nowWeapon].SetTrigger("hit"); //플레이어 공격 이펙트
+                            MonAni.SetTrigger("Hurt"); //몬스터 피격 모션
                         }
                         else// 공격실패
                         {
                             if ( !immortal) {
                                 theEffect.JudgementEffect(4); //Miss이펙트
                                 thecomboManager.ResetCombo(); //콤보리셋
+                                                              //t_noteDire D U L R
+                                if (t_noteDire == 0)
+                                {
+                                   MonAni.SetTrigger("Down");
+                                }
+                                else if (t_noteDire == 1)
+                                {
+                                    MonAni.SetTrigger("Up");
+                                }
+                                else if (t_noteDire == 2)
+                                {
+                                    MonAni.SetTrigger("Left");
+                                }
+                                else if (t_noteDire == 3)
+                                {
+                                    MonAni.SetTrigger("Right");
+                                }
                             }
                         }
                     }

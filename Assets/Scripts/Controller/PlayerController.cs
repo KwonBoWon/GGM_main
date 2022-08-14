@@ -181,7 +181,8 @@ public class PlayerController : MonoBehaviour
             GameObject.Find("PlayerParent").transform.Find("Player" + nowWeapon).gameObject.SetActive(true);
             player[nowWeapon].SetTrigger("CR"); //오른쪽으로 움직이는 애니메이션
             Invoke("ChangeStage", 1.1f);
-            //Rrand =nowWeapon;
+
+           
         }
         else if (Input.GetKeyDown(KeyCode.LeftArrow)) {
             //왼쪽 애니메이션 나오게
@@ -193,7 +194,7 @@ public class PlayerController : MonoBehaviour
             GameObject.Find("PlayerParent").transform.Find("Player" + nowWeapon).gameObject.SetActive(true);
             player[nowWeapon].SetTrigger("CL"); //왼쪽으로 움직이는 애니메이션
             Invoke("ChangeStage", 1.1f);
-            //Lrand = nowWeapon;
+            
         }
     }
     public void BackGroundChange() {

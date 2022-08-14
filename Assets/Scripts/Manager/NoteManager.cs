@@ -71,6 +71,7 @@ public class NoteManager : MonoBehaviour
     {
         GameObject t_note = Instantiate(goNote[arrowDirection], tfNoteAppear.position, Quaternion.identity); // 노트를 생성
         t_note.transform.SetParent(this.transform);
+        t_note.transform.SetAsFirstSibling();
         theTimingManager.boxNoteList.Add(t_note); // 리스트에 추가
         invokeCnt++;
     }
