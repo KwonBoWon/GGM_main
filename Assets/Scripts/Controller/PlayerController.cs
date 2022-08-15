@@ -205,7 +205,7 @@ public class PlayerController : MonoBehaviour
             BackGround3 = backGround.GetComponent<Animator>();
             BackGround3.SetTrigger("boss");
             cnt = 3;
-            MakeMonster();
+            Invoke("MakeMonster", 0.8f);
         }
         else if (flag == 0) {
             backGround = GameObject.Find(nStage + "-1");

@@ -8,6 +8,9 @@ public class MonsterNote : MonoBehaviour
     MonsterManager theMonsterManager;
     Animator monsterAttack = null;
     [SerializeField]  Animator player;
+    [SerializeField]  Animator Final2;
+    [SerializeField]  Animator Sub1;
+    [SerializeField]  Animator Sub4;
     GameObject t_monster;
     int dir;
     
@@ -29,24 +32,19 @@ public class MonsterNote : MonoBehaviour
                 if (collision.GetComponent<Note>().noteType == 0) //공격
                 {
                     monsterAttack.SetTrigger("hit");
-                    /*
-                    if (dir == 0)
-                    {
-                        player.SetTrigger("Down");
+                    if (PlayerController.pStage == 3) {
+                        if (PlayerController.nStage == 2) {
+                            Final2.SetTrigger("hit");
+                        }
                     }
-                    else if (dir == 1)
-                    {
-                        player.SetTrigger("Up");
+                    else if (PlayerController.nStage == 1) {
+                        Sub1.SetTrigger("hit");
                     }
-                    else if (dir == 2)
-                    {
-                        player.SetTrigger("Left");
+                    else if (PlayerController.nStage == 4) {
+                        Debug.Log("dkfd");
+                        Sub4.SetTrigger("hit");
                     }
-                    else if(dir==3)
-                    {
-                        player.SetTrigger("Right");
-                    }
-                    */
+                    
                 }
                 if (collision.GetComponent<Note>().noteType == 1) //회피
                 {
