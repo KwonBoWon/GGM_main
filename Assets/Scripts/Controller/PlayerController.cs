@@ -12,11 +12,11 @@ public class MonsterList
 
 public class PlayerController : MonoBehaviour
 {
-    public  MonsterList[] goMonster;
+    public MonsterList[] goMonster;
     [SerializeField] Animator[] player;
 
     TimingManager theTimingManager;
-    private Tree T= new Tree();
+    private Tree T = new Tree();
 
     public static GameObject nowMonster;
     public static GameObject nowBackGround;
@@ -35,9 +35,9 @@ public class PlayerController : MonoBehaviour
     [SerializeField] GameObject Tree;
     [SerializeField] GameObject[] weapon = null;
 
-    int[] weaponDamage = new int [3];
-    [SerializeField] Transform  LWeapon = null;
-    [SerializeField] Transform  RWeapon = null;
+    int[] weaponDamage = new int[3];
+    [SerializeField] Transform LWeapon = null;
+    [SerializeField] Transform RWeapon = null;
     [SerializeField] Transform Weapons = null;
 
 
@@ -59,7 +59,7 @@ public class PlayerController : MonoBehaviour
 
     int Lrand = 0, Rrand = 1;
 
-    public static float  maxTime = 100; //최대 시간
+    public static float maxTime = 100; //최대 시간
     public static float curTime = 100; //현재시간
     public float addTime = 40; //시간추가
     public static float playerDamage = 10;
@@ -68,14 +68,14 @@ public class PlayerController : MonoBehaviour
 
     void Start()
     {
-        nowMonster=Instantiate(goMonster[nStage].Monsters[cnt], tfMonsterAppear.position, Quaternion.identity);
+        nowMonster = Instantiate(goMonster[nStage].Monsters[cnt], tfMonsterAppear.position, Quaternion.identity);
         nowMonster.transform.SetParent(this.transform);
 
         MonsterHP = GameObject.Find("MonsterHP").GetComponent<Slider>();
-        MonsterHP.value = (float) curHP / (float) maxHP;
+        MonsterHP.value = (float)curHP / (float)maxHP;
         TimeHP = GameObject.Find("Time").GetComponent<Slider>();
-        TimeHP.value =(float)curTime / (float)maxTime; //초기시간
-        
+        TimeHP.value = (float)curTime / (float)maxTime; //초기시간
+
         theTimingManager = FindObjectOfType<TimingManager>();
         thebackGroundManager = FindObjectOfType<BackGroundManager>();
 
@@ -114,6 +114,47 @@ public class PlayerController : MonoBehaviour
             {
                 CenterFlame.instance.NoteClear();
             }
+
+
+
+
+
+            if (Input.GetKey(KeyCode.LeftArrow) && Input.GetKeyDown(KeyCode.UpArrow))//상좌
+            {
+                theTimingManager.CheckTiming(10);
+            }
+            else if (Input.GetKeyDown(KeyCode.LeftArrow) && Input.GetKey(KeyCode.UpArrow))
+            {
+                theTimingManager.CheckTiming(10);
+            }
+
+            if (Input.GetKey(KeyCode.RightArrow) && Input.GetKeyDown(KeyCode.UpArrow))//상우
+            {
+                theTimingManager.CheckTiming(11);
+            }
+            else if (Input.GetKeyDown(KeyCode.RightArrow) && Input.GetKey(KeyCode.UpArrow))
+            {
+                theTimingManager.CheckTiming(11);
+            }
+
+            if (Input.GetKey(KeyCode.LeftArrow) && Input.GetKeyDown(KeyCode.DownArrow))//하좌
+            {
+                theTimingManager.CheckTiming(12);
+            }
+            else if (Input.GetKeyDown(KeyCode.LeftArrow) && Input.GetKey(KeyCode.DownArrow))
+            {
+                theTimingManager.CheckTiming(12);
+            }
+            if (Input.GetKey(KeyCode.RightArrow) && Input.GetKeyDown(KeyCode.DownArrow))//하우
+            {
+                theTimingManager.CheckTiming(13);
+            }
+            else if (Input.GetKeyDown(KeyCode.RightArrow) && Input.GetKey(KeyCode.DownArrow))
+            {
+                theTimingManager.CheckTiming(13);
+            }
+
+
         }
         HandleHP();
         HandleTime();
@@ -122,36 +163,38 @@ public class PlayerController : MonoBehaviour
     {
         curHP = 0;
     }
-    public void HandleHP() {
-        MonsterHP.value = (float) curHP / (float) maxHP;
-           
-        if (MonsterHP.value == 0 && monsterLife == true) { // 적 죽으면
+    public void HandleHP()
+    {
+        MonsterHP.value = (float)curHP / (float)maxHP;
+
+        if (MonsterHP.value == 0 && monsterLife == true)
+        { // 적 죽으면
             nowMonster.GetComponent<Monster>().Sounds[2].source.Play();
 
-            del=GameObject.FindGameObjectsWithTag("Monster");
+            del = GameObject.FindGameObjectsWithTag("Monster");
             foreach (GameObject note in del)
             {
                 Destroy(note);
             }
             cnt++;
-            if (cnt == 3)  cnt = 0;
+            if (cnt == 3) cnt = 0;
             MonsterHP.gameObject.SetActive(false);
             monsterLife = false;
             NoteManager.noteOn = false;
             //CenterFlame.instance.StopMusic();
             CenterFlame.instance.NoteClear();
-           //thebackGroundManager.ChangeBackground();
-           BackGroundChange();
+            //thebackGroundManager.ChangeBackground();
+            BackGroundChange();
 
         }
     }
     public void HandleTime()
     {
-        TimeHP.value = (float) curTime / (float) maxTime;
+        TimeHP.value = (float)curTime / (float)maxTime;
         if (TimeHP.value > 0.0f)
         {
             if (flag != 3) //갈림길일때
-                curTime -=Time.deltaTime; //시간 줄어듦
+                curTime -= Time.deltaTime; //시간 줄어듦
         }
         else //시간없을때(죽었을때)
         {
@@ -159,48 +202,52 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    public void MakeMonster() {
+    public void MakeMonster()
+    {
         NoteManager.noteCount = 0;
         monsterLife = true;
-        nowMonster=Instantiate(goMonster[nStage].Monsters[cnt], tfMonsterAppear.position, Quaternion.identity);
+        nowMonster = Instantiate(goMonster[nStage].Monsters[cnt], tfMonsterAppear.position, Quaternion.identity);
         nowMonster.transform.SetParent(this.transform);
         maxHP = curHP = nowMonster.GetComponent<Monster>().monsterHP + pStage * 20;
         //몬스터 스크립트 + 스테이지체력보정
         MonsterHP.gameObject.SetActive(true);
         //monsterhp=Instantiate(MonsterHP, tfMonsterAppear.position , Quaternion.identity);
         curTime += addTime; //시간추가
-        if(curTime>maxTime) curTime = maxTime;
+        if (curTime > maxTime) curTime = maxTime;
         NoteManager.noteOn = true;
     }
 
-    public void CrossRoad() {
+    public void CrossRoad()
+    {
 
-            MakeWeapon(); //무기생성
+        MakeWeapon(); //무기생성
 
-        if (Input.GetKeyDown(KeyCode.RightArrow)) { 
+        if (Input.GetKeyDown(KeyCode.RightArrow))
+        {
             //오른쪽 애니메이션 나오게
-            nStage=T.ChooseR();//오른쪽노드
+            nStage = T.ChooseR();//오른쪽노드
             backGround = GameObject.Find(nStage + "-1");
             BackGround1 = backGround.GetComponent<Animator>();
             GameObject.Find("Player" + nowWeapon).gameObject.SetActive(false);
-            nowWeapon = Rrand; 
+            nowWeapon = Rrand;
             GameObject.Find("PlayerParent").transform.Find("Player" + nowWeapon).gameObject.SetActive(true);
             player[nowWeapon].SetTrigger("CR"); //오른쪽으로 움직이는 애니메이션
             Invoke("ChangeStage", 1.1f);
 
 
         }
-        else if (Input.GetKeyDown(KeyCode.LeftArrow)) {
+        else if (Input.GetKeyDown(KeyCode.LeftArrow))
+        {
             //왼쪽 애니메이션 나오게
             nStage = T.ChooseL();//왼쪽노드
             backGround = GameObject.Find(nStage + "-1");
             BackGround1 = backGround.GetComponent<Animator>();
             GameObject.Find("Player" + nowWeapon).gameObject.SetActive(false);
-            nowWeapon= Lrand;
+            nowWeapon = Lrand;
             GameObject.Find("PlayerParent").transform.Find("Player" + nowWeapon).gameObject.SetActive(true);
             player[nowWeapon].SetTrigger("CL"); //왼쪽으로 움직이는 애니메이션
             Invoke("ChangeStage", 1.1f);
-            
+
         }
     }
     public void BackGroundChange() {
@@ -215,11 +262,12 @@ public class PlayerController : MonoBehaviour
             cnt = 3;
             Invoke("MakeMonster", 0.8f);
         }
-        else if (flag == 0) {
+        else if (flag == 0)
+        {
             backGround = GameObject.Find(nStage + "-1");
             BackGround1 = backGround.GetComponent<Animator>();
             backGround = GameObject.Find(nStage + "-2");
-            BackGround2 = backGround.GetComponent<Animator>();                
+            BackGround2 = backGround.GetComponent<Animator>();
             backGround = GameObject.Find(nStage + "-3");
             BackGround3 = backGround.GetComponent<Animator>();
             BackGround1.SetTrigger("hit");
@@ -229,23 +277,25 @@ public class PlayerController : MonoBehaviour
             MakeMonster();
             return;
         }
-        else if (flag == 1) {
+        else if (flag == 1)
+        {
             BackGround2.SetTrigger("hit2");
-            BackGround3.SetTrigger("hit2"); 
+            BackGround3.SetTrigger("hit2");
             flag++;
             MakeMonster();
             return;
         }
-        else if (flag == 2) {
-            backGround = GameObject.Find(nStage + "-4"); 
+        else if (flag == 2)
+        {
+            backGround = GameObject.Find(nStage + "-4");
             BackGround2 = backGround.GetComponent<Animator>();
             BackGround2.SetTrigger("hit1");
             BackGround3.SetTrigger("hit3");
-            
+
             flag++;
             return;
         }
-        
+
     }
     public void MakeWeapon()
     {
@@ -264,8 +314,9 @@ public class PlayerController : MonoBehaviour
             RightW.transform.SetParent(Weapons);
         }
     }
-    public void ChangeStage() {
-        GameObject.Find("Backgrounds").transform.Find(nStage-1 + "-color").gameObject.SetActive(false);
+    public void ChangeStage()
+    {
+        GameObject.Find("Backgrounds").transform.Find(nStage - 1 + "-color").gameObject.SetActive(false);
         BackGround2.SetTrigger("hit2"); //갈림길 사라지게
         BackGround1.SetTrigger("hit1"); //새로운 스테이지 처음 맵 보이게
         GameObject.Find("Backgrounds").transform.Find(nStage + "-2").gameObject.SetActive(true);
@@ -277,8 +328,8 @@ public class PlayerController : MonoBehaviour
         makeWeapon = true;
 
         playerDamage = weaponDamage[Lrand];// + pStage * 5; //공격력보정 일단보류
-        
-        
+
+
         Destroy(LeftW);
         Destroy(RightW);
     }
