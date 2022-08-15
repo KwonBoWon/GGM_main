@@ -17,11 +17,15 @@ public class NoteManager : MonoBehaviour
     bool rainFlag = true; //레인드롭
     int DropMax = 4;
 
-    bool changeFlag = true;
+    bool changeFlag = true; //페이크노트
+
+    bool doubleFlag = true; //동시입력노트
 
     [SerializeField] Transform tfNoteAppear = null; //노트가 생성되는곳
     [SerializeField] GameObject[] goNote = null; //노트 프리펩들
     [SerializeField] GameObject Drop = null; //물방울
+    [SerializeField] GameObject[] doubleNote = null; //더블노트 프리펩들
+
 
     TimingManager theTimingManager;
     EffectManager theEffectManager;
@@ -51,7 +55,16 @@ public class NoteManager : MonoBehaviour
             {
                 RainDrop();
             }
-
+            /*
+            if (noteCount % 4 == 0 && noteCount != 0 && doubleFlag && theMonster.doubleNote)
+            {
+                doubleFlag = false;
+                noteOn = false;
+                Invoke(nameof(DoubleNote), 60f / bpm);
+                NoteOn();
+                currentTime = 0;
+            }
+            */
             else if ((noteCount % 10) < 5) MakeNode(0);
             else if ((noteCount % 10) >= 5) MakeNode(1);
         }
@@ -86,25 +99,33 @@ public class NoteManager : MonoBehaviour
         {
             if (currentTime >= 60d / bpm)  //bpm마다 노트 생성
             {
-                if (turn == 0) arrowDirection = Random.Range(0, 4); // 방어턴
-                else if (turn == 1) arrowDirection = Random.Range(4, 8); //공격턴 
 
-                GameObject t_note = Instantiate(goNote[arrowDirection], tfNoteAppear.position, Quaternion.identity); // 노트를 생성
-                t_note.transform.SetParent(this.transform);
-                t_note.transform.SetAsFirstSibling();
-                theTimingManager.boxNoteList.Add(t_note); // 리스트에 추가
-
-                if (noteCount % 4 == 0 && noteCount != 0 && changeFlag && theMonster.change)//페이크 노트
+                if (noteCount % 4 == 0 && noteCount != 0 && doubleFlag && theMonster.doubleNote)
                 {
-                    float rand = (float)Random.Range(10, 18)/10;//1,0~1,8초
-                    StartCoroutine(CoNoteChange(t_note, rand));
+                    DoubleNote();
                 }
+                else
+                {
+                    if (turn == 0) arrowDirection = Random.Range(0, 4); // 방어턴
+                    else if (turn == 1) arrowDirection = Random.Range(4, 8); //공격턴 
 
+                    GameObject t_note = Instantiate(goNote[arrowDirection], tfNoteAppear.position, Quaternion.identity); // 노트를 생성
+                    t_note.transform.SetParent(this.transform);
+                    t_note.transform.SetAsFirstSibling();
+                    theTimingManager.boxNoteList.Add(t_note); // 리스트에 추가
+
+                    if (noteCount % 4 == 0 && noteCount != 0 && changeFlag && theMonster.change)//페이크 노트
+                    {
+                        float rand = (float)Random.Range(10, 18) / 10;//1,0~1,8초
+                        StartCoroutine(CoNoteChange(t_note, rand));
+                    }
+                }
 
                 currentTime -= 60d / bpm; //-하지않고 0으로설정하면 시차가 생김
                 noteCount++; //noteCount증가
                 multiFlag = true;
                 rainFlag = true;
+                doubleFlag = true;
             }
         }
 
@@ -163,6 +184,18 @@ public class NoteManager : MonoBehaviour
     void NoteOn()
     {
         noteOn= true;
+    }
+
+    public void DoubleNote()
+    {
+        //noteOn = false;
+        //doubleFlag = false;
+        arrowDirection = Random.Range(0, 8);
+
+        GameObject t_note = Instantiate(doubleNote[arrowDirection], tfNoteAppear.position, Quaternion.identity); // 노트를 생성
+        t_note.transform.SetParent(this.transform);
+        t_note.transform.SetAsFirstSibling();
+        theTimingManager.boxNoteList.Add(t_note); // 리스트에 추가
     }
 
 

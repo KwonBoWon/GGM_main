@@ -115,9 +115,10 @@ MonoBehaviour:
   monsterHP: 140
   semiBoss: 1
   Boss: 0
-  multi: 1
+  multi: 0
   drop: 0
   change: 0
+  doubleNote: 1
 --- !u!95 &8819700049115685231
 Animator:
   serializedVersion: 4

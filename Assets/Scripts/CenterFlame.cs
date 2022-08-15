@@ -17,6 +17,9 @@ public class CenterFlame : MonoBehaviour
     [Header("배경음악")]
     [SerializeField]
     public BGM[] bgms;
+    [Header("보스 배경음")]
+    [SerializeField]
+    public BGM[] boss;
 
     //public AudioSource myAudio;
     bool musicStart = false;

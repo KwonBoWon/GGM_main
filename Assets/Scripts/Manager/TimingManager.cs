@@ -60,6 +60,7 @@ public class TimingManager : MonoBehaviour
     
     public void CheckTiming( int arrowInput)
     {
+
         if (arrowInput == -10 && !immortal ) //노트 놓칠시
         {
             PlayerController.curTime -= 10; //시간감소
@@ -75,12 +76,14 @@ public class TimingManager : MonoBehaviour
             int t_noteType = boxNoteList[i].GetComponent<Note>().noteType; //노트타입 가져옴 0:방어턴 1:공격턴
             Animator MonAni = PlayerController.nowMonster.GetComponent<Animator>();
             Monsc = PlayerController.nowMonster.GetComponent<Monster>();
-            
+
 
             for (int x= 0; x < timingBoxs.Length; x++)
             {
                 if (timingBoxs[x].x <= t_notePosX && t_notePosX <= timingBoxs[x].y)
                 {//범위, 방향키 확인
+                    if (t_noteDire >= 10 && arrowInput < 10) return;//ㄴ
+
                     if (arrowInput == t_noteDire && t_noteType == 0)
                     {//방어성공
                         if (x < timingBoxs.Length - 1)
@@ -117,7 +120,7 @@ public class TimingManager : MonoBehaviour
 
                     if ( t_noteType == 1) //반대방향으로 누를때
                     {//공격성공
-                        if (arrowInput + t_noteDire == 1 || arrowInput + t_noteDire == 5)
+                        if (arrowInput + t_noteDire == 1 || arrowInput + t_noteDire == 5 || arrowInput + t_noteDire == 23)
                         {
                             if (x < timingBoxs.Length - 1)
                             {
