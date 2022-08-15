@@ -204,7 +204,17 @@ public class PlayerController : MonoBehaviour
         }
     }
     public void BackGroundChange() {
-        if (flag == 0) {
+        if (pStage == 3 && flag == 2) {
+            Debug.Log(pStage);
+            BackGround3.SetTrigger("hit3");
+            nStage = T.ChooseL();
+            backGround = GameObject.Find(nStage + "-3");
+            BackGround3 = backGround.GetComponent<Animator>();
+            BackGround3.SetTrigger("boss");
+            cnt = 3;
+            Invoke("MakeMonster", 0.8f);
+        }
+        else if (flag == 0) {
             backGround = GameObject.Find(nStage + "-1");
             BackGround1 = backGround.GetComponent<Animator>();
             backGround = GameObject.Find(nStage + "-2");
