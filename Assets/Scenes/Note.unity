@@ -7491,7 +7491,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e45c4bb7ed0bf694dba2543c7b93e592, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  image: {fileID: 0}
+  image: {fileID: 1698377163}
   change_img:
   - {fileID: 21300000, guid: 4746c8ccfa0dfa74186a1244fb23047e, type: 3}
   - {fileID: 21300000, guid: 9e26ffe2e337f6246960c831101e9e4d, type: 3}
@@ -7507,6 +7507,7 @@ MonoBehaviour:
   - {fileID: 1707702922}
   - {fileID: 2081103964}
   - {fileID: 1348055163}
+  MonsterHP: {fileID: 723760979}
   collectionData:
     collect: 000101000100
 --- !u!212 &1698377163
