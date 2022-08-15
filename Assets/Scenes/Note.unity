@@ -6975,6 +6975,7 @@ MonoBehaviour:
     - {fileID: 3187766591846464014, guid: 624134c02ebf6134aab0ff861b2af353, type: 3}
     - {fileID: 6943495046234976038, guid: 4be46faedf10dde44827aaa1b183c836, type: 3}
     - {fileID: 3584481641100306781, guid: 733424603ec20ce4b9aebd5e7f28fd07, type: 3}
+    - {fileID: 7199733521931755491, guid: b75e7f01baeb3b24295c1273de2eee69, type: 3}
   player:
   - {fileID: 1876211111}
   - {fileID: 109840908}
