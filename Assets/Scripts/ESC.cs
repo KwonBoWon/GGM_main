@@ -23,6 +23,7 @@ public class ESC : MonoBehaviour
             ESCck = 0;
             Volume.gameObject.SetActive(true);
             CenterFlame.instance.bgms[PlayerController.nStage].source.Pause();
+            SoundEffectManager.instance.Sounds[0].source.Play();
         }
         else if (Input.GetKeyDown(KeyCode.Escape) && ESCck == 0) { //esc키 또 누르면 없어지게
             this.image.enabled = false;

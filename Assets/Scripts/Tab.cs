@@ -43,7 +43,9 @@ public class Tab : MonoBehaviour
         if (SceneManager.GetActiveScene().name == "note") {
             if (Input.GetKeyDown(KeyCode.Tab)) { //탭키 누르는 순간 보이게
                 MonsterHP.gameObject.SetActive(false);
-                CenterFlame.instance.bgms[PlayerController.nStage].source.Pause();
+
+         		SoundEffectManager.instance.Sounds[0].source.Play();
+      			CenterFlame.instance.bgms[PlayerController.nStage].source.Pause();
                 image.sprite = change_img[6];
                 image.enabled = true;
                 foreach (Image black in cover) {

@@ -1705,7 +1705,7 @@ GameObject:
   m_Component:
   - component: {fileID: 500282615}
   - component: {fileID: 500282614}
-  - component: {fileID: 500282613}
+  - component: {fileID: 500282616}
   m_Layer: 0
   m_Name: SoundEffect
   m_TagString: Untagged
@@ -1713,49 +1713,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &500282613
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 500282612}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 06aaf3cb1eddefe40914b6d49a279a92, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Cake:
-  - clip: {fileID: 8300000, guid: adab6ce2566a24749b74048dc0364606, type: 3}
-    volume: 0
-  - clip: {fileID: 8300000, guid: 197816b5b424a884b86feff3b306dc86, type: 3}
-    volume: 0
-  - clip: {fileID: 8300000, guid: 197816b5b424a884b86feff3b306dc86, type: 3}
-    volume: 0
-  Cart:
-  - clip: {fileID: 8300000, guid: 5b0f8aa9437ac0b49bb681443d5f329a, type: 3}
-    volume: 0
-  - clip: {fileID: 8300000, guid: fab4ec15031827d4d83dcac5d265b95a, type: 3}
-    volume: 0
-  - clip: {fileID: 8300000, guid: 565bfc2397c777f459109a3fb92e4edc, type: 3}
-    volume: 0
-  Crystal:
-  - clip: {fileID: 8300000, guid: a8cbcecb83b508b478b272f6c59f2827, type: 3}
-    volume: 0
-  - clip: {fileID: 8300000, guid: 4dd81d57643754f4aaca05752e460140, type: 3}
-    volume: 0
-  - clip: {fileID: 8300000, guid: 311c2507da02e8842ba06730b412a3fc, type: 3}
-    volume: 0
-  Diamond: []
-  Drum: []
-  Golem: []
-  Note: []
-  Piano: []
-  Spider: []
-  Tree: []
-  bat: []
-  sword: []
-  wand: []
 --- !u!82 &500282614
 AudioSource:
   m_ObjectHideFlags: 0
@@ -1867,6 +1824,28 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &500282616
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 500282612}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 06aaf3cb1eddefe40914b6d49a279a92, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Sounds:
+  - clip: {fileID: 8300000, guid: 37eb7eb805018a046a8b424379f8107f, type: 3}
+    source: {fileID: 0}
+    volume: 0.5
+  - clip: {fileID: 8300000, guid: a844867a78fb1bb49bd369d887d77e4e, type: 3}
+    source: {fileID: 0}
+    volume: 0.5
+  - clip: {fileID: 8300000, guid: 16554191927e0ab4487189118aeef7cc, type: 3}
+    source: {fileID: 0}
+    volume: 0.5
 --- !u!1 &529267171
 GameObject:
   m_ObjectHideFlags: 0
@@ -2409,7 +2388,7 @@ MonoBehaviour:
   m_MinValue: 0
   m_MaxValue: 1
   m_WholeNumbers: 0
-  m_Value: 0.56
+  m_Value: 0.2
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -5906,6 +5885,22 @@ MonoBehaviour:
   - Up
   - Left
   - Right
+  Sounds:
+  - clip: {fileID: 8300000, guid: 63dd534c3fd9c1d47b58b4d815e90203, type: 3}
+    source: {fileID: 0}
+    volume: 0.4
+  - clip: {fileID: 8300000, guid: 3c5b56ce52f97a34b86d9c5707549126, type: 3}
+    source: {fileID: 0}
+    volume: 0.4
+  - clip: {fileID: 8300000, guid: 1cd6a86fc3413554abebf3ba4973bfc7, type: 3}
+    source: {fileID: 0}
+    volume: 0.4
+  - clip: {fileID: 8300000, guid: ac795e48b21890e47b8358225eb814b9, type: 3}
+    source: {fileID: 0}
+    volume: 0.4
+  - clip: {fileID: 8300000, guid: e4339d91af0680941a64566de39c69d1, type: 3}
+    source: {fileID: 0}
+    volume: 0.4
 --- !u!1 &1330795013
 GameObject:
   m_ObjectHideFlags: 0
@@ -6339,6 +6334,22 @@ MonoBehaviour:
   LWeapon: {fileID: 305674051}
   RWeapon: {fileID: 761681126}
   Weapons: {fileID: 348356945}
+  Sounds:
+  - clip: {fileID: 8300000, guid: 63dd534c3fd9c1d47b58b4d815e90203, type: 3}
+    source: {fileID: 0}
+    volume: 0.4
+  - clip: {fileID: 8300000, guid: 3c5b56ce52f97a34b86d9c5707549126, type: 3}
+    source: {fileID: 0}
+    volume: 0.4
+  - clip: {fileID: 8300000, guid: 1cd6a86fc3413554abebf3ba4973bfc7, type: 3}
+    source: {fileID: 0}
+    volume: 0.4
+  - clip: {fileID: 8300000, guid: ac795e48b21890e47b8358225eb814b9, type: 3}
+    source: {fileID: 0}
+    volume: 0.4
+  - clip: {fileID: 8300000, guid: e4339d91af0680941a64566de39c69d1, type: 3}
+    source: {fileID: 0}
+    volume: 0.4
   MonsterHP: {fileID: 723760979}
   TimeHP: {fileID: 1435002377}
   maxHP: 100

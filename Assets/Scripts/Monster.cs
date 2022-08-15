@@ -26,6 +26,17 @@ public class Monster : MonoBehaviour
     public bool drop = false;
     public bool change = false;
 
+    private void Start()
+    {
+        for (int i = 0; i < Sounds.Length; i++)
+        {
+            Sounds[i].source = gameObject.AddComponent<AudioSource>();
+            Sounds[i].source.volume = Sounds[i].volume;
+            Sounds[i].source.clip = Sounds[i].clip;
+            Sounds[i].source.loop = false;
+        }
+    }
+
 
     public void MonsterDoge( int direction)
     {

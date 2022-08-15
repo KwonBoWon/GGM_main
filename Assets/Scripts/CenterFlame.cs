@@ -24,7 +24,6 @@ public class CenterFlame : MonoBehaviour
 
     private void Start()
     {
-
         instance = this;
         theTimingManager = FindObjectOfType<TimingManager>();
 

@@ -120,11 +120,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Sounds:
   - clip: {fileID: 8300000, guid: 1a9755d21a207a54aafa11c32832e38a, type: 3}
-    volume: 0
+    source: {fileID: 0}
+    volume: 0.2
   - clip: {fileID: 8300000, guid: 3b4384df5e1ba7c46b9c678ffec3cef7, type: 3}
-    volume: 0
+    source: {fileID: 0}
+    volume: 0.2
   - clip: {fileID: 8300000, guid: 65fd16297303a19498d14a1808bf052c, type: 3}
-    volume: 0
+    source: {fileID: 0}
+    volume: 0.2
   monsterAttack: 0
   monsterDefense: 0
   monsterDamage: 20

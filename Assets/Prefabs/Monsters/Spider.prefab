@@ -100,11 +100,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Sounds:
   - clip: {fileID: 8300000, guid: e6ae0205321896449a1460acc6f68b3d, type: 3}
-    volume: 0
+    source: {fileID: 0}
+    volume: 0.2
   - clip: {fileID: 8300000, guid: f8837ea020f156b448b91a142de479c0, type: 3}
-    volume: 0
+    source: {fileID: 0}
+    volume: 0.2
   - clip: {fileID: 8300000, guid: 3133732c3f1cb194a902b156ceabbd4c, type: 3}
-    volume: 0
+    source: {fileID: 0}
+    volume: 0.2
   monsterAttack: 4
   monsterDefense: 4
   monsterDamage: 15
@@ -113,6 +116,7 @@ MonoBehaviour:
   Boss: 0
   multi: 0
   drop: 0
+  change: 0
 --- !u!95 &581503393411195738
 Animator:
   serializedVersion: 4

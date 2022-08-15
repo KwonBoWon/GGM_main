@@ -6,13 +6,13 @@ using UnityEngine;
 public class Sound
 {
     public AudioClip clip;
+    public AudioSource source;
     public float volume;
 }
 public class SoundEffectManager : MonoBehaviour
 {
     [SerializeField]
-    public Sound[] Cake, Cart, Crystal, Diamond, Drum, Golem, Note, Piano, Spider, Tree;
-    public Sound[] bat, sword, wand;
+    public Sound[] Sounds;
 
 
     public static SoundEffectManager instance;  
@@ -22,12 +22,14 @@ public class SoundEffectManager : MonoBehaviour
     void Start()
     {
         instance = this;
-        
-    }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+        for (int i = 0; i < Sounds.Length; i++)
+        {
+            Sounds[i].source = gameObject.AddComponent<AudioSource>();
+            Sounds[i].source.volume = Sounds[i].volume;
+            Sounds[i].source.clip = Sounds[i].clip;
+            Sounds[i].source.loop = false;
+        }
+        Sounds[1].source.Play();
     }
 }

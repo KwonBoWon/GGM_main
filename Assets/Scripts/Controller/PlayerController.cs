@@ -8,6 +8,8 @@ public class MonsterList
 {
     public GameObject[] Monsters;
 }
+
+
 public class PlayerController : MonoBehaviour
 {
     public  MonsterList[] goMonster;
@@ -37,6 +39,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] Transform  LWeapon = null;
     [SerializeField] Transform  RWeapon = null;
     [SerializeField] Transform Weapons = null;
+
 
     //public static GameObject nowWeapon = null;
     public static int nowWeapon = 0;
@@ -123,6 +126,8 @@ public class PlayerController : MonoBehaviour
         MonsterHP.value = (float) curHP / (float) maxHP;
            
         if (MonsterHP.value == 0 && monsterLife == true) { // 적 죽으면
+            nowMonster.GetComponent<Monster>().Sounds[2].source.Play();
+
             del=GameObject.FindGameObjectsWithTag("Monster");
             foreach (GameObject note in del)
             {
@@ -137,6 +142,7 @@ public class PlayerController : MonoBehaviour
             CenterFlame.instance.NoteClear();
            //thebackGroundManager.ChangeBackground();
            BackGroundChange();
+
         }
     }
     public void HandleTime()
@@ -149,6 +155,7 @@ public class PlayerController : MonoBehaviour
         }
         else //시간없을때(죽었을때)
         {
+            SoundEffectManager.instance.Sounds[2].source.Play();
         }
     }
 
@@ -223,7 +230,7 @@ public class PlayerController : MonoBehaviour
         }
         else if (flag == 1) {
             BackGround2.SetTrigger("hit2");
-            BackGround3.SetTrigger("hit2");
+            BackGround3.SetTrigger("hit2"); 
             flag++;
             MakeMonster();
             return;

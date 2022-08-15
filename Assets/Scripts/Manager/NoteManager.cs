@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class NoteManager : MonoBehaviour
 {
-
-
     private int bpm = 0;
     double currentTime = 0d;
     int arrowDirection = 0;
@@ -53,9 +51,6 @@ public class NoteManager : MonoBehaviour
             {
                 RainDrop();
             }
-
-
-
 
             else if ((noteCount % 10) < 5) MakeNode(0);
             else if ((noteCount % 10) >= 5) MakeNode(1);
@@ -137,19 +132,17 @@ public class NoteManager : MonoBehaviour
 
     public void NoteChange(GameObject thisnote)
     {
-        
         int turn = thisnote.GetComponent<Note>().noteType;
 
-        if (turn == 1) arrowDirection = Random.Range(0, 4); 
-        else if (turn == 0) arrowDirection = Random.Range(4, 8); 
+        if (turn == 1) arrowDirection = Random.Range(0, 4);
+        else if (turn == 0) arrowDirection = Random.Range(4, 8);
         //반대로생성
         GameObject t_note = Instantiate(goNote[arrowDirection], thisnote.transform.position, Quaternion.identity); // 노트를 생성
         t_note.transform.SetParent(this.transform);
         t_note.transform.SetAsFirstSibling();
         theTimingManager.boxNoteList.Add(t_note); // 리스트에 추가
-
-        thisnote.GetComponent<Note>().HideNote(); //이미지삭제
-
+        theTimingManager.boxNoteList.Remove(thisnote); // 리스트에 추가
+        Destroy(thisnote);
     }
     IEnumerator CoNoteChange(GameObject thisnote, float rand)
     {
