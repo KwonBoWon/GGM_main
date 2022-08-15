@@ -11,8 +11,9 @@ public class Tab : MonoBehaviour
     public Sprite[] change_img; //변경할 이미지
     public Image[] cover; //수집 안 된 애들 비활성화시키는 이미지
     public static int tabck = 1;
+    public Slider MonsterHP;
 
-    public CollectionData collectionData;
+        public CollectionData collectionData;
     [ContextMenu("To Json Data")]
     void SaveCollectionDataToJson()//데이터 저장
     {
@@ -31,37 +32,48 @@ public class Tab : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        image = GetComponent<SpriteRenderer>();
+        if (SceneManager.GetActiveScene().name == "note")
+            MonsterHP = GameObject.Find("MonsterHP").GetComponent<Slider>();
         LoadCollectionDataToJson(); //데이터 로드
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Tab)) { //탭키 누르는 순간 보이게
-            SoundEffectManager.instance.Sounds[0].source.Play();
-            image.sprite = change_img[6];
-            image.enabled = true;
-            foreach (Image black in cover) {
-                black.enabled = true; //비활성화 시키는 애들
-            }
-            Time.timeScale = 0.0F;
-            tabck = 0;
-            if (SceneManager.GetActiveScene().name == "note")
-                CenterFlame.instance.bgms[PlayerController.nStage].source.Pause();
-        }
-        if (Input.GetKeyUp(KeyCode.Tab)) { //탭키 떼는 순간 안 보이게
-            image.enabled = false;
-            tabck = 1;
-            if (ESC.ESCck != 0) {
+        if (SceneManager.GetActiveScene().name == "note") {
+            if (Input.GetKeyDown(KeyCode.Tab)) { //탭키 누르는 순간 보이게
+                MonsterHP.gameObject.SetActive(false);
+
+         		SoundEffectManager.instance.Sounds[0].source.Play();
+      			CenterFlame.instance.bgms[PlayerController.nStage].source.Pause();
+                image.sprite = change_img[6];
+                image.enabled = true;
                 foreach (Image black in cover) {
-                    black.enabled = false;
+                    black.enabled = true; //비활성화 시키는 애들
                 }
-                Time.timeScale = 1.0F;
-                image.sprite = change_img[6]; //도감 원래 이미지로 변경
-                if (SceneManager.GetActiveScene().name == "note")
-                    CenterFlame.instance.bgms[PlayerController.nStage].source.Play();
+                Time.timeScale = 0.0F;
+                tabck = 0; 
             }
+            if (Input.GetKeyUp(KeyCode.Tab)) { //탭키 떼는 순간 안 보이게
+                MonsterHP.gameObject.SetActive(true);
+                image.enabled = false;
+                tabck = 1;
+                if (ESC.ESCck != 0) {
+                    foreach (Image black in cover) {
+                        black.enabled = false;
+                    }
+                    Time.timeScale = 1.0F;
+                    image.sprite = change_img[6]; //도감 원래 이미지로 변경
+                    CenterFlame.instance.bgms[PlayerController.nStage].source.Play();
+                }
+            }
+        }
+        else if (SceneManager.GetActiveScene().name == "Start") {
+            foreach (Image black in cover) {
+                    black.enabled = true; //비활성화 시키는 애들
+            }
+            if (Input.GetKeyDown(KeyCode.Tab))
+                SceneManager.LoadScene("Start");
         }
         
     }
@@ -74,7 +86,7 @@ public class Tab : MonoBehaviour
     }
     public void Button1() {
         image.sprite = change_img[0]; //1번 아이템 도감 이미지로 변경
-    }
+    }   
     public void Button2() {
         image.sprite = change_img[1];
     }

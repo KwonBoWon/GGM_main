@@ -9,6 +9,7 @@ public class MonsterNote : MonoBehaviour
     Animator monsterAttack = null;
     [SerializeField]  Animator player;
     [SerializeField]  Animator Final2;
+    [SerializeField]  Animator Final4;
     [SerializeField]  Animator Sub1;
     [SerializeField]  Animator Sub4;
     GameObject t_monster;
@@ -37,12 +38,14 @@ public class MonsterNote : MonoBehaviour
                         if (PlayerController.nStage == 2) {
                             Final2.SetTrigger("hit");
                         }
+                        else if (PlayerController.nStage == 4) {
+                            Final4.SetTrigger("hit");
+                        }
                     }
                     else if (PlayerController.nStage == 1) {
                         Sub1.SetTrigger("hit");
                     }
                     else if (PlayerController.nStage == 4) {
-                        Debug.Log("dkfd");
                         Sub4.SetTrigger("hit");
                     }
                     
