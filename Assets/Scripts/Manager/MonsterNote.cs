@@ -37,11 +37,10 @@ public class MonsterNote : MonoBehaviour
 
                     PlayerController.nowMonster.GetComponent<Monster>().Sounds[0].source.Play();
                     
-                    if (PlayerController.pStage == 3 && PlayerController.nStage == 2) {
+                    if (PlayerController.pStage == 3 && PlayerController.nStage == 2  && PlayerController.flag == 3) {
                         Final2.SetTrigger("hit");
                     }
                     else if (PlayerController.nStage == 4 && PlayerController.flag == 2) {
-                        Debug.Log("dksjfwoie"); 
                         Sub4.SetTrigger("hit");
                     }
                     else if (PlayerController.pStage == 3 && PlayerController.nStage == 4) {
