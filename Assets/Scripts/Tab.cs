@@ -68,7 +68,7 @@ public class Tab : MonoBehaviour
                 }
             }
         }
-        else {
+        else if (SceneManager.GetActiveScene().name == "Start") {
             foreach (Image black in cover) {
                     black.enabled = true; //비활성화 시키는 애들
             }
