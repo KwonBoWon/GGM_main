@@ -33,20 +33,22 @@ public class MonsterNote : MonoBehaviour
                 if (collision.GetComponent<Note>().noteType == 0) //공격
                 {
                     monsterAttack.SetTrigger("hit");
+                    Debug.Log(PlayerController.pStage);
+
                     PlayerController.nowMonster.GetComponent<Monster>().Sounds[0].source.Play();
-                    if (PlayerController.pStage == 3) {
-                        if (PlayerController.nStage == 2) {
-                            Final2.SetTrigger("hit");
-                        }
-                        else if (PlayerController.nStage == 4) {
-                            Final4.SetTrigger("hit");
-                        }
+                    
+                    if (PlayerController.pStage == 3 && PlayerController.nStage == 2) {
+                        Final2.SetTrigger("hit");
                     }
-                    else if (PlayerController.nStage == 1) {
-                        Sub1.SetTrigger("hit");
-                    }
-                    else if (PlayerController.nStage == 4) {
+                    else if (PlayerController.nStage == 4 && PlayerController.flag == 2) {
+                        Debug.Log("dksjfwoie"); 
                         Sub4.SetTrigger("hit");
+                    }
+                    else if (PlayerController.pStage == 3 && PlayerController.nStage == 4) {
+                        Final4.SetTrigger("hit");
+                    }
+                    else if (PlayerController.nStage == 1 && PlayerController.flag == 2)  {
+                        Sub1.SetTrigger("hit");
                     }
                     
                 }

@@ -32,7 +32,7 @@ public class Tab : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        if (SceneManager.GetActiveScene().name == "note")
+        if (SceneManager.GetActiveScene().name == "Note")
             MonsterHP = GameObject.Find("MonsterHP").GetComponent<Slider>();
         LoadCollectionDataToJson(); //데이터 로드
     }
@@ -40,7 +40,7 @@ public class Tab : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (SceneManager.GetActiveScene().name == "note") {
+        if (SceneManager.GetActiveScene().name == "Note") {
             if (Input.GetKeyDown(KeyCode.Tab)) { //탭키 누르는 순간 보이게
                 MonsterHP.gameObject.SetActive(false);
 
