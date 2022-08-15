@@ -39,6 +39,7 @@ public class Tab : MonoBehaviour
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Tab)) { //탭키 누르는 순간 보이게
+            SoundEffectManager.instance.Sounds[0].source.Play();
             image.sprite = change_img[6];
             image.enabled = true;
             foreach (Image black in cover) {

@@ -17,11 +17,25 @@ public class TimingManager : MonoBehaviour
 
     EffectManager theEffect;
     GameObject Obj;
+    Monster Monsc;
     public string[] arrows;
-
     public static bool immortal = false; //무적
+
+
+    [Header("효과음 sword bat wand miss hurt")]
+    [SerializeField]
+    public Sound[] Sounds;
+
     void Start()
     {
+        for (int i = 0; i < Sounds.Length; i++)
+        {
+            Sounds[i].source = gameObject.AddComponent<AudioSource>();
+            Sounds[i].source.volume = Sounds[i].volume;
+            Sounds[i].source.clip = Sounds[i].clip;
+            Sounds[i].source.loop = false;
+        }
+
 
         thecomboManager = FindObjectOfType<ComboManager>();
 
@@ -60,6 +74,7 @@ public class TimingManager : MonoBehaviour
             int t_noteDire = boxNoteList[i].GetComponent<Note>().noteDirection; // 노트방향값 가져옴
             int t_noteType = boxNoteList[i].GetComponent<Note>().noteType; //노트타입 가져옴 0:방어턴 1:공격턴
             Animator MonAni = PlayerController.nowMonster.GetComponent<Animator>();
+            Monsc = PlayerController.nowMonster.GetComponent<Monster>();
             
 
             for (int x= 0; x < timingBoxs.Length; x++)
@@ -97,6 +112,7 @@ public class TimingManager : MonoBehaviour
                         theEffect.JudgementEffect(4); //Miss이펙트
                         thecomboManager.ResetCombo(); //콤보리셋
                         player[PlayerController.nowWeapon].SetTrigger("Hitted"); //플레이어 피격 모션
+                        Sounds[4].source.Play(); //피격 효과음
                     }
 
                     if ( t_noteType == 1) //반대방향으로 누를때
@@ -113,11 +129,18 @@ public class TimingManager : MonoBehaviour
                             player[PlayerController.nowWeapon].SetTrigger("hit"); //플레이어 공격 모션
                             playerEffect[PlayerController.nowWeapon].SetTrigger("hit"); //플레이어 공격 이펙트
                             MonAni.SetTrigger("Hurt"); //몬스터 피격 모션
+                            Monsc.Sounds[1].source.Play(); //몬스터 피격 효과음
+
+                            if (PlayerController.nowWeapon == 0) Sounds[0].source.Play();//sword
+                            else if (PlayerController.nowWeapon == 1) Sounds[1].source.Play();//bat
+                            else if (PlayerController.nowWeapon == 2) Sounds[2].source.Play();//wand
+
                         }
                         else// 공격실패
                         {
                             if ( !immortal) {
                                 theEffect.JudgementEffect(4); //Miss이펙트
+                                Sounds[3].source.Play(); //빗맞음
                                 thecomboManager.ResetCombo(); //콤보리셋
                                                               //t_noteDire D U L R
                                 if (t_noteDire == 0)

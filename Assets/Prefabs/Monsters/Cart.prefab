@@ -100,15 +100,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Sounds:
-  - soundName: "\uACF5\uACA9"
-    clip: {fileID: 8300000, guid: 5b0f8aa9437ac0b49bb681443d5f329a, type: 3}
-    volume: 0
-  - soundName: "\uD53C\uACA9"
-    clip: {fileID: 8300000, guid: fab4ec15031827d4d83dcac5d265b95a, type: 3}
-    volume: 0
-  - soundName: "\uC0AC\uB9DD"
-    clip: {fileID: 8300000, guid: 565bfc2397c777f459109a3fb92e4edc, type: 3}
-    volume: 0
+  - clip: {fileID: 8300000, guid: 5b0f8aa9437ac0b49bb681443d5f329a, type: 3}
+    source: {fileID: 0}
+    volume: 0.2
+  - clip: {fileID: 8300000, guid: fab4ec15031827d4d83dcac5d265b95a, type: 3}
+    source: {fileID: 0}
+    volume: 0.2
+  - clip: {fileID: 8300000, guid: 565bfc2397c777f459109a3fb92e4edc, type: 3}
+    source: {fileID: 0}
+    volume: 0.2
   monsterAttack: 5
   monsterDefense: 5
   monsterDamage: 20
@@ -117,6 +117,7 @@ MonoBehaviour:
   Boss: 0
   multi: 1
   drop: 0
+  change: 0
 --- !u!95 &8819700049115685231
 Animator:
   serializedVersion: 4
