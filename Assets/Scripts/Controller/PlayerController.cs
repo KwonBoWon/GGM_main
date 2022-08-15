@@ -21,8 +21,8 @@ public class PlayerController : MonoBehaviour
     GameObject[] del;
 
     public static int flag = 0; //배경 맵 플레그
-    public static int nStage = 1; //스테이지
-    public static int pStage = 0; //몇번째미로인지(적 강해지는)
+    public static int nStage = 1; //스테이지 1423
+    public static int pStage = 0; //몇번째미로인지(적 강해지는) 1234
 
     GameObject backGround;
     SpriteRenderer backRenderer;
@@ -76,9 +76,9 @@ public class PlayerController : MonoBehaviour
         theTimingManager = FindObjectOfType<TimingManager>();
         thebackGroundManager = FindObjectOfType<BackGroundManager>();
 
-        weaponDamage[0] = 18;
-        weaponDamage[1] = 18;
-        weaponDamage[2] = 12;
+        weaponDamage[0] = 10;
+        weaponDamage[1] = 10;
+        weaponDamage[2] = 10;
     }
     void Update()
     {
@@ -135,7 +135,6 @@ public class PlayerController : MonoBehaviour
             NoteManager.noteOn = false;
             //CenterFlame.instance.StopMusic();
             CenterFlame.instance.NoteClear();
-            theTimingManager.boxNoteList.Clear();
            //thebackGroundManager.ChangeBackground();
            BackGroundChange();
         }
@@ -182,7 +181,7 @@ public class PlayerController : MonoBehaviour
             player[nowWeapon].SetTrigger("CR"); //오른쪽으로 움직이는 애니메이션
             Invoke("ChangeStage", 1.1f);
 
-           
+
         }
         else if (Input.GetKeyDown(KeyCode.LeftArrow)) {
             //왼쪽 애니메이션 나오게
@@ -269,7 +268,7 @@ public class PlayerController : MonoBehaviour
         pStage++;
         makeWeapon = true;
 
-        playerDamage = weaponDamage[Lrand] + pStage * 5;
+        playerDamage = weaponDamage[Lrand];// + pStage * 5; //공격력보정 일단보류
         
         
         Destroy(LeftW);

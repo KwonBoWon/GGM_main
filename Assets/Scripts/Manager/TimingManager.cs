@@ -7,7 +7,7 @@ public class TimingManager : MonoBehaviour
     ComboManager thecomboManager;
     [SerializeField] Animator[] player;
     [SerializeField]  Animator[] playerEffect;
- //플레이어가 무슨 무기를 들고 있는지 나타내는 변수 0: 칼, 1: 방망이, 2: 지팡이
+ //플레이어가 무슨 무기를 들고 있는지  0: 칼, 1: 방망이, 2: 지팡이
     public Animator animator; //애니메이터 변수 선언
     public List<GameObject> boxNoteList  = new List<GameObject>();
 
@@ -60,6 +60,8 @@ public class TimingManager : MonoBehaviour
             int t_noteDire = boxNoteList[i].GetComponent<Note>().noteDirection; // 노트방향값 가져옴
             int t_noteType = boxNoteList[i].GetComponent<Note>().noteType; //노트타입 가져옴 0:방어턴 1:공격턴
             Animator MonAni = PlayerController.nowMonster.GetComponent<Animator>();
+            
+
             for (int x= 0; x < timingBoxs.Length; x++)
             {
                 if (timingBoxs[x].x <= t_notePosX && t_notePosX <= timingBoxs[x].y)
