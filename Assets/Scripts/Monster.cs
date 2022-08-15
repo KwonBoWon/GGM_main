@@ -25,6 +25,7 @@ public class Monster : MonoBehaviour
     public bool multi = false;
     public bool drop = false;
     public bool change = false;
+    public bool doubleNote = false;
 
     private void Start()
     {
