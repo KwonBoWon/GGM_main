@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class Typing : MonoBehaviour
 {
@@ -13,8 +14,10 @@ public class Typing : MonoBehaviour
     // Start is called before the first frame update
     void Start() 
     { 
-        m_Message = @"모든 적과 싸워 이겼지만 출구는 어디에도 보이지 않았다..."; 
-
+        if (SceneManager.GetActiveScene().name == "NormalEnding")
+            m_Message = @"모든 적과 싸워 이겼지만 출구는 어디에도 보이지 않았다...";
+        else 
+            m_Message = @"적과 싸워서 이기지 못했다...";
         StartCoroutine(typing(m_TypingText, m_Message, m_Speed)); 
     } 
 
