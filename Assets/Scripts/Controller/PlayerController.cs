@@ -64,6 +64,7 @@ public class PlayerController : MonoBehaviour
     public static float playerDamage = 10;
     private bool monsterLife = true;
     bool makeWeapon = true;
+    bool crossroad = true;
 
     void Start()
     {
@@ -85,8 +86,10 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         //화살표 입력 0123 : DULR
-        if (flag == 3 && pStage != 3) //갈림길일때
+        if (flag == 3 && pStage != 3 && crossroad)
+        {//갈림길일때
             CrossRoad();
+        }
         else//갈림길이 아닐때
         {
             if (Input.GetKeyDown(KeyCode.DownArrow))
@@ -188,7 +191,8 @@ public class PlayerController : MonoBehaviour
     }
     public void HandleTime()
     {
-        TimeHP.value = (float)curTime / (float)maxTime;
+        TimeHP.value = (float)curTime / (float)maxTime* (1 + ((float)0.5*pStage));
+        Debug.Log(TimeHP.value);
         if (TimeHP.value > 0.0f)
         {
             if (flag != 3) //갈림길일때
@@ -231,8 +235,8 @@ public class PlayerController : MonoBehaviour
             nowWeapon = Rrand;
             GameObject.Find("PlayerParent").transform.Find("Player" + nowWeapon).gameObject.SetActive(true);
             player[nowWeapon].SetTrigger("CR"); //오른쪽으로 움직이는 애니메이션
-            Invoke("ChangeStage", 1.1f);
-
+            Invoke(nameof(ChangeStage), 1.1f);
+            crossroad = false;
 
         }
         else if (Input.GetKeyDown(KeyCode.LeftArrow))
@@ -245,9 +249,10 @@ public class PlayerController : MonoBehaviour
             nowWeapon = Lrand;
             GameObject.Find("PlayerParent").transform.Find("Player" + nowWeapon).gameObject.SetActive(true);
             player[nowWeapon].SetTrigger("CL"); //왼쪽으로 움직이는 애니메이션
-            Invoke("ChangeStage", 1.1f);
-
+            Invoke(nameof(ChangeStage), 1.1f);
+            crossroad = false;
         }
+
     }
     public void BackGroundChange() {
         if (pStage == 3 && flag == 2) { //보스 생성
@@ -262,8 +267,9 @@ public class PlayerController : MonoBehaviour
             cnt = 3;
             Invoke("MakeMonster", 0.8f);
         }
-        else if (flag == 0)
+        else if (flag == 0) 
         {
+            crossroad = true;
             backGround = GameObject.Find(nStage + "-1");
             BackGround1 = backGround.GetComponent<Animator>();
             backGround = GameObject.Find(nStage + "-2");
@@ -274,7 +280,7 @@ public class PlayerController : MonoBehaviour
             BackGround2.SetTrigger("hit1");
             BackGround3.SetTrigger("hit1");
             flag++;
-            MakeMonster();
+            MakeMonster(); //두번째몬스터
             return;
         }
         else if (flag == 1)
@@ -282,11 +288,16 @@ public class PlayerController : MonoBehaviour
             BackGround2.SetTrigger("hit2");
             BackGround3.SetTrigger("hit2");
             flag++;
-            MakeMonster();
+            MakeMonster(); //중간보스
             return;
         }
         else if (flag == 2)
         {
+            //시간증가
+
+            curTime  = curTime * (1 + ((float)0.5 * pStage));
+            maxTime = maxTime * (1 + ((float)0.5 * pStage));
+
             backGround = GameObject.Find(nStage + "-4");
             BackGround2 = backGround.GetComponent<Animator>();
             BackGround2.SetTrigger("hit1");
@@ -322,7 +333,7 @@ public class PlayerController : MonoBehaviour
         GameObject.Find("Backgrounds").transform.Find(nStage + "-2").gameObject.SetActive(true);
         GameObject.Find("Backgrounds").transform.Find(nStage + "-3").gameObject.SetActive(true);
         GameObject.Find("Backgrounds").transform.Find(nStage + "-color").gameObject.SetActive(true);
-        MakeMonster();
+        MakeMonster(); //첫번째몬스터
         flag = 0;
         pStage++;
         makeWeapon = true;

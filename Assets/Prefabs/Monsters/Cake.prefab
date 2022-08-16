@@ -135,6 +135,6 @@ MonoBehaviour:
   semiBoss: 0
   Boss: 1
   multi: 0
-  drop: 0
+  drop: 1
   change: 0
   doubleNote: 0

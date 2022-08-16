@@ -134,7 +134,7 @@ MonoBehaviour:
   monsterHP: 500
   semiBoss: 0
   Boss: 1
-  multi: 0
+  multi: 1
   drop: 0
   change: 0
-  doubleNote: 0
+  doubleNote: 1

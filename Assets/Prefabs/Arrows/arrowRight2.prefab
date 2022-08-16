@@ -61,7 +61,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eafdda52c9dd707468f0ab11eb3f0350, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  noteSpeed: 400
   noteDirection: 3
   noteType: 1
 --- !u!114 &8989793863667768814
@@ -84,7 +83,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 69fc8823acaa1ec4385d035e2417267e, type: 3}
+  m_Sprite: {fileID: 21300000, guid: bbb8531b1b89bbc458348f9a16c39d1d, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
