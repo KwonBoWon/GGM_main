@@ -6528,12 +6528,12 @@ MonoBehaviour:
   - clip: {fileID: 8300000, guid: 3c5b56ce52f97a34b86d9c5707549126, type: 3}
     source: {fileID: 0}
     volume: 0.4
-  - clip: {fileID: 8300000, guid: 1cd6a86fc3413554abebf3ba4973bfc7, type: 3}
+  - clip: {fileID: 8300000, guid: c79941452ddc80a44a2f6067628dcd06, type: 3}
     source: {fileID: 0}
     volume: 0.4
   - clip: {fileID: 8300000, guid: ac795e48b21890e47b8358225eb814b9, type: 3}
     source: {fileID: 0}
-    volume: 0.4
+    volume: 0.8
   - clip: {fileID: 8300000, guid: e4339d91af0680941a64566de39c69d1, type: 3}
     source: {fileID: 0}
     volume: 0.4

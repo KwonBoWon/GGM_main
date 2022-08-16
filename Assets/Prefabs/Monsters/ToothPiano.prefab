@@ -118,7 +118,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7abfab7071f55e24bb03dce0b9b8e14e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Sounds: []
+  Sounds:
+  - clip: {fileID: 8300000, guid: 84343b9cf6c3a244a9a67070ca2e95fe, type: 3}
+    source: {fileID: 0}
+    volume: 0.4
+  - clip: {fileID: 8300000, guid: 579f459d45130cb4caced75aa2fbde1d, type: 3}
+    source: {fileID: 0}
+    volume: 0.4
+  - clip: {fileID: 8300000, guid: 06715620d8894484f913368d31a5f1ce, type: 3}
+    source: {fileID: 0}
+    volume: 0.6
   redTurn: 5
   blueTurn: 5
   monsterDamage: 25

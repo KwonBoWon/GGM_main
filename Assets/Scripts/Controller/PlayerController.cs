@@ -53,7 +53,6 @@ public class PlayerController : MonoBehaviour
     public Slider TimeHP;
     public static int cnt = 0;
 
-
     public float maxHP = 100; //최대 체력
     public float curHP = 100; //현재 체력
 
@@ -185,7 +184,6 @@ public class PlayerController : MonoBehaviour
             CenterFlame.instance.NoteClear();
             //thebackGroundManager.ChangeBackground();
             BackGroundChange();
-
         }
     }
     public void HandleTime()
@@ -254,8 +252,8 @@ public class PlayerController : MonoBehaviour
         }
     }
     public void BackGroundChange() {
-        if (pStage == 3 && flag == 2) {
-            flag++;
+        if (pStage == 3 && flag == 2) { //보스 생성
+            //flag++;
             Debug.Log(pStage);
             BackGround3.SetTrigger("hit3");
             nStage = T.ChooseL();
