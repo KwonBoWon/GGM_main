@@ -6918,13 +6918,13 @@ MonoBehaviour:
     source: {fileID: 0}
     bpm: 114
   - soundName: 
-    clip: {fileID: 8300000, guid: 39da50aaba4484d42b94c95cafdb06ae, type: 3}
-    source: {fileID: 0}
-    bpm: 172
-  - soundName: 
     clip: {fileID: 8300000, guid: 7da5f5f1a9401db4dbc1e951f727edbb, type: 3}
     source: {fileID: 0}
     bpm: 86
+  - soundName: 
+    clip: {fileID: 8300000, guid: 39da50aaba4484d42b94c95cafdb06ae, type: 3}
+    source: {fileID: 0}
+    bpm: 172
 --- !u!1 &1385149224
 GameObject:
   m_ObjectHideFlags: 0

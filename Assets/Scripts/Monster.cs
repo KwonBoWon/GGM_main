@@ -11,8 +11,8 @@ public class Monster : MonoBehaviour
 
 
     [Header("몬스터 공격/방어패턴")]
-    public int monsterAttack;
-    public int monsterDefense;
+    public int redTurn;
+    public int blueTurn;
 
     [Header("몬스터 공격력/체력")]
     public int monsterDamage;

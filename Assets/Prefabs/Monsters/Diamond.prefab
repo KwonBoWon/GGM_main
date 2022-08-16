@@ -108,8 +108,8 @@ MonoBehaviour:
   - clip: {fileID: 8300000, guid: 248bb843adbab704c9d3e33f2e08992a, type: 3}
     source: {fileID: 0}
     volume: 0.2
-  monsterAttack: 4
-  monsterDefense: 4
+  redTurn: 5
+  blueTurn: 5
   monsterDamage: 20
   monsterHP: 140
   semiBoss: 1
@@ -117,6 +117,7 @@ MonoBehaviour:
   multi: 0
   drop: 1
   change: 0
+  doubleNote: 0
 --- !u!95 &-1525329970015406697
 Animator:
   serializedVersion: 4

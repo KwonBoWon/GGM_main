@@ -32,7 +32,8 @@ public class NoteManager : MonoBehaviour
     ComboManager thecomboManager;
     Monster theMonster;
 
-    
+    public static int redTurn = 5;
+    public static int blueTurn = 5;
 
     void Start()
     {
@@ -55,18 +56,9 @@ public class NoteManager : MonoBehaviour
             {
                 RainDrop();
             }
-            /*
-            if (noteCount % 4 == 0 && noteCount != 0 && doubleFlag && theMonster.doubleNote)
-            {
-                doubleFlag = false;
-                noteOn = false;
-                Invoke(nameof(DoubleNote), 60f / bpm);
-                NoteOn();
-                currentTime = 0;
-            }
-            */
-            else if ((noteCount % 10) < 5) MakeNode(0);
-            else if ((noteCount % 10) >= 5) MakeNode(1);
+
+            else if ((noteCount % (redTurn+blueTurn)) < redTurn) MakeNode(0);
+            else if ((noteCount % (redTurn+ blueTurn)) >= redTurn) MakeNode(1);
         }
         else CenterFlame.instance.StopMusic();
 

@@ -86,7 +86,7 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         //화살표 입력 0123 : DULR
-        if (flag == 3) //갈림길일때
+        if (flag == 3 && pStage != 3) //갈림길일때
             CrossRoad();
         else//갈림길이 아닐때
         {
@@ -211,10 +211,13 @@ public class PlayerController : MonoBehaviour
         maxHP = curHP = nowMonster.GetComponent<Monster>().monsterHP + pStage * 20;
         //몬스터 스크립트 + 스테이지체력보정
         MonsterHP.gameObject.SetActive(true);
-        //monsterhp=Instantiate(MonsterHP, tfMonsterAppear.position , Quaternion.identity);
+
         curTime += addTime; //시간추가
         if (curTime > maxTime) curTime = maxTime;
         NoteManager.noteOn = true;
+
+        NoteManager.redTurn = nowMonster.GetComponent<Monster>().redTurn;
+        NoteManager.blueTurn = nowMonster.GetComponent<Monster>().blueTurn;
     }
 
     public void CrossRoad()
