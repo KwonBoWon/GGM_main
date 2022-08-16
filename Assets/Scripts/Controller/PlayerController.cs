@@ -254,6 +254,7 @@ public class PlayerController : MonoBehaviour
     public void BackGroundChange() {
         if (pStage == 3 && flag == 2) { //보스 생성
             //flag++;
+            pStage++;
             Debug.Log(pStage);
             BackGround3.SetTrigger("hit3");
             nStage = T.ChooseL();
