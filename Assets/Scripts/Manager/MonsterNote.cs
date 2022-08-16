@@ -40,14 +40,14 @@ public class MonsterNote : MonoBehaviour
                     if (PlayerController.pStage == 4 && PlayerController.nStage == 2)    {
                         Final2.SetTrigger("hit");
                     }
-                    else if (PlayerController.nStage == 4 && PlayerController.pStage != 4 ) {
+                    else if (PlayerController.nStage == 4 && PlayerController.pStage != 4 && PlayerController.flag == 2) {
                         Sub4.SetTrigger("hit");
                     }
                     else if (PlayerController.pStage == 4 && PlayerController.nStage == 4) {
                         Debug.Log("dkdkdk");
                         Final4.SetTrigger("hit");
                     }
-                    else if (PlayerController.nStage == 1 && PlayerController.pStage != 4)  {
+                    else if (PlayerController.nStage == 1 && PlayerController.pStage != 4 && PlayerController.flag == 2)  {
                         Sub1.SetTrigger("hit");
                     }
                     

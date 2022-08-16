@@ -54,8 +54,9 @@ public class CenterFlame : MonoBehaviour
         if(!musicStart){
             if (collision.CompareTag("Note"))
             {
-                if (PlayerController.pStage == 3) //보스면
+                if (PlayerController.pStage == 4) //보스면
                 {
+                    Debug.Log("dkdkdkkd");
                     boss[PlayerController.nStage].source.Play();
                 }
                 else
@@ -71,14 +72,9 @@ public class CenterFlame : MonoBehaviour
 
     public void StopMusic()
     {
-        if (PlayerController.pStage == 3)
-        {
-            boss[PlayerController.nStage].source.Stop();
-        }
-        else
-        {
-            bgms[PlayerController.nStage].source.Stop();
-        }
+       
+        bgms[PlayerController.nStage].source.Stop();
+       
         musicStart = false;
         NoteClear();
     }
