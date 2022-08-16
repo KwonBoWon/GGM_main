@@ -62,6 +62,7 @@ public class NoteManager : MonoBehaviour
         }
         else CenterFlame.instance.StopMusic();
 
+
         if (invokeCnt >= multi)
         {
             CancelInvoke(nameof(SpawnNote));
@@ -165,7 +166,10 @@ public class NoteManager : MonoBehaviour
         Destroy(thisnote);
     }
 
-
+    public void ClearTime()
+    {
+        currentTime = 0d;
+    }
 
     IEnumerator CoNoteChange(GameObject thisnote, float rand) //코루틴
     {

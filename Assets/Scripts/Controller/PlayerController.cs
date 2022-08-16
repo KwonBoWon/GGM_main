@@ -192,7 +192,6 @@ public class PlayerController : MonoBehaviour
     public void HandleTime()
     {
         TimeHP.value = (float)curTime / (float)maxTime* (1 + ((float)0.5*pStage));
-        Debug.Log(TimeHP.value);
         if (TimeHP.value > 0.0f)
         {
             if (flag != 3) //갈림길일때
@@ -210,7 +209,7 @@ public class PlayerController : MonoBehaviour
         monsterLife = true;
         nowMonster = Instantiate(goMonster[nStage].Monsters[cnt], tfMonsterAppear.position, Quaternion.identity);
         nowMonster.transform.SetParent(this.transform);
-        maxHP = curHP = nowMonster.GetComponent<Monster>().monsterHP + pStage * 20;
+        maxHP = curHP = nowMonster.GetComponent<Monster>().monsterHP *(1+ ((float)0.25*pStage));
         //몬스터 스크립트 + 스테이지체력보정
         MonsterHP.gameObject.SetActive(true);
 
@@ -256,6 +255,7 @@ public class PlayerController : MonoBehaviour
     }
     public void BackGroundChange() {
         if (pStage == 3 && flag == 2) { //보스 생성
+            CenterFlame.instance.StopMusic();
             //flag++;
             pStage++;
             Debug.Log(pStage);
@@ -297,6 +297,9 @@ public class PlayerController : MonoBehaviour
 
             curTime  = curTime * (1 + ((float)0.5 * pStage));
             maxTime = maxTime * (1 + ((float)0.5 * pStage));
+            addTime = addTime * (1 + ((float)0.5 * pStage));
+
+
 
             backGround = GameObject.Find(nStage + "-4");
             BackGround2 = backGround.GetComponent<Animator>();
