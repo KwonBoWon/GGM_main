@@ -6910,6 +6910,10 @@ MonoBehaviour:
     bpm: 95
   boss:
   - soundName: 
+    clip: {fileID: 0}
+    source: {fileID: 0}
+    bpm: 172
+  - soundName: 
     clip: {fileID: 8300000, guid: f10e155b4a848d242b98b1ebbd7c08ed, type: 3}
     source: {fileID: 0}
     bpm: 100

@@ -54,15 +54,31 @@ public class CenterFlame : MonoBehaviour
         if(!musicStart){
             if (collision.CompareTag("Note"))
             {
-                bgms[PlayerController.nStage].source.Play();
+                if (PlayerController.pStage == 3) //보스면
+                {
+                    boss[PlayerController.nStage].source.Play();
+                }
+                else
+                {
+                    bgms[PlayerController.nStage].source.Play();
+                }
                 musicStart = true;
+
             }
+            
         }
     }
 
     public void StopMusic()
     {
-        bgms[PlayerController.nStage].source.Stop();
+        if (PlayerController.pStage == 3)
+        {
+            boss[PlayerController.nStage].source.Stop();
+        }
+        else
+        {
+            bgms[PlayerController.nStage].source.Stop();
+        }
         musicStart = false;
         NoteClear();
     }

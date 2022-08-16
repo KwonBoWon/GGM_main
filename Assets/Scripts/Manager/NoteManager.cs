@@ -84,8 +84,15 @@ public class NoteManager : MonoBehaviour
 
     public int MakeNode(int turn)//(int attackTurn , int defenseTurn)
     {
+        if (PlayerController.pStage == 3)
+        {
+            bpm = CenterFlame.instance.boss[PlayerController.nStage].bpm;
+        }
+        else
+        {
+            bpm = CenterFlame.instance.bgms[PlayerController.nStage].bpm;
+        }
 
-        bpm = CenterFlame.instance.bgms[PlayerController.nStage].bpm;
         currentTime += Time.deltaTime;
         if (noteOn == true)
         {
@@ -157,16 +164,15 @@ public class NoteManager : MonoBehaviour
         theTimingManager.boxNoteList.Remove(thisnote); // 리스트에 추가
         Destroy(thisnote);
     }
-    IEnumerator CoNoteChange(GameObject thisnote, float rand)
+
+
+
+    IEnumerator CoNoteChange(GameObject thisnote, float rand) //코루틴
     {
         yield return new WaitForSeconds(rand);
         NoteChange(thisnote);
     }
-
-
-
-
-    public void Multistrike()
+    public void Multistrike() //연타
     {
         noteOn = false;
         multiFlag = false;
@@ -178,10 +184,8 @@ public class NoteManager : MonoBehaviour
         noteOn= true;
     }
 
-    public void DoubleNote()
+    public void DoubleNote() //이중
     {
-        //noteOn = false;
-        //doubleFlag = false;
         arrowDirection = Random.Range(0, 8);
 
         GameObject t_note = Instantiate(doubleNote[arrowDirection], tfNoteAppear.position, Quaternion.identity); // 노트를 생성
@@ -191,7 +195,7 @@ public class NoteManager : MonoBehaviour
     }
 
 
-    public void RainDrop()
+    public void RainDrop() //물방울
     {
         rainFlag = false;
 
@@ -200,7 +204,7 @@ public class NoteManager : MonoBehaviour
         GameObject[] p_Drops = new GameObject[DropMax+1];
 
 
-        randomX = Random.Range(900f, 1000f);
+        randomX = Random.Range(880f, 1020f);
         randomY = Random.Range(50f, 200f);
         p_Drops[0] = Instantiate(Drop, new Vector3(randomX, randomY, 0f), Quaternion.identity);
         p_Drops[0].transform.SetParent(this.transform);
