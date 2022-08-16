@@ -48,7 +48,6 @@ public class TimingManager : MonoBehaviour
             timingBoxs[i].Set(Center.localPosition.x - timingRect[i].rect.width / 2,
                                         Center.localPosition.x + timingRect[i].rect.width / 2);
             
-
         }
     }
 
@@ -76,7 +75,6 @@ public class TimingManager : MonoBehaviour
             int t_noteType = boxNoteList[i].GetComponent<Note>().noteType; //노트타입 가져옴 0:방어턴 1:공격턴
             Animator MonAni = PlayerController.nowMonster.GetComponent<Animator>();
             Monsc = PlayerController.nowMonster.GetComponent<Monster>();
-
 
             for (int x= 0; x < timingBoxs.Length; x++)
             {
