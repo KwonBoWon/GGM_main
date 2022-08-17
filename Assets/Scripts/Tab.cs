@@ -20,7 +20,7 @@ public class Tab : MonoBehaviour
     }
     public CollectionData collectionData;
     [ContextMenu("To Json Data")]
-    void SaveCollectionDataToJson()//데이터 저장
+    public void SaveCollectionDataToJson()//데이터 저장
     {
         string jsonData = JsonUtility.ToJson(collectionData, true);
         string path = Path.Combine(Application.dataPath, "collectionData.json");
@@ -28,7 +28,7 @@ public class Tab : MonoBehaviour
     }
 
     [ContextMenu("From Json Data")]
-    void LoadCollectionDataToJson()//데이터 로드
+    public void LoadCollectionDataToJson()//데이터 로드
     {
         string path = Path.Combine(Application.dataPath, "collectionData.json");
         string jsonData = File.ReadAllText(path);
@@ -110,7 +110,10 @@ public class Tab : MonoBehaviour
     public void Button6() {
         image.sprite = change_img[5];
     }
+
 }
+
+
 
 
 
