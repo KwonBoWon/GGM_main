@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 [System.Serializable]
 public class MonsterList
@@ -12,6 +13,9 @@ public class MonsterList
 
 public class PlayerController : MonoBehaviour
 {
+    
+    public Animator Fadeout;
+    bool AniCk = true;
     public MonsterList[] goMonster;
     [SerializeField] Animator[] player;
 
@@ -200,6 +204,15 @@ public class PlayerController : MonoBehaviour
         else //시간없을때(죽었을때)
         {
             SoundEffectManager.instance.Sounds[2].source.Play();
+            //스테이지 노래도 느려지게 하면 좋을 듯
+            Time.timeScale = 0.5F;
+            if (AniCk) {
+                Fadeout.SetTrigger("hit");
+                AniCk = false;
+            }
+            //플레이어 사망 모션
+
+            Invoke(nameof(ChangeScene), 1.1f);
         }
     }
 
@@ -346,6 +359,9 @@ public class PlayerController : MonoBehaviour
 
         Destroy(LeftW);
         Destroy(RightW);
+    }
+    public void ChangeScene () {
+        SceneManager.LoadScene("GameOver");
     }
 
 }
