@@ -8,7 +8,9 @@ public class Typing : MonoBehaviour
 {
     Tab theTab;
     public Image[] DogamArr;
+    string[] collection = new string[6];
     public Text m_TypingText; 
+    public Text CollectT;
     public string m_Message;     
     public float m_Speed; 
     public Button ToMain;
@@ -16,6 +18,11 @@ public class Typing : MonoBehaviour
     // Start is called before the first frame update
     void Start() 
     { 
+        collection[1] = "마녀의 수정 구슬을(를) 얻었다!";
+        collection[2] = "알 수 없는 힘이 담긴 듯한 목걸이을(를) 얻었다!";
+        collection[3] = "왕가의 반지을(를) 얻었다!";
+        collection[4] = "심해 상어의 이빨을(를) 얻었다!";
+        collection[5] = "악보 조각을(를) 얻었다!";
         theTab = FindObjectOfType<Tab>();
         if (SceneManager.GetActiveScene().name == "NormalEnding")
             m_Message = @"모든 적과 싸워 이겼지만 출구는 어디에도 보이지 않았다...";
@@ -31,9 +38,13 @@ public class Typing : MonoBehaviour
             typingText.text = message.Substring(0, i + 1); 
             yield return new WaitForSeconds(speed); 
         }
-        if (SceneManager.GetActiveScene().name == "NormalEnding")
-            Sheet(Tab.nstage, m_TypingText, DogamArr);
-        Invoke(nameof(Show), 1.1f);
+        if (SceneManager.GetActiveScene().name == "NormalEnding") {
+            if (theTab.collectionData.collect[Tab.nstage] == false) {
+                StartCoroutine(Sheet(Tab.nstage, m_TypingText, DogamArr));
+                Sheet(5, CollectT, DogamArr);
+            }
+        }
+        Invoke(nameof(Show), 3.0f);
     } 
     void Show() {
         ToMain.gameObject.SetActive(true);
@@ -42,11 +53,12 @@ public class Typing : MonoBehaviour
     }
     
     //
-    public void Sheet(int n, Text t, Image[] arr) {
-        if (theTab.collectionData.collect[n] == false) {
-            t.gameObject.SetActive(false);
-            arr[n].gameObject.SetActive(true);
-            theTab.collectionData.collect[n] = true;
-        }
+    IEnumerable Sheet(int n, Text t, Image[] arr) {
+        yield return new WaitForSeconds(3.0f);
+        t.gameObject.SetActive(false);
+        CollectT.gameObject.SetActive(true);
+        arr[n].gameObject.SetActive(true);
+        theTab.collectionData.collect[n] = true;
+        StartCoroutine(typing(CollectT, collection[n], m_Speed));
     }
 }
