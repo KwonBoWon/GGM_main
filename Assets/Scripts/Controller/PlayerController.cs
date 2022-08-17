@@ -182,7 +182,8 @@ public class PlayerController : MonoBehaviour
                 if (AniCk) {
                     Fadeout.SetTrigger("hit");
                     AniCk = false;
-                }   
+                }
+                Tab.nstage = nStage;
                 Invoke(nameof(ChangeScene), 1.1f);
             }
             nowMonster.GetComponent<Monster>().Sounds[2].source.Play();

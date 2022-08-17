@@ -6,6 +6,8 @@ using UnityEngine.SceneManagement;
 
 public class Typing : MonoBehaviour
 {
+    Tab tab;
+    public Image[] DogamArr;
     public Text m_TypingText; 
     public string m_Message;     
     public float m_Speed; 
@@ -14,6 +16,7 @@ public class Typing : MonoBehaviour
     // Start is called before the first frame update
     void Start() 
     { 
+        tab = FindObjectOfType<Tab>();
         if (SceneManager.GetActiveScene().name == "NormalEnding")
             m_Message = @"모든 적과 싸워 이겼지만 출구는 어디에도 보이지 않았다...";
         else 
@@ -27,11 +30,22 @@ public class Typing : MonoBehaviour
         { 
             typingText.text = message.Substring(0, i + 1); 
             yield return new WaitForSeconds(speed); 
-        } 
-        Show();
+        }
+        if (SceneManager.GetActiveScene().name == "NormalEnding")
+            Sheet(tab.nstage, m_TypingText, DogamArr);
+        Invoke(nameof(Show), 1.1f);
     } 
     void Show() {
         ToMain.gameObject.SetActive(true);
         Replay.gameObject.SetActive(true);
+    }
+
+    public static void Sheet(int n, Text t, Image[] arr) {
+        if (tab.collectionData.collect[n] == false) {
+            Debug.Log("dkdkdk");
+            t.gameObject.SetActive(false);
+            arr[n].gameObject.SetActive(true);
+            tab.collectionData.collect[n] = true;
+        }
     }
 }

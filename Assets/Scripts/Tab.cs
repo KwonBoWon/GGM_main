@@ -12,8 +12,13 @@ public class Tab : MonoBehaviour
     public Image[] cover; //수집 안 된 애들 비활성화시키는 이미지
     public static int tabck = 1;
     public Slider MonsterHP;
+    public static int nstage;
 
-        public CollectionData collectionData;
+    private void Awake()
+    {
+        DontDestroyOnLoad(this);
+    }
+    public CollectionData collectionData;
     [ContextMenu("To Json Data")]
     void SaveCollectionDataToJson()//데이터 저장
     {
@@ -74,8 +79,9 @@ public class Tab : MonoBehaviour
             }
         }
         else if (SceneManager.GetActiveScene().name == "Dogam") {
-            if (Input.GetKeyDown(KeyCode.Tab))
+            if (Input.GetKeyDown(KeyCode.Tab)) {
                 SceneManager.LoadScene("Start");
+            }
         }
         
     }
@@ -111,5 +117,7 @@ public class Tab : MonoBehaviour
 [System.Serializable]//데이터직렬화
 public class CollectionData
 {
-    public bool[] collect = new bool[6];
+    public bool[] collect = new bool[5];
+
+
 }
