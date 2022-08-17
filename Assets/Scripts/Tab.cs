@@ -32,6 +32,11 @@ public class Tab : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        if (SceneManager.GetActiveScene().name == "Dogam") {
+            foreach (Image black in cover) {
+                    black.enabled = true; //비활성화 시키는 애들
+            }
+        }
         if (SceneManager.GetActiveScene().name == "Note")
             MonsterHP = GameObject.Find("MonsterHP").GetComponent<Slider>();
         LoadCollectionDataToJson(); //데이터 로드
@@ -68,10 +73,7 @@ public class Tab : MonoBehaviour
                 }
             }
         }
-        else if (SceneManager.GetActiveScene().name == "Start") {
-            foreach (Image black in cover) {
-                    black.enabled = true; //비활성화 시키는 애들
-            }
+        else if (SceneManager.GetActiveScene().name == "Dogam") {
             if (Input.GetKeyDown(KeyCode.Tab))
                 SceneManager.LoadScene("Start");
         }

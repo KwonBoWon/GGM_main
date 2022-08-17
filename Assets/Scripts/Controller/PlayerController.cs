@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 [System.Serializable]
 public class MonsterList
@@ -12,6 +13,10 @@ public class MonsterList
 
 public class PlayerController : MonoBehaviour
 {
+    
+    public Animator Fadeout;
+    bool AniCk = true;
+    bool Bad = true;
     public MonsterList[] goMonster;
     [SerializeField] Animator[] player;
 
@@ -171,6 +176,15 @@ public class PlayerController : MonoBehaviour
 
         if (MonsterHP.value == 0 && monsterLife == true)
         { // 적 죽으면
+            if (pStage == 4) { //최종 보스 죽으면
+                Time.timeScale = 0.5F;
+                Bad = false;
+                if (AniCk) {
+                    Fadeout.SetTrigger("hit");
+                    AniCk = false;
+                }   
+                Invoke(nameof(ChangeScene), 1.1f);
+            }
             nowMonster.GetComponent<Monster>().Sounds[2].source.Play();
 
             del = GameObject.FindGameObjectsWithTag("Monster");
@@ -200,6 +214,15 @@ public class PlayerController : MonoBehaviour
         else //시간없을때(죽었을때)
         {
             SoundEffectManager.instance.Sounds[2].source.Play();
+            //스테이지 노래도 느려지게 하면 좋을 듯
+            Time.timeScale = 0.5F;
+            if (AniCk) {
+                Fadeout.SetTrigger("hit");
+                AniCk = false;
+            }
+            //플레이어 사망 모션
+
+            Invoke(nameof(ChangeScene), 1.1f);
         }
     }
 
@@ -346,6 +369,12 @@ public class PlayerController : MonoBehaviour
 
         Destroy(LeftW);
         Destroy(RightW);
+    }
+    public void ChangeScene () {
+        if (Bad)
+            SceneManager.LoadScene("GameOver");
+        else
+            SceneManager.LoadScene("NormalEnding");
     }
 
 }

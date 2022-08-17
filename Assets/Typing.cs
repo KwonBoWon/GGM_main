@@ -8,7 +8,7 @@ public class Typing : MonoBehaviour
 {
     public Text m_TypingText; 
     public string m_Message;     
-    public float m_Speed = 0.5f; 
+    public float m_Speed; 
     public Button ToMain;
     public Button Replay;
     // Start is called before the first frame update
