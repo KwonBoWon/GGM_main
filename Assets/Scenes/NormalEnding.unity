@@ -282,7 +282,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_TypingText: {fileID: 2124216556}
   m_Message: 
-  m_Speed: 0.2
+  m_Speed: 0.1
   ToMain: {fileID: 948880170}
   Replay: {fileID: 284109460}
 --- !u!4 &212425898

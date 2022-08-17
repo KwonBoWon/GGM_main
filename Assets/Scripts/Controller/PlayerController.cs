@@ -16,6 +16,7 @@ public class PlayerController : MonoBehaviour
     
     public Animator Fadeout;
     bool AniCk = true;
+    bool Bad = true;
     public MonsterList[] goMonster;
     [SerializeField] Animator[] player;
 
@@ -175,6 +176,15 @@ public class PlayerController : MonoBehaviour
 
         if (MonsterHP.value == 0 && monsterLife == true)
         { // 적 죽으면
+            if (pStage == 4) { //최종 보스 죽으면
+                Time.timeScale = 0.5F;
+                Bad = false;
+                if (AniCk) {
+                    Fadeout.SetTrigger("hit");
+                    AniCk = false;
+                }   
+                Invoke(nameof(ChangeScene), 1.1f);
+            }
             nowMonster.GetComponent<Monster>().Sounds[2].source.Play();
 
             del = GameObject.FindGameObjectsWithTag("Monster");
@@ -361,7 +371,10 @@ public class PlayerController : MonoBehaviour
         Destroy(RightW);
     }
     public void ChangeScene () {
-        SceneManager.LoadScene("GameOver");
+        if (Bad)
+            SceneManager.LoadScene("GameOver");
+        else
+            SceneManager.LoadScene("NormalEnding");
     }
 
 }
