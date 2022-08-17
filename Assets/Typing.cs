@@ -11,6 +11,7 @@ public class Typing : MonoBehaviour
     string[] collection = new string[6];
     public Text m_TypingText; 
     public Text CollectT;
+    public Text SheetT;
     public string m_Message;     
     public float m_Speed; 
     public Button ToMain;
@@ -40,11 +41,11 @@ public class Typing : MonoBehaviour
         }
         if (SceneManager.GetActiveScene().name == "NormalEnding") {
             if (theTab.collectionData.collect[Tab.nstage] == false) {
-                StartCoroutine(Sheet(Tab.nstage, m_TypingText, DogamArr));
-                Sheet(5, CollectT, DogamArr);
+                StartCoroutine(Dogam(Tab.nstage, m_TypingText, DogamArr));
+                StartCoroutine(Sheet(5, CollectT, DogamArr));
             }
         }
-        Invoke(nameof(Show), 3.0f);
+        Invoke(nameof(Show), 5.0f);
     } 
     void Show() {
         ToMain.gameObject.SetActive(true);
@@ -53,12 +54,18 @@ public class Typing : MonoBehaviour
     }
     
     //
-    IEnumerable Sheet(int n, Text t, Image[] arr) {
-        yield return new WaitForSeconds(3.0f);
+    IEnumerator Dogam(int n, Text t, Image[] arr) {
+        yield return new WaitForSeconds(0.5f);
         t.gameObject.SetActive(false);
-        CollectT.gameObject.SetActive(true);
         arr[n].gameObject.SetActive(true);
         theTab.collectionData.collect[n] = true;
         StartCoroutine(typing(CollectT, collection[n], m_Speed));
+    }
+    IEnumerator Sheet(int n, Text t, Image[] arr) {
+        yield return new WaitForSeconds(3.0f);
+        t.gameObject.SetActive(false);
+        arr[n].gameObject.SetActive(true);
+        theTab.collectionData.collect[n] = true;
+        StartCoroutine(typing(SheetT, collection[n], m_Speed));
     }
 }

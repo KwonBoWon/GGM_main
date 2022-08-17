@@ -247,7 +247,8 @@ public class PlayerController : MonoBehaviour
 
     public void CrossRoad()
     {   
-        MakeWeapon(); //무기생성 
+        if (pStage != 4)
+            MakeWeapon(); //무기생성 
         if (Input.GetKeyDown(KeyCode.RightArrow))
         {
             //오른쪽 애니메이션 나오게
