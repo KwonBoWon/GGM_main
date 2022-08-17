@@ -191,7 +191,7 @@ public class PlayerController : MonoBehaviour
     }
     public void HandleTime()
     {
-        TimeHP.value = (float)curTime / (float)maxTime* (1 + ((float)0.5*pStage));
+        TimeHP.value = (float)curTime / (float)maxTime* (1 + ((float)0.5*pStage));//3
         if (TimeHP.value > 0.0f)
         {
             if (flag != 3) //갈림길일때
