@@ -10,7 +10,9 @@ public class ComboManager : MonoBehaviour
     int comboStack =10; //comboStack개마다 콤보 생성
     int comboDamage = 15;
 
-
+    [Header("효과음 combo sword bat wand")]
+    [SerializeField]
+    public Sound[] Sounds;
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Space))
@@ -25,7 +27,15 @@ public class ComboManager : MonoBehaviour
         heart[0].SetActive(false);
         heart[1].SetActive(false);
         heart[2].SetActive(false);
+        for (int i = 0; i < Sounds.Length; i++)
+        {
+            Sounds[i].source = gameObject.AddComponent<AudioSource>();
+            Sounds[i].source.volume = Sounds[i].volume;
+            Sounds[i].source.clip = Sounds[i].clip;
+            Sounds[i].source.loop = false;
+        }
     }
+
 
     
     public void IncreaseCombo(int p_num = 1)
@@ -60,10 +70,19 @@ public class ComboManager : MonoBehaviour
             heart[heartCnt-1].SetActive(false);
             heartCnt--;
             //여기에 콤보 사용
-            if (PlayerController.nowWeapon == 2) WandCombo();
-            else if (PlayerController.nowWeapon == 0) SwordCombo();
-            else if (PlayerController.nowWeapon == 1) BatCombo();
-
+            if (PlayerController.nowWeapon == 2)
+            {
+                WandCombo();
+                Sounds[2].source.Play();
+            }
+            else if (PlayerController.nowWeapon == 0) {
+                SwordCombo();
+                Sounds[0].source.Play();
+            }
+            else if (PlayerController.nowWeapon == 1) {
+                BatCombo();
+                Sounds[1].source.Play();
+            }
             Obj.GetComponent<PlayerController>().curHP -= comboDamage;
         }
 

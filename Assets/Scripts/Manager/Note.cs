@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Note : MonoBehaviour
 {
-    float noteSpeed = 400;//노트의  속도
+    public static float noteSpeed = 400;//노트의  속도
     public int noteDirection; //노트 방향
     [Header("노트 종류 0:방어턴1:공격턴")]
     public int noteType = 0;

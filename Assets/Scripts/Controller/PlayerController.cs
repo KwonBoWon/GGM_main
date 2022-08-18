@@ -229,6 +229,7 @@ public class PlayerController : MonoBehaviour
 
     public void MakeMonster()
     {
+        //ChangeNoteSpeed();
         NoteManager.noteCount = 0;
         monsterLife = true;
         nowMonster = Instantiate(goMonster[nStage].Monsters[cnt], tfMonsterAppear.position, Quaternion.identity);
@@ -283,14 +284,14 @@ public class PlayerController : MonoBehaviour
             CenterFlame.instance.StopMusic();
             //flag++;
             pStage++;
-            Debug.Log(pStage);
+
             BackGround3.SetTrigger("hit3");
             nStage = T.ChooseL();
             backGround = GameObject.Find(nStage + "-3");
             BackGround3 = backGround.GetComponent<Animator>();
             BackGround3.SetTrigger("boss");
             cnt = 3;
-            Invoke("MakeMonster", 0.8f);
+            Invoke(nameof(MakeMonster), 0.8f);
         }
         else if (flag == 0) 
         {
@@ -377,6 +378,11 @@ public class PlayerController : MonoBehaviour
             SceneManager.LoadScene("GameOver");
         else
             SceneManager.LoadScene("NormalEnding");
+    }
+
+    public void ChangeNoteSpeed()
+    {
+
     }
 
 }

@@ -28,6 +28,8 @@ public class Monster : MonoBehaviour
     public bool change = false;
     public bool doubleNote = false;
 
+
+    bool mul, dro, cha, dou = false;
     private void Start()
     {
         for (int i = 0; i < Sounds.Length; i++)
@@ -37,6 +39,13 @@ public class Monster : MonoBehaviour
             Sounds[i].source.clip = Sounds[i].clip;
             Sounds[i].source.loop = false;
         }
+
+        //mul = multi; dro = drop; cha = change; dou = doubleNote; //초기값 저장
+
+        if (Boss)
+        {
+            
+        }
     }
 
 
@@ -44,7 +53,86 @@ public class Monster : MonoBehaviour
     {
         this.transform.position = new Vector3(1000, 596, 0);
     }
+    public void BossPatten(int ns)
+    {
+        int rand = 0;
+        if (ns == 1)
+        {
+            multi = true;
+            drop = true;
+            change = true;
 
+            rand =Random.Range(0, 2);
+            if (rand == 0)
+            {
+                drop = false;
+            }
+            else if (rand == 1)
+            {
+                change = false;
+            }
+
+        }
+        else if (ns == 2)
+        {
+            multi = true;
+
+            change = true;
+            doubleNote = true;
+
+            rand = Random.Range(0, 2);
+            if (rand == 0)
+            {
+                multi = false;
+            }
+            else if (rand == 1)
+            {
+                change = false;
+            }
+        }
+        else if (ns == 3)
+        {
+            multi = true;
+            drop = true;
+
+            doubleNote = true;
+
+            rand = Random.Range(0, 2);
+            if (rand == 0)
+            {
+                multi= false;
+            }
+            else if (rand == 1)
+            {
+                doubleNote = false;
+            }
+        }
+        else if (ns == 4)
+        {
+            multi = true;
+            drop = true;
+            change = true;
+            doubleNote = true;
+            rand = Random.Range(0, 4);
+            if (rand == 0)
+            {
+                multi = false;
+            }
+            else if (rand == 1)
+            {
+                drop = false;
+            }
+            else if (rand == 2)
+            {
+                change = false;
+            }
+            else if (rand == 3)
+            {
+                doubleNote = false;
+            }
+        }
+
+    }
 
 
 

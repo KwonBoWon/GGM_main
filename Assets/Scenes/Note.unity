@@ -5511,6 +5511,16 @@ MonoBehaviour:
   - {fileID: 312933484}
   txtCombo: {fileID: 1012411612}
   curCombo: 0
+  Sounds:
+  - clip: {fileID: 8300000, guid: 884bb620fe261374a8f80b253386c413, type: 3}
+    source: {fileID: 0}
+    volume: 1
+  - clip: {fileID: 8300000, guid: ee0ae5960dba80143b5211b21593f69e, type: 3}
+    source: {fileID: 0}
+    volume: 1
+  - clip: {fileID: 8300000, guid: 469a7b94acdf6cf45a768799e6fa7285, type: 3}
+    source: {fileID: 0}
+    volume: 1
 --- !u!1 &1169012246
 GameObject:
   m_ObjectHideFlags: 0

@@ -15,7 +15,8 @@ public class NoteManager : MonoBehaviour
     int multi = 5;
 
     bool rainFlag = true; //레인드롭
-    int DropMax = 4;
+    int DropMax = 3;
+    float rainTime = 9.5f;
 
     bool changeFlag = true; //페이크노트
 
@@ -54,11 +55,25 @@ public class NoteManager : MonoBehaviour
             }
             if (noteCount % 10 == 0 && noteCount != 0 && rainFlag && theMonster.drop)
             {
+                rainTime = (60f / bpm)*20 + 0.5f;
+                Debug.Log("rainTime =" + rainTime);
                 RainDrop();
             }
+            
 
-            else if ((noteCount % (redTurn+blueTurn)) < redTurn) MakeNode(0);
-            else if ((noteCount % (redTurn+ blueTurn)) >= redTurn) MakeNode(1);
+            if ((noteCount % (redTurn + blueTurn)) < redTurn) 
+            {
+                MakeNode(0);
+             }
+            if ((noteCount % (redTurn + blueTurn)) >= redTurn) 
+            {
+                MakeNode(1);
+             }
+            if (noteCount % 20 == 0 && PlayerController.nowMonster.GetComponent<Monster>().Boss)
+            {//보스페턴체인지
+                PlayerController.nowMonster.GetComponent<Monster>().BossPatten(PlayerController.nStage);
+            }
+
         }
         else CenterFlame.instance.StopMusic();
 
@@ -85,7 +100,7 @@ public class NoteManager : MonoBehaviour
 
     public int MakeNode(int turn)//(int attackTurn , int defenseTurn)
     {
-        if (PlayerController.pStage == 3)
+        if (PlayerController.pStage == 4)
         {
             bpm = CenterFlame.instance.boss[PlayerController.nStage].bpm;
         }
@@ -160,7 +175,7 @@ public class NoteManager : MonoBehaviour
         //반대로생성
         GameObject t_note = Instantiate(goNote[arrowDirection], thisnote.transform.position, Quaternion.identity); // 노트를 생성
         t_note.transform.SetParent(this.transform);
-        t_note.transform.SetAsFirstSibling();
+        t_note.transform.SetAsLastSibling();
         theTimingManager.boxNoteList.Add(t_note); // 리스트에 추가
         theTimingManager.boxNoteList.Remove(thisnote); // 리스트에 추가
         Destroy(thisnote);
@@ -208,11 +223,11 @@ public class NoteManager : MonoBehaviour
         GameObject[] p_Drops = new GameObject[DropMax+1];
 
 
-        randomX = Random.Range(880f, 1020f);
+        randomX = Random.Range(830f, 1020f);
         randomY = Random.Range(50f, 200f);
         p_Drops[0] = Instantiate(Drop, new Vector3(randomX, randomY, 0f), Quaternion.identity);
         p_Drops[0].transform.SetParent(this.transform);
-        Destroy(p_Drops[0], 10);
+        Destroy(p_Drops[0], rainTime);
 
         for (int n = 1; n <= DropMax; n++)
         {
@@ -220,7 +235,7 @@ public class NoteManager : MonoBehaviour
             randomY = Random.Range(50f, 200f);
             p_Drops[n]=Instantiate(Drop,  new Vector3(randomX, randomY ,0f), Quaternion.identity);
             p_Drops[n].transform.SetParent(this.transform);
-            Destroy(p_Drops[n], 10.5f);
+            Destroy(p_Drops[n], rainTime);
         }
 
     }
