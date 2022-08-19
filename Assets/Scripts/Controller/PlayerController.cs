@@ -74,6 +74,7 @@ public class PlayerController : MonoBehaviour
 
     void Start()
     {
+
         nowMonster = Instantiate(goMonster[nStage].Monsters[cnt], tfMonsterAppear.position, Quaternion.identity);
         nowMonster.transform.SetParent(this.transform);
 

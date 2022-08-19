@@ -19,6 +19,7 @@ public class Typing : MonoBehaviour
     // Start is called before the first frame update
     void Start() 
     { 
+        Time.timeScale = 1.0F;
         collection[1] = "마녀의 수정 구슬을(를) 얻었다!";
         collection[2] = "알 수 없는 힘이 담긴 듯한 목걸이을(를) 얻었다!";
         collection[3] = "왕가의 반지을(를) 얻었다!";
@@ -59,6 +60,7 @@ public class Typing : MonoBehaviour
         t.gameObject.SetActive(false);
         arr[n].gameObject.SetActive(true);
         theTab.collectionData.collect[n] = true;
+        theTab.SaveCollectionDataToJson();
         StartCoroutine(typing(CollectT, collection[n], m_Speed));
     }
     IEnumerator Sheet(int n, Text t, Image[] arr) {
@@ -66,6 +68,8 @@ public class Typing : MonoBehaviour
         t.gameObject.SetActive(false);
         arr[n].gameObject.SetActive(true);
         theTab.collectionData.collect[n] = true;
+        theTab.collectionData.SheetMusic++;
+        theTab.SaveCollectionDataToJson();
         StartCoroutine(typing(SheetT, collection[n], m_Speed));
     }
 }

@@ -29,7 +29,6 @@ public class Monster : MonoBehaviour
     public bool doubleNote = false;
 
 
-    bool mul, dro, cha, dou = false;
     private void Start()
     {
         for (int i = 0; i < Sounds.Length; i++)

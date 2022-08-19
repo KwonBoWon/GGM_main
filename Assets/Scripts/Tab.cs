@@ -55,8 +55,9 @@ public class Tab : MonoBehaviour
       			CenterFlame.instance.bgms[PlayerController.nStage].source.Pause();
                 image.sprite = change_img[6];
                 image.enabled = true;
-                foreach (Image black in cover) {
-                    black.enabled = true; //비활성화 시키는 애들
+                for (int i = 0; i < 5; i++) {
+                    if (collectionData.collect[i] == false)
+                        cover[i].enabled = true; //비활성화 시키는 애들
                 }
                 Time.timeScale = 0.0F;
                 tabck = 0;
@@ -117,7 +118,8 @@ public class Tab : MonoBehaviour
 [System.Serializable]//데이터직렬화
 public class CollectionData
 {
-    public bool[] collect = new bool[5];
-
+    public bool[] collect = new bool[5]; // 스테이지 보스가 죽었는지 확인하는 용도
+    public int SheetMusic = 0; //악보 조각
+    public int puzzle = 0;
 
 }
