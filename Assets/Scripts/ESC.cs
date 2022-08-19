@@ -8,6 +8,11 @@ public class ESC : MonoBehaviour
     public Image image; 
     public Slider Volume;
     public static int ESCck = 1;
+
+    public ESC()
+    {
+        ESCck = 1;
+    }
     void Start()
     {
         this.image = GetComponent<Image>();

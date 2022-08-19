@@ -20,11 +20,15 @@ public class TimingManager : MonoBehaviour
     Monster Monsc;
     public string[] arrows;
     public static bool immortal = false; //무적
-
-
     [Header("효과음 sword bat wand miss hurt")]
     [SerializeField]
     public Sound[] Sounds;
+
+    public TimingManager()
+    {
+        immortal = false; //무적
+    }
+
 
     void Start()
     {

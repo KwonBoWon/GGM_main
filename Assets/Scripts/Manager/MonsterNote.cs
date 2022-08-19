@@ -33,7 +33,6 @@ public class MonsterNote : MonoBehaviour
                 if (collision.GetComponent<Note>().noteType == 0) //공격
                 {
                     monsterAttack.SetTrigger("hit");
-                    Debug.Log(PlayerController.pStage);
 
                     PlayerController.nowMonster.GetComponent<Monster>().Sounds[0].source.Play();
                     

@@ -13,7 +13,7 @@ public class MonsterList
 
 public class PlayerController : MonoBehaviour
 {
-    
+
     public Animator Fadeout;
     public GameObject FadePannel;
     bool AniCk = true;
@@ -72,6 +72,19 @@ public class PlayerController : MonoBehaviour
     bool makeWeapon = true;
     bool crossroad = true;
 
+
+    public PlayerController(){
+        flag = 0; //배경 맵 플레그
+        nStage = 1; //스테이지 1423
+        pStage = 0; //몇번째미로인지(적 강해지는) 1234
+        nowWeapon = 0;
+        cnt = 0;
+        maxTime = 100; //최대 시간
+        curTime = 100; //현재시간
+        playerDamage = 10;
+    }
+
+
     void Start()
     {
 
@@ -89,9 +102,14 @@ public class PlayerController : MonoBehaviour
         weaponDamage[0] = 10;
         weaponDamage[1] = 10;
         weaponDamage[2] = 10;
-    }
+
+
+
+
+}
     void Update()
     {
+        Debug.Log("pStage =" + pStage);
         //화살표 입력 0123 : DULR
         if (flag == 3 && pStage != 3 && crossroad)
         {//갈림길일때

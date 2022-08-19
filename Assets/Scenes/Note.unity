@@ -7293,7 +7293,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Fadeout: {fileID: 884669415}
-  FadePannel: {fileID: 884669411}
+  FadePannel: {fileID: 0}
   goMonster:
   - Monsters: []
   - Monsters:
@@ -8500,6 +8500,8 @@ MonoBehaviour:
   MonsterHP: {fileID: 723760979}
   collectionData:
     collect: 0101010101
+    SheetMusic: 0
+    puzzle: 0
 --- !u!212 &1698377163
 SpriteRenderer:
   m_ObjectHideFlags: 0

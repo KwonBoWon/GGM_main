@@ -9,34 +9,36 @@ public class NoteManager : MonoBehaviour
     int arrowDirection = 0;
     public static bool noteOn = true;
     public static int noteCount = 0;
-
     bool multiFlag = true; //멀티어택
     int invokeCnt = 0;
     int multi = 5;
-
     bool rainFlag = true; //레인드롭
     int DropMax = 3;
     float rainTime = 9.5f;
-
-    bool changeFlag = true; //페이크노트
-
+    bool changeFlag = true; //페이크노
     bool doubleFlag = true; //동시입력노트
-
     [SerializeField] Transform tfNoteAppear = null; //노트가 생성되는곳
     [SerializeField] GameObject[] goNote = null; //노트 프리펩들
     [SerializeField] GameObject Drop = null; //물방울
     [SerializeField] GameObject[] doubleNote = null; //더블노트 프리펩들
-
-
     TimingManager theTimingManager;
     EffectManager theEffectManager;
     ComboManager thecomboManager;
     Monster theMonster;
-
     public static int redTurn = 5;
     public static int blueTurn = 5;
 
-    void Start()
+
+    public NoteManager()
+    {
+        redTurn = 5;
+        blueTurn = 5;
+        noteCount = 0;
+        noteOn = true;
+    }
+
+
+void Start()
     {
         theEffectManager = FindObjectOfType<EffectManager>();
         theTimingManager = GetComponent<TimingManager>();
