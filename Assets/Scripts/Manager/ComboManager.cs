@@ -4,6 +4,7 @@ public class ComboManager : MonoBehaviour
 {
     [SerializeField] GameObject[] heart; //하트 프리펩
     [SerializeField] UnityEngine.UI.Text txtCombo = null; //콤보 텍스트
+    public Animator[] AttackEffect;
     GameObject Obj;
     public int curCombo = 0; //콤보스택
     public Animator ComboEffect;
@@ -75,14 +76,17 @@ public class ComboManager : MonoBehaviour
             if (PlayerController.nowWeapon == 2)
             {
                 WandCombo();
+                AttackEffect[2].SetTrigger("hit");
                 Sounds[2].source.Play();
             }
             else if (PlayerController.nowWeapon == 0) {
                 SwordCombo();
+                AttackEffect[0].SetTrigger("hit");
                 Sounds[0].source.Play();
             }
             else if (PlayerController.nowWeapon == 1) {
                 BatCombo();
+                AttackEffect[1].SetTrigger("hit");
                 Sounds[1].source.Play();
             }
             Obj.GetComponent<PlayerController>().curHP -= comboDamage;
