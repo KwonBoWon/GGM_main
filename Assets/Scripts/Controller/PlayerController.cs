@@ -15,6 +15,7 @@ public class PlayerController : MonoBehaviour
 {
     
     public Animator Fadeout;
+    public GameObject FadePannel;
     bool AniCk = true;
     bool Bad = true;
     public MonsterList[] goMonster;
@@ -218,6 +219,7 @@ public class PlayerController : MonoBehaviour
             //스테이지 노래도 느려지게 하면 좋을 듯
             Time.timeScale = 0.5F;
             if (AniCk) {
+                FadePannel.transform.SetAsLastSibling();
                 Fadeout.SetTrigger("hit");
                 AniCk = false;
             }

@@ -14,10 +14,7 @@ public class Tab : MonoBehaviour
     public Slider MonsterHP;
     public static int nstage;
 
-    private void Awake()
-    {
-        DontDestroyOnLoad(this);
-    }
+
     public CollectionData collectionData;
     [ContextMenu("To Json Data")]
     public void SaveCollectionDataToJson()//데이터 저장
@@ -62,7 +59,7 @@ public class Tab : MonoBehaviour
                     black.enabled = true; //비활성화 시키는 애들
                 }
                 Time.timeScale = 0.0F;
-                tabck = 0; 
+                tabck = 0;
             }
             if (Input.GetKeyUp(KeyCode.Tab)) { //탭키 떼는 순간 안 보이게
                 MonsterHP.gameObject.SetActive(true);
@@ -83,7 +80,7 @@ public class Tab : MonoBehaviour
                 SceneManager.LoadScene("Start");
             }
         }
-        
+
     }
 
 
@@ -94,7 +91,7 @@ public class Tab : MonoBehaviour
     }
     public void Button1() {
         image.sprite = change_img[0]; //1번 아이템 도감 이미지로 변경
-    }   
+    }
     public void Button2() {
         image.sprite = change_img[1];
     }

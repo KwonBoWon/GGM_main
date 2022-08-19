@@ -6,6 +6,7 @@ public class ComboManager : MonoBehaviour
     [SerializeField] UnityEngine.UI.Text txtCombo = null; //콤보 텍스트
     GameObject Obj;
     public int curCombo = 0; //콤보스택
+    public Animator ComboEffect;
     int heartCnt=0; //하트 개수(최대3)
     int comboStack =10; //comboStack개마다 콤보 생성
     int comboDamage = 15;
@@ -48,6 +49,7 @@ public class ComboManager : MonoBehaviour
             if (heartCnt < 3){
                 heart[heartCnt].SetActive(true);
                 heartCnt++;
+                ComboEffect.SetTrigger("combo");
             }
         }
         if (curCombo > 2)
