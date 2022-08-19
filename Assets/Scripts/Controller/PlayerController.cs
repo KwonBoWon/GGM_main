@@ -13,7 +13,8 @@ public class MonsterList
 
 public class PlayerController : MonoBehaviour
 {
-    
+    GameObject nowPlayer;
+    public Sprite[] Death;
     public Animator Fadeout;
     public GameObject FadePannel;
     bool AniCk = true;
@@ -220,12 +221,12 @@ public class PlayerController : MonoBehaviour
             //스테이지 노래도 느려지게 하면 좋을 듯
             Time.timeScale = 0.5F;
             if (AniCk) {
-                FadePannel.transform.SetAsLastSibling();
+                GameObject.Find("PlayerParent").transform.Find("Player"+nowWeapon).gameObject.SetActive(false);
+                GameObject.Find("PlayerParent").transform.Find("Player3").gameObject.SetActive(true);
+                Fadeout.transform.SetAsLastSibling();
                 Fadeout.SetTrigger("hit");
                 AniCk = false;
             }
-            //플레이어 사망 모션
-
             Invoke(nameof(ChangeScene), 1.1f);
         }
     }
