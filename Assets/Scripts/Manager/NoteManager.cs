@@ -5,7 +5,7 @@ using UnityEngine;
 public class NoteManager : MonoBehaviour
 {
     private int bpm = 0;
-    double currentTime = 0d;
+    public static double currentTime = 0d;
     int arrowDirection = 0;
     public static bool noteOn = true;
     public static int noteCount = 0;
@@ -35,6 +35,7 @@ public class NoteManager : MonoBehaviour
         blueTurn = 5;
         noteCount = 0;
         noteOn = true;
+        currentTime = 0d;
     }
 
 
@@ -71,11 +72,13 @@ void Start()
             {
                 MakeNode(1);
              }
-            if (noteCount % 20 == 0 && PlayerController.nowMonster.GetComponent<Monster>().Boss)
-            {//보스페턴체인지
-                PlayerController.nowMonster.GetComponent<Monster>().BossPatten(PlayerController.nStage);
+            if (PlayerController.nowMonster != null)
+            {
+                if (noteCount % 20 == 0 && PlayerController.nowMonster.GetComponent<Monster>().Boss)
+                {//보스페턴체인지
+                    PlayerController.nowMonster.GetComponent<Monster>().BossPatten(PlayerController.nStage);
+                }
             }
-
         }
         else CenterFlame.instance.StopMusic();
 

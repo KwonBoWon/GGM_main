@@ -56,7 +56,6 @@ public class CenterFlame : MonoBehaviour
             {
                 if (PlayerController.pStage == 4) //보스면
                 {
-                    Debug.Log("dkdkdkkd");
                     boss[PlayerController.nStage].source.Play();
                 }
                 else

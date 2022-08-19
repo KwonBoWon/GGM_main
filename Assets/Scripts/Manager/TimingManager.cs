@@ -93,7 +93,8 @@ public class TimingManager : MonoBehaviour
                             theEffect.NoteHitEffect();//히트이펙트
                         }
                         theEffect.JudgementEffect(x); //판정 이펙트
-                        thecomboManager.IncreaseCombo();//콤보증가
+                        if (x < 3) thecomboManager.IncreaseCombo();//콤보증가
+                        else thecomboManager.ResetCombo();
                         if (t_noteDire == 0)
                                 {
                                    player[PlayerController.nowWeapon].SetTrigger("Down");
@@ -129,7 +130,8 @@ public class TimingManager : MonoBehaviour
                                 theEffect.NoteHitEffect();//히트이펙트
                             }
                             theEffect.JudgementEffect(x); //판정 이펙트
-                            thecomboManager.IncreaseCombo();//콤보증가
+                            if(x<3)thecomboManager.IncreaseCombo();//콤보증가
+                            else thecomboManager.ResetCombo();
                             Obj.GetComponent<PlayerController>().curHP -= PlayerController.playerDamage;
                             player[PlayerController.nowWeapon].SetTrigger("hit"); //플레이어 공격 모션
                             playerEffect[PlayerController.nowWeapon].SetTrigger("hit"); //플레이어 공격 이펙트

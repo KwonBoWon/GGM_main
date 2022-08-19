@@ -109,7 +109,6 @@ public class PlayerController : MonoBehaviour
 }
     void Update()
     {
-        Debug.Log("pStage =" + pStage);
         //화살표 입력 0123 : DULR
         if (flag == 3 && pStage != 3 && crossroad)
         {//갈림길일때
@@ -250,8 +249,9 @@ public class PlayerController : MonoBehaviour
 
     public void MakeMonster()
     {
-        //ChangeNoteSpeed();
+        
         NoteManager.noteCount = 0;
+        NoteManager.currentTime = 0d;
         monsterLife = true;
         nowMonster = Instantiate(goMonster[nStage].Monsters[cnt], tfMonsterAppear.position, Quaternion.identity);
         nowMonster.transform.SetParent(this.transform);
