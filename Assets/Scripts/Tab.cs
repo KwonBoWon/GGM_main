@@ -13,7 +13,6 @@ public class Tab : MonoBehaviour
     public static int tabck = 1;
     public Slider MonsterHP;
     public static int nstage;
-    int ck = 0;
 
 
     public CollectionData collectionData;
@@ -46,12 +45,11 @@ public class Tab : MonoBehaviour
         if (SceneManager.GetActiveScene().name == "Dogam") {
             for (int i = 1; i < 5; i++) {
                 if (collectionData.collect[i] == false) {
-                    ck = 1;
+
                     cover[i-1].enabled = true; //비활성화 시키는 애들
                 }
-                else ck = 1;
             }
-            if (ck == 1) {
+            if (CollectionData.SheetMusic > 0) {
                 cover[4].enabled = true;
             }
 
@@ -76,9 +74,8 @@ public class Tab : MonoBehaviour
                 if (collectionData.collect[i] == false) {
                     cover[i-1].enabled = true; //비활성화 시키는 애들
                 }
-                else ck = 0;
             }
-            if (ck == 1) {
+            if (CollectionData.SheetMusic > 0) {
                 cover[4].enabled = true;
             }
                 Time.timeScale = 0.0F;
