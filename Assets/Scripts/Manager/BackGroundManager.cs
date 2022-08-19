@@ -7,6 +7,11 @@ public class BackGroundManager : MonoBehaviour
     public string[] backgrounds;
     public int backgroundNum = 0;
     public static int stage = 0;
+
+    public BackGroundManager()
+    {
+        stage = 0;
+    }
     void Start()
     {
 

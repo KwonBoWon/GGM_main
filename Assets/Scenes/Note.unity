@@ -7507,7 +7507,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Fadeout: {fileID: 884669415}
-  FadePannel: {fileID: 884669411}
+  FadePannel: {fileID: 0}
   goMonster:
   - Monsters: []
   - Monsters:

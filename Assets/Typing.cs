@@ -67,7 +67,7 @@ public class Typing : MonoBehaviour
         yield return new WaitForSeconds(3.0f);
         t.gameObject.SetActive(false);
         arr[n].gameObject.SetActive(true);
-        theTab.collectionData.collect[n] = true;
+        //theTab.collectionData.collect[n] = true;
         theTab.collectionData.SheetMusic++;
         theTab.SaveCollectionDataToJson();
         StartCoroutine(typing(SheetT, collection[n], m_Speed));

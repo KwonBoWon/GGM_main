@@ -17,6 +17,14 @@ public class Tab : MonoBehaviour
 
 
     public CollectionData collectionData;
+
+    Tab()
+    {
+        tabck = 1;
+
+
+    }
+
     [ContextMenu("To Json Data")]
     public void SaveCollectionDataToJson()//데이터 저장
     {

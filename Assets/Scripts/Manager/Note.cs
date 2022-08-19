@@ -12,6 +12,10 @@ public class Note : MonoBehaviour
 
     UnityEngine.UI.Image noteImage;
 
+    public Note()
+    {
+        noteSpeed = 400;
+    }
     void Start()
     {
         noteImage = GetComponent<UnityEngine.UI.Image>();
