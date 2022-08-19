@@ -127,6 +127,7 @@ public class NoteManager : MonoBehaviour
                     GameObject t_note = Instantiate(goNote[arrowDirection], tfNoteAppear.position, Quaternion.identity); // 노트를 생성
                     t_note.transform.SetParent(this.transform);
                     t_note.transform.SetAsFirstSibling();
+                    
                     theTimingManager.boxNoteList.Add(t_note); // 리스트에 추가
 
                     if (noteCount % 4 == 0 && noteCount != 0 && changeFlag && theMonster.change)//페이크 노트

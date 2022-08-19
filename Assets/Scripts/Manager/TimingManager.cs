@@ -107,7 +107,7 @@ public class TimingManager : MonoBehaviour
                                     player[PlayerController.nowWeapon].SetTrigger("Right");
                                 }
                     }
-                    else if (arrowInput != t_noteType && t_noteType == 0 && !immortal)
+                    else if (arrowInput != t_noteDire && t_noteType == 0 && !immortal)
                     {//방어실패
                         PlayerController.curTime -= PlayerController.nowMonster.GetComponent<Monster>().monsterDamage; //시간감소 몬스터공격력만큼
                         theEffect.JudgementEffect(4); //Miss이펙트
