@@ -49,7 +49,7 @@ public class Tab : MonoBehaviour
                     cover[i-1].enabled = true; //비활성화 시키는 애들
                 }
             }
-            if (CollectionData.SheetMusic > 0) {
+            if (collectionData.SheetMusic > 0) {
                 cover[4].enabled = true;
             }
 
@@ -75,7 +75,7 @@ public class Tab : MonoBehaviour
                     cover[i-1].enabled = true; //비활성화 시키는 애들
                 }
             }
-            if (CollectionData.SheetMusic > 0) {
+            if (collectionData.SheetMusic > 0) {
                 cover[4].enabled = true;
             }
                 Time.timeScale = 0.0F;
