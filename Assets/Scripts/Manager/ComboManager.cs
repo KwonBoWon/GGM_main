@@ -4,6 +4,7 @@ public class ComboManager : MonoBehaviour
 {
     [SerializeField] GameObject[] heart; //하트 프리펩
     [SerializeField] UnityEngine.UI.Text txtCombo = null; //콤보 텍스트
+    [SerializeField] UnityEngine.UI.Text txt_combo= null; //콤보
     public Animator[] AttackEffect;
     GameObject Obj;
     public int curCombo = 0; //콤보스택
@@ -11,7 +12,8 @@ public class ComboManager : MonoBehaviour
     int heartCnt=0; //하트 개수(최대3)
     int comboStack =10; //comboStack개마다 콤보 생성
     int comboDamage = 15;
-
+    string color_red = "#FF5733";
+    string color_white = "#FFFFFF";
     [Header("효과음 combo sword bat wand")]
     [SerializeField]
     public Sound[] Sounds;
@@ -26,6 +28,7 @@ public class ComboManager : MonoBehaviour
     {
         Obj = GameObject.Find("PlayerControll");
         txtCombo.gameObject.SetActive(false);
+        txt_combo.gameObject.SetActive(false);
         heart[0].SetActive(false);
         heart[1].SetActive(false);
         heart[2].SetActive(false);
@@ -43,19 +46,27 @@ public class ComboManager : MonoBehaviour
     public void IncreaseCombo(int p_num = 1)
     {
         curCombo += p_num;
+
         txtCombo.text = string.Format("{0:#,##0}", curCombo);//000,000형식
 
         if (curCombo >= comboStack && curCombo % comboStack == 0)//10개마다 콤보생성
         {
-            if (heartCnt < 3){
+            txtCombo.color = Color.red;
+            if (heartCnt < 3)
+            {
                 heart[heartCnt].SetActive(true);
                 heartCnt++;
                 ComboEffect.SetTrigger("combo");
             }
         }
+        else
+        {
+            txtCombo.color = Color.white;
+        }
         if (curCombo > 2)
         {
             txtCombo.gameObject.SetActive(true);
+            txt_combo.gameObject.SetActive(true);
         }
     }
 
@@ -64,6 +75,7 @@ public class ComboManager : MonoBehaviour
         curCombo = 0;
         txtCombo.text = "0";
         txtCombo.gameObject.SetActive(false);
+        txt_combo.gameObject.SetActive(false);
     }
 
     public void UseCombo()
