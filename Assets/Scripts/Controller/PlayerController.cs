@@ -300,7 +300,7 @@ public class PlayerController : MonoBehaviour
 
         }
 
-        else if (Input.GetKeyDown(KeyCode.LeftArrow) && (theTab.collectionData.SheetMusic >2))
+        else if (Input.GetKeyDown(KeyCode.LeftArrow) && !(pStage == 2 && nStage == 4 &&theTab.collectionData.SheetMusic <3))
         {
             //왼쪽 애니메이션 나오게
             nStage = T.ChooseL();//왼쪽노드
