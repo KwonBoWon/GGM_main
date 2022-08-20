@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 8dcba14ae2bc9634daa306df1aa64801
+guid: 564ed6e4188c77b448aa6e6964424df0
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -48,7 +48,7 @@ TextureImporter:
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
   spritePixelsToUnits: 100
-  spriteBorder: {x: 798, y: 518, z: 885, w: 469}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
   alphaIsTransparency: 1
@@ -116,118 +116,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: closeButton_0
+      name: timing2_0
       rect:
         serializedVersion: 2
-        x: 814
-        y: 535
-        width: 55
-        height: 63
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 127fd7ac420892348a83210dbbaa2f53
-      internalID: -202918526
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: closeButton_1
-      rect:
-        serializedVersion: 2
-        x: 870
-        y: 535
-        width: 27
-        height: 65
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 57d5ae474c403e24782b4e62c3401eea
-      internalID: 2060124034
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: closeButton_2
-      rect:
-        serializedVersion: 2
-        x: 900
-        y: 535
-        width: 42
-        height: 45
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 22c96aa8ded7bae4bb5f8019b46bb84d
-      internalID: -673871781
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: closeButton_3
-      rect:
-        serializedVersion: 2
-        x: 948
-        y: 534
-        width: 30
-        height: 47
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 0ff623d2ad8bf444493e8693a88686dd
-      internalID: 1710810228
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: closeButton_4
-      rect:
-        serializedVersion: 2
-        x: 984
-        y: 535
-        width: 38
-        height: 45
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: c698f24f41a67cf4d8fc72089b4fcaf4
-      internalID: 1099609400
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: closeButton_5
-      rect:
-        serializedVersion: 2
-        x: 787
-        y: 521
-        width: 256
-        height: 88
+        x: 612
+        y: 205
+        width: 667
+        height: 667
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -235,8 +130,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d5ecaecda279dc34ab9285a52b8a7d6b
-      internalID: 1244716123
+      spriteID: 6badb419dd6aa2448b07b054f5b201e3
+      internalID: 89209196
       vertices: []
       indices: 
       edges: []
@@ -245,19 +140,14 @@ TextureImporter:
     physicsShape: []
     bones: []
     spriteID: 5e97eb03825dee720800000000000000
-    internalID: 1537655665
+    internalID: 0
     vertices: []
     indices: 
     edges: []
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      closeButton_0: -202918526
-      closeButton_5: 980921667
-      closeButton_1: 2060124034
-      closeButton_4: 1099609400
-      closeButton_3: 1710810228
-      closeButton_2: -673871781
+      timing2_0: 89209196
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
