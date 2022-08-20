@@ -46,6 +46,8 @@ public class Typing : MonoBehaviour
                 Invoke(nameof(Show), 3.0f);
             }
         }
+        else
+            Invoke(nameof(Show), 3.0f);
     } 
 
     IEnumerator typing(Text typingText, string message, float speed) 
