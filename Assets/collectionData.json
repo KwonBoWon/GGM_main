@@ -4,15 +4,15 @@
         false,
         false,
         true,
-        false
+        true
     ],
     "Clear": [
         0,
         0,
         0,
-        1,
-        0
+        2,
+        1
     ],
-    "SheetMusic": 1,
-    "puzzle": 0
+    "SheetMusic": 2,
+    "puzzle": 1
 }

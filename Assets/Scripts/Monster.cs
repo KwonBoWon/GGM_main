@@ -106,6 +106,7 @@ public class Monster : MonoBehaviour
                 doubleNote = false;
             }
         }
+        
         else if (ns == 4)
         {
             multi = true;
@@ -130,7 +131,7 @@ public class Monster : MonoBehaviour
                 doubleNote = false;
             }
         }
-
+        
     }
 
 
