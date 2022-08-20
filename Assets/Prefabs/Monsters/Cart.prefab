@@ -112,7 +112,7 @@ MonoBehaviour:
   redTurn: 5
   blueTurn: 5
   monsterDamage: 20
-  monsterHP: 140
+  monsterHP: 150
   semiBoss: 1
   Boss: 0
   multi: 0

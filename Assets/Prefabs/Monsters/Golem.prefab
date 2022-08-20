@@ -130,7 +130,7 @@ MonoBehaviour:
     volume: 0.6
   redTurn: 5
   blueTurn: 5
-  monsterDamage: 40
+  monsterDamage: 30
   monsterHP: 500
   semiBoss: 0
   Boss: 1

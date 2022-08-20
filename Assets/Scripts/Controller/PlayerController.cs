@@ -68,7 +68,7 @@ public class PlayerController : MonoBehaviour
 
     public static float maxTime = 100; //최대 시간
     public static float curTime = 100; //현재시간
-    public float addTime = 40; //시간추가
+    private float addTime = 40; //시간추가
     public static float playerDamage = 10;
     private bool monsterLife = true;
     bool makeWeapon = true;
@@ -257,8 +257,8 @@ public class PlayerController : MonoBehaviour
         monsterLife = true;
         nowMonster = Instantiate(goMonster[nStage].Monsters[cnt], tfMonsterAppear.position, Quaternion.identity);
         nowMonster.transform.SetParent(this.transform);
-        maxHP = curHP = nowMonster.GetComponent<Monster>().monsterHP *(1+ ((float)0.25*pStage));
-        //몬스터 스크립트 + 스테이지체력보정
+        maxHP = curHP = nowMonster.GetComponent<Monster>().monsterHP *(1+ ((float)0.25*pStage));  //몬스터 스크립트 + 스테이지체력보정
+        Debug.Log("maxHP" + maxHP);
         MonsterHP.gameObject.SetActive(true);
 
         curTime += addTime; //시간추가
@@ -347,6 +347,10 @@ public class PlayerController : MonoBehaviour
             curTime  = curTime * (1 + ((float)0.5 * pStage));
             maxTime = maxTime * (1 + ((float)0.5 * pStage));
             addTime = addTime * (1 + ((float)0.5 * pStage));
+
+            Debug.Log("curTime =" + curTime);
+            Debug.Log("maxTime =" + maxTime);
+            Debug.Log("addTime =" + addTime);
 
 
 

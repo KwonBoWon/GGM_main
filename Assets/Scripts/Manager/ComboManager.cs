@@ -103,7 +103,9 @@ public class ComboManager : MonoBehaviour
     }
     public void SwordCombo()//강한공격(현재 콤보 스택만큼 추가로)
     {
-        Obj.GetComponent<PlayerController>().curHP -= curCombo + 10;
+        int swordDamage = curCombo+20;
+        if(swordDamage>100) swordDamage = 100;//최대 100데미지
+        Obj.GetComponent<PlayerController>().curHP -= swordDamage;
     }
 
     public void BatCombo()//노트클리어(물방울도 지워버림)
@@ -119,6 +121,7 @@ public class ComboManager : MonoBehaviour
         {
             Destroy(note);
         }
+        Obj.GetComponent<PlayerController>().curHP -= 30;
     }
     public void Immortal() {
         TimingManager.immortal=false;

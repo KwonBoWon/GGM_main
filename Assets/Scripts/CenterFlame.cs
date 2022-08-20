@@ -35,14 +35,14 @@ public class CenterFlame : MonoBehaviour
 
             bgms[i].source = gameObject.AddComponent<AudioSource>();
             bgms[i].source.clip = bgms[i].clip;
-            bgms[i].source.loop = false;
+            bgms[i].source.loop = true;
         }
         for (int i = 0; i < boss.Length; i++)
         {
 
             boss[i].source = gameObject.AddComponent<AudioSource>();
             boss[i].source.clip = boss[i].clip;
-            boss[i].source.loop = false;
+            boss[i].source.loop = true;
         }
 
         //myAudio = GetComponent<AudioSource>();

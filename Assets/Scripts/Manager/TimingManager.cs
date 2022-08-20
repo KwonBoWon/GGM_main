@@ -114,7 +114,7 @@ public class TimingManager : MonoBehaviour
                     }
                     else if (arrowInput != t_noteDire && t_noteType == 0 && !immortal)
                     {//방어실패
-                        PlayerController.curTime -= PlayerController.nowMonster.GetComponent<Monster>().monsterDamage; //시간감소 몬스터공격력만큼
+                        PlayerController.curTime -= (PlayerController.nowMonster.GetComponent<Monster>().monsterDamage + (PlayerController.pStage)*5); //시간감소 몬스터공격력만큼
                         theEffect.JudgementEffect(4); //Miss이펙트
                         thecomboManager.ResetCombo(); //콤보리셋
                         player[PlayerController.nowWeapon].SetTrigger("Hitted"); //플레이어 피격 모션

@@ -7634,7 +7634,7 @@ MonoBehaviour:
   TimeHP: {fileID: 1435002377}
   maxHP: 100
   curHP: 100
-  addTime: 15
+  addTime: 40
 --- !u!4 &1385149226
 Transform:
   m_ObjectHideFlags: 0
@@ -8909,6 +8909,7 @@ MonoBehaviour:
   MonsterHP: {fileID: 723760979}
   collectionData:
     collect: 0101010101
+    Clear: 0000000000000000000000000000000000000000
     SheetMusic: 0
     puzzle: 0
 --- !u!212 &1698377163
