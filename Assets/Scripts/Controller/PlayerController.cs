@@ -13,7 +13,7 @@ public class MonsterList
 
 public class PlayerController : MonoBehaviour
 {
-    
+
     GameObject nowPlayer;
     public Sprite[] Death;
     public Animator Fadeout;
@@ -74,8 +74,11 @@ public class PlayerController : MonoBehaviour
     bool makeWeapon = true;
     bool crossroad = true;
 
+    Tab theTab;
+    public GameObject wall;
 
-    public PlayerController(){
+    public PlayerController()
+    {
         flag = 0; //배경 맵 플레그
         nStage = 1; //스테이지 1423
         pStage = 0; //몇번째미로인지(적 강해지는) 1234
@@ -89,7 +92,7 @@ public class PlayerController : MonoBehaviour
 
     void Start()
     {
-
+        theTab = FindObjectOfType<Tab>();
         nowMonster = Instantiate(goMonster[nStage].Monsters[cnt], tfMonsterAppear.position, Quaternion.identity);
         nowMonster.transform.SetParent(this.transform);
 
@@ -108,7 +111,7 @@ public class PlayerController : MonoBehaviour
 
 
 
-}
+    }
     void Update()
     {
         //화살표 입력 0123 : DULR
@@ -202,13 +205,15 @@ public class PlayerController : MonoBehaviour
             monsterLife = false;
             NoteManager.noteOn = false;
             CenterFlame.instance.NoteClear();
-            if (pStage == 4) { //최종 보스 죽으면
+            if (pStage == 4)
+            { //최종 보스 죽으면
                 Animator MonAni = nowMonster.GetComponent<Animator>();
                 MonAni.SetTrigger("Die");  //보스 사망 모션
                 Invoke(nameof(ToNormal), 0.5f);
                 Invoke(nameof(ChangeScene), 1.1f);
             }
-            else{
+            else
+            {
                 del = GameObject.FindGameObjectsWithTag("Monster");
                 foreach (GameObject note in del)
                 {
@@ -216,7 +221,7 @@ public class PlayerController : MonoBehaviour
                 }
                 cnt++;
                 if (cnt == 3) cnt = 0;
-                Invoke(nameof(BackGroundChange),0.7f);
+                Invoke(nameof(BackGroundChange), 0.7f);
             }
         }
     }
@@ -227,7 +232,7 @@ public class PlayerController : MonoBehaviour
 
     public void HandleTime()
     {
-        TimeHP.value = (float)curTime / (float)maxTime* (1 + ((float)0.5*pStage));//3
+        TimeHP.value = (float)curTime / (float)maxTime * (1 + ((float)0.5 * pStage));//3
         if (TimeHP.value > 0.0f)
         {
             if (flag != 3) //갈림길일때
@@ -238,8 +243,9 @@ public class PlayerController : MonoBehaviour
             SoundEffectManager.instance.Sounds[2].source.Play();
             //스테이지 노래도 느려지게 하면 좋을 듯
             Time.timeScale = 0.5F;
-            if (AniCk) {
-                GameObject.Find("PlayerParent").transform.Find("Player"+nowWeapon).gameObject.SetActive(false);
+            if (AniCk)
+            {
+                GameObject.Find("PlayerParent").transform.Find("Player" + nowWeapon).gameObject.SetActive(false);
                 GameObject.Find("PlayerParent").transform.Find("Player3").gameObject.SetActive(true);
                 Fadeout.transform.SetAsLastSibling();
                 Fadeout.SetTrigger("hit");
@@ -251,13 +257,13 @@ public class PlayerController : MonoBehaviour
 
     public void MakeMonster()
     {
-        
+
         NoteManager.noteCount = 0;
         NoteManager.currentTime = 0d;
         monsterLife = true;
         nowMonster = Instantiate(goMonster[nStage].Monsters[cnt], tfMonsterAppear.position, Quaternion.identity);
         nowMonster.transform.SetParent(this.transform);
-        maxHP = curHP = nowMonster.GetComponent<Monster>().monsterHP *(1+ ((float)0.25*pStage));  //몬스터 스크립트 + 스테이지체력보정
+        maxHP = curHP = nowMonster.GetComponent<Monster>().monsterHP * (1 + ((float)0.25 * pStage));  //몬스터 스크립트 + 스테이지체력보정
         Debug.Log("maxHP" + maxHP);
         MonsterHP.gameObject.SetActive(true);
 
@@ -270,7 +276,12 @@ public class PlayerController : MonoBehaviour
     }
 
     public void CrossRoad()
-    {   
+    {
+
+        if (pStage == 2 && nStage == 4 && theTab.collectionData.SheetMusic < 3)
+        {
+            wall.SetActive(true);
+        }
         if (pStage != 4)
             MakeWeapon(); //무기생성 
         if (Input.GetKeyDown(KeyCode.RightArrow))
@@ -284,10 +295,12 @@ public class PlayerController : MonoBehaviour
             GameObject.Find("PlayerParent").transform.Find("Player" + nowWeapon).gameObject.SetActive(true);
             player[nowWeapon].SetTrigger("CR"); //오른쪽으로 움직이는 애니메이션
             Invoke(nameof(ChangeStage), 1.1f);
+            Invoke(nameof(Walloff), 1.1f);
             crossroad = false;
 
         }
-        else if (Input.GetKeyDown(KeyCode.LeftArrow))
+
+        else if (Input.GetKeyDown(KeyCode.LeftArrow) && (pStage != 2 && nStage != 4 && theTab.collectionData.SheetMusic >= 3))
         {
             //왼쪽 애니메이션 나오게
             nStage = T.ChooseL();//왼쪽노드
@@ -298,12 +311,15 @@ public class PlayerController : MonoBehaviour
             GameObject.Find("PlayerParent").transform.Find("Player" + nowWeapon).gameObject.SetActive(true);
             player[nowWeapon].SetTrigger("CL"); //왼쪽으로 움직이는 애니메이션
             Invoke(nameof(ChangeStage), 1.1f);
+            Invoke(nameof(Walloff), 1.1f);
             crossroad = false;
         }
 
     }
-    public void BackGroundChange() {
-        if (pStage == 3 && flag == 2) { //보스 생성
+    public void BackGroundChange()
+    {
+        if (pStage == 3 && flag == 2)
+        { //보스 생성
             CenterFlame.instance.StopMusic();
             //flag++;
             pStage++;
@@ -316,7 +332,7 @@ public class PlayerController : MonoBehaviour
             cnt = 3;
             Invoke(nameof(MakeMonster), 0.8f);
         }
-        else if (flag == 0) 
+        else if (flag == 0)
         {
             crossroad = true;
             backGround = GameObject.Find(nStage + "-1");
@@ -344,7 +360,7 @@ public class PlayerController : MonoBehaviour
         {
             //시간증가
 
-            curTime  = curTime * (1 + ((float)0.5 * pStage));
+            curTime = curTime * (1 + ((float)0.5 * pStage));
             maxTime = maxTime * (1 + ((float)0.5 * pStage));
             addTime = addTime * (1 + ((float)0.5 * pStage));
 
@@ -400,7 +416,8 @@ public class PlayerController : MonoBehaviour
         Destroy(LeftW);
         Destroy(RightW);
     }
-    public void ChangeScene () {
+    public void ChangeScene()
+    {
         if (Bad)
             SceneManager.LoadScene("GameOver");
         else
@@ -412,13 +429,20 @@ public class PlayerController : MonoBehaviour
 
     }
 
-    void ToNormal() {             
+    void ToNormal()
+    {
         Time.timeScale = 0.5F;
         Bad = false;
-        if (AniCk) {
+        if (AniCk)
+        {
             Fadeout.SetTrigger("hit");
             AniCk = false;
         }
         Tab.nstage = nStage;
+    }
+
+    void Walloff()
+    {
+        wall.SetActive(false);
     }
 }
