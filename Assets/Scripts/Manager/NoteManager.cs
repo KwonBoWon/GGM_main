@@ -228,7 +228,7 @@ void Start()
         GameObject[] p_Drops = new GameObject[DropMax+1];
 
 
-        randomX = Random.Range(830f, 1020f);
+        randomX = Random.Range(800f, 1050f);
         randomY = Random.Range(50f, 200f);
         p_Drops[0] = Instantiate(Drop, new Vector3(randomX, randomY, 0f), Quaternion.identity);
         p_Drops[0].transform.SetParent(this.transform);
