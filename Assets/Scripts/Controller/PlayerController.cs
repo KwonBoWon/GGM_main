@@ -197,14 +197,14 @@ public class PlayerController : MonoBehaviour
 
         if (MonsterHP.value == 0 && monsterLife == true)
         { // 적 죽으면
+            Invoke(nameof(DeathSound), 0.1f);
             MonsterHP.gameObject.SetActive(false);
             monsterLife = false;
             NoteManager.noteOn = false;
             CenterFlame.instance.NoteClear();
             if (pStage == 4) { //최종 보스 죽으면
                 Animator MonAni = nowMonster.GetComponent<Animator>();
-                MonAni.SetTrigger("Die"); 
-                //보스 사망 모션
+                MonAni.SetTrigger("Die");  //보스 사망 모션
                 Invoke(nameof(ToNormal), 0.5f);
                 Invoke(nameof(ChangeScene), 1.1f);
             }
@@ -212,18 +212,19 @@ public class PlayerController : MonoBehaviour
                 del = GameObject.FindGameObjectsWithTag("Monster");
                 foreach (GameObject note in del)
                 {
-                    Destroy(note);
+                    Destroy(note, 0.6f);
                 }
-                nowMonster.GetComponent<Monster>().Sounds[2].source.Play();
                 cnt++;
                 if (cnt == 3) cnt = 0;
-                //CenterFlame.instance.StopMusic();
-                //thebackGrounfManager.ChangeBackground();
-                BackGroundChange();
-
+                Invoke(nameof(BackGroundChange),0.7f);
             }
         }
     }
+    public void DeathSound()
+    {
+        nowMonster.GetComponent<Monster>().Sounds[2].source.Play();
+    }
+
     public void HandleTime()
     {
         TimeHP.value = (float)curTime / (float)maxTime* (1 + ((float)0.5*pStage));//3
