@@ -137,6 +137,7 @@ public class Tab : MonoBehaviour
 public class CollectionData
 {
     public bool[] collect = new bool[5]; // 스테이지 보스가 죽었는지 확인하는 용도
+    public int[] Clear = new int[5]; // 스테이지 최종 보스 몇 번 죽였는지
     public int SheetMusic = 0; //악보 조각
     public int puzzle = 0;
 
