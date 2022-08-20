@@ -101,13 +101,13 @@ MonoBehaviour:
   Sounds:
   - clip: {fileID: 8300000, guid: a8cbcecb83b508b478b272f6c59f2827, type: 3}
     source: {fileID: 0}
-    volume: 0.2
+    volume: 0.4
   - clip: {fileID: 8300000, guid: 4dd81d57643754f4aaca05752e460140, type: 3}
     source: {fileID: 0}
-    volume: 0.2
+    volume: 0.4
   - clip: {fileID: 8300000, guid: 311c2507da02e8842ba06730b412a3fc, type: 3}
     source: {fileID: 0}
-    volume: 0.2
+    volume: 0.4
   redTurn: 5
   blueTurn: 5
   monsterDamage: 15

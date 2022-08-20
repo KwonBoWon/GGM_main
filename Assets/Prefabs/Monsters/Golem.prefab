@@ -121,16 +121,16 @@ MonoBehaviour:
   Sounds:
   - clip: {fileID: 8300000, guid: d10b3bebaf0945845b6ac4eb56b72b1b, type: 3}
     source: {fileID: 0}
-    volume: 0.2
+    volume: 0.4
   - clip: {fileID: 8300000, guid: 487e494f84de6f447936e242a8f180ca, type: 3}
     source: {fileID: 0}
-    volume: 0.2
+    volume: 0.4
   - clip: {fileID: 8300000, guid: 11382d085676bda4aa2d71267ea75923, type: 3}
     source: {fileID: 0}
-    volume: 0.2
+    volume: 0.6
   redTurn: 5
   blueTurn: 5
-  monsterDamage: 50
+  monsterDamage: 40
   monsterHP: 500
   semiBoss: 0
   Boss: 1

@@ -59,7 +59,6 @@ void Start()
             if (noteCount % 10 == 0 && noteCount != 0 && rainFlag && theMonster.drop)
             {
                 rainTime = (60f / bpm)*20 + 0.5f;
-                Debug.Log("rainTime =" + rainTime);
                 RainDrop();
             }
             
