@@ -13,6 +13,7 @@ public class MonsterList
 
 public class PlayerController : MonoBehaviour
 {
+    
     GameObject nowPlayer;
     public Sprite[] Death;
     public Animator Fadeout;
@@ -196,32 +197,31 @@ public class PlayerController : MonoBehaviour
 
         if (MonsterHP.value == 0 && monsterLife == true)
         { // 적 죽으면
-            if (pStage == 4) { //최종 보스 죽으면
-                Time.timeScale = 0.5F;
-                Bad = false;
-                if (AniCk) {
-                    Fadeout.SetTrigger("hit");
-                    AniCk = false;
-                }
-                Tab.nstage = nStage;
-                Invoke(nameof(ChangeScene), 1.1f);
-            }
-            nowMonster.GetComponent<Monster>().Sounds[2].source.Play();
-
-            del = GameObject.FindGameObjectsWithTag("Monster");
-            foreach (GameObject note in del)
-            {
-                Destroy(note);
-            }
-            cnt++;
-            if (cnt == 3) cnt = 0;
             MonsterHP.gameObject.SetActive(false);
             monsterLife = false;
             NoteManager.noteOn = false;
-            //CenterFlame.instance.StopMusic();
             CenterFlame.instance.NoteClear();
-            //thebackGroundManager.ChangeBackground();
-            BackGroundChange();
+            if (pStage == 4) { //최종 보스 죽으면
+                Animator MonAni = nowMonster.GetComponent<Animator>();
+                MonAni.SetTrigger("Die"); 
+                //보스 사망 모션
+                Invoke(nameof(ToNormal), 0.5f);
+                Invoke(nameof(ChangeScene), 1.1f);
+            }
+            else{
+                del = GameObject.FindGameObjectsWithTag("Monster");
+                foreach (GameObject note in del)
+                {
+                    Destroy(note);
+                }
+                nowMonster.GetComponent<Monster>().Sounds[2].source.Play();
+                cnt++;
+                if (cnt == 3) cnt = 0;
+                //CenterFlame.instance.StopMusic();
+                //thebackGrounfManager.ChangeBackground();
+                BackGroundChange();
+
+            }
         }
     }
     public void HandleTime()
@@ -407,4 +407,13 @@ public class PlayerController : MonoBehaviour
 
     }
 
+    void ToNormal() {             
+        Time.timeScale = 0.5F;
+        Bad = false;
+        if (AniCk) {
+            Fadeout.SetTrigger("hit");
+            AniCk = false;
+        }
+        Tab.nstage = nStage;
+    }
 }
