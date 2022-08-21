@@ -11,8 +11,6 @@ public class ComboManager : MonoBehaviour
     int heartCnt=0; //하트 개수(최대3)
     int comboStack =10; //comboStack개마다 콤보 생성
     int comboDamage = 15;
-    string color_red = "#FF5733";
-    string color_white = "#FFFFFF";
     [Header("효과음 combo sword bat wand")]
     [SerializeField]
     public Sound[] Sounds;

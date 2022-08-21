@@ -390,10 +390,13 @@ public class PlayerController : MonoBehaviour
             {
                 Rrand = Random.Range(0, 3);
             } while (Lrand == Rrand);
-
-            LeftW = Instantiate(weapon[Lrand], LWeapon.position, Quaternion.identity);
+            if (!(pStage == 2 && nStage == 4 && theTab.collectionData.SheetMusic < 3))
+            {
+                LeftW = Instantiate(weapon[Lrand], LWeapon.position, Quaternion.identity);
+                LeftW.transform.SetParent(Weapons);
+            }
             RightW = Instantiate(weapon[Rrand], RWeapon.position, Quaternion.identity);
-            LeftW.transform.SetParent(Weapons);
+
             RightW.transform.SetParent(Weapons);
         }
     }
