@@ -209,7 +209,7 @@ public class PlayerController : MonoBehaviour
             { //최종 보스 죽으면
                 Animator MonAni = nowMonster.GetComponent<Animator>();
                 MonAni.SetTrigger("Die");  //보스 사망 모션
-                Invoke(nameof(ToNormal), 0.5f);
+                Invoke(nameof(ToEnding), 0.5f);
                 Invoke(nameof(ChangeScene), 1.1f);
             }
             else
@@ -420,6 +420,8 @@ public class PlayerController : MonoBehaviour
     {
         if (Bad)
             SceneManager.LoadScene("GameOver");
+        else if (nStage == 4)
+            SceneManager.LoadScene("JinEnding");
         else
             SceneManager.LoadScene("NormalEnding");
     }
@@ -429,7 +431,7 @@ public class PlayerController : MonoBehaviour
 
     }
 
-    void ToNormal()
+    void ToEnding()
     {
         Time.timeScale = 0.5F;
         Bad = false;

@@ -8,7 +8,6 @@ public class ComboManager : MonoBehaviour
     public Animator[] AttackEffect;
     GameObject Obj;
     public int curCombo = 0; //콤보스택
-    public Animator ComboEffect;
     int heartCnt=0; //하트 개수(최대3)
     int comboStack =10; //comboStack개마다 콤보 생성
     int comboDamage = 15;
@@ -56,7 +55,6 @@ public class ComboManager : MonoBehaviour
             {
                 heart[heartCnt].SetActive(true);
                 heartCnt++;
-                ComboEffect.SetTrigger("combo");
             }
         }
         else

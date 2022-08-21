@@ -21,16 +21,16 @@ public class Typing : MonoBehaviour
     void Start() 
     { 
         Time.timeScale = 1.0F;
-        collection[1] = "마녀의 수정 구슬을(를) 얻었다!";
+        collection[4] = "마녀의 수정 구슬을(를) 얻었다!";
         collection[2] = "알 수 없는 힘이 담긴 듯한 목걸이을(를) 얻었다!";
-        collection[3] = "왕가의 반지을(를) 얻었다!";
-        collection[4] = "심해 상어의 이빨을(를) 얻었다!";
+        collection[1] = "왕가의 반지을(를) 얻었다!";
+        collection[3] = "심해 상어의 이빨을(를) 얻었다!";
         collection[5] = "악보 조각을(를) 얻었다!";
         collection[6] = "퍼즐 조각을(를) 얻었다!";
         theTab = FindObjectOfType<Tab>();
         if (SceneManager.GetActiveScene().name == "NormalEnding")
             m_Message = @"모든 적과 싸워 이겼지만 출구는 어디에도 보이지 않았다...";
-        else 
+        else if (SceneManager.GetActiveScene().name == "GameOver")
             m_Message = @"적과 싸워서 이기지 못했다...";
         StartCoroutine(typing(m_TypingText, m_Message, m_Speed)); 
         if (SceneManager.GetActiveScene().name == "NormalEnding") {
@@ -38,6 +38,17 @@ public class Typing : MonoBehaviour
                 StartCoroutine(Dogam(Tab.nstage, m_TypingText, DogamArr));
                 StartCoroutine(Sheet(5, CollectT, DogamArr));
                 
+            }
+            else if (theTab.collectionData.Clear[Tab.nstage] == 1) {
+                StartCoroutine(Sheet(6, m_TypingText, DogamArr));
+            }
+            else{
+                Invoke(nameof(Show), 3.0f);
+            }
+        }
+        else if (SceneManager.GetActiveScene().name == "JinEnding") {
+            if (theTab.collectionData.collect[Tab.nstage] == false) {
+                StartCoroutine(Dogam(Tab.nstage, m_TypingText, DogamArr));
             }
             else if (theTab.collectionData.Clear[Tab.nstage] == 1) {
                 StartCoroutine(Sheet(6, m_TypingText, DogamArr));
@@ -87,7 +98,7 @@ public class Typing : MonoBehaviour
         else {
             yield return new WaitForSeconds(4.0f);
             t.gameObject.SetActive(false);
-        arr[n].gameObject.SetActive(true);
+            arr[n].gameObject.SetActive(true);
             theTab.collectionData.puzzle++;
             theTab.collectionData.Clear[Tab.nstage] += 1;
             StartCoroutine(typing(PuzzleT, collection[n], m_Speed));

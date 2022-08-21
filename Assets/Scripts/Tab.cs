@@ -49,14 +49,14 @@ public class Tab : MonoBehaviour
     void Start()
     {
         explain[0] = "자주색 빛을 띠는 수정 구슬이다. 유리로 되어 있어 금방이라도 깨질 것 같지만, 떨어뜨려도 깨지지 않을 만큼 단단하다. 구슬에 귀를 대면 마녀의 기이한 웃음 소리가 들린다. 리듬에 맞춰 반짝이는 것을 보니 어딘가에서 마녀가 지켜 보고 있을지도 모른다는 생각이 든다.";
-        explain[1] = "이 던전에 들어온 다른 용사가 남긴 것 같다. 진주와 보석으로 되어 있어 팔면 비싸게 팔릴 것 같다.";
-        explain[2] = "왕가에 대대로 전해져 내려오는 반지였다. 어느 왕녀가 도망친 이후로 행방이 묘연했으나 던전에서 발견되었다. 그 왕녀도 이 던전에 떨어졌던 걸까? 아직도 보석은 빛을 잃지 않고 있다.";
+        explain[1] = "왕가에 대대로 전해져 내려오는 반지였다. 어느 왕녀가 도망친 이후로 행방이 묘연했으나 던전에서 발견되었다. 그 왕녀도 이 던전에 떨어졌던 걸까? 아직도 보석은 빛을 잃지 않고 있다.";
+        explain[2] = "이 던전에 들어온 다른 용사가 남긴 것 같다. 진주와 보석으로 되어 있어 팔면 비싸게 팔릴 것 같다.";
         explain[3] = "깊은 바닷속 심해 상어의 이빨. 어째서 여기에 떨어져 있는지는 알 수 없다. 소문에 의하면 이 이빨의 주인은 온몸이 황금색이라고 한다. 어쩌면 이 이빨도 예전에는 황금색이었을지도...?";
         explain[4] = "오래된 노래가 적혀 있는 악보다. 어딘가 음산한 느낌이 든다. 이 던전을 탈출할 실마리가 될지도 모른다.";
         explain[5] = "독특한 무늬가 새겨진 퍼즐 조각이다. 정교하게 만들어진 무늬가 중간에 끊긴 것으로 보아 다 모으면 어떤 모양이 완성될 것 같다.";
         Name[0] = "{ 마녀의 수정 구슬 }";
-        Name[1] = "{ 알 수 없는 힘이 담긴 듯한 목걸이 }";
-        Name[2] = "{ 왕가의 반지 }";
+        Name[1] = "{ 왕가의 반지 }";
+        Name[2] = "{ 알 수 없는 힘이 담긴 듯한 목걸이 }";
         Name[3] = "{ 심해 상어의 이빨 }";
         Name[4] = "{ 악보 조각 }";
         Name[5] = "{ 퍼즐 조각 }";
@@ -84,6 +84,8 @@ public class Tab : MonoBehaviour
     {
         if (SceneManager.GetActiveScene().name == "Note") {
             if (Input.GetKeyDown(KeyCode.Tab)) { //탭키 누르는 순간 보이게
+                Explain.text = "";
+                itemName.text = "";
                 MonsterHP.gameObject.SetActive(false);
                 PuzzleCnt.gameObject.SetActive(true);
                 SheetCnt.gameObject.SetActive(true);
@@ -112,8 +114,6 @@ public class Tab : MonoBehaviour
                 SheetCnt.gameObject.SetActive(false);
                 Explain.gameObject.SetActive(false);
                 itemName.gameObject.SetActive(false);
-                Explain.text = "";
-                itemName.text = "";
                 image.enabled = false;
                 tabck = 1;
                 if (ESC.ESCck != 0) {
