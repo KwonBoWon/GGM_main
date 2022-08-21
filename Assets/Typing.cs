@@ -9,6 +9,7 @@ public class Typing : MonoBehaviour
     Tab theTab;
     public Image[] DogamArr;
     string[] collection = new string[7];
+    public Animator Credit;
     public Text m_TypingText; 
     public Text CollectT;
     public Text SheetT;
@@ -46,16 +47,10 @@ public class Typing : MonoBehaviour
                 Invoke(nameof(Show), 3.0f);
             }
         }
-        else if (SceneManager.GetActiveScene().name == "JinEnding") {
-            if (theTab.collectionData.collect[Tab.nstage] == false) {
-                StartCoroutine(Dogam(Tab.nstage, m_TypingText, DogamArr));
-            }
-            else if (theTab.collectionData.Clear[Tab.nstage] == 1) {
-                StartCoroutine(Sheet(6, m_TypingText, DogamArr));
-            }
-            else{
-                Invoke(nameof(Show), 3.0f);
-            }
+        else if (SceneManager.GetActiveScene().name == "JinEnding") { //진엔딩이라면
+            //컷씬 넣기
+            Credit.SetTrigger("hit");
+            Invoke(nameof(JinEnding), 14.0f);
         }
         else
             Invoke(nameof(Show), 3.0f);
@@ -105,6 +100,17 @@ public class Typing : MonoBehaviour
             Invoke(nameof(Show), 3.0f);
         }
         theTab.SaveCollectionDataToJson();
+    }
+    void JinEnding() {
+        if (theTab.collectionData.collect[Tab.nstage] == false) {
+            StartCoroutine(Dogam(Tab.nstage, m_TypingText, DogamArr));
+        }
+        else if (theTab.collectionData.Clear[Tab.nstage] == 1) {
+            StartCoroutine(Sheet(6, m_TypingText, DogamArr));
+        }
+        else{
+            Invoke(nameof(Show), 3.0f);
+        }
     }
     
 }

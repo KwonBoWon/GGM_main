@@ -17,6 +17,7 @@ public class PlayerController : MonoBehaviour
     GameObject nowPlayer;
     public Sprite[] Death;
     public Animator Fadeout;
+    public Animator Fadeout2;
     public GameObject FadePannel;
     bool AniCk = true;
     bool Bad = true;
@@ -247,7 +248,7 @@ public class PlayerController : MonoBehaviour
             {
                 GameObject.Find("PlayerParent").transform.Find("Player" + nowWeapon).gameObject.SetActive(false);
                 GameObject.Find("PlayerParent").transform.Find("Player3").gameObject.SetActive(true);
-                Fadeout.transform.SetAsLastSibling();
+                FadePannel.transform.SetAsLastSibling();
                 Fadeout.SetTrigger("hit");
                 AniCk = false;
             }
@@ -440,7 +441,11 @@ public class PlayerController : MonoBehaviour
         Bad = false;
         if (AniCk)
         {
-            Fadeout.SetTrigger("hit");
+            if (nStage == 4) {
+                Fadeout2.SetTrigger("hit");
+            }
+            else
+                Fadeout.SetTrigger("hit");
             AniCk = false;
         }
         Tab.nstage = nStage;
