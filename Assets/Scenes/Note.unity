@@ -3209,8 +3209,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -77, y: -290}
-  m_SizeDelta: {x: 900, y: 200}
+  m_AnchoredPosition: {x: -506.5907, y: -218.37164}
+  m_SizeDelta: {x: 40.8186, y: 56.7433}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &717392100
 MonoBehaviour:
@@ -3260,9 +3260,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: '
-
-'
+  m_Text: 
 --- !u!222 &717392102
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -3506,8 +3504,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.6, y: -211.38}
-  m_SizeDelta: {x: 900, y: 200}
+  m_AnchoredPosition: {x: 0, y: -231.68927}
+  m_SizeDelta: {x: 388.8839, y: 159.3815}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &763899494
 MonoBehaviour:
@@ -5875,7 +5873,6 @@ MonoBehaviour:
   - {fileID: 1240051523}
   - {fileID: 1190772695}
   curCombo: 0
-  ComboEffect: {fileID: 59952965}
   Sounds:
   - clip: {fileID: 8300000, guid: 884bb620fe261374a8f80b253386c413, type: 3}
     source: {fileID: 0}
@@ -9886,8 +9883,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 117, y: -290}
-  m_SizeDelta: {x: 900, y: 200}
+  m_AnchoredPosition: {x: -313.3769, y: -218.37}
+  m_SizeDelta: {x: 39.2462, y: 56.743}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1767471213
 MonoBehaviour:
