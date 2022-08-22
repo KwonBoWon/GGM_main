@@ -7845,7 +7845,6 @@ MonoBehaviour:
   Death:
   - {fileID: 21300000, guid: a12b46e43c843db49b104ab035408546, type: 3}
   Fadeout: {fileID: 884669415}
-  Fadeout2: {fileID: 1432927754}
   FadePannel: {fileID: 884669411}
   goMonster:
   - Monsters: []
@@ -9617,6 +9616,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 9f3ccfffe38ef494b844dbd04206be20, type: 3}
   - {fileID: 21300000, guid: 560681b2847ec10449ca478ebc589e23, type: 3}
   - {fileID: 21300000, guid: b7c026dfa07203a40841754ed1d8f60d, type: 3}
+  - {fileID: 21300000, guid: 4b4f7f9087d63eb4096d23b9924209dd, type: 3}
   cover:
   - {fileID: 1911469307}
   - {fileID: 1413634013}
@@ -9671,7 +9671,7 @@ SpriteRenderer:
   m_SortingLayerID: 1215708109
   m_SortingLayer: 3
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 4746c8ccfa0dfa74186a1244fb23047e, type: 3}
+  m_Sprite: {fileID: 21300000, guid: b7c026dfa07203a40841754ed1d8f60d, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
