@@ -7,6 +7,16 @@ using UnityEngine.SceneManagement;
 public class Typing : MonoBehaviour
 {
     Tab theTab;
+    int CutCnt = 1;
+    public Animator FadePannel;
+    public GameObject White;
+    Animator ani;
+    public GameObject Fade;
+    public GameObject Cut1;
+    public GameObject Cut2;
+    public GameObject Cut3;
+    public GameObject Cut4;
+    public GameObject CreditText;
     public Image[] DogamArr;
     string[] collection = new string[7];
     public Animator Credit;
@@ -21,6 +31,13 @@ public class Typing : MonoBehaviour
     // Start is called before the first frame update
     void Start() 
     { 
+        if (SceneManager.GetActiveScene().name == "JinEnding") {
+            Cut4.transform.SetAsLastSibling();
+            Cut3.transform.SetAsLastSibling();
+            Cut2.transform.SetAsLastSibling();
+            Cut1.transform.SetAsLastSibling();
+            Fade.transform.SetAsLastSibling();
+        }
         Time.timeScale = 1.0F;
         collection[4] = "마녀의 수정 구슬을(를) 얻었다!";
         collection[2] = "알 수 없는 힘이 담긴 듯한 목걸이을(를) 얻었다!";
@@ -48,9 +65,11 @@ public class Typing : MonoBehaviour
             }
         }
         else if (SceneManager.GetActiveScene().name == "JinEnding") { //진엔딩이라면
-            //컷씬 넣기
-            Credit.SetTrigger("hit");
-            Invoke(nameof(JinEnding), 14.0f);
+            ChangeScene();
+            Invoke(nameof(ChangeScene), 5.0f);
+            Invoke(nameof(ChangeScene), 10.0f);
+            Invoke(nameof(ChangeScene), 15.0f);
+        
         }
         else
             Invoke(nameof(Show), 3.0f);
@@ -65,6 +84,8 @@ public class Typing : MonoBehaviour
         }
     } 
     void Show() {
+        ToMain.transform.SetAsLastSibling();
+        Replay.transform.SetAsLastSibling();
         ToMain.gameObject.SetActive(true);
         Replay.gameObject.SetActive(true);
         theTab.LoadCollectionDataToJson();
@@ -112,5 +133,39 @@ public class Typing : MonoBehaviour
             Invoke(nameof(Show), 3.0f);
         }
     }
-    
+    void ChangeScene() {
+        FadePannel.SetTrigger("FadeIn");
+        Invoke(nameof(Play), 0.3f);
+        Invoke(nameof(Out), 3.0f);
+        Invoke(nameof(False), 5.0f);
+
+    }
+    void Play() {
+        if (CutCnt == 1) {
+            ani = Cut1.GetComponent<Animator>();
+            ani.SetTrigger("hit");
+        }
+        else if (CutCnt == 2) {
+            ani = Cut2.GetComponent<Animator>();
+            ani.SetTrigger("hit");
+        }
+    }
+    void Out() {
+        FadePannel.SetTrigger("FadeOut");
+    }
+    void False() {
+        GameObject.Find("Cut" + CutCnt).gameObject.SetActive(false);
+        if (CutCnt == 4){
+            White.transform.SetAsLastSibling();
+            CreditText.transform.SetAsLastSibling();
+            Credit.SetTrigger("hit");
+            Invoke(nameof(JinEnding), 14.0f);
+        }
+        else {
+            CutCnt++;
+        }
+
+    }
 }
+
+

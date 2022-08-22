@@ -17,7 +17,6 @@ public class PlayerController : MonoBehaviour
     GameObject nowPlayer;
     public Sprite[] Death;
     public Animator Fadeout;
-    public Animator Fadeout2;
     public GameObject FadePannel;
     bool AniCk = true;
     bool Bad = true;
@@ -441,11 +440,9 @@ public class PlayerController : MonoBehaviour
         Bad = false;
         if (AniCk)
         {
-            if (nStage == 4) {
-                Fadeout2.SetTrigger("hit");
-            }
-            else
-                Fadeout.SetTrigger("hit");
+            
+            FadePannel.transform.SetAsLastSibling();
+            Fadeout.SetTrigger("hit");
             AniCk = false;
         }
         Tab.nstage = nStage;
