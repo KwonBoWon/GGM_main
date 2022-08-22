@@ -7,6 +7,7 @@ using System.IO;
 using UnityEngine.SceneManagement;
 public class Tab : MonoBehaviour
 {
+    GameObject Dogam2;
     string[] explain = new string[7];
     string[] Name = new string[7];
     [SerializeField] UnityEngine.UI.Text Explain;
@@ -64,7 +65,12 @@ public class Tab : MonoBehaviour
         Name[6] = "{ 완성된 퍼즐 }";
         if (SceneManager.GetActiveScene().name == "Note")
             MonsterHP = GameObject.Find("MonsterHP").GetComponent<Slider>();
+        else if (SceneManager.GetActiveScene().name == "Dogam") {
+            Dogam2 = GameObject.Find("Dogam2");
+            Dogam2.gameObject.SetActive(false);
+        }
         LoadCollectionDataToJson(); //데이터 로드
+
         
     }
 
@@ -115,6 +121,7 @@ public class Tab : MonoBehaviour
             }
         }
         else if (SceneManager.GetActiveScene().name == "Dogam") {
+            LoadCollectionDataToJson();
             StartDogam();
             if (Input.GetKeyDown(KeyCode.Tab)) {
                 SceneManager.LoadScene("Start");
@@ -166,7 +173,7 @@ public class Tab : MonoBehaviour
             for (int i = 1; i < 5; i++) {
                 if (collectionData.collect[i] == false) {
                     Debug.Log(collectionData.collect[i]);
-                    cover[i-1].enabled = true; //비활성화 시키는 애들
+                    cover[i-1].enabled = true; //비활성화 시키는 애들   
                 }
             }
             if (collectionData.SheetMusic == 0) {
