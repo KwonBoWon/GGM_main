@@ -124,6 +124,7 @@ public class Typing : MonoBehaviour
     void JinEnding() {
         if (theTab.collectionData.collect[Tab.nstage] == false) {
             StartCoroutine(Dogam(Tab.nstage, m_TypingText, DogamArr));
+            Invoke(nameof(Show), 3.0f);
         }
         else if (theTab.collectionData.Clear[Tab.nstage] == 1) {
             StartCoroutine(Sheet(6, m_TypingText, DogamArr));
@@ -158,7 +159,7 @@ public class Typing : MonoBehaviour
             GameObject.Find("FadePannel").gameObject.SetActive(false);
             CreditText.transform.SetAsLastSibling();
             Credit.SetTrigger("hit");
-            Invoke(nameof(JinEnding), 15.0f);
+            Invoke(nameof(JinEnding), 18.0f);
         }
         else {
             CutCnt++;
