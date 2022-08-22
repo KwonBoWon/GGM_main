@@ -124,6 +124,8 @@ public class Tab : MonoBehaviour
             LoadCollectionDataToJson();
             StartDogam();
             if (Input.GetKeyDown(KeyCode.Tab)) {
+                if (Dogam2 != null)
+                    Dogam2.gameObject.SetActive(true);
                 SceneManager.LoadScene("Start");
             }
         }

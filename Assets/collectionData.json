@@ -3,16 +3,16 @@
         false,
         true,
         true,
-        false,
-        false
+        true,
+        true
     ],
     "Clear": [
         0,
-        1,
-        0,
-        1,
-        0
+        2,
+        2,
+        2,
+        2
     ],
-    "SheetMusic": 2,
-    "puzzle": 0
+    "SheetMusic": 3,
+    "puzzle": 4
 }
