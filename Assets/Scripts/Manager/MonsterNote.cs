@@ -34,7 +34,7 @@ public class MonsterNote : MonoBehaviour
                 {
                     monsterAttack.SetTrigger("hit");
 
-                    PlayerController.nowMonster.GetComponent<Monster>().Sounds[0].source.Play();
+                    if (ESC.gameSound) PlayerController.nowMonster.GetComponent<Monster>().Sounds[0].source.Play();
                     
                     if (PlayerController.pStage == 4 && PlayerController.nStage == 2)    {
                         Final2.SetTrigger("hit");

@@ -85,17 +85,17 @@ public class ComboManager : MonoBehaviour
             {
                 WandCombo();
                 AttackEffect[2].SetTrigger("hit");
-                Sounds[2].source.Play();
+                if (ESC.gameSound) Sounds[2].source.Play();
             }
             else if (PlayerController.nowWeapon == 0) {
                 SwordCombo();
                 AttackEffect[0].SetTrigger("hit");
-                Sounds[0].source.Play();
+                if (ESC.gameSound) Sounds[0].source.Play();
             }
             else if (PlayerController.nowWeapon == 1) {
                 BatCombo();
                 AttackEffect[1].SetTrigger("hit");
-                Sounds[1].source.Play();
+                if (ESC.gameSound) Sounds[1].source.Play();
             }
             Obj.GetComponent<PlayerController>().curHP -= comboDamage;
         }
