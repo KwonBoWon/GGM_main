@@ -118,7 +118,7 @@ public class TimingManager : MonoBehaviour
                         theEffect.JudgementEffect(4); //Miss이펙트
                         thecomboManager.ResetCombo(); //콤보리셋
                         player[PlayerController.nowWeapon].SetTrigger("Hitted"); //플레이어 피격 모션
-                        Sounds[4].source.Play(); //피격 효과음
+                        if (ESC.gameSound) Sounds[4].source.Play(); //피격 효과음
                     }
 
                     if ( t_noteType == 1) //반대방향으로 누를때
@@ -136,18 +136,20 @@ public class TimingManager : MonoBehaviour
                             player[PlayerController.nowWeapon].SetTrigger("hit"); //플레이어 공격 모션
                             playerEffect[PlayerController.nowWeapon].SetTrigger("hit"); //플레이어 공격 이펙트
                             MonAni.SetTrigger("Hurt"); //몬스터 피격 모션
-                            Monsc.Sounds[1].source.Play(); //몬스터 피격 효과음
-
-                            if (PlayerController.nowWeapon == 0) Sounds[0].source.Play();//sword
-                            else if (PlayerController.nowWeapon == 1) Sounds[1].source.Play();//bat
-                            else if (PlayerController.nowWeapon == 2) Sounds[2].source.Play();//wand
-
+                            
+                            if (ESC.gameSound)
+                            {
+                                Monsc.Sounds[1].source.Play(); //몬스터 피격 효과음
+                                if (PlayerController.nowWeapon == 0) Sounds[0].source.Play();//sword
+                                else if (PlayerController.nowWeapon == 1)  Sounds[1].source.Play();//bat
+                                else if (PlayerController.nowWeapon == 2)  Sounds[2].source.Play();//wand
+                            }
                         }
                         else// 공격실패
                         {
                             if ( !immortal) {
                                 theEffect.JudgementEffect(4); //Miss이펙트
-                                Sounds[3].source.Play(); //빗맞음
+                                if (ESC.gameSound) Sounds[3].source.Play(); //빗맞음
                                 thecomboManager.ResetCombo(); //콤보리셋
                                                               //t_noteDire D U L R
                                 if (t_noteDire == 0)

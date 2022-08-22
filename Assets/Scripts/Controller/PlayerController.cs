@@ -227,7 +227,7 @@ public class PlayerController : MonoBehaviour
     }
     public void DeathSound()
     {
-        nowMonster.GetComponent<Monster>().Sounds[2].source.Play();
+        if (ESC.gameSound) nowMonster.GetComponent<Monster>().Sounds[2].source.Play();
     }
 
     public void HandleTime()
@@ -240,7 +240,7 @@ public class PlayerController : MonoBehaviour
         }
         else //시간없을때(죽었을때)
         {
-            SoundEffectManager.instance.Sounds[2].source.Play();
+            if (ESC.gameSound) SoundEffectManager.instance.Sounds[2].source.Play();
             //스테이지 노래도 느려지게 하면 좋을 듯
             Time.timeScale = 0.5F;
             if (AniCk)

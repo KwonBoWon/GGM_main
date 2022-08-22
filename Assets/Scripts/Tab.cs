@@ -93,7 +93,7 @@ public class Tab : MonoBehaviour
                 SheetCnt.gameObject.SetActive(true);
                 Explain.gameObject.SetActive(true);
                 itemName.gameObject.SetActive(true);
-         		SoundEffectManager.instance.Sounds[0].source.Play();
+                if (ESC.gameSound) SoundEffectManager.instance.Sounds[0].source.Play();
       			CenterFlame.instance.bgms[PlayerController.nStage].source.Pause();
                 image.sprite = change_img[6];
                 image.enabled = true;
