@@ -9691,7 +9691,7 @@ GameObject:
   - component: {fileID: 1698377163}
   - component: {fileID: 1698377162}
   m_Layer: 11
-  m_Name: Dogam
+  m_Name: Dogam2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9751,10 +9751,10 @@ MonoBehaviour:
   - {fileID: 21300000, guid: b7c026dfa07203a40841754ed1d8f60d, type: 3}
   - {fileID: 21300000, guid: 39fe684882a87894cb74ee41139b327a, type: 3}
   cover:
-  - {fileID: 1911469307}
   - {fileID: 1413634013}
   - {fileID: 1233513708}
   - {fileID: 1707702922}
+  - {fileID: 1911469307}
   - {fileID: 2081103964}
   - {fileID: 1348055163}
   MonsterHP: {fileID: 723760979}

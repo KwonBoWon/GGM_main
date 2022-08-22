@@ -65,20 +65,7 @@ public class Tab : MonoBehaviour
         if (SceneManager.GetActiveScene().name == "Note")
             MonsterHP = GameObject.Find("MonsterHP").GetComponent<Slider>();
         LoadCollectionDataToJson(); //데이터 로드
-        if (SceneManager.GetActiveScene().name == "Dogam") {
-            for (int i = 1; i < 5; i++) {
-                if (collectionData.collect[i] == false) {
-                    Debug.Log(collectionData.collect[i]);
-                    cover[i-1].enabled = true; //비활성화 시키는 애들
-                }
-            }
-            if (collectionData.SheetMusic == 0) {
-                cover[4].enabled = true;
-            }
-            if (collectionData.puzzle == 0)
-                cover[5].enabled = true;
-
-        }
+        
     }
 
     // Update is called once per frame
@@ -128,6 +115,7 @@ public class Tab : MonoBehaviour
             }
         }
         else if (SceneManager.GetActiveScene().name == "Dogam") {
+            StartDogam();
             if (Input.GetKeyDown(KeyCode.Tab)) {
                 SceneManager.LoadScene("Start");
             }
@@ -170,6 +158,23 @@ public class Tab : MonoBehaviour
             image.sprite = change_img[5];
             Explain.text = explain[5];
             itemName.text = Name[5];
+        }
+    }
+
+    public void StartDogam() {
+        if (SceneManager.GetActiveScene().name == "Dogam") {
+            for (int i = 1; i < 5; i++) {
+                if (collectionData.collect[i] == false) {
+                    Debug.Log(collectionData.collect[i]);
+                    cover[i-1].enabled = true; //비활성화 시키는 애들
+                }
+            }
+            if (collectionData.SheetMusic == 0) {
+                cover[4].enabled = true;
+            }
+            if (collectionData.puzzle == 0)
+                cover[5].enabled = true;
+
         }
     }
 }

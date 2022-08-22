@@ -1,4 +1,4 @@
-using System.Collections;
+ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -38,10 +38,10 @@ public class Typing : MonoBehaviour
             Fade.transform.SetAsLastSibling();
         }
         Time.timeScale = 1.0F;
-        collection[4] = "마녀의 수정 구슬을(를) 얻었다!";
-        collection[2] = "알 수 없는 힘이 담긴 듯한 목걸이을(를) 얻었다!";
         collection[1] = "왕가의 반지을(를) 얻었다!";
+        collection[2] = "알 수 없는 힘이 담긴 듯한 목걸이을(를) 얻었다!";
         collection[3] = "심해 상어의 이빨을(를) 얻었다!";
+        collection[4] = "마녀의 수정 구슬을(를) 얻었다!";
         collection[5] = "악보 조각을(를) 얻었다!";
         collection[6] = "퍼즐 조각을(를) 얻었다!";
         theTab = FindObjectOfType<Tab>();

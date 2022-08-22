@@ -549,10 +549,10 @@ MonoBehaviour:
   - {fileID: 21300000, guid: b7c026dfa07203a40841754ed1d8f60d, type: 3}
   - {fileID: 21300000, guid: 39fe684882a87894cb74ee41139b327a, type: 3}
   cover:
-  - {fileID: 1703078947}
   - {fileID: 1028968492}
   - {fileID: 305432075}
   - {fileID: 1709420973}
+  - {fileID: 1703078947}
   - {fileID: 1822852358}
   - {fileID: 747662336}
   MonsterHP: {fileID: 0}
