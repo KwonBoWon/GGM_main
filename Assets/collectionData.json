@@ -2,8 +2,8 @@
     "collect": [
         false,
         true,
-        false,
         true,
+        false,
         false
     ],
     "Clear": [

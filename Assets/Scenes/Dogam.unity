@@ -275,7 +275,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 172059818}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e19747de3f5aca642ab2be37e372fb86, type: 3}
   m_Name: 
@@ -557,9 +557,9 @@ MonoBehaviour:
   - {fileID: 747662336}
   MonsterHP: {fileID: 0}
   collectionData:
-    collect: 000101000100
-    Clear: 0000000000000000000000000000000000000000
-    SheetMusic: 0
+    collect: 0001000100
+    Clear: 0000000001000000000000000100000000000000
+    SheetMusic: 2
     puzzle: 0
 --- !u!212 &365709815
 SpriteRenderer:
@@ -1074,10 +1074,10 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 560681b2847ec10449ca478ebc589e23, type: 3}
   - {fileID: 21300000, guid: b7c026dfa07203a40841754ed1d8f60d, type: 3}
   cover:
-  - {fileID: 1703078947}
   - {fileID: 1028968492}
   - {fileID: 305432075}
   - {fileID: 1709420973}
+  - {fileID: 1703078947}
   - {fileID: 1822852358}
   - {fileID: 747662336}
   MonsterHP: {fileID: 0}
@@ -1859,7 +1859,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1679729236}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e19747de3f5aca642ab2be37e372fb86, type: 3}
   m_Name: 

@@ -172,9 +172,11 @@ public class Tab : MonoBehaviour
         if (SceneManager.GetActiveScene().name == "Dogam") {
             for (int i = 1; i < 5; i++) {
                 if (collectionData.collect[i] == false) {
+                    Debug.Log(i);
                     Debug.Log(collectionData.collect[i]);
                     cover[i-1].enabled = true; //비활성화 시키는 애들   
                 }
+                else cover[i-1].enabled = false;
             }
             if (collectionData.SheetMusic == 0) {
                 cover[4].enabled = true;
