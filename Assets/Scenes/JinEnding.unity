@@ -229,7 +229,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   FadePannel: {fileID: 638765906}
-  White: {fileID: 106008212}
   Fade: {fileID: 638765904}
   Cut1: {fileID: 455707169}
   Cut2: {fileID: 998371230}
@@ -279,7 +278,7 @@ GameObject:
   - component: {fileID: 303389640}
   - component: {fileID: 303389641}
   - component: {fileID: 303389642}
-  m_Layer: 5
+  m_Layer: 11
   m_Name: ring
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -334,7 +333,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: eb276e07436e1c748bff17003f8a3042, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -576,7 +575,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -829,7 +828,7 @@ GameObject:
   - component: {fileID: 772000335}
   - component: {fileID: 772000336}
   - component: {fileID: 772000337}
-  m_Layer: 5
+  m_Layer: 11
   m_Name: necklace
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -884,7 +883,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: 7d58a2c3975499042a70cf454225e3a5, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -992,7 +991,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &949359518
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1253,7 +1252,7 @@ GameObject:
   - component: {fileID: 976894982}
   - component: {fileID: 976894983}
   - component: {fileID: 976894984}
-  m_Layer: 5
+  m_Layer: 11
   m_Name: sheet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1308,7 +1307,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: f8a283dcb9307a54aa44aa2522b834aa, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1493,7 +1492,7 @@ GameObject:
   - component: {fileID: 1269577863}
   - component: {fileID: 1269577865}
   - component: {fileID: 1269577864}
-  m_Layer: 5
+  m_Layer: 11
   m_Name: marble
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1517,8 +1516,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 57, y: 17}
-  m_SizeDelta: {x: 379.8601, y: 300.3937}
+  m_AnchoredPosition: {x: 0, y: 200}
+  m_SizeDelta: {x: 300, y: 300}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1269577864
 MonoBehaviour:
@@ -1540,7 +1539,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 1372317082, guid: 231beaf39b6370d4bbcc2f40f0721f4f, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1649,7 +1648,7 @@ GameObject:
   - component: {fileID: 1483756292}
   - component: {fileID: 1483756294}
   - component: {fileID: 1483756293}
-  m_Layer: 5
+  m_Layer: 11
   m_Name: puzzle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1673,8 +1672,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 86.25757, y: -6.3341064}
-  m_SizeDelta: {x: 100, y: 100}
+  m_AnchoredPosition: {x: 0, y: 200}
+  m_SizeDelta: {x: 300, y: 300}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1483756293
 MonoBehaviour:
@@ -1696,7 +1695,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 1791239274, guid: 5b84e38c7724c1040a889ca905f6ef8c, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -2054,7 +2053,7 @@ GameObject:
   - component: {fileID: 1683673982}
   - component: {fileID: 1683673983}
   - component: {fileID: 1683673984}
-  m_Layer: 5
+  m_Layer: 11
   m_Name: tooth
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2109,7 +2108,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: 51948521dd5ee0f45a533bfe265f2caf, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -2178,7 +2177,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1

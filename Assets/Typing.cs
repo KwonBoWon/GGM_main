@@ -9,7 +9,6 @@ public class Typing : MonoBehaviour
     Tab theTab;
     int CutCnt = 1;
     public Animator FadePannel;
-    public GameObject White;
     Animator ani;
     public GameObject Fade;
     public GameObject Cut1;
@@ -84,8 +83,8 @@ public class Typing : MonoBehaviour
         }
     } 
     void Show() {
-        ToMain.transform.SetAsLastSibling();
-        Replay.transform.SetAsLastSibling();
+        // ToMain.transform.SetAsLastSibling();
+        // Replay.transform.SetAsLastSibling();
         ToMain.gameObject.SetActive(true);
         Replay.gameObject.SetActive(true);
         theTab.LoadCollectionDataToJson();
@@ -125,6 +124,7 @@ public class Typing : MonoBehaviour
     void JinEnding() {
         if (theTab.collectionData.collect[Tab.nstage] == false) {
             StartCoroutine(Dogam(Tab.nstage, m_TypingText, DogamArr));
+            Invoke(nameof(Show), 3.0f);
         }
         else if (theTab.collectionData.Clear[Tab.nstage] == 1) {
             StartCoroutine(Sheet(6, m_TypingText, DogamArr));
@@ -156,10 +156,10 @@ public class Typing : MonoBehaviour
     void False() {
         GameObject.Find("Cut" + CutCnt).gameObject.SetActive(false);
         if (CutCnt == 4){
-            White.transform.SetAsLastSibling();
+            GameObject.Find("FadePannel").gameObject.SetActive(false);
             CreditText.transform.SetAsLastSibling();
             Credit.SetTrigger("hit");
-            Invoke(nameof(JinEnding), 14.0f);
+            Invoke(nameof(JinEnding), 18.0f);
         }
         else {
             CutCnt++;
