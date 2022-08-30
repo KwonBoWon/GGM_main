@@ -1,18 +1,18 @@
 {
     "collect": [
         false,
-        true,
-        true,
-        true,
-        true
+        false,
+        false,
+        false,
+        false
     ],
     "Clear": [
         0,
-        2,
-        2,
-        2,
-        2
+        0,
+        0,
+        0,
+        0
     ],
-    "SheetMusic": 3,
-    "puzzle": 4
+    "SheetMusic": 0,
+    "puzzle": 0
 }

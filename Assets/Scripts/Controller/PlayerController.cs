@@ -137,14 +137,6 @@ public class PlayerController : MonoBehaviour
             {
                 theTimingManager.CheckTiming(3);
             }
-            if (Input.GetKeyDown(KeyCode.K)) //K누르면 즉사
-            {
-                monsterDie();
-            }
-            if (Input.GetKeyDown(KeyCode.C)) //C누르면 노트클리어
-            {
-                CenterFlame.instance.NoteClear();
-            }
 
 
 
