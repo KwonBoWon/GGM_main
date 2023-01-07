@@ -548,6 +548,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 560681b2847ec10449ca478ebc589e23, type: 3}
   - {fileID: 21300000, guid: b7c026dfa07203a40841754ed1d8f60d, type: 3}
   - {fileID: 21300000, guid: 39fe684882a87894cb74ee41139b327a, type: 3}
+  - {fileID: 21300000, guid: 39fe684882a87894cb74ee41139b327a, type: 3}
   cover:
   - {fileID: 1028968492}
   - {fileID: 305432075}
@@ -559,7 +560,7 @@ MonoBehaviour:
   collectionData:
     collect: 0001000100
     Clear: 0000000001000000000000000100000000000000
-    SheetMusic: 2
+    SheetMusic: 3
     puzzle: 0
 --- !u!212 &365709815
 SpriteRenderer:

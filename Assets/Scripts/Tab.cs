@@ -8,8 +8,8 @@ using UnityEngine.SceneManagement;
 public class Tab : MonoBehaviour
 {
     GameObject Dogam2;
-    string[] explain = new string[7];
-    string[] Name = new string[7];
+    string[] explain = new string[8];
+    string[] Name = new string[8];
     [SerializeField] UnityEngine.UI.Text Explain;
     [SerializeField] UnityEngine.UI.Text itemName;
     [SerializeField] UnityEngine.UI.Text PuzzleCnt;
@@ -56,6 +56,7 @@ public class Tab : MonoBehaviour
         explain[4] = "오래된 노래가 적혀 있는 악보다. 어딘가 음산한 느낌이 든다. 이 던전을 탈출할 실마리가 될지도 모른다.";
         explain[5] = "독특한 무늬가 새겨진 퍼즐 조각이다. 정교하게 만들어진 무늬가 중간에 끊긴 것으로 보아 다 모으면 어떤 모양이 완성될 것 같다.";
         explain[6] = "퍼즐 네 조각이 모여 완성된 그림이다. 미로와 이상한 육각형 로고가 그려져 있다. 퍼즐의 뒷면엔 '판도라 큐브'라고 적혀 있다. 무슨 의미가 있는 걸까...?";
+        explain[7] = "이 길을 따라간다면 던전을 탈출할 수 있을 것 같다.";
         Name[0] = "{ 마녀의 수정 구슬 }";
         Name[1] = "{ 왕가의 반지 }";
         Name[2] = "{ 용사의 유품 }";
@@ -63,6 +64,7 @@ public class Tab : MonoBehaviour
         Name[4] = "{ 악보 조각 }";
         Name[5] = "{ 퍼즐 조각 }";
         Name[6] = "{ 완성된 퍼즐 }";
+        Name[7] = "{ 완성된 악보 }";    
         if (SceneManager.GetActiveScene().name == "Note")
             MonsterHP = GameObject.Find("MonsterHP").GetComponent<Slider>();
         else if (SceneManager.GetActiveScene().name == "Dogam") {
@@ -91,9 +93,9 @@ public class Tab : MonoBehaviour
                 image.sprite = change_img[6];
                 image.enabled = true;
                 for (int i = 1; i < 5; i++) {
-                if (collectionData.collect[i] == false) {
-                    cover[i-1].enabled = true; //비활성화 시키는 애들
-                }
+                    if (collectionData.collect[i] == false) {
+                        cover[i-1].enabled = true; //비활성화 시키는 애들
+                    }
                 }
                 if (collectionData.SheetMusic == 0) {
                     cover[4].enabled = true;
@@ -152,10 +154,17 @@ public class Tab : MonoBehaviour
         Explain.text = explain[3];
         itemName.text = Name[3];
     }
-    public void Button5() {
-        image.sprite = change_img[4];
-        Explain.text = explain[4];
-        itemName.text = Name[4];
+    public void Button5() { //악보 조각
+        if (collectionData.SheetMusic == 3) {
+            image.sprite = change_img[8]; //8번에 완성된 악보 조각(길 알려 주는 거)
+            Explain.text = explain[7];
+            itemName.text = Name[7];
+        }
+        else{
+            image.sprite = change_img[4];
+            Explain.text = explain[4];
+            itemName.text = Name[4];
+        }
     }
     public void Button6() {
         if (collectionData.puzzle == 4) {
@@ -199,7 +208,7 @@ public class CollectionData
 {
     public bool[] collect = new bool[5]; // 스테이지 보스가 죽었는지 확인하는 용도
     public int[] Clear = new int[5]; // 스테이지 최종 보스 몇 번 죽였는지
-    public int SheetMusic = 0; //악보 조각
+    public int SheetMusic = 3; //악보 조각
     public int puzzle = 0;
 
 }
