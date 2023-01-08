@@ -9,7 +9,8 @@ public class ESC : MonoBehaviour
     public Image image; 
     public Slider Volume;
     public GameObject soundButtonON;
-    public GameObject soundButtonOFF;   
+    public GameObject soundButtonOFF;  
+    public GameObject ExitButton; 
     public static int ESCck = 1;
     public  static bool gameSound = true;
     
@@ -43,12 +44,10 @@ public class ESC : MonoBehaviour
             this.image.enabled = true;
             Time.timeScale = 0.0F;
             if (SceneManager.GetActiveScene().name == "Note") {
-                GameObject.Find("UI").transform.Find("Exit Button").gameObject.SetActive(true);
                 CenterFlame.instance.bgms[PlayerController.nStage].source.Pause();
                 if(gameSound)SoundEffectManager.instance.Sounds[0].source.Play();
             }
-            else
-                GameObject.Find("Canvas").transform.Find("Exit Button").gameObject.SetActive(true);
+            ExitButton.gameObject.SetActive(true);
             ESCck = 0;
             Volume.gameObject.SetActive(true);
             
@@ -65,10 +64,7 @@ public class ESC : MonoBehaviour
                     CenterFlame.instance.bgms[PlayerController.nStage].source.Play();
             }
             Volume.gameObject.SetActive(false);
-            if (SceneManager.GetActiveScene().name == "Note")
-                GameObject.Find("UI").transform.Find("Exit Button").gameObject.SetActive(false);
-            else
-                GameObject.Find("Canvas").transform.Find("Exit Button").gameObject.SetActive(false);
+            ExitButton.gameObject.SetActive(false);
         }
     }
 }

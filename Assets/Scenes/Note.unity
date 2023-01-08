@@ -11365,6 +11365,7 @@ MonoBehaviour:
   Volume: {fileID: 645286109}
   soundButtonON: {fileID: 1912126413}
   soundButtonOFF: {fileID: 251478395}
+  ExitButton: {fileID: 860281790}
 --- !u!114 &2056720445
 MonoBehaviour:
   m_ObjectHideFlags: 0
