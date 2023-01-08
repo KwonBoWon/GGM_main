@@ -49,15 +49,15 @@ public class Typing : MonoBehaviour
             m_Message = @"모든 적과 싸워 이겼지만 출구는 어디에도 보이지 않았다...";
         else if (SceneManager.GetActiveScene().name == "GameOver")
             m_Message = @"적과 싸워서 이기지 못했다...";
-        StartCoroutine(typing(m_TypingText, m_Message, m_Speed)); 
-        if (SceneManager.GetActiveScene().name == "NormalEnding") {
-            if (theTab.collectionData.collect[Tab.nstage] == false) {
-                StartCoroutine(Dogam(Tab.nstage, m_TypingText, DogamArr));
-                StartCoroutine(Sheet(5, CollectT, DogamArr));
+        StartCoroutine(typing(m_TypingText, m_Message, m_Speed)); //
+        if (SceneManager.GetActiveScene().name == "NormalEnding") { //노멀 엔딩이면
+            if (theTab.collectionData.collect[Tab.nstage] == false) { //처음 깨는 거면 도감, 악보 조각 얻기
+                StartCoroutine(Dogam(Tab.nstage, m_TypingText, DogamArr, m_Message));
+                StartCoroutine(Sheet(5, CollectT, DogamArr, collection[Tab.nstage], m_Message));
                 
             }
-            else if (theTab.collectionData.Clear[Tab.nstage] == 1) {
-                StartCoroutine(Sheet(6, m_TypingText, DogamArr));
+            else if (theTab.collectionData.Clear[Tab.nstage] == 1) { //이미 깬 스테이지면 악보 조각 얻기
+                StartCoroutine(Sheet(6, m_TypingText, DogamArr, m_Message, ""));
             }
             else{
                 Invoke(nameof(Show), 3.0f);
@@ -91,27 +91,28 @@ public class Typing : MonoBehaviour
     }
     
     //
-    IEnumerator Dogam(int n, Text t, Image[] arr) {
-        yield return new WaitForSeconds(4.0f);
-        t.gameObject.SetActive(false);
-        arr[n].gameObject.SetActive(true);
-        theTab.collectionData.collect[n] = true;
-        theTab.collectionData.Clear[n]++;
-        theTab.SaveCollectionDataToJson();
-        StartCoroutine(typing(CollectT, collection[n], m_Speed));
+    IEnumerator Dogam(int n, Text t, Image[] arr, string str) {
+        Debug.Log(str.Length);
+        yield return new WaitForSeconds(str.Length * m_Speed + 2);
+        t.gameObject.SetActive(false); //이전 타이핑 오브젝트 지워
+        arr[n].gameObject.SetActive(true); //도감 사진 띄워
+        theTab.collectionData.collect[n] = true; //얻은 걸로 기록
+        theTab.collectionData.Clear[n]++; //한 번 깼다고 기록
+        theTab.SaveCollectionDataToJson(); //데이터 저장
+        StartCoroutine(typing(CollectT, collection[n], m_Speed)); //아이템 얻었다고 타이핑 해
     }
-    IEnumerator Sheet(int n, Text t, Image[] arr) {
+    IEnumerator Sheet(int n, Text t, Image[] arr, string str, string str2) {
         if (n == 5) {
-            yield return new WaitForSeconds(7.0f);
-            t.gameObject.SetActive(false);
-            arr[Tab.nstage].gameObject.SetActive(false);
-            arr[n].gameObject.SetActive(true);
-            theTab.collectionData.SheetMusic++;
-            StartCoroutine(typing(SheetT, collection[n], m_Speed));
-            Invoke(nameof(Show), 3.0f);
+            yield return new WaitForSeconds(str.Length * m_Speed + 2 + str2.Length * m_Speed + 2); //7초 기다려
+            t.gameObject.SetActive(false);  //이전 타이핑 오브젝트 지워
+            arr[Tab.nstage].gameObject.SetActive(false); //도감 사진 지워
+            arr[n].gameObject.SetActive(true); //악보 사진 띄워
+            theTab.collectionData.SheetMusic++; //얻은 걸로 기록
+            StartCoroutine(typing(SheetT, collection[n], m_Speed)); //악보 얻었다고 타이핑 해
+            Invoke(nameof(Show), 3.0f); //3초 후에 show 실행 (나가기 버튼 보이게)
         }
         else {
-            yield return new WaitForSeconds(4.0f);
+            yield return new WaitForSeconds(str.Length * m_Speed + 2 + str2.Length * m_Speed + 2);
             t.gameObject.SetActive(false);
             arr[n].gameObject.SetActive(true);
             theTab.collectionData.puzzle++;
@@ -123,11 +124,11 @@ public class Typing : MonoBehaviour
     }
     void JinEnding() {
         if (theTab.collectionData.collect[Tab.nstage] == false) {
-            StartCoroutine(Dogam(Tab.nstage, m_TypingText, DogamArr));
-            Invoke(nameof(Show), 3.0f);
+            StartCoroutine(Dogam(Tab.nstage, m_TypingText, DogamArr, ""));
+            Invoke(nameof(Show), collection[Tab.nstage].Length * m_Speed + 3.0f);
         }
         else if (theTab.collectionData.Clear[Tab.nstage] == 1) {
-            StartCoroutine(Sheet(6, m_TypingText, DogamArr));
+            StartCoroutine(Sheet(6, m_TypingText, DogamArr, "", ""));
         }
         else{
             Invoke(nameof(Show), 3.0f);

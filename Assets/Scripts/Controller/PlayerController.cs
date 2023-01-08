@@ -181,6 +181,8 @@ public class PlayerController : MonoBehaviour
         }
         HandleHP();
         HandleTime();
+        if (Input.GetKeyDown(KeyCode.K))
+        monsterDie();
     }
     public void monsterDie() //적즉사
     {
