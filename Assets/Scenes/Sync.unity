@@ -691,11 +691,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 713912942}
   m_CullTransparentMesh: 1
---- !u!1 &837746891 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5608690700110952234, guid: f8d0d545ef0de594cb403da015a6edc0, type: 3}
-  m_PrefabInstance: {fileID: 5608690701010163123}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &936407725
 GameObject:
   m_ObjectHideFlags: 0
@@ -1000,7 +995,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bpm: 120
   tfNoteAppear: {fileID: 936407726}
-  goNote: {fileID: 837746891}
+  goNote: {fileID: 5608690700110952234, guid: f8d0d545ef0de594cb403da015a6edc0, type: 3}
 --- !u!114 &1311311994
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1318,6 +1313,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1385149226}
+  - component: {fileID: 1385149227}
   m_Layer: 0
   m_Name: PlayerControll
   m_TagString: Untagged
@@ -1340,6 +1336,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1385149227
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1385149224}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5dc3a84609a0bd743a8d1c33cf83d4d8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1927480209
 GameObject:
   m_ObjectHideFlags: 0

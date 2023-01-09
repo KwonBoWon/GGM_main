@@ -36,7 +36,7 @@ public class S_NoteManager : MonoBehaviour
     {
         if (collision.CompareTag("Note"))
         {
-            if (collision.GetComponent<Note>().GetNoteFlag())
+            if (collision.GetComponent<S_Note>().GetNoteFlag())
             {//�̹����� ��������
                 theEffectManager.JudgementEffect(4);//Miss�ִϸ��̼�
             }

@@ -11,11 +11,11 @@ public class S_TimingManager : MonoBehaviour
     //�浹���� �迭
     Vector2[] timingBoxs = null;
 
-    EffectManager theEffect;
+    S_EffectManager theEffect;
 
     void Start()
     {
-        theEffect = FindObjectOfType<EffectManager>();
+        theEffect = FindObjectOfType<S_EffectManager>();
 
         //Ÿ�̹� �ڽ� ����
 
@@ -46,7 +46,7 @@ public class S_TimingManager : MonoBehaviour
             {
                 if (timingBoxs[x].x <= t_notePosX && t_notePosX <= timingBoxs[x].y)
                 {
-                    boxNoteList[i].GetComponent<Note>().HideNote(); //�̹�������
+                    boxNoteList[i].GetComponent<S_Note>().HideNote(); //�̹�������
                     if (x < timingBoxs.Length - 1)
                     {
                         theEffect.NoteHitEffect();
