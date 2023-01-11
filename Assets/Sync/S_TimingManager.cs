@@ -27,7 +27,7 @@ public class S_TimingManager : MonoBehaviour
             timingBoxs[i].Set(Center.localPosition.x - timingRect[i].rect.width / 2,
                                         Center.localPosition.x + timingRect[i].rect.width / 2);
             //Ÿ�ֹ̹ڽ��� �浹���� perfect~bad��
-            Debug.Log(timingBoxs[i].x +" "+ timingBoxs[i].y);
+
         }
     }
 
@@ -62,7 +62,7 @@ public class S_TimingManager : MonoBehaviour
                             sync_value+= sync_arry[s];
                         }
                         sync_value /= 10;//싱크평균값구함
-                        Debug.Log("Sync"+sync_value);
+                        
                         GoMain();
                     }
                     if (x < timingBoxs.Length - 1)
