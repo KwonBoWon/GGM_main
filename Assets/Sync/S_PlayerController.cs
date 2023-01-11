@@ -14,7 +14,6 @@ public class S_PlayerController : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            Debug.Log("space");
             S_theTimingManager.CheckTiming();
         }
     }

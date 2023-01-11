@@ -74,7 +74,8 @@ public class TimingManager : MonoBehaviour
 
         for (int i = 0; i < boxNoteList.Count; i++)
         {
-            float t_notePosX = boxNoteList[i].transform.localPosition.x; //노트 x좌표 가져옴
+            float t_notePosX = boxNoteList[i].transform.localPosition.x - S_TimingManager.sync_value; //노트 x좌표 가져옴 싱크보정
+            Debug.Log(S_TimingManager.sync_value);
             int t_noteDire = boxNoteList[i].GetComponent<Note>().noteDirection; // 노트방향값 가져옴
             int t_noteType = boxNoteList[i].GetComponent<Note>().noteType; //노트타입 가져옴 0:방어턴 1:공격턴
             Animator MonAni = PlayerController.nowMonster.GetComponent<Animator>();
