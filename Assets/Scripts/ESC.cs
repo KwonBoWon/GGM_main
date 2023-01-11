@@ -13,8 +13,10 @@ public class ESC : MonoBehaviour
     public GameObject ExitButton; 
     public static int ESCck = 1;
     public  static bool gameSound = true;
-    
-
+    Image BtnOnImage;
+    Image BtnOffImage;
+   Color BtnOnColor;
+   Color BtnOffColor;
     public ESC()
     {
         ESCck = 1;
@@ -24,15 +26,35 @@ public class ESC : MonoBehaviour
         this.image = GetComponent<Image>();
         soundButtonON.SetActive(false);
         soundButtonOFF.SetActive(false);
+
+        BtnOnImage = soundButtonON.GetComponent<Image>();
+        BtnOnColor = BtnOnImage.color;
+        BtnOnColor.a = 0.0f;
+        BtnOnImage.color = BtnOnColor;
+
+        BtnOffImage = soundButtonOFF.GetComponent<Image>();
+        BtnOffColor = BtnOffImage.color;
+        BtnOffColor.a = 0.5f;
+        BtnOffImage.color = BtnOffColor;
     }
     public void GameSoundON()
     {
         gameSound = true;
+        BtnOnColor.a = 0.0f;
+        BtnOnImage.color = BtnOnColor;
+
+        BtnOffColor.a = 0.5f;
+        BtnOffImage.color = BtnOffColor;
 
     }
     public void GameSoundOFF()
     {
         gameSound = false;
+        BtnOnColor.a = 0.5f;
+        BtnOnImage.color = BtnOnColor;
+
+        BtnOffColor.a = 0.0f;
+        BtnOffImage.color = BtnOffColor;
 
     }
     // Update is called once per frame
