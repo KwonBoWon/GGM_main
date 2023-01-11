@@ -1943,8 +1943,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -2875}
-  m_SizeDelta: {x: 1980, y: 4500}
+  m_AnchoredPosition: {x: 24.8563, y: -3136.2883}
+  m_SizeDelta: {x: 2029.7126, y: 5022.576}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1543263782
 MonoBehaviour:
@@ -2012,8 +2012,13 @@ MonoBehaviour:
     \uB2F4\uB2F9  \uAE40\uC740\uC9C0                                                    
     \n                                                \n\r\n   \uBC1C\uD45C\uD558\uAE30
     \uB2F4\uB2F9  \uAD8C\uBCF4\uC6D0, \uAE40\uC720\uACBD\r\n\n\n\n\nspecial thanks
-    to \uB098\uC6D0\uC900\r\n \r\n\uD310\uB3C4\uB77C\uD050\uBE0C Pcube\r\n\r\n\n\n\n\n\nThanks
-    for playing \r"
+    to \uB098\uC6D0\uC900\r\n \r\n\uD310\uB3C4\uB77C\uD050\uBE0C Pcube\r\n\r\n\n\nMusic:
+    WOAH by Shane Ivers - https://www.silvermansound.com\r\n\r\nMusic: Saturated
+    Drops by Shane Ivers - https://www.silvermansound.com\r\n\r\nMusic: Your New
+    CoolMaster by Shane Ivers - https://www.silvermansound.com\r\n\r\nMusic: Dark
+    Flashes by Shane Ivers - https://www.silvermansound.com\r\n\r\nMusic: Magic Of
+    The Season by Shane Ivers - https://www.silvermansound.com\n\n\n\nThanks for
+    playing \r"
 --- !u!222 &1543263783
 CanvasRenderer:
   m_ObjectHideFlags: 0
