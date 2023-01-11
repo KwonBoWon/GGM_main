@@ -13,6 +13,8 @@ public class ESC : MonoBehaviour
     public GameObject ExitButton; 
     public static int ESCck = 1;
     public  static bool gameSound = true;
+    public GameObject Korean;
+    public GameObject English;
     Image BtnOnImage;
     Image BtnOffImage;
    Color BtnOnColor;
@@ -26,6 +28,8 @@ public class ESC : MonoBehaviour
         this.image = GetComponent<Image>();
         soundButtonON.SetActive(false);
         soundButtonOFF.SetActive(false);
+        Korean.SetActive(false);
+        English.SetActive(false);
 
         BtnOnImage = soundButtonON.GetComponent<Image>();
         BtnOnColor = BtnOnImage.color;
@@ -63,6 +67,8 @@ public class ESC : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Escape) && ESCck == 1) { //esc키 누르면 보이게
             soundButtonON.SetActive(true);
             soundButtonOFF.SetActive(true);
+            Korean.SetActive(true);
+            English.SetActive(true);
             this.image.enabled = true;
             Time.timeScale = 0.0F;
             if (SceneManager.GetActiveScene().name == "Note") {
@@ -78,6 +84,8 @@ public class ESC : MonoBehaviour
         else if (Input.GetKeyDown(KeyCode.Escape) && ESCck == 0) { //esc키 또 누르면 없어지게
             soundButtonON.SetActive(false);
             soundButtonOFF.SetActive(false);
+            Korean.SetActive(false);
+            English.SetActive(false);
             this.image.enabled = false;
             ESCck = 1;
             if (Tab.tabck != 0) {
