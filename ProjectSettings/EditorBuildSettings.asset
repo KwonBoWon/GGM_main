@@ -9,11 +9,14 @@ EditorBuildSettings:
     path: Assets/Scenes/Start.unity
     guid: 6b5bd71133d3dca44b2cd5ac558de2bf
   - enabled: 1
+    path: Assets/Scenes/LoadingScene.unity
+    guid: 34d6bd7799ba36b4ab9c0abe81732395
+  - enabled: 1
     path: Assets/Scenes/Sync.unity
     guid: fa1af2f08885089418ec3dc7654fc56a
-  - enabled: 0
-    path: 
-    guid: 00000000000000000000000000000000
+  - enabled: 1
+    path: Assets/Scenes/Note.unity
+    guid: a4d75d430b4710d449bf7224a3d102be
   - enabled: 1
     path: Assets/Scenes/Dogam.unity
     guid: 065bd525d9564f5419c42f01a58b18df
