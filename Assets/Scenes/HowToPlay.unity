@@ -154,6 +154,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   thisImage: {fileID: 295908613}
   nextImage: {fileID: 713692149}
+  NextButton: {fileID: 2008465621}
 --- !u!4 &33784093
 Transform:
   m_ObjectHideFlags: 0
@@ -180,6 +181,7 @@ GameObject:
   - component: {fileID: 295908614}
   - component: {fileID: 295908616}
   - component: {fileID: 295908615}
+  - component: {fileID: 295908617}
   m_Layer: 5
   m_Name: tuto (1)
   m_TagString: Untagged
@@ -245,6 +247,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 295908613}
   m_CullTransparentMesh: 1
+--- !u!114 &295908617
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 295908613}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ef43b8357aaaee24eaab415bf2bd2b72, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  EnglishImage: {fileID: 21300000, guid: 8988c620730af5d468ee81fc3b5cd7fa, type: 3}
+  KoreanImage: {fileID: 21300000, guid: 8ee041ecaab6f594084ac2ceeb850b13, type: 3}
 --- !u!1 &444112339
 GameObject:
   m_ObjectHideFlags: 0
@@ -282,7 +298,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: -12, y: -329}
-  m_SizeDelta: {x: 142.3361, y: 53.4029}
+  m_SizeDelta: {x: 200, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &444112341
 MonoBehaviour:
@@ -510,6 +526,7 @@ GameObject:
   - component: {fileID: 713692150}
   - component: {fileID: 713692152}
   - component: {fileID: 713692151}
+  - component: {fileID: 713692153}
   m_Layer: 5
   m_Name: tuto (2)
   m_TagString: Untagged
@@ -575,6 +592,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 713692149}
   m_CullTransparentMesh: 1
+--- !u!114 &713692153
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 713692149}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ef43b8357aaaee24eaab415bf2bd2b72, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  EnglishImage: {fileID: 21300000, guid: 7f6f86068d05a454aa83c53c8f95eb45, type: 3}
+  KoreanImage: {fileID: 21300000, guid: caf1f9373cb8d874c911d5a61037c14c, type: 3}
 --- !u!1 &908870532
 GameObject:
   m_ObjectHideFlags: 0
@@ -586,6 +617,7 @@ GameObject:
   - component: {fileID: 908870533}
   - component: {fileID: 908870535}
   - component: {fileID: 908870534}
+  - component: {fileID: 908870536}
   m_Layer: 5
   m_Name: tuto(3)
   m_TagString: Untagged
@@ -651,6 +683,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 908870532}
   m_CullTransparentMesh: 1
+--- !u!114 &908870536
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 908870532}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ef43b8357aaaee24eaab415bf2bd2b72, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  EnglishImage: {fileID: 21300000, guid: 42190b9b7842df74ab000e2838c6a726, type: 3}
+  KoreanImage: {fileID: 21300000, guid: 5c1daae5bd3ca4a4d925411f7ca26708, type: 3}
 --- !u!1 &1152651791
 GameObject:
   m_ObjectHideFlags: 0
@@ -910,6 +956,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   thisImage: {fileID: 713692149}
   nextImage: {fileID: 1894779525}
+  NextButton: {fileID: 1966736023}
 --- !u!4 &1529476494
 Transform:
   m_ObjectHideFlags: 0
@@ -987,7 +1034,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1593590559
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1006,7 +1053,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: -2.3377, y: -352.2208}
-  m_SizeDelta: {x: 268.5363, y: 80.5408}
+  m_SizeDelta: {x: 300, y: 150}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1593590560
 MonoBehaviour:
@@ -1113,6 +1160,7 @@ GameObject:
   - component: {fileID: 1894779526}
   - component: {fileID: 1894779528}
   - component: {fileID: 1894779527}
+  - component: {fileID: 1894779529}
   m_Layer: 5
   m_Name: tuto (4)
   m_TagString: Untagged
@@ -1178,6 +1226,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1894779525}
   m_CullTransparentMesh: 1
+--- !u!114 &1894779529
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1894779525}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ef43b8357aaaee24eaab415bf2bd2b72, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  EnglishImage: {fileID: 21300000, guid: 9b1ecd650a224f04f95bb4b306aff96b, type: 3}
+  KoreanImage: {fileID: 21300000, guid: 46b5664d66833344e9ae4ef596501962, type: 3}
 --- !u!1 &1966736023
 GameObject:
   m_ObjectHideFlags: 0
@@ -1196,7 +1258,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1966736024
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1214,8 +1276,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -12, y: -329}
-  m_SizeDelta: {x: 142.3361, y: 53.4029}
+  m_AnchoredPosition: {x: -12, y: -365.78976}
+  m_SizeDelta: {x: 200, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1966736025
 MonoBehaviour:
@@ -1341,7 +1403,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2008465622
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1360,7 +1422,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: -12, y: -329}
-  m_SizeDelta: {x: 142.3361, y: 53.4029}
+  m_SizeDelta: {x: 200, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2008465623
 MonoBehaviour:
@@ -1499,6 +1561,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   thisImage: {fileID: 1894779525}
   nextImage: {fileID: 908870532}
+  NextButton: {fileID: 1593590558}
 --- !u!4 &2132311954
 Transform:
   m_ObjectHideFlags: 0

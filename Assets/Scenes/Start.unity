@@ -467,6 +467,50 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &481261624
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 481261626}
+  - component: {fileID: 481261625}
+  m_Layer: 0
+  m_Name: Language
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &481261625
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 481261624}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7db7c390356f9e14d947d7086418354a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &481261626
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 481261624}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 954.0586, y: 532.8188, z: -0.32156768}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 10
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &671814045
 GameObject:
   m_ObjectHideFlags: 0
@@ -913,7 +957,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: fc0a29dc99285cc4c90401bb66356fd0, type: 3}
+  m_Sprite: {fileID: 21300000, guid: f98e4b055a50d6d46815806b09ed3b90, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1665,7 +1709,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1485982155}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 481261625}
+        m_TargetAssemblyTypeName: Language, Assembly-CSharp
+        m_MethodName: EnglishButton
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1485982155
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2289,7 +2345,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2056655343}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 481261625}
+        m_TargetAssemblyTypeName: Language, Assembly-CSharp
+        m_MethodName: KoreanButton
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &2056655343
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2472,6 +2540,7 @@ GameObject:
   - component: {fileID: 2140553601}
   - component: {fileID: 2140553603}
   - component: {fileID: 2140553602}
+  - component: {fileID: 2140553604}
   m_Layer: 11
   m_Name: Title
   m_TagString: Untagged
@@ -2519,7 +2588,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 1513abea2bd892740855215dfd81afbe, type: 3}
+  m_Sprite: {fileID: 21300000, guid: cb3182ab2a45a1a40a3901fea4a723fb, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -2537,3 +2606,17 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2140553600}
   m_CullTransparentMesh: 1
+--- !u!114 &2140553604
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2140553600}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ef43b8357aaaee24eaab415bf2bd2b72, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  EnglishImage: {fileID: 21300000, guid: cb3182ab2a45a1a40a3901fea4a723fb, type: 3}
+  KoreanImage: {fileID: 21300000, guid: 1513abea2bd892740855215dfd81afbe, type: 3}
