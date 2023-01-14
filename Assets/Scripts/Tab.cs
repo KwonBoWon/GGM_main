@@ -67,10 +67,10 @@ public class Tab : MonoBehaviour
         Name[7] = "{ 완성된 악보 }";    
         if (SceneManager.GetActiveScene().name == "Note")
             MonsterHP = GameObject.Find("MonsterHP").GetComponent<Slider>();
-        else if (SceneManager.GetActiveScene().name == "Dogam") {
-            Dogam2 = GameObject.Find("Dogam2");
-            Dogam2.gameObject.SetActive(false);
-        }
+        // else if (SceneManager.GetActiveScene().name == "Dogam") {
+        //     Dogam2 = GameObject.Find("Dogam2");
+        //     Dogam2.gameObject.SetActive(false);
+        // }
         LoadCollectionDataToJson(); //데이터 로드
 
         
@@ -126,8 +126,8 @@ public class Tab : MonoBehaviour
             LoadCollectionDataToJson();
             StartDogam();
             if (Input.GetKeyDown(KeyCode.Tab)) {
-                if (Dogam2 != null)
-                    Dogam2.gameObject.SetActive(true);
+                // if (Dogam2 != null)
+                //     Dogam2.gameObject.SetActive(true);
                 SceneManager.LoadScene("Start");
             }
         }
