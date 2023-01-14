@@ -764,7 +764,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\uC2DC\uC791 \uD654\uBA74\uC73C\uB85C"
+  m_Text: To mains
 --- !u!222 &696672460
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -964,7 +964,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\uB2E4\uC2DC \uC2DC\uC791"
+  m_Text: Replay
 --- !u!222 &882534604
 CanvasRenderer:
   m_ObjectHideFlags: 0

@@ -404,7 +404,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\uB2E4\uC2DC \uC2DC\uC791"
+  m_Text: Replay
 --- !u!222 &228842207
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -484,7 +484,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\uC2DC\uC791 \uD654\uBA74\uC73C\uB85C"
+  m_Text: To main
 --- !u!222 &399220699
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -901,7 +901,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5cc34f761582e7645a77cb44914d0eb2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  FadePannel: {fileID: 0}
+  Fade: {fileID: 0}
+  Cut1: {fileID: 0}
+  Cut2: {fileID: 0}
+  Cut3: {fileID: 0}
+  Cut4: {fileID: 0}
+  CreditText: {fileID: 0}
+  DogamArr: []
+  Credit: {fileID: 0}
   m_TypingText: {fileID: 1476392814}
+  CollectT: {fileID: 0}
+  SheetT: {fileID: 0}
+  PuzzleT: {fileID: 0}
   m_Message: 
   m_Speed: 0.1
   ToMain: {fileID: 87703750}

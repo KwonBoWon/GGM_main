@@ -17,7 +17,7 @@ public class Typing : MonoBehaviour
     public GameObject Cut4;
     public GameObject CreditText;
     public Image[] DogamArr;
-    string[] collection = new string[7];
+    string[ , ] collection = new string[7, 2];
     public Animator Credit;
     public Text m_TypingText; 
     public Text CollectT;
@@ -38,22 +38,32 @@ public class Typing : MonoBehaviour
             Fade.transform.SetAsLastSibling();
         }
         Time.timeScale = 1.0F;
-        collection[1] = "왕가의 반지을(를) 얻었다!";
-        collection[2] = "알 수 없는 힘이 담긴 듯한 목걸이을(를) 얻었다!";
-        collection[3] = "심해 상어의 이빨을(를) 얻었다!";
-        collection[4] = "마녀의 수정 구슬을(를) 얻었다!";
-        collection[5] = "악보 조각을(를) 얻었다!";
-        collection[6] = "퍼즐 조각을(를) 얻었다!";
+        collection[1, 1] = "왕가의 반지을(를) 얻었다!";
+        collection[2, 1] = "알 수 없는 힘이 담긴 듯한 목걸이을(를) 얻었다!";
+        collection[3, 1] = "심해 상어의 이빨을(를) 얻었다!";
+        collection[4, 1] = "마녀의 수정 구슬을(를) 얻었다!";
+        collection[5, 1] = "악보 조각을(를) 얻었다!";
+        collection[6, 1] = "퍼즐 조각을(를) 얻었다!";
+        collection[1, 0] = "I got a royal ring!";
+        collection[2, 0] = "I got a necklace that seems to contain unknown power!";
+        collection[3, 0] = "I got the teeth of a deep-sea shark!";
+        collection[4, 0] = "I got the witch's crystal ball!";
+        collection[5, 0] = "I got a piece of music!";
+        collection[6, 0] = "I got a piece of the puzzle!";
         theTab = FindObjectOfType<Tab>();
-        if (SceneManager.GetActiveScene().name == "NormalEnding")
+        if (SceneManager.GetActiveScene().name == "NormalEnding" && Language.LanguageNumber == 1)
             m_Message = @"모든 적과 싸워 이겼지만 출구는 어디에도 보이지 않았다...";
-        else if (SceneManager.GetActiveScene().name == "GameOver")
+        else if (SceneManager.GetActiveScene().name == "NormalEnding" && Language.LanguageNumber == 0)
+            m_Message = @"I fought all the enemies and won, but I couldn't see the exit anywhere...";
+        else if (SceneManager.GetActiveScene().name == "GameOver" && Language.LanguageNumber == 1)
             m_Message = @"적과 싸워서 이기지 못했다...";
+        else if (SceneManager.GetActiveScene().name == "GameOver" && Language.LanguageNumber == 0)
+            m_Message = @"I fought the enemy and did not win...";
         StartCoroutine(typing(m_TypingText, m_Message, m_Speed)); //
         if (SceneManager.GetActiveScene().name == "NormalEnding") { //노멀 엔딩이면
             if (theTab.collectionData.collect[Tab.nstage] == false) { //처음 깨는 거면 도감, 악보 조각 얻기
                 StartCoroutine(Dogam(Tab.nstage, m_TypingText, DogamArr, m_Message));
-                StartCoroutine(Sheet(5, CollectT, DogamArr, collection[Tab.nstage], m_Message));
+                StartCoroutine(Sheet(5, CollectT, DogamArr, collection[Tab.nstage, Language.LanguageNumber], m_Message));
                 
             }
             else if (theTab.collectionData.Clear[Tab.nstage] == 1) { //이미 깬 스테이지면 악보 조각 얻기
@@ -99,7 +109,7 @@ public class Typing : MonoBehaviour
         theTab.collectionData.collect[n] = true; //얻은 걸로 기록
         theTab.collectionData.Clear[n]++; //한 번 깼다고 기록
         theTab.SaveCollectionDataToJson(); //데이터 저장
-        StartCoroutine(typing(CollectT, collection[n], m_Speed)); //아이템 얻었다고 타이핑 해
+        StartCoroutine(typing(CollectT, collection[n, Language.LanguageNumber], m_Speed)); //아이템 얻었다고 타이핑 해
     }
     IEnumerator Sheet(int n, Text t, Image[] arr, string str, string str2) {
         if (n == 5) {
@@ -108,7 +118,7 @@ public class Typing : MonoBehaviour
             arr[Tab.nstage].gameObject.SetActive(false); //도감 사진 지워
             arr[n].gameObject.SetActive(true); //악보 사진 띄워
             theTab.collectionData.SheetMusic++; //얻은 걸로 기록
-            StartCoroutine(typing(SheetT, collection[n], m_Speed)); //악보 얻었다고 타이핑 해
+            StartCoroutine(typing(SheetT, collection[n, Language.LanguageNumber], m_Speed)); //악보 얻었다고 타이핑 해
             Invoke(nameof(Show), 3.0f); //3초 후에 show 실행 (나가기 버튼 보이게)
         }
         else {
@@ -117,7 +127,7 @@ public class Typing : MonoBehaviour
             arr[n].gameObject.SetActive(true);
             theTab.collectionData.puzzle++;
             theTab.collectionData.Clear[Tab.nstage] += 1;
-            StartCoroutine(typing(PuzzleT, collection[n], m_Speed));
+            StartCoroutine(typing(PuzzleT, collection[n, Language.LanguageNumber], m_Speed));
             Invoke(nameof(Show), 3.0f);
         }
         theTab.SaveCollectionDataToJson();
@@ -125,7 +135,7 @@ public class Typing : MonoBehaviour
     void JinEnding() {
         if (theTab.collectionData.collect[Tab.nstage] == false) {
             StartCoroutine(Dogam(Tab.nstage, m_TypingText, DogamArr, ""));
-            Invoke(nameof(Show), collection[Tab.nstage].Length * m_Speed + 3.0f);
+            Invoke(nameof(Show), collection[Tab.nstage, Language.LanguageNumber].Length * m_Speed + 3.0f);
         }
         else if (theTab.collectionData.Clear[Tab.nstage] == 1) {
             StartCoroutine(Sheet(6, m_TypingText, DogamArr, "", ""));
