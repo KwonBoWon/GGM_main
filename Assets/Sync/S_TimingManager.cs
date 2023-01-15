@@ -1,22 +1,27 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 public class S_TimingManager : MonoBehaviour
 {
     public List<GameObject> boxNoteList  = new List<GameObject>();
 
     [SerializeField] Transform Center = null;
-    [SerializeField] RectTransform[] timingRect = null;
-    //�浹���� �迭
+    [SerializeField] RectTransform[] timingRect = null;    //�浹���� �迭
+    [SerializeField] GameObject _syncCount;
+    [SerializeField] GameObject _offset;
     Vector2[] timingBoxs = null;
+
 
     S_EffectManager theEffect;
 
     float[] sync_arry = new float[11];//싱크 보정위한 배열선언
     int sync_cnt = 0;
     public static float sync_value = 0;
-
+    private Text syncCount;
+    private Text offset;
     void Start()
     {
         theEffect = FindObjectOfType<S_EffectManager>();
@@ -29,6 +34,9 @@ public class S_TimingManager : MonoBehaviour
             //Ÿ�ֹ̹ڽ��� �浹���� perfect~bad��
 
         }
+        syncCount=_syncCount.GetComponent<Text>();
+        offset=_offset.GetComponent<Text>();
+
     }
 
     // Update is called once per frame
@@ -56,13 +64,19 @@ public class S_TimingManager : MonoBehaviour
                     if(sync_cnt<10){
                         sync_arry[sync_cnt] = boxNoteList[i].transform.localPosition.x;//싱크배열에추가
                         sync_cnt++;
+                        syncCount.text ="Sync "+sync_cnt+"/10";
+                        offset.text = boxNoteList[i].transform.localPosition.x.ToString("F2");
                     }
-                    else{//10번 체크하면
+                    else if(sync_cnt==10){//10번 체크하면
                         for(int s=0;s<10;s++){
                             sync_value+= sync_arry[s];
                         }
                         sync_value /= 10;//싱크평균값구함
-                        
+                        offset.text= "Result: "+sync_value.ToString("F2");
+                        //GoMain();
+                    }
+                    else{
+                        //syncCount.text;
                         GoMain();
                     }
                     if (x < timingBoxs.Length - 1)

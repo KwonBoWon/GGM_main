@@ -227,5 +227,8 @@ public class CollectionData
     public int[] Clear = new int[5]; // 스테이지 최종 보스 몇 번 죽였는지
     public int SheetMusic = 3; //악보 조각
     public int puzzle = 0;
-
+    /*
+    public int Language = 0;
+    public float Offset = 0;
+    */
 }
