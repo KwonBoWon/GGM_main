@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 public class Title : MonoBehaviour
 {
+    Tab theTab;
     public static Image thisImg;
     public Sprite EnglishImage;
     public Sprite KoreanImage;
@@ -11,7 +12,8 @@ public class Title : MonoBehaviour
     void Start()
     {
         thisImg = GetComponent<Image>();
-        ChangeTitleLanguage(EnglishImage, KoreanImage);
+        theTab = FindObjectOfType<Tab>();
+        ChangeTitleLanguage(EnglishImage, KoreanImage, theTab.collectionData.Language);
     }
 
     // Update is called once per frame
@@ -20,8 +22,8 @@ public class Title : MonoBehaviour
 
     }
 
-    public static void ChangeTitleLanguage(Sprite English, Sprite Korean) {
-        if (Language.LanguageNumber == 0)
+    public static void ChangeTitleLanguage(Sprite English, Sprite Korean, int LanguageNumber) {
+        if (LanguageNumber == 0)
             thisImg.sprite = English;
         else
             thisImg.sprite = Korean;

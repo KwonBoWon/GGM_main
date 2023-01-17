@@ -88,7 +88,8 @@ public class Tab : MonoBehaviour
         //     Dogam2 = GameObject.Find("Dogam2");
         //     Dogam2.gameObject.SetActive(false);
         // }
-        LoadCollectionDataToJson(); //데이터 로드
+        LoadCollectionDataToJson(); //데이터 로드s
+        S_TimingManager.sync_value = collectionData.Offset;
 
         
     }
@@ -227,8 +228,8 @@ public class CollectionData
     public int[] Clear = new int[5]; // 스테이지 최종 보스 몇 번 죽였는지
     public int SheetMusic = 3; //악보 조각
     public int puzzle = 0;
-    /*
+    
     public int Language = 0;
     public float Offset = 0;
-    */
+    
 }

@@ -16,6 +16,7 @@ public class S_TimingManager : MonoBehaviour
 
 
     S_EffectManager theEffect;
+    Tab theTab;
 
     float[] sync_arry = new float[11];//싱크 보정위한 배열선언
     int sync_cnt = 0;
@@ -36,6 +37,7 @@ public class S_TimingManager : MonoBehaviour
         }
         syncCount=_syncCount.GetComponent<Text>();
         offset=_offset.GetComponent<Text>();
+        theTab = FindObjectOfType<Tab>();
 
     }
 
@@ -73,7 +75,9 @@ public class S_TimingManager : MonoBehaviour
                         }
                         sync_value /= 10;//싱크평균값구함
                         offset.text= "Result: "+sync_value.ToString("F2");
-                        //GoMain();
+                        theTab.collectionData.Offset = sync_value;
+                        theTab.SaveCollectionDataToJson();
+                        sync_cnt++;
                     }
                     else{
                         //syncCount.text;
